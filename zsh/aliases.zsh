@@ -1,0 +1,10 @@
+alias tatt="tmux attatch -t"
+alias tnew="tmux new -s"
+alias gst="git status -sb"
+alias pacman="pacman --color=always"
+alias cp="cp -i"
+alias df="df -h"
+alias free="free -h"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias more=less

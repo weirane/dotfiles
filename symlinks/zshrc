@@ -1,0 +1,11 @@
+to_source=($(find ~/.dotfiles/zsh -maxdepth 1 -type f))
+for f in $to_source; do
+	. $f
+done
+unset to_source
+
+for f in ~/.dotfiles/zsh/apps/*; do
+	. $f
+done
+
+[[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc
