@@ -1,9 +1,8 @@
 . ~/.dotfiles/zsh/basic.zsh
-to_source=($(find ~/.dotfiles/zsh -maxdepth 1 -type f | grep -v basic.zsh))
-for f in $to_source; do
-	. $f
-done
-unset to_source
+. ~/.dotfiles/zsh/env.zsh
+. ~/.dotfiles/zsh/aliases.zsh
+. ~/.dotfiles/zsh/functions.zsh
+. ~/.dotfiles/zsh/completion.zsh
 
 for f in ~/.dotfiles/zsh/apps/*; do
 	. $f
