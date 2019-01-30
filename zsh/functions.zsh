@@ -7,6 +7,7 @@ loadnvm () {
 mcd () {
 	[[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
+compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
 # ex - archive extractor. usage: ex <file>
 ex () {
