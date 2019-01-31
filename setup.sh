@@ -1,12 +1,10 @@
 #!/bin/bash
-
 if [[ ! -d ~/.dotfiles ]]; then
 	echo cannot find dotfiles dir
 	exit 1
 fi
 
 set -x
-
 for f in ~/.dotfiles/symlinks/*; do
 	home_name=~/.$(basename $f)
 	[[ -f $home_name ]] || ln -s $f $home_name
