@@ -10,4 +10,4 @@ done
 
 [[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc || true
 
-unset plugins
+unset f plugins
