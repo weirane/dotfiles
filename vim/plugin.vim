@@ -215,7 +215,7 @@ let g:vimtex_fold_types = {
 if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+silent! let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " forward search (command provided by vim-evince-synctex)
 nnoremap <localleader>lf :VimtexForwardSearch<CR>
 let g:vimtex_doc_handlers = ['MyDocHandler']
