@@ -5,5 +5,5 @@ alias free="free -h"
 alias grep="grep --color=auto"
 alias pacman="pacman --color=always"
 
-alias tatt="tmux attatch -t"
+alias tatt="tmux attach -t"
 alias tnew="tmux new -s"
