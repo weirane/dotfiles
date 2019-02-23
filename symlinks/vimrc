@@ -1,7 +1,7 @@
 source ~/.dotfiles/vim/general.vim
 source ~/.dotfiles/vim/gui.vim
-source ~/.dotfiles/vim/plugin.vim
 source ~/.dotfiles/vim/leader.vim
+source ~/.dotfiles/vim/plugin.vim
 source ~/.dotfiles/vim/maps.vim
 source ~/.dotfiles/vim/fold.vim
 

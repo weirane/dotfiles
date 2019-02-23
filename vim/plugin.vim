@@ -77,8 +77,11 @@ let g:airline#extensions#whitespace#checks = ['indent', 'trailing']
 " fugitive {{{
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v<CR>
+nnoremap <leader>gl :Gpull<CR>
+nnoremap <leader>gp :Gpush<CR>
 "}}}
 
 " Leaderf {{{
