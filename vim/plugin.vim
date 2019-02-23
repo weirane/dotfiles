@@ -33,6 +33,9 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 " Plug 'Yggdroot/indentLine', { 'for': ['python'] }
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
+	source ~/.dotfiles/local/vim-plugins.vim
+endif
 call plug#end()
 
 " NERDTree {{{
@@ -247,3 +250,7 @@ let g:pymode_lint_ignore = ["W0401"]
 " markdown-preview {{{
 let g:mkdp_auto_close = 0
 "}}}
+
+if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
+	source ~/.dotfiles/local/vim-plugins-setting.vim
+endif
