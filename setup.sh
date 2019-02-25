@@ -7,7 +7,7 @@ fi
 echoln () {
 	set -x
 	ln "$@"
-	set +x
+	{ set +x; } 2>/dev/null
 }
 
 for f in ~/.dotfiles/symlinks/*; do
