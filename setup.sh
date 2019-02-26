@@ -12,7 +12,7 @@ echoln () {
 
 for f in ~/.dotfiles/symlinks/*; do
 	home_name=~/.$(basename $f)
-	[[ -f $home_name ]] || ln -s $f $home_name
+	[[ -f $home_name ]] || echoln -s $f $home_name
 done
 
 # .vim
