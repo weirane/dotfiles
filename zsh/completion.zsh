@@ -4,3 +4,6 @@ autoload bashcompinit
 bashcompinit
 [[ -f ~/git/wudao-dict/wudao-dict/wd_com ]] \
 	&& \. ~/git/wudao-dict/wudao-dict/wd_com
+
+fpath+=$HOME/.dotfiles/zsh/completions
+compinit
