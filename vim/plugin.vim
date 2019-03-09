@@ -3,7 +3,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'w0rp/ale', {'for': ['c', 'cpp', 'h', 'java', 'python'] }
+Plug 'w0rp/ale', {'for': ['c', 'cpp', 'java', 'python', 'rust'] }
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -62,10 +62,9 @@ let g:ale_c_parse_makefile = 1
 let g:ale_linters = {
 			\ 'c': ['clang', 'gcc'],
 			\ 'cpp': ['clang', 'gcc'],
+			\ 'rust': ['rls'],
 			\}
 let g:ale_c_gcc_options = '-Wall -O2'
-hi! clear ALEError
-hi! ALEError cterm=underline gui=undercurl
 "}}}
 
 " airline {{{
@@ -144,7 +143,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " ref: http://www.wklken.me/posts/2015/06/07/vim-plugin-easymotion.html
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_startofline = 0  " keep cursor colum when JK motion
-nnoremap <Leader><leader>. <Plug>(easymotion-repeat)
+nnoremap <leader><leader>. <Plug>(easymotion-repeat)
 "}}}
 
 " easy-align {{{
@@ -251,6 +250,12 @@ let g:pymode_lint_ignore = ["W0401"]
 
 " markdown-preview {{{
 let g:mkdp_auto_close = 0
+"}}}
+
+" rust.vim {{{
+let g:rust_fold = 1
+let g:rustfmt_autosave = 1
+let g:ale_rust_rls_toolchain = 'stable'
 "}}}
 
 if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
