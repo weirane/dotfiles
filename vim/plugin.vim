@@ -33,6 +33,8 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 " Plug 'Yggdroot/indentLine', { 'for': ['python'] }
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Rust
+Plug 'rust-lang/rust.vim'
 if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
 	source ~/.dotfiles/local/vim-plugins.vim
 endif
@@ -114,7 +116,7 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,css,lua,javascript': ['re!\w{2}'],
+			\ 'cs,css,lua,javascript,rust': ['re!\w{2}'],
 			\ }
 let g:ycm_filetype_blacklist = {
 			\ 'markdown' : 1,
