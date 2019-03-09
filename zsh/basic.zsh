@@ -22,6 +22,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 plugins=(
 	autojump
+	cargo
 	# zsh-autosuggestions
 	zsh-syntax-highlighting
 )
