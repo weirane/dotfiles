@@ -1,4 +1,5 @@
 setlocal nolinebreak
+setlocal nocindent
 
 " 设置了  wrap 之后直观地上下移动 {{{
 nnoremap 0 g0
