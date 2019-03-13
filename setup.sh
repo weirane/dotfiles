@@ -16,9 +16,9 @@ for f in ~/.dotfiles/symlinks/*; do
 done
 
 # .vim
-[[ -d ~/.vim/ftplugin ]] || echoln -s ~/.dotfiles/vim/dotvim/ftplugin ~/.vim/ftplugin
-[[ -d ~/.vim/ftdetect ]] || echoln -s ~/.dotfiles/vim/dotvim/ftdetect ~/.vim/ftdetect
-[[ -d ~/.vim/syntax ]] || echoln -s ~/.dotfiles/vim/dotvim/syntax ~/.vim/syntax
-[[ -d ~/.vim/after ]] || echoln -s ~/.dotfiles/vim/dotvim/after ~/.vim/after
+vimdirs="ftplugin ftdetect syntax after"
+for dir in $vimdirs; do
+	[[ -d ~/.vim/$dir ]] || echoln -s ~/.dotfiles/vim/dotvim/$dir ~/.vim/$dir
+done
 
 exit 0
