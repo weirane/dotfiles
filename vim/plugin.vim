@@ -65,6 +65,8 @@ let g:ale_linters = {
 			\ 'rust': ['rls'],
 			\}
 let g:ale_c_gcc_options = '-Wall -O2'
+highlight clear ALEError
+highlight ALEError ctermbg=0 gui=undercurl guisp=Red
 "}}}
 
 " airline {{{
