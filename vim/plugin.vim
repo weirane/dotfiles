@@ -58,13 +58,14 @@ let g:NERDDefaultAlign = 'left'
 
 " ale {{{
 let g:ale_sign_column_always = 1
-let g:ale_c_parse_makefile = 1
 let g:ale_linters = {
 			\ 'c': ['clang', 'gcc'],
 			\ 'cpp': ['clang', 'gcc'],
 			\ 'rust': ['rls'],
 			\}
 let g:ale_c_gcc_options = '-Wall -O2'
+let g:ale_c_parse_makefile = 1
+let g:ale_rust_rls_toolchain = 'stable'
 highlight clear ALEError
 highlight ALEError ctermbg=0 gui=undercurl guisp=Red
 "}}}
@@ -257,7 +258,6 @@ let g:mkdp_auto_close = 0
 " rust.vim {{{
 let g:rust_fold = 1
 let g:rustfmt_autosave = 1
-let g:ale_rust_rls_toolchain = 'stable'
 "}}}
 
 if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
