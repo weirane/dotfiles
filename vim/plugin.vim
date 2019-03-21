@@ -42,11 +42,11 @@ call plug#end()
 
 " NERDTree {{{
 map <F10> :silent! NERDTreeToggle<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks = 1
+let NERDTreeShowHidden = 1
 " 退出最后一个文件时, 退出 NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeIgnore=['.git']
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeIgnore = ['.git']
 "}}}
 
 " nerdcommenter {{{
