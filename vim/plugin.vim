@@ -165,6 +165,7 @@ let g:user_emmet_settings = {
 
 " LaTeX (vimtex and vim-evince-synctex) {{{
 let g:tex_flavor = 'latex'
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " compiler: latexmk {{{
 let g:vimtex_compiler_latexmk = {
 			\ 'backend' : 'jobs',
