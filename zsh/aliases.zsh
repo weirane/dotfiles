@@ -1,4 +1,5 @@
 alias cp="cp -i"
+alias mv="mv -i"
 alias df="df -h"
 alias ls="ls --color=auto"
 alias free="free -h"
