@@ -78,7 +78,7 @@ let g:airline#extensions#tabline#buffer_nr_format = '[%s] '
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
-let g:airline#extensions#whitespace#checks = ['indent', 'trailing']
+let g:airline#extensions#whitespace#checks = ['indent', 'trailing', 'mixed-indent-file']
 "}}}
 
 " fugitive {{{

@@ -5,6 +5,8 @@ setlocal nolinebreak
 
 nnoremap <localleader>lw :VimtexCountWords<CR>
 
+let b:airline_whitespace_checks = ['indent', 'trailing']
+
 " 设置了  wrap 之后直观地上下移动 {{{
 nnoremap 0 g0
 vnoremap 0 g0
