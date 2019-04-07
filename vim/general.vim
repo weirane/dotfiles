@@ -18,6 +18,9 @@ set nohlsearch
 set backspace=indent,eol,start
 set exrc
 set secure
+set ignorecase
+set wildignorecase
+set smartcase
 
 syntax on
 filetype plugin on
