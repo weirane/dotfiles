@@ -7,7 +7,6 @@
 for f in ~/.dotfiles/zsh/apps/*; do
 	. $f
 done
+unset f
 
 [[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc || true
-
-unset f plugins
