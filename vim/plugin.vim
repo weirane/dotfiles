@@ -64,7 +64,6 @@ let g:ale_linters = {
 			\ 'rust': ['rls'],
 			\}
 let g:ale_c_parse_makefile = 1
-let g:ale_rust_rls_toolchain = 'stable'
 highlight clear ALEError
 highlight ALEError ctermbg=0 gui=undercurl guisp=Red
 "}}}
