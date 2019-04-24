@@ -1,6 +1,6 @@
 [alias]
 	ad = add
-	br = branch
+	br = !git --no-pager branch
 	cm = commit -v
 	co = checkout
 	da = reset HEAD
