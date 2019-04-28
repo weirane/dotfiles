@@ -21,6 +21,8 @@ set secure
 set ignorecase
 set wildignorecase
 set smartcase
+set completeopt=menu,menuone
+set pumheight=10
 
 syntax on
 filetype plugin on
