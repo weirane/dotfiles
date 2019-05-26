@@ -9,6 +9,10 @@ mcd () {
 }
 compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
+df () {
+	/usr/bin/df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
+}
+
 # ex - archive extractor. usage: ex <file>
 ex () {
 	if [[ ! -f $1 ]]; then
