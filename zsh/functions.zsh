@@ -1,20 +1,20 @@
-loadnvm () {
+function loadnvm () {
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
 
-mcd () {
+function mcd () {
 	[[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
 compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
-df () {
+function df () {
 	/usr/bin/df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
 }
 
 # ex - archive extractor. usage: ex <file>
-ex () {
+function ex () {
 	if [[ ! -f $1 ]]; then
 		echo "'$1' is not a valid file"
 		return
@@ -35,7 +35,7 @@ ex () {
 	esac
 }
 
-colors() {
+function colors () {
 	local fgc bgc vals seq0
 
 	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
