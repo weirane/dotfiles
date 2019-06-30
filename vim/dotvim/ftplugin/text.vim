@@ -1,5 +1,6 @@
 setlocal nolinebreak
 setlocal nocindent
+setlocal noexpandtab
 silent! call airline#extensions#whitespace#disable()
 
 " 设置了  wrap 之后直观地上下移动 {{{

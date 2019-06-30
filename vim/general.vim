@@ -2,6 +2,7 @@ source $VIMRUNTIME/defaults.vim
 
 set nocompatible
 set undofile
+set expandtab
 set scrolloff=3
 set noshowmode
 set autoindent
