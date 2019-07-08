@@ -1,9 +1,3 @@
-function loadnvm () {
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-
 function mcd () {
 	[[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
