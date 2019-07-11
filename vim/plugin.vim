@@ -3,10 +3,11 @@ Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'w0rp/ale', {'for': ['c', 'cpp', 'java', 'python', 'rust'] }
+Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'java', 'python', 'rust'] }
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/echodoc.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kana/vim-textobj-user'
@@ -30,7 +31,7 @@ Plug 'lervag/vimtex'
 Plug 'gauteh/vim-evince-synctex'
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-" Plug 'Yggdroot/indentLine', { 'for': ['python'] }
+Plug 'Yggdroot/indentLine'
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
@@ -87,6 +88,11 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
 nnoremap <leader>gl :Gpull<CR>
 nnoremap <leader>gp :Gpush<CR>
+"}}}
+
+" gitgutter {{{
+highlight clear GitGutterDelete
+nnoremap <leader>gf :GitGutterFold<CR>
 "}}}
 
 " Leaderf {{{
@@ -247,6 +253,8 @@ let g:pymode_breakpoint_bind = "<localleader>b"
 let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_ignore = ["W0401"]
+
+let g:indentLine_fileType = ['python']
 "}}}
 
 " markdown-preview {{{

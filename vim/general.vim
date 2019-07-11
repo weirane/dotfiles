@@ -24,6 +24,8 @@ set wildignorecase
 set smartcase
 set completeopt=menu,menuone
 set pumheight=10
+set updatetime=100
+set signcolumn=yes
 
 syntax on
 filetype plugin on
