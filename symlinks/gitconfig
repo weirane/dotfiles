@@ -1,33 +1,33 @@
 [alias]
-	ad = add
-	br = !git --no-pager branch
-	cm = commit -v
-	co = checkout
-	da = reset HEAD
-	df = diff
-	lg = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
-	lgp = log --stat -p
-	st = status -sb
+    ad = add
+    br = !git --no-pager branch
+    cm = commit -v
+    co = checkout
+    da = reset HEAD
+    df = diff
+    lg = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
+    lgp = log --stat -p
+    st = status -sb
 [core]
-	editor = vim
+    editor = vim
 [color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-	newMoved = cyan
-	oldMoved = blue
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+    newMoved = cyan
+    oldMoved = blue
 [color "status"]
-	added = green
-	changed = green
-	untracked = red
+    added = green
+    changed = green
+    untracked = red
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [include]
-	path = ~/.dotfiles/local/gitconfig
+    path = ~/.dotfiles/local/gitconfig

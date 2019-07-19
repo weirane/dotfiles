@@ -37,7 +37,7 @@ Plug 'Yggdroot/indentLine'
 " Rust
 Plug 'rust-lang/rust.vim'
 if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
-	source ~/.dotfiles/local/vim-plugins.vim
+    source ~/.dotfiles/local/vim-plugins.vim
 endif
 call plug#end()
 
@@ -60,10 +60,10 @@ let g:NERDDefaultAlign = 'left'
 " ale {{{
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
-			\ 'c': ['clang', 'gcc'],
-			\ 'cpp': ['clang', 'gcc'],
-			\ 'rust': ['rls'],
-			\}
+            \ 'c': ['clang', 'gcc'],
+            \ 'cpp': ['clang', 'gcc'],
+            \ 'rust': ['rls'],
+            \}
 let g:ale_c_parse_makefile = 1
 highlight clear ALEError
 highlight ALEError ctermbg=0 gui=undercurl guisp=Red
@@ -120,13 +120,13 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'
 " enable ycm do completion for py3 modules
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-			\ 'cs,css,lua,javascript,rust': ['re!\w{2}'],
-			\ }
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,css,lua,javascript,rust': ['re!\w{2}'],
+            \ }
 let g:ycm_filetype_blacklist = {
-			\ 'markdown' : 1,
-			\ 'text' : 1,
-			\}
+            \ 'markdown' : 1,
+            \ 'text' : 1,
+            \}
 "}}}
 
 " echodoc {{{
@@ -138,7 +138,7 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg']
 let s:vim_tags_dir = expand('~/.vim/tmp/tags')
 let g:gutentags_cache_dir = s:vim_tags_dir
 if !isdirectory(s:vim_tags_dir)
-	silent! call mkdir(s:vim_tags_dir, 'p')
+    silent! call mkdir(s:vim_tags_dir, 'p')
 endif
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
@@ -160,10 +160,10 @@ nmap <leader>a <Plug>(EasyAlign)
 " html (emmet) {{{
 let g:emmet_html5 = 1
 let g:user_emmet_settings = {
-			\ 'html': {
-			\	'empty_element_suffix': ' />'
-			\ }
-			\}
+            \ 'html': {
+            \	'empty_element_suffix': ' />'
+            \ }
+            \}
 "}}}
 
 " LaTeX (vimtex and vim-evince-synctex) {{{
@@ -171,75 +171,75 @@ let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " compiler: latexmk {{{
 let g:vimtex_compiler_latexmk = {
-			\ 'backend' : 'jobs',
-			\ 'background' : 1,
-			\ 'build_dir' : '',
-			\ 'callback' : 1,
-			\ 'continuous' : 1,
-			\ 'executable' : 'latexmk',
-			\ 'options' : [
-			\   '-file-line-error',
-			\   '-synctex=1',
-			\   '-interaction=nonstopmode',
-			\ ],
-			\}
+            \ 'backend' : 'jobs',
+            \ 'background' : 1,
+            \ 'build_dir' : '',
+            \ 'callback' : 1,
+            \ 'continuous' : 1,
+            \ 'executable' : 'latexmk',
+            \ 'options' : [
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \ ],
+            \}
 let g:vimtex_compiler_latexmk_engines = {
-			\ '_'                : '-xelatex',
-			\ 'pdflatex'         : '-pdf',
-			\ 'lualatex'         : '-lualatex',
-			\ 'xelatex'          : '-xelatex',
-			\ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-			\ 'context (luatex)' : '-pdf -pdflatex=context',
-			\ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-			\}
+            \ '_'                : '-xelatex',
+            \ 'pdflatex'         : '-pdf',
+            \ 'lualatex'         : '-lualatex',
+            \ 'xelatex'          : '-xelatex',
+            \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+            \ 'context (luatex)' : '-pdf -pdflatex=context',
+            \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+            \}
 "}}}
 " fold {{{
 " nnoremap <localleader>rf :VimtexRefreshFolds<CR>
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
-			\ 'comments' : {'enabled' : 1},
-			\ 'preamble' : {'enabled' : 1},
-			\ 'envs' : {
-			\   'whitelist' : [
-			\      'lstlisting',
-			\      'verbatim',
-			\      'comment',
-			\      'equation',
-			\      'equation*',
-			\      'eqarray',
-			\      'gather',
-			\      'align',
-			\      'align*',
-			\      'tikzpicture',
-			\      'figure',
-			\      'table',
-			\      'frame',
-			\      'thebibliography',
-			\      'keywords',
-			\      'abstract',
-			\      'titlepage',
-			\   ],
-			\   'blacklist' : [
-			\      'flushleft',
-			\      'flushright',
-			\      'center',
-			\   ],
-			\ },
-			\}
+            \ 'comments' : {'enabled' : 1},
+            \ 'preamble' : {'enabled' : 1},
+            \ 'envs' : {
+            \   'whitelist' : [
+            \      'lstlisting',
+            \      'verbatim',
+            \      'comment',
+            \      'equation',
+            \      'equation*',
+            \      'eqarray',
+            \      'gather',
+            \      'align',
+            \      'align*',
+            \      'tikzpicture',
+            \      'figure',
+            \      'table',
+            \      'frame',
+            \      'thebibliography',
+            \      'keywords',
+            \      'abstract',
+            \      'titlepage',
+            \   ],
+            \   'blacklist' : [
+            \      'flushleft',
+            \      'flushright',
+            \      'center',
+            \   ],
+            \ },
+            \}
 "}}}
 if !exists('g:ycm_semantic_triggers')
-	let g:ycm_semantic_triggers = {}
+    let g:ycm_semantic_triggers = {}
 endif
 silent! let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " forward search (command provided by vim-evince-synctex)
 nnoremap <localleader>lf :VimtexForwardSearch<CR>
 let g:vimtex_doc_handlers = ['MyDocHandler']
 function! MyDocHandler(context)
-	call vimtex#doc#make_selection(a:context)
-	if !empty(a:context.selected)
-		execute '!texdoc' a:context.selected '2>/dev/null &'
-	endif
-	return 1
+    call vimtex#doc#make_selection(a:context)
+    if !empty(a:context.selected)
+        execute '!texdoc' a:context.selected '2>/dev/null &'
+    endif
+    return 1
 endfunction
 "}}}
 
@@ -267,5 +267,5 @@ let g:rustfmt_autosave = 1
 "}}}
 
 if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
-	source ~/.dotfiles/local/vim-plugins-setting.vim
+    source ~/.dotfiles/local/vim-plugins-setting.vim
 endif

@@ -34,7 +34,7 @@ colorscheme slate
 
 let s:vim_tmp_dir = expand('~/.vim/tmp')
 if !isdirectory(s:vim_tmp_dir)
-	silent! call mkdir(s:vim_tmp_dir, 'p')
+    silent! call mkdir(s:vim_tmp_dir, 'p')
 endif
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
@@ -44,8 +44,8 @@ packadd! matchit
 
 " cterm cursor shape
 if &term == 'xterm-256color' || &term == 'screen-256color'
-	let &t_SI = "\<Esc>[5 q"
-	let &t_EI = "\<Esc>[1 q"
+    let &t_SI = "\<Esc>[5 q"
+    let &t_EI = "\<Esc>[1 q"
 endif
 
 " encodings, multibyte
@@ -54,58 +54,58 @@ set termencoding=utf-8
 set formatoptions+=mM
 set fencs=utf-8,gbk
 if v:lang =~? '^/(zh/)/|/(ja/)/|/(ko/)'
-	set ambiwidth=double
+    set ambiwidth=double
 endif
 
 " for gvim
 if has("gui_running")
-	set guifont=Consolas\ 13
-	set winaltkeys=no
-	colorscheme evening
-	set guioptions-=T  " remove tool bar
-	set guioptions-=r  " remove right scroll bar
-	set guioptions-=L  " remove left one
+    set guifont=Consolas\ 13
+    set winaltkeys=no
+    colorscheme evening
+    set guioptions-=T  " remove tool bar
+    set guioptions-=r  " remove right scroll bar
+    set guioptions-=L  " remove left one
 endif
 
 " alt key problem
 function! Terminal_MetaMode(mode)
-	set ttimeout
-	if $TMUX != ''
-		set ttimeoutlen=30
-	elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-		set ttimeoutlen=80
-	endif
-	if has('nvim') || has('gui_running')
-		return
-	endif
-	function! s:metacode(mode, key)
-		if a:mode == 0
-			exec "set <M-".a:key.">=\e".a:key
-		else
-			exec "set <M-".a:key.">=\e]{0}".a:key."~"
-		endif
-	endfunc
-	for i in range(10)
-		call s:metacode(a:mode, nr2char(char2nr('0') + i))
-	endfor
-	for i in range(26)
-		call s:metacode(a:mode, nr2char(char2nr('a') + i))
-		call s:metacode(a:mode, nr2char(char2nr('A') + i))
-	endfor
-	if a:mode != 0
-		for c in [',', '.', '/', ';', '[', ']', '{', '}']
-			call s:metacode(a:mode, c)
-		endfor
-		for c in ['?', ':', '-', '_']
-			call s:metacode(a:mode, c)
-		endfor
-	else
-		for c in [',', '.', '/', ';', '{', '}']
-			call s:metacode(a:mode, c)
-		endfor
-		for c in ['?', ':', '-', '_']
-			call s:metacode(a:mode, c)
-		endfor
-	endif
+    set ttimeout
+    if $TMUX != ''
+        set ttimeoutlen=30
+    elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
+        set ttimeoutlen=80
+    endif
+    if has('nvim') || has('gui_running')
+        return
+    endif
+    function! s:metacode(mode, key)
+        if a:mode == 0
+            exec "set <M-".a:key.">=\e".a:key
+        else
+            exec "set <M-".a:key.">=\e]{0}".a:key."~"
+        endif
+    endfunc
+    for i in range(10)
+        call s:metacode(a:mode, nr2char(char2nr('0') + i))
+    endfor
+    for i in range(26)
+        call s:metacode(a:mode, nr2char(char2nr('a') + i))
+        call s:metacode(a:mode, nr2char(char2nr('A') + i))
+    endfor
+    if a:mode != 0
+        for c in [',', '.', '/', ';', '[', ']', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    else
+        for c in [',', '.', '/', ';', '{', '}']
+            call s:metacode(a:mode, c)
+        endfor
+        for c in ['?', ':', '-', '_']
+            call s:metacode(a:mode, c)
+        endfor
+    endif
 endfunc
 call Terminal_MetaMode(0)

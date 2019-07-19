@@ -5,5 +5,5 @@ source ~/.dotfiles/vim/maps.vim
 source ~/.dotfiles/vim/fold.vim
 
 if filereadable(expand('~/.dotfiles/local/vimrc'))
-	source ~/.dotfiles/local/vimrc
+    source ~/.dotfiles/local/vimrc
 endif

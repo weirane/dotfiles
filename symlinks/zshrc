@@ -5,7 +5,7 @@
 . ~/.dotfiles/zsh/completion.zsh
 
 for f in ~/.dotfiles/zsh/apps/*; do
-	. $f
+    . $f
 done
 unset f
 
