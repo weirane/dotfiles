@@ -253,6 +253,8 @@ let g:pymode_breakpoint_bind = "<localleader>b"
 let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_ignore = ["W0401"]
+let g:pymode_breakpoint_cmd =
+            \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
 
 let g:indentLine_fileType = ['python']
 "}}}
