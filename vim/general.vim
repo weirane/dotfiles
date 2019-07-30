@@ -8,6 +8,8 @@ set noshowmode
 set autoindent
 set cindent
 set cinoptions+=:0
+set cinoptions+=g0
+set cinoptions+=N-s
 set mouse=a
 set number
 set tabstop=4
