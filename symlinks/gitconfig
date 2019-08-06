@@ -10,6 +10,7 @@
     st = status -sb
 [core]
     editor = vim
+    excludesfile = ~/.gitignore
 [color "diff"]
     meta = yellow bold
     commit = green bold
