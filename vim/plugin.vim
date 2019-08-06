@@ -32,6 +32,7 @@ Plug 'gauteh/vim-evince-synctex'
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'Yggdroot/indentLine'
+Plug 'tell-k/vim-autopep8', { 'for': ['python'] }
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
@@ -257,6 +258,10 @@ let g:pymode_breakpoint_cmd =
             \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
 
 let g:indentLine_fileType = ['python']
+
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff = 1
+let g:autopep8_max_line_length = 120
 "}}}
 
 " markdown-preview {{{
