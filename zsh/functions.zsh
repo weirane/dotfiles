@@ -4,7 +4,7 @@ function mcd () {
 compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
 function df () {
-    /usr/bin/df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
+    command -p df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
 }
 
 # ex - archive extractor. usage: ex <file>
