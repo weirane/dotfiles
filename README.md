@@ -31,11 +31,11 @@ sudo make install
 ```
 
 #### Vim plugins
-| Vim plugin                     | Dependencies             | Notes                     |
-|:------------------------------:|:------------------------:|:-------------------------:|
-| [`vim-gutentags`][gutentags]   | [universal ctags][ctags] |                           |
-| [`python-mode`][python-mode]   | [ipdb][ipdb]             | install via `pip`         |
-| [`vim-autopep8`][vim-autopep8] | [autopep8][autopep8]     | install `pip` or `pacman` |
+| Vim plugin                     | Dependencies             | Notes                         |
+|:------------------------------:|:------------------------:|:-----------------------------:|
+| [`vim-gutentags`][gutentags]   | [universal ctags][ctags] |                               |
+| [`python-mode`][python-mode]   | [ipdb][ipdb]             | install via `pip` or `pacman` |
+| [`vim-autopep8`][vim-autopep8] | [autopep8][autopep8]     | install via `pip` or `pacman` |
 
 
 [python-mode]: https://github.com/python-mode/python-mode
