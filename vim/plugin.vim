@@ -3,7 +3,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'java', 'python', 'rust'] }
+Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'python'] }
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -63,11 +63,9 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \ 'c': ['clang', 'gcc'],
             \ 'cpp': ['clang', 'gcc'],
-            \ 'rust': ['rls'],
             \}
 let g:ale_c_parse_makefile = 1
-highlight clear ALEError
-highlight ALEError ctermbg=0 gui=undercurl guisp=Red
+highlight ALEError ctermbg=0
 "}}}
 
 " airline {{{
@@ -92,7 +90,7 @@ nnoremap <leader>gp :Gpush<CR>
 "}}}
 
 " gitgutter {{{
-highlight clear GitGutterDelete
+highlight GitGutterDelete ctermfg=15
 nnoremap <leader>gf :GitGutterFold<CR>
 "}}}
 
@@ -128,6 +126,7 @@ let g:ycm_filetype_blacklist = {
             \ 'markdown' : 1,
             \ 'text' : 1,
             \}
+highlight YcmErrorSection ctermbg=0
 "}}}
 
 " echodoc {{{
