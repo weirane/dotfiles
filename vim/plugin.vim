@@ -4,7 +4,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'python'] }
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -28,7 +28,6 @@ Plug 'mattn/emmet-vim', { 'for': ['html'] }
 Plug 'pangloss/vim-javascript'
 " LaTeX
 Plug 'lervag/vimtex'
-Plug 'gauteh/vim-evince-synctex'
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'Yggdroot/indentLine'
@@ -166,7 +165,7 @@ let g:user_emmet_settings = {
             \}
 "}}}
 
-" LaTeX (vimtex and vim-evince-synctex) {{{
+" LaTeX (vimtex) {{{
 let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " compiler: latexmk {{{
@@ -231,8 +230,6 @@ if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 silent! let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-" forward search (command provided by vim-evince-synctex)
-nnoremap <localleader>lf :VimtexForwardSearch<CR>
 let g:vimtex_doc_handlers = ['MyDocHandler']
 function! MyDocHandler(context)
     call vimtex#doc#make_selection(a:context)
@@ -261,6 +258,10 @@ let g:indentLine_fileType = ['python']
 let g:autopep8_on_save = 1
 let g:autopep8_disable_show_diff = 1
 let g:autopep8_max_line_length = 120
+"}}}
+
+" vim-markdown {{{
+let g:vim_markdown_toc_autofit = 1
 "}}}
 
 " markdown-preview {{{
