@@ -1,6 +1,8 @@
 *~
 .DS_Store
 
+.gdb_history
+
 .vimrc
 .clang-format
 rustfmt.toml
