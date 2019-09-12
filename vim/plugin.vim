@@ -42,7 +42,7 @@ endif
 call plug#end()
 
 " NERDTree {{{
-map <F10> :silent! NERDTreeToggle<CR>
+nnoremap <F10> :silent! NERDTreeToggle<CR>
 let NERDTreeShowBookmarks = 1
 let NERDTreeShowHidden = 1
 " 退出最后一个文件时, 退出 NERDTree
@@ -126,6 +126,10 @@ let g:ycm_filetype_blacklist = {
             \ 'text' : 1,
             \}
 highlight YcmErrorSection ctermbg=0
+nnoremap <leader>yd :YcmDiag<CR>
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yr :YcmCompleter RefactorRename
 "}}}
 
 " echodoc {{{
@@ -152,8 +156,8 @@ nnoremap <leader><leader>. <Plug>(easymotion-repeat)
 "}}}
 
 " easy-align {{{
-xmap <leader>a <Plug>(EasyAlign)
-nmap <leader>a <Plug>(EasyAlign)
+xnoremap <leader>a <Plug>(EasyAlign)
+nnoremap <leader>a <Plug>(EasyAlign)
 "}}}
 
 " html (emmet) {{{
