@@ -25,6 +25,7 @@ for f in ~/.dotfiles/symlinks/*; do
 done
 
 # .vim
+[[ -d ~/.vim ]] || mkdir ~/.vim
 vimdirs="ftplugin ftdetect syntax after"
 for dir in $vimdirs; do
     [[ -d ~/.vim/$dir ]] || echodo ln -s ~/.dotfiles/vim/dotvim/$dir ~/.vim/$dir
