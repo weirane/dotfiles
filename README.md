@@ -9,11 +9,13 @@ Install [fzf][fzf] via `pacman` or [`git`][fzf-git].
 [fzf-git]: https://github.com/junegunn/fzf#using-git
 
 ### Zsh
-Install [oh-my-zsh][omz], [spaceship prompt][spaceship] and [zsh-syntax-highlighting][zsh-highlight].
+Install [oh-my-zsh][omz], [spaceship prompt][spaceship] and [zsh-syntax-highlighting][zsh-highlight] from GitHub.
+
+Install `autojump` using `pacman`.
 
 [omz]: https://github.com/robbyrussell/oh-my-zsh
 [spaceship]: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
-[zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting
+[zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
 
 ### Vim
 The desireable version of vim is `>= 8.1` with `+python3` and `-python` in the output of `vim --version`. Plugin [`python-mode`][python-mode] might not work well with `+python`.
@@ -40,7 +42,7 @@ sudo make install
 
 [python-mode]: https://github.com/python-mode/python-mode
 [gutentags]: https://github.com/ludovicchabant/vim-gutentags
-[ctags]: https://github.com/universal-ctags/ctags
+[ctags]: https://github.com/universal-ctags/ctags/blob/master/docs/autotools.rst
 [ipdb]: https://pypi.org/project/ipdb/
 [vim-autopep8]: https://github.com/tell-k/vim-autopep8
 [autopep8]: https://github.com/hhatto/autopep8
