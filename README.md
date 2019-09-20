@@ -3,10 +3,13 @@ My dotfiles
 
 ## Dependencies
 ### fzf (recommended)
-Install [fzf][fzf] via `pacman` or [`git`][fzf-git].
+Install [`fzf`][fzf] via `pacman` or [`git`][fzf-git].
 
 [fzf]: https://github.com/junegunn/fzf
 [fzf-git]: https://github.com/junegunn/fzf#using-git
+
+### exa (recommended)
+Install `exa` via `pacman` or refer to its [GitHub page](https://github.com/ogham/exa).
 
 ### Zsh
 Install [oh-my-zsh][omz], [spaceship prompt][spaceship] and [zsh-syntax-highlighting][zsh-highlight] from GitHub.
