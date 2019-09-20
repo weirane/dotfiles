@@ -18,9 +18,8 @@ Install `autojump` using `pacman`.
 [zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
 
 ### Vim
-The desireable version of vim is `>= 8.1` with `+python3` and `-python` in the output of `vim --version`. Plugin [`python-mode`][python-mode] might not work well with `+python`.
+The desireable version of vim is `>= 8.1`. The package `gvim` in `pacman` is able to satisfy the need. Vim compiled like below is also OK.
 
-Below is how I install my vim.
 ```bash
 git clone git@github.com:vim/vim.git && cd vim
 ./configure --with-features=huge \
