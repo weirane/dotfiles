@@ -16,7 +16,7 @@ Install [oh-my-zsh][omz], [spaceship prompt][spaceship] and [zsh-syntax-highligh
 
 Install `autojump` using `pacman`.
 
-[omz]: https://github.com/robbyrussell/oh-my-zsh
+[omz]: https://github.com/robbyrussell/oh-my-zsh#via-curl
 [spaceship]: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
 [zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
 
@@ -47,4 +47,4 @@ sudo make install
 [ctags]: https://github.com/universal-ctags/ctags/blob/master/docs/autotools.rst
 [ipdb]: https://pypi.org/project/ipdb/
 [vim-autopep8]: https://github.com/tell-k/vim-autopep8
-[autopep8]: https://github.com/hhatto/autopep8
+[autopep8]: https://github.com/hhatto/autopep8#installation
