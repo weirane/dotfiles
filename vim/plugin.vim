@@ -160,6 +160,10 @@ xnoremap <leader>a <Plug>(EasyAlign)
 nnoremap <leader>a <Plug>(EasyAlign)
 "}}}
 
+" indentLine {{{
+let g:indentLine_fileType = ['python', 'yaml']
+"}}}
+
 " html (emmet) {{{
 let g:emmet_html5 = 1
 let g:user_emmet_settings = {
@@ -256,8 +260,6 @@ let g:pymode_lint_cwindow = 0
 let g:pymode_lint_ignore = ["W0401"]
 let g:pymode_breakpoint_cmd =
             \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
-
-let g:indentLine_fileType = ['python']
 
 let g:autopep8_on_save = 1
 let g:autopep8_disable_show_diff = 1
