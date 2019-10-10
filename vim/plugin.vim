@@ -24,7 +24,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 " web
-Plug 'mattn/emmet-vim', { 'for': ['html'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'markdown'] }
 Plug 'pangloss/vim-javascript'
 " LaTeX
 Plug 'lervag/vimtex'
