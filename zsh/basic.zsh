@@ -24,6 +24,7 @@ plugins=(
     autojump
     cargo
     rust
+    colored-man-pages
     # zsh-autosuggestions
     zsh-syntax-highlighting
 )
