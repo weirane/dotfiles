@@ -252,14 +252,14 @@ endfunction
 let g:pymode = 1
 let g:pymode_options_max_line_length = 120
 let g:pymode_python = 'python3'
-let g:pymode_quickfix_maxheight = 3
 let g:pymode_run_bind = "<localleader>r"
 let g:pymode_breakpoint_bind = "<localleader>b"
-let g:pymode_trim_whitespaces = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_ignore = ["W0401"]
 let g:pymode_breakpoint_cmd =
             \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+let g:pymode_lint_on_fly = 1
 
 let g:autopep8_on_save = 1
 let g:autopep8_disable_show_diff = 1
