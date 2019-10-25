@@ -6,3 +6,4 @@
 .vimrc
 .clang-format
 rustfmt.toml
+.ycm_extra_conf.py
