@@ -34,6 +34,7 @@ done
 
 # .vim
 [[ -d ~/.vim ]] || mkdir ~/.vim
+[[ -f ~/.vim/vimrc ]] || echodo ln -s ~/.dotfiles/vim/dotvim/vimrc ~/.vim/vimrc
 vimdirs="ftplugin ftdetect syntax after"
 for dir in $vimdirs; do
     [[ -d ~/.vim/$dir ]] || echodo ln -s ~/.dotfiles/vim/dotvim/$dir ~/.vim/$dir
