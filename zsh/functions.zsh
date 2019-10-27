@@ -1,3 +1,17 @@
+function prependpath () {
+    case ":$PATH:" in
+        *:"$1":*) ;;
+        *) export PATH="$1${PATH:+:$PATH}" ;;
+    esac
+}
+
+function appendpath () {
+    case ":$PATH:" in
+        *:"$1":*) ;;
+        *) export PATH="${PATH:+$PATH:}$1" ;;
+    esac
+}
+
 function mcd () {
     [[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
