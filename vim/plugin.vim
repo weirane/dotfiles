@@ -3,7 +3,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'python'] }
+Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'rust', 'python'] }
 Plug 'ycm-core/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -58,10 +58,10 @@ let g:NERDDefaultAlign = 'left'
 "}}}
 
 " ale {{{
-let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \ 'c': ['clang', 'gcc'],
             \ 'cpp': ['clang', 'gcc'],
+            \ 'rust': ['rls'],
             \}
 let g:ale_c_parse_makefile = 1
 highlight ALEError ctermbg=0
@@ -109,6 +109,7 @@ let g:Lf_WindowHeight = 0.30
 "}}}
 
 " YouCompleteMe {{{
+" install: python3 install.py --clangd-completer --ts-completer
 " ref: https://zhuanlan.zhihu.com/p/33046090
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
@@ -125,6 +126,14 @@ let g:ycm_filetype_blacklist = {
             \ 'markdown' : 1,
             \ 'text' : 1,
             \}
+let g:ycm_language_server = [
+            \   {
+            \     'name': 'rust',
+            \     'cmdline': ['rls'],
+            \     'filetypes': ['rust'],
+            \     'project_root_files': ['Cargo.toml']
+            \   }
+            \ ]
 highlight YcmErrorSection ctermbg=0
 nnoremap <leader>yd :YcmDiag<CR>
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
