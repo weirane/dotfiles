@@ -49,10 +49,10 @@ if [[ ! -f ~/.vim/autoload/plug.vim ]] && confirm "Download plug.vim? (y/N)"; th
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-ZSH_CUSTOM="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 # oh-my-zsh
 if [[ ! -d ~/.oh-my-zsh ]] && confirm "Setup oh-my-zsh? (y/N)"; then
-    tmpf=$(mktemp /tmp/.vim-plug-XXXXXXX.sh)
+    tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
     echodo curl -Lo $tmpf \
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     less $tmpf
@@ -63,7 +63,7 @@ if [[ ! -d ~/.oh-my-zsh ]] && confirm "Setup oh-my-zsh? (y/N)"; then
 fi
 
 # spaceship-prompt
-if [[ ! -d ~/.oh-my-zsh/custom/themes/spaceship-prompt ]] \
+if [[ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]] \
         && confirm "Setup spaceship-prompt? (y/N)"; then
     echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
@@ -72,7 +72,7 @@ if [[ ! -d ~/.oh-my-zsh/custom/themes/spaceship-prompt ]] \
 fi
 
 # zsh-syntax-highlight
-if [[ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]] \
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ]] \
         && confirm "Setup zsh-syntax-highlighting? (y/N)"; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
