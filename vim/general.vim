@@ -64,6 +64,7 @@ if has("gui_running")
     set guifont=Consolas\ 13
     set winaltkeys=no
     colorscheme evening
+    highlight PMenu ctermfg=0 ctermbg=242 guifg=#000000 guibg=#6c6c6c
     set guioptions-=T  " remove tool bar
     set guioptions-=r  " remove right scroll bar
     set guioptions-=L  " remove left one
