@@ -123,7 +123,6 @@ let g:ycm_semantic_triggers =  {
             \ 'cs,css,lua,javascript,rust': ['re!\w{2}'],
             \ }
 let g:ycm_filetype_blacklist = {
-            \ 'markdown' : 1,
             \ 'text' : 1,
             \}
 let g:ycm_language_server = [
@@ -135,10 +134,11 @@ let g:ycm_language_server = [
             \   }
             \ ]
 highlight YcmErrorSection ctermbg=0
-nnoremap <leader>yd :YcmDiag<CR>
-nnoremap <leader>yf :YcmCompleter FixIt<CR>
-nnoremap <leader>yg :YcmCompleter GoTo<CR>
-nnoremap <leader>yr :YcmCompleter RefactorRename
+nnoremap <localleader>yd :YcmDiag<CR>
+nnoremap <localleader>yf :YcmCompleter FixIt<CR>
+nnoremap <localleader>yg :YcmCompleter GoTo<CR>
+nnoremap <localleader>yr :YcmCompleter RefactorRename  <BS>
+let g:ycm_clangd_args = ['--header-insertion=never']
 "}}}
 
 " echodoc {{{
@@ -286,6 +286,7 @@ let g:mkdp_auto_close = 0
 " rust.vim {{{
 let g:rust_fold = 1
 let g:rustfmt_autosave = 1
+nnoremap <localleader>rt :RustTest<CR>
 "}}}
 
 if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
