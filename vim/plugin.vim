@@ -36,6 +36,8 @@ Plug 'tell-k/vim-autopep8', { 'for': ['python'] }
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
 Plug 'rust-lang/rust.vim'
+" Toml
+Plug 'cespare/vim-toml'
 if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
     source ~/.dotfiles/local/vim-plugins.vim
 endif
