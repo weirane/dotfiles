@@ -1,5 +1,3 @@
-source $VIMRUNTIME/defaults.vim
-
 set nocompatible
 set undofile
 set expandtab
@@ -69,6 +67,20 @@ if has("gui_running")
     set guioptions-=r  " remove right scroll bar
     set guioptions-=L  " remove left one
 endif
+
+" From defaults.vim
+let c_comment_strings=1
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
+augroup vimStartup
+    " When editing a file, always jump to the last known cursor position.
+    au!
+    autocmd BufReadPost *
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+                \ | exe "normal! g`\"" | endif
+augroup END
 
 " alt key problem
 function! Terminal_MetaMode(mode)

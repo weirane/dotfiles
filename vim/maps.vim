@@ -1,2 +1,4 @@
-imap <C-A> <Home>
-imap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+
+noremap Q gq
