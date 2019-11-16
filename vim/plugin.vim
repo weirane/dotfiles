@@ -66,6 +66,8 @@ let g:ale_linters = {
             \ 'rust': ['rls'],
             \}
 let g:ale_c_parse_makefile = 1
+let g:ale_cpp_clang_options = '-std=c++17 -Wall'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
 highlight ALEError ctermbg=0
 "}}}
 
