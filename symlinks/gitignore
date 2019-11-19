@@ -4,6 +4,10 @@
 .gdb_history
 
 .vimrc
+.nvimrc
+.exrc
+
 .clang-format
 rustfmt.toml
 .ycm_extra_conf.py
+.ccls
