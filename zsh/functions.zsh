@@ -50,7 +50,15 @@ function colors () {
     printf "Color escapes are %s\n" '\e[${value};...;${value}m'
     printf "Values 30..37 are \e[33mforeground colors\e[m\n"
     printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-    printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
+    printf "Value  1 gives a  \e[1mbold-faced look\e[m\n"
+    printf "Value  2 gives a  \e[2mfaint look\e[m\n"
+    printf "Value  3 gives a  \e[3mitalic look\e[m\n"
+    printf "Value  4 gives a  \e[4munderlined look\e[m\n"
+    printf "Value  5 gives a  \e[5mblinking look\e[m\n"
+    printf "Value  7 gives a  \e[7mreversed look\e[m\n"
+    printf "Value  9 gives a  \e[9mcrossed-out look\e[m\n"
+    printf "Value 53 gives a  \e[53moverlined look\e[m\n"
+    echo
 
     # foreground colors
     for fgc in {30..37}; do
@@ -63,7 +71,7 @@ function colors () {
             vals=${vals%%;}
 
             seq0="${vals:+\e[${vals}m}"
-            printf "  %-9s" "${seq0:-(default)}"
+            printf "  %-9s" "${seq0:-\e[37m}"
             printf " ${seq0}TEXT\e[m"
             printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
         done
