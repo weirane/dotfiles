@@ -1,6 +1,9 @@
 *~
 .DS_Store
 
+.idea/
+dummy/
+
 .gdb_history
 
 .vimrc
