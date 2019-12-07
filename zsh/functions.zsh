@@ -57,7 +57,6 @@ function colors () {
     printf "Value  5 gives a  \e[5mblinking look\e[m\n"
     printf "Value  7 gives a  \e[7mreversed look\e[m\n"
     printf "Value  9 gives a  \e[9mcrossed-out look\e[m\n"
-    printf "Value 53 gives a  \e[53moverlined look\e[m\n"
     echo
 
     # foreground colors
