@@ -189,20 +189,6 @@ let g:user_emmet_settings = {
 " LaTeX (vimtex) {{{
 let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
-" compiler: latexmk {{{
-let g:vimtex_compiler_latexmk = {
-            \ 'backend' : 'jobs',
-            \ 'background' : 1,
-            \ 'build_dir' : '',
-            \ 'callback' : 1,
-            \ 'continuous' : 1,
-            \ 'executable' : 'latexmk',
-            \ 'options' : [
-            \   '-file-line-error',
-            \   '-synctex=1',
-            \   '-interaction=nonstopmode',
-            \ ],
-            \}
 let g:vimtex_compiler_latexmk_engines = {
             \ '_'                : '-xelatex',
             \ 'pdflatex'         : '-pdf',
@@ -212,7 +198,6 @@ let g:vimtex_compiler_latexmk_engines = {
             \ 'context (luatex)' : '-pdf -pdflatex=context',
             \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
             \}
-"}}}
 " fold {{{
 " nnoremap <localleader>rf :VimtexRefreshFolds<CR>
 let g:vimtex_fold_enabled = 1
