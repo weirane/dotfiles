@@ -1,5 +1,5 @@
 let mapleader=','
 noremap \ ,
-noremap <leader>ns :nohls<CR>
-noremap <leader>w  :update<CR>
+noremap <silent> <leader>ns :nohls<CR>
+noremap <silent> <leader>w  :update<CR>
 nnoremap <silent> <leader><space> <C-^>
