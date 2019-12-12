@@ -169,8 +169,8 @@ nnoremap <leader><leader>. <Plug>(easymotion-repeat)
 "}}}
 
 " easy-align {{{
-xnoremap <leader>a <Plug>(EasyAlign)
-nnoremap <leader>a <Plug>(EasyAlign)
+nmap <leader>a <Plug>(LiveEasyAlign)
+vmap <leader>a <Plug>(LiveEasyAlign)
 "}}}
 
 " indentLine {{{
