@@ -2,7 +2,6 @@
 . ~/.dotfiles/zsh/env.zsh
 . ~/.dotfiles/zsh/aliases.zsh
 . ~/.dotfiles/zsh/functions.zsh
-. ~/.dotfiles/zsh/completion.zsh
 
 for f in ~/.dotfiles/zsh/apps/*; do
     . $f
