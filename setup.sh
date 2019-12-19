@@ -1,5 +1,5 @@
-#!/bin/bash
-if [[ ! -d ~/.dotfiles ]]; then
+#!/bin/sh
+if [ ! -d $HOME/.dotfiles ]; then
     echo "Cannot find dotfiles dir."
     exit 1
 fi
@@ -27,21 +27,21 @@ confirmy () {
 }
 
 # symlinks
-for f in ~/.dotfiles/symlinks/*; do
-    home_name=~/.$(basename $f)
-    [[ -f $home_name ]] || echodo ln -s $f $home_name
+for f in $HOME/.dotfiles/symlinks/*; do
+    home_name=$HOME/.$(basename $f)
+    [ -f $home_name ] || echodo ln -s $f $home_name
 done
 
 # .vim
-[[ -d ~/.vim ]] || mkdir ~/.vim
-[[ -f ~/.vim/vimrc ]] || echodo ln -s ~/.dotfiles/vim/dotvim/vimrc ~/.vim/vimrc
+[ -d $HOME/.vim ] || mkdir $HOME/.vim
+[ -f $HOME/.vim/vimrc ] || echodo ln -s $HOME/.dotfiles/vim/dotvim/vimrc $HOME/.vim/vimrc
 vimdirs="ftplugin ftdetect syntax after"
 for dir in $vimdirs; do
-    [[ -d ~/.vim/$dir ]] || echodo ln -s ~/.dotfiles/vim/dotvim/$dir ~/.vim/$dir
+    [ -d $HOME/.vim/$dir ] || echodo ln -s $HOME/.dotfiles/vim/dotvim/$dir $HOME/.vim/$dir
 done
 
-[[ -d ~/.dotfiles/local ]] || echodo mkdir -p ~/.dotfiles/local
-[[ -f ~/.dotfiles/local/gdbinit ]] || echodo touch ~/.dotfiles/local/gdbinit
+[ -d $HOME/.dotfiles/local ] || echodo mkdir -p $HOME/.dotfiles/local
+[ -f $HOME/.dotfiles/local/gdbinit ] || echodo touch $HOME/.dotfiles/local/gdbinit
 
 # .config
 for d in $HOME/.dotfiles/dotconfig/*; do
@@ -50,14 +50,14 @@ for d in $HOME/.dotfiles/dotconfig/*; do
 done
 
 # vim-plug
-if [[ ! -f ~/.vim/autoload/plug.vim ]] && confirm "Download plug.vim? (y/N)"; then
-    echodo curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+if [ ! -f $HOME/.vim/autoload/plug.vim ] && confirm "Download plug.vim? (y/N)"; then
+    echodo curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 # oh-my-zsh
-if [[ ! -d ~/.oh-my-zsh ]] && confirm "Setup oh-my-zsh? (y/N)"; then
+if [ ! -d $HOME/.oh-my-zsh ] && confirm "Setup oh-my-zsh? (y/N)"; then
     tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
     echodo curl -Lo $tmpf \
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -69,7 +69,7 @@ if [[ ! -d ~/.oh-my-zsh ]] && confirm "Setup oh-my-zsh? (y/N)"; then
 fi
 
 # spaceship-prompt
-if [[ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]] \
+if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ] \
         && confirm "Setup spaceship-prompt? (y/N)"; then
     echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
@@ -78,7 +78,7 @@ if [[ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]] \
 fi
 
 # zsh-syntax-highlight
-if [[ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ]] \
+if [ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ] \
         && confirm "Setup zsh-syntax-highlighting? (y/N)"; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
