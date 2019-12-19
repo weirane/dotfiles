@@ -43,6 +43,12 @@ done
 [[ -d ~/.dotfiles/local ]] || echodo mkdir -p ~/.dotfiles/local
 [[ -f ~/.dotfiles/local/gdbinit ]] || echodo touch ~/.dotfiles/local/gdbinit
 
+# .config
+for d in $HOME/.dotfiles/dotconfig/*; do
+    name=$HOME/.config/$(basename $d)
+    [ -e $name ] || echodo ln -s $d $name
+done
+
 # vim-plug
 if [[ ! -f ~/.vim/autoload/plug.vim ]] && confirm "Download plug.vim? (y/N)"; then
     echodo curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

@@ -1,0 +1,9 @@
+--pager="less -RF"
+--theme="OneHalfDark"
+# --theme="OneHalfLight"
+--map-syntax zshrc:bash
+--map-syntax vimrc:vim
+--map-syntax .nvimrc:vim
+--map-syntax .exrc:vim
+--map-syntax .sty:LaTeX
+--map-syntax .cls:LaTeX

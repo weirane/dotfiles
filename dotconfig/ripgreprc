@@ -1,0 +1,7 @@
+--hidden
+--no-ignore
+--smart-case
+--max-columns=10000
+
+--glob=!{package-lock.json,*.lock}
+--glob=!{.git,.svn,.tldr,node_modules,Trash,vendor}
