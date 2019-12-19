@@ -8,6 +8,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'Shougo/echodoc.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kana/vim-textobj-user'
@@ -95,6 +96,11 @@ nnoremap <leader>gp :Gpush<CR>
 " gitgutter {{{
 highlight GitGutterDelete ctermfg=15
 nnoremap <leader>gf :GitGutterFold<CR>
+"}}}
+
+" vim-rooter {{{
+let g:rooter_use_lcd = 1
+let g:rooter_silent_chdir = 1
 "}}}
 
 " Leaderf {{{
