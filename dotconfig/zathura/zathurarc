@@ -1,0 +1,14 @@
+set selection-clipboard clipboard
+set window-title-home-tilde true
+set statusbar-home-tilde true
+set first-page-column 1:1
+set synctex true
+
+map r reload
+map R rotate
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+
+unmap q
+map <C-Q> quit
