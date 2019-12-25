@@ -1,0 +1,14 @@
+#!/bin/sh
+
+while read file; do
+    case "$1" in
+        w)
+            [ "$(printf "No\\nYes" | dmenu -i -p "Set as wallpaper?")" = "Yes" ] &&
+                feh --bg-fill "$file" && notify-send "sxiv" "$file set as wallpaper" &
+            ;;
+        d)
+            [ "$(printf "No\\nYes" | dmenu -i -p "Delete $file?")" = "Yes" ] &&
+                rm "$file" && notify-send "sxiv" "$file deleted" &
+            ;;
+    esac
+done
