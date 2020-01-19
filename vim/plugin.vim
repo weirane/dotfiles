@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'rust', 'python'] }
@@ -101,21 +100,6 @@ nnoremap <leader>gf :GitGutterFold<CR>
 " vim-rooter {{{
 let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
-"}}}
-
-" Leaderf {{{
-noremap <m-m> :LeaderfMru<CR>
-noremap <m-f> :LeaderfFunction!<CR>
-noremap <m-t> :LeaderfTag<CR>
-let g:Lf_RootMarkers = ['.project', '.root', '.git', '.svn']
-" 底部状态栏各项的分界标记
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_CacheDirectory = expand('~/.vim/tmp')
-let g:Lf_ShowRelativePath = 0
-let g:Lf_HideHelp = 1
-let g:Lf_StlColorscheme = 'powerline'
-let g:Lf_WindowHeight = 0.30
 "}}}
 
 " YouCompleteMe {{{
