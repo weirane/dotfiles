@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 HYPHEN_INSENSITIVE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
 
