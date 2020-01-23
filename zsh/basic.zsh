@@ -18,7 +18,6 @@ SPACESHIP_PROMPT_ORDER=(
     venv
     exec_time
     line_sep
-    battery
     jobs
     exit_code
     char
