@@ -3,16 +3,16 @@
 while read file; do
     case "$1" in
         w)
-            [ "$(printf "No\\nYes" | dmenu -i -p "Set as wallpaper temporarily?")" = "Yes" ] &&
+            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper temporarily?")" = "Yes" ] &&
                 feh --no-fehbg --bg-fill "$file" && notify-send "sxiv" "$file set as wallpaper" &
             ;;
         W)
-            [ "$(printf "No\\nYes" | dmenu -i -p "Set as wallpaper permanently?")" = "Yes" ] &&
+            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper permanently?")" = "Yes" ] &&
                 ln -sf "$(realpath "$file")" $HOME/Pictures/wallpapers/current &&
                 feh --no-fehbg --bg-fill "$file" && notify-send "sxiv" "$file set as wallpaper" &
             ;;
         d)
-            [ "$(printf "No\\nYes" | dmenu -i -p "Delete $file?")" = "Yes" ] &&
+            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Delete $(realpath "$file")?")" = "Yes" ] &&
                 rm "$file" && notify-send "sxiv" "$file deleted" &
             ;;
     esac
