@@ -11,7 +11,7 @@ echodo () {
 }
 
 confirm () {
-    read -rp "${1:-Are you sure? [y/N]} " response
+    read -rp "${1:-Are you sure?} (y/N)" response
     case "${response,,}" in
         yes|y) true  ;;
         *)     false ;;
@@ -19,7 +19,7 @@ confirm () {
 }
 
 confirmy () {
-    read -rp "${1:-Are you sure? [Y/n]} " response
+    read -rp "${1:-Are you sure?} (Y/n)" response
     case "${response,,}" in
         no|n) false ;;
         *)    true  ;;
@@ -50,19 +50,19 @@ for d in $HOME/.dotfiles/dotconfig/*; do
 done
 
 # vim-plug
-if [ ! -f $HOME/.vim/autoload/plug.vim ] && confirm "Download plug.vim? (y/N)"; then
+if [ ! -f $HOME/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
     echodo curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 # oh-my-zsh
-if [ ! -d $HOME/.oh-my-zsh ] && confirm "Setup oh-my-zsh? (y/N)"; then
+if [ ! -d $HOME/.oh-my-zsh ] && confirm "Setup oh-my-zsh?"; then
     tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
     echodo curl -Lo $tmpf \
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     less $tmpf
-    if confirmy "Proceed? (Y/n)"; then
+    if confirmy "Proceed?"; then
         echodo sh $tmpf
         echodo rm $tmpf
     fi
