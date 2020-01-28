@@ -37,38 +37,59 @@ get_icon() {
     echo $icon
 }
 
-toggle_simple() {
-    kill %% >/dev/null 2>&1
-    simple=$(((simple + 1) % 2))
+show_weather() {
+    case $verbose in
+        0)
+            echo "$weather_icon $weather_temp$dot"
+            ;;
+        1)
+            echo "$city_name $weather_icon $weather_temp$dot"
+            ;;
+        2)
+            echo "$weather_icon $weather_desc $weather_temp$dot"
+            ;;
+        *)
+            echo "$city_name $weather_icon $weather_desc $weather_temp$dot"
+            ;;
+    esac
+}
+
+inc_verbose() {
+    verbose=$(((verbose + 1) % 4))
+    show_weather
 }
 
 update_loc() {
-    kill %% >/dev/null 2>&1
     location=''
     get_loc=1
+    kill %% >/dev/null 2>&1
 }
 
-prev=''
-simple=1
+verbose=0
 get_loc=1
 
-trap "toggle_simple" USR1
+trap "inc_verbose" USR1
 trap "update_loc" USR2
 
 while true; do
-    echo "$prev."
+    dot="."
+    show_weather
     while true; do
         ping api.openweathermap.org -c 1 -W 10 >/dev/null 2>&1 && break
         sleep 60 & >/dev/null 2>&1
-        wait
+        while kill -0 %% >/dev/null 2>&1; do
+            wait
+        done
     done
 
-    echo "$prev.."
+    dot=".."
+    show_weather
     if [ "$get_loc" = 1 ]; then
         location=$(curl -sf --retry 3 "https://location.services.mozilla.com/v1/geolocate?key=geoclue")
         get_loc=0
     fi
-    echo "$prev..."
+    dot="..."
+    show_weather
     if [ -n "$location" ]; then
         location_lat="$(echo "$location" | jq '.location.lat')"
         location_lon="$(echo "$location" | jq '.location.lng')"
@@ -78,16 +99,15 @@ while true; do
     if [ -n "$weather" ]; then
         weather_desc=$(echo "$weather" | jq -r ".weather[0].description")
         weather_temp=$(echo "$weather" | jq ".main.temp")
+        weather_temp="$weather_temp°C"
         weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
         weather_icon="$(get_icon "$weather_icon")"
         city_name=$(echo "$weather" | jq -r ".name")
-        if [ "$simple" = 1 ]; then
-            prev="$weather_icon $weather_temp°C"
-        else
-            prev="$weather_icon $weather_desc $weather_temp°C"
-        fi
-        echo "$prev"
+        dot=''
+        show_weather
     fi
     sleep 900 & >/dev/null 2>&1
-    wait
+    while kill -0 %% >/dev/null 2>&1; do
+        wait
+    done
 done
