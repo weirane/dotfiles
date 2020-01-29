@@ -7,6 +7,8 @@ if xdotool search --name "^${title}$"; then
     exit 0
 fi
 
+export LC_ALL=C
+
 setsid --fork yad --calendar \
     --class=FloatExec \
     --title="$title" \
