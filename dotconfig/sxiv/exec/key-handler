@@ -1,19 +1,26 @@
 #!/bin/sh
 
+notify() {
+    notify-send --expire-time=1500 "sxiv" "$1"
+}
+
 while read file; do
     case "$1" in
         w)
             [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper temporarily?")" = "Yes" ] &&
-                feh --no-fehbg --bg-fill "$file" && notify-send "sxiv" "$file set as wallpaper" &
+                feh --no-fehbg --bg-fill "$file" &&
+                notify "$file set as wallpaper" &
             ;;
         W)
             [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper permanently?")" = "Yes" ] &&
                 ln -sf "$(realpath "$file")" $HOME/Pictures/wallpapers/current &&
-                feh --no-fehbg --bg-fill "$file" && notify-send "sxiv" "$file set as wallpaper" &
+                feh --no-fehbg --bg-fill "$file" &&
+                notify "$file set as wallpaper" &
             ;;
         d)
             [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Delete $(realpath "$file")?")" = "Yes" ] &&
-                rm "$file" && notify-send "sxiv" "$file deleted" &
+                rm "$file" &&
+                notify "$file deleted" &
             ;;
     esac
 done
