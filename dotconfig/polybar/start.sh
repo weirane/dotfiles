@@ -4,7 +4,7 @@
 killall --quiet polybar
 
 # Wait until the processes have been shut down
-while pgrep --euid $UID --exact polybar >/dev/null; do sleep 1; done
+while pgrep --euid $(id -ru) --exact polybar >/dev/null; do sleep 1; done
 
 # Launch polybar on all the available monitors
 polybar --list-monitors | while read line; do

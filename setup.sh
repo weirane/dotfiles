@@ -11,16 +11,18 @@ echodo () {
 }
 
 confirm () {
-    read -rp "${1:-Are you sure?} (y/N)" response
-    case "${response,,}" in
+    printf "${1:-Are you sure?} (y/N) "
+    read -r response
+    case $(echo "$response" | tr A-Z a-z) in
         yes|y) true  ;;
         *)     false ;;
     esac
 }
 
 confirmy () {
-    read -rp "${1:-Are you sure?} (Y/n)" response
-    case "${response,,}" in
+    printf "${1:-Are you sure?} (Y/n) "
+    read -r response
+    case $(echo "$response" | tr A-Z a-z) in
         no|n) false ;;
         *)    true  ;;
     esac

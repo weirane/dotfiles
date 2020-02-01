@@ -7,7 +7,7 @@
 pgrep -f 'openweathermap-detailed.sh' >/dev/null 2>&1 || exit
 
 API="https://api.openweathermap.org/data/2.5"
-KEY=$(<$(dirname `realpath $0`)/owm-key)
+KEY=$(cat $(dirname `realpath $0`)/owm-key)
 
 if [ -z "$KEY" ]; then
     echo "No key"
