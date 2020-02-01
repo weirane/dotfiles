@@ -10,7 +10,7 @@ fi
 export LC_ALL=C
 
 setsid --fork yad --calendar \
-    --class=FloatExec \
+    --name=FloatExec \
     --title="$title" \
     --width=$width --height=$height \
     --no-buttons \

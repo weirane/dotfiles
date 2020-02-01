@@ -6,7 +6,7 @@ update() {
 }
 
 show() {
-    termite --class=FloatExec \
+    termite --name=FloatExec \
             --title="Edit ToDo" \
             --exec "vim -u DEFAULTS $todo_file"
     update
