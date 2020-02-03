@@ -8,7 +8,7 @@ chosen=$(lsblk -rnpo "name,label,size,type,mountpoint" |
     cut -d' ' -f1)
 
 if [ $? = 0 ] && [ -n "$chosen" ]; then
-    msg=$(udisksctl mount -b $chosen 2>&1)
+    msg=$(udisksctl mount -b "$chosen" 2>&1)
     notify-send '💻 Mount' "$msg"
 else
     echo "Abort"

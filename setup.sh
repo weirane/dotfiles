@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ ! -d $HOME/.dotfiles ]; then
+if [ ! -d "$HOME/.dotfiles" ]; then
     echo "Cannot find dotfiles dir."
     exit 1
 fi
@@ -11,7 +11,7 @@ echodo () {
 }
 
 confirm () {
-    printf "${1:-Are you sure?} (y/N) "
+    printf "%s (y/N) " "${1:-Are you sure?}"
     read -r response
     case $(echo "$response" | tr A-Z a-z) in
         yes|y) true  ;;
@@ -20,7 +20,7 @@ confirm () {
 }
 
 confirmy () {
-    printf "${1:-Are you sure?} (Y/n) "
+    printf "%s (Y/n) " "${1:-Are you sure?}"
     read -r response
     case $(echo "$response" | tr A-Z a-z) in
         no|n) false ;;
@@ -29,49 +29,49 @@ confirmy () {
 }
 
 # symlinks
-for f in $HOME/.dotfiles/symlinks/*; do
-    home_name=$HOME/.$(basename $f)
-    [ -f $home_name ] || echodo ln -s $f $home_name
+for f in "$HOME"/.dotfiles/symlinks/*; do
+    home_name="$HOME/.$(basename "$f")"
+    [ -f "$home_name" ] || echodo ln -s "$f" "$home_name"
 done
 
 # .vim
-[ -d $HOME/.vim ] || mkdir $HOME/.vim
-[ -f $HOME/.vim/vimrc ] || echodo ln -s $HOME/.dotfiles/vim/dotvim/vimrc $HOME/.vim/vimrc
+[ -d "$HOME/.vim" ] || mkdir "$HOME/.vim"
+[ -f "$HOME/.vim/vimrc" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/vimrc" "$HOME/.vim/vimrc"
 vimdirs="ftplugin ftdetect syntax after"
 for dir in $vimdirs; do
-    [ -d $HOME/.vim/$dir ] || echodo ln -s $HOME/.dotfiles/vim/dotvim/$dir $HOME/.vim/$dir
+    [ -d "$HOME/.vim/$dir" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/$dir" "$HOME/.vim/$dir"
 done
 
-[ -d $HOME/.dotfiles/local ] || echodo mkdir -p $HOME/.dotfiles/local
-[ -f $HOME/.dotfiles/local/gdbinit ] || echodo touch $HOME/.dotfiles/local/gdbinit
+[ -d "$HOME/.dotfiles/local" ] || echodo mkdir -p "$HOME/.dotfiles/local"
+[ -f "$HOME/.dotfiles/local/gdbinit" ] || echodo touch "$HOME/.dotfiles/local/gdbinit"
 
 # .config
-for d in $HOME/.dotfiles/dotconfig/*; do
-    name=$HOME/.config/$(basename $d)
-    [ -e $name ] || echodo ln -s $d $name
+for d in "$HOME"/.dotfiles/dotconfig/*; do
+    name="$HOME"/.config/$(basename "$d")
+    [ -e "$name" ] || echodo ln -s "$d" "$name"
 done
 
 # vim-plug
-if [ ! -f $HOME/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
-    echodo curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+if [ ! -f "$HOME"/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
+    echodo curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 # oh-my-zsh
-if [ ! -d $HOME/.oh-my-zsh ] && confirm "Setup oh-my-zsh?"; then
+if [ ! -d "$HOME"/.oh-my-zsh ] && confirm "Setup oh-my-zsh?"; then
     tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
-    echodo curl -Lo $tmpf \
+    echodo curl -Lo "$tmpf" \
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    less $tmpf
+    less "$tmpf"
     if confirmy "Proceed?"; then
-        echodo sh $tmpf
-        echodo rm $tmpf
+        echodo sh "$tmpf"
+        echodo rm "$tmpf"
     fi
 fi
 
 # spaceship-prompt
-if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ] \
+if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] \
         && confirm "Setup spaceship-prompt? (y/N)"; then
     echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
@@ -80,7 +80,7 @@ if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ] \
 fi
 
 # zsh-syntax-highlight
-if [ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ] \
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] \
         && confirm "Setup zsh-syntax-highlighting? (y/N)"; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"

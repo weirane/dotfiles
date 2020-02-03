@@ -7,7 +7,7 @@
 pgrep -f 'openweathermap-detailed.sh' >/dev/null 2>&1 || exit
 
 API="https://api.openweathermap.org/data/2.5"
-KEY=$(cat $(dirname `realpath $0`)/owm-key)
+KEY=$(cat "$(dirname "$(realpath "$0")")/owm-key")
 
 if [ -z "$KEY" ]; then
     echo "No key"
@@ -76,7 +76,7 @@ while true; do
     show_weather
     while true; do
         ping api.openweathermap.org -c 1 -W 10 >/dev/null 2>&1 && break
-        sleep 60 & >/dev/null 2>&1
+        sleep 60 >/dev/null 2>&1 &
         while kill -0 %% >/dev/null 2>&1; do
             wait
         done
@@ -106,7 +106,7 @@ while true; do
         dot=''
         show_weather
     fi
-    sleep 900 & >/dev/null 2>&1
+    sleep 900 >/dev/null 2>&1 &
     while kill -0 %% >/dev/null 2>&1; do
         wait
     done

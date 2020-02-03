@@ -11,11 +11,11 @@ notify() {
 
 case "$1" in
     -p | --whole) # Whole screen
-        scrot $default
+        scrot "$default"
         notify "Screenshot saved as $default"
         ;;
     -w | --window) # Current window
-        scrot -u $default
+        scrot -u "$default"
         notify "Screenshot of the current window saved as $default"
         ;;
     -s | --select) # Selection

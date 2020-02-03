@@ -19,6 +19,6 @@ while true; do
     # Count the todos. Blank lines and lines begin with "# " are ignored
     num=$(grep -vE '^$|^# ' "$todo_file" -c)
     echo "ToDo ($num)"
-    sleep infinity & >/dev/null 2>&1
+    sleep infinity >/dev/null 2>&1 &
     wait
 done
