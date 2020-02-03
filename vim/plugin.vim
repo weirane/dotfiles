@@ -6,6 +6,7 @@ Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'rust', 'python'] }
 Plug 'ycm-core/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'Shougo/echodoc.vim'
@@ -19,6 +20,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vim-easy-align'
+" Jsonc
+Plug 'neoclide/jsonc.vim'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
