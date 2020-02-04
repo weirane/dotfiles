@@ -8,7 +8,7 @@ fade_steps=20
 
 trap 'exit 0' TERM INT
 
-trap "xbacklight -steps 1 -set $(xbacklight -get); kill %%" EXIT
+trap "kill %%; xbacklight -steps 1 -set $(xbacklight -get)" EXIT
 
 xbacklight -time $fade_time -steps $fade_steps -set $min_brightness
 
