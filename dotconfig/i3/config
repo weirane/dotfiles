@@ -48,7 +48,7 @@ bindsym $mod+Ctrl+Return exec $terminal --name=FloatExec
 bindsym $mod+Ctrl+b exec $terminal --name=FloatExec -e 'bmenu'
 bindsym $mod+Ctrl+r exec $terminal --name=FloatExec -e 'ranger'
 
-bindsym $mod+Ctrl+e exec --no-startup-id rofimoji --use-clipboard
+bindsym $mod+Ctrl+e exec --no-startup-id $scripts/rofimoji.sh
 bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id $scripts/mount.sh
 bindsym $mod+Ctrl+u exec --no-startup-id $scripts/umount.sh
