@@ -53,7 +53,7 @@ bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id $scripts/mount.sh
 bindsym $mod+Ctrl+u exec --no-startup-id $scripts/umount.sh
 
-bindsym $mod+grave exec --no-startup-id $scripts/flash-win.sh
+bindsym $mod+Escape exec --no-startup-id $scripts/flash-win.sh
 
 focus_follows_mouse no
 focus_wrapping no
@@ -267,9 +267,9 @@ exec_always --no-startup-id ~/.config/polybar/start.sh
 exec $terminal
 
 # Dropdown terminal
-for_window [instance="dropdown-terminal"] floating enable, sticky enable, move scratchpad, border pixel 3
+for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
 exec --no-startup-id $terminal --title=Dropdown --name=dropdown-terminal --exec "sh -c 'while true; do tmux new -s dropdown || tmux attach -t dropdown; done'"
-bindsym $mod+Escape [instance="dropdown-terminal"] scratchpad show, move position center
+bindsym $mod+grave [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
