@@ -1,3 +1,10 @@
+# neovim
+if command -v nvim >/dev/null; then
+    export EDITOR=nvim
+    alias vi='command vim'
+    alias vim='nvim'
+fi
+
 # exa
 if command -v exa >/dev/null; then
     alias ls='exa'
