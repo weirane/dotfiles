@@ -10,3 +10,6 @@ alias tnew="tmux new -s"
 
 alias gdb="gdb -q"
 alias bc="bc -q"
+
+alias rsbk="RUST_BACKTRACE=1"
+alias langzh="LANG=zh_CN.UTF-8"
