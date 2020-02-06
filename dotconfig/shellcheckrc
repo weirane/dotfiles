@@ -1,0 +1,8 @@
+# Meaning of checks (replace 1000 with check number):
+#   https://github.com/koalaman/shellcheck/wiki/SC1000
+
+disable=SC2015
+disable=SC2018
+disable=SC2019
+disable=SC2064
+disable=SC2181
