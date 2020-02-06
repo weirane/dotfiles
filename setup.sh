@@ -4,27 +4,27 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     exit 1
 fi
 
-echodo () {
+echodo() {
     set -x
     "$@"
     { set +x; } 2>/dev/null
 }
 
-confirm () {
+confirm() {
     printf "%s (y/N) " "${1:-Are you sure?}"
     read -r response
     case $(echo "$response" | tr A-Z a-z) in
-        yes|y) true  ;;
-        *)     false ;;
+        yes | y) true ;;
+        *) false ;;
     esac
 }
 
-confirmy () {
+confirmy() {
     printf "%s (Y/n) " "${1:-Are you sure?}"
     read -r response
     case $(echo "$response" | tr A-Z a-z) in
-        no|n) false ;;
-        *)    true  ;;
+        no | n) false ;;
+        *) true ;;
     esac
 }
 
@@ -71,8 +71,7 @@ if [ ! -d "$HOME"/.oh-my-zsh ] && confirm "Setup oh-my-zsh?"; then
 fi
 
 # spaceship-prompt
-if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] \
-        && confirm "Setup spaceship-prompt? (y/N)"; then
+if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] && confirm "Setup spaceship-prompt?"; then
     echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
     echodo ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" \
@@ -80,8 +79,7 @@ if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] \
 fi
 
 # zsh-syntax-highlight
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] \
-        && confirm "Setup zsh-syntax-highlighting? (y/N)"; then
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && confirm "Setup zsh-syntax-highlighting?"; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
