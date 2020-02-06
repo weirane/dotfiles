@@ -2,15 +2,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'w0rp/ale', { 'for': ['c', 'cpp', 'rust', 'python'] }
-Plug 'ycm-core/YouCompleteMe'
 Plug 'scrooloose/nerdcommenter'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'Shougo/echodoc.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-syntax'
@@ -34,7 +31,6 @@ Plug 'lervag/vimtex'
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'Yggdroot/indentLine'
-Plug 'tell-k/vim-autopep8', { 'for': ['python'] }
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
@@ -60,18 +56,6 @@ let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_c = 1
 let g:NERDAltDelims_python = 1
 let g:NERDDefaultAlign = 'left'
-"}}}
-
-" ale {{{
-let g:ale_linters = {
-            \ 'c': ['clang', 'gcc'],
-            \ 'cpp': ['clang', 'gcc'],
-            \ 'rust': ['rls'],
-            \}
-let g:ale_c_parse_makefile = 1
-let g:ale_cpp_clang_options = '-std=c++17 -Wall'
-let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
-highlight ALEError ctermbg=0
 "}}}
 
 " airline {{{
@@ -105,53 +89,26 @@ let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 "}}}
 
-" YouCompleteMe {{{
-" install: python3 install.py --clangd-completer --ts-completer
-" ref: https://zhuanlan.zhihu.com/p/33046090
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_invoke_completion = '<c-z>'
-let g:ycm_server_python_interpreter = '/usr/bin/python'
-" enable ycm do completion for py3 modules
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_semantic_triggers =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,css,lua,javascript,rust': ['re!\w{2}'],
-            \ }
-let g:ycm_filetype_blacklist = {
-            \ 'text' : 1,
-            \}
-let g:ycm_language_server = [
-            \   {
-            \     'name': 'rust',
-            \     'cmdline': ['rls'],
-            \     'filetypes': ['rust'],
-            \     'project_root_files': ['Cargo.toml']
-            \   }
-            \ ]
-highlight YcmErrorSection ctermbg=0
-nnoremap <localleader>yd :YcmDiag<CR>
-nnoremap <localleader>yf :YcmCompleter FixIt<CR>
-nnoremap <localleader>yg :YcmCompleter GoTo<CR>
-nnoremap <localleader>yr :YcmCompleter RefactorRename  <BS>
-let g:ycm_clangd_args = ['--header-insertion=never']
-"}}}
+" coc.nvim {{{
+" https://github.com/neoclide/coc.nvim#example-vim-configuration
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <C-Space> coc#refresh()
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" echodoc {{{
-let g:echodoc_enable_at_startup = 1
-"}}}
-
-" vim-gutentags {{{
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg']
-let s:vim_tags_dir = expand('~/.vim/tmp/tags')
-let g:gutentags_cache_dir = s:vim_tags_dir
-if !isdirectory(s:vim_tags_dir)
-    silent! call mkdir(s:vim_tags_dir, 'p')
-endif
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+nmap <localleader>of <Plug>(coc-format)
+nmap <localleader>or <Plug>(coc-rename)
+nmap <localleader>od <Plug>(coc-definition)
+nmap <localleader>oi <Plug>(coc-implementation)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <localleader>ok :call CocAction('doHover')<CR>
 "}}}
 
 " easy motion {{{
@@ -225,10 +182,6 @@ let g:vimtex_fold_types = {
             \ },
             \}
 "}}}
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-silent! let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:vimtex_doc_handlers = ['MyDocHandler']
 function! MyDocHandler(context)
     call vimtex#doc#make_selection(a:context)
@@ -241,20 +194,13 @@ endfunction
 
 " Python {{{
 let g:pymode = 1
-let g:pymode_options_max_line_length = 120
+let g:pymode_lint = 0
+let g:pymode_options_max_line_length = 100
 let g:pymode_python = 'python3'
 let g:pymode_run_bind = "<localleader>r"
 let g:pymode_breakpoint_bind = "<localleader>b"
-let g:pymode_lint_cwindow = 0
-let g:pymode_lint_ignore = ["W0401"]
 let g:pymode_breakpoint_cmd =
             \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
-let g:pymode_lint_on_fly = 1
-
-let g:autopep8_on_save = 1
-let g:autopep8_disable_show_diff = 1
-let g:autopep8_max_line_length = 120
 "}}}
 
 " vim-markdown {{{
@@ -267,7 +213,6 @@ let g:mkdp_auto_close = 0
 
 " rust.vim {{{
 let g:rust_fold = 1
-let g:rustfmt_autosave = 1
 nnoremap <localleader>rt :RustTest<CR>
 "}}}
 

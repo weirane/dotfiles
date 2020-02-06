@@ -1,0 +1,58 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust"],
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+
+    "languageserver": {
+        "ccls-c": {
+            "command": "ccls",
+            "filetypes": ["c"],
+            "rootPatterns": [".root", ".ccls", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls-c"
+                },
+                "clang": {
+                    "extraArgs": ["-x", "c", "-Wall"]
+                }
+            }
+        },
+        "ccls-cpp": {
+            "command": "ccls",
+            "filetypes": ["cpp"],
+            "rootPatterns": [".root", ".ccls", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls-cpp"
+                },
+                "clang": {
+                    "extraArgs": ["-std=c++17", "-Wall"]
+                }
+            }
+        },
+        "hdlChecker": {
+            "command": "hdl_checker",
+            "args": ["--lsp"],
+            "filetypes": [
+                "vhdl",
+                "verilog",
+                "systemverilog",
+                "verilog_systemverilog"
+            ]
+        }
+    },
+    // https://github.com/meatwallace/dotfiles/issues/129
+    "diagnostic-languageserver.filetypes": {
+        "sh": "shellcheck"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        "sh": "shfmt"
+    },
+    "diagnostic-languageserver.formatters": {
+        "shfmt": {
+            "command": "shfmt",
+            "args": ["-i", "4", "-ci"]
+        }
+    }
+}
