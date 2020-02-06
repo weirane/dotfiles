@@ -5,6 +5,7 @@
     co = checkout
     da = reset HEAD
     df = diff
+    dfs = diff --staged
     last = !git --no-pager lg -1
     lg = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
     lgp = log --stat -p
