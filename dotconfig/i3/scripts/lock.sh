@@ -1,4 +1,6 @@
 #!/bin/sh
+pgrep -u "$(id -ru)" -x i3lock && exit
+
 set -e
 
 xset dpms force on
