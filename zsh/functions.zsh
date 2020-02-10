@@ -1,4 +1,5 @@
 function prependpath () {
+    [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
         *) export PATH="$1${PATH:+:$PATH}" ;;
@@ -6,6 +7,7 @@ function prependpath () {
 }
 
 function appendpath () {
+    [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
         *) export PATH="${PATH:+$PATH:}$1" ;;

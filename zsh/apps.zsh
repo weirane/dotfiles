@@ -3,7 +3,12 @@ if command -v nvim >/dev/null; then
     export EDITOR=nvim
     alias vi='command vim'
     alias vim='nvim'
+else
+    export EDITOR=vim
 fi
+
+# cargo
+prependpath ~/.cargo/bin
 
 # exa
 if command -v exa >/dev/null; then
