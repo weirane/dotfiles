@@ -46,6 +46,7 @@ done
 [ -f "$HOME/.dotfiles/local/gdbinit" ] || echodo touch "$HOME/.dotfiles/local/gdbinit"
 
 # .config
+[ -d "$HOME/.config" ] || mkdir -p "$HOME/.config"
 for d in "$HOME"/.dotfiles/dotconfig/*; do
     name="$HOME"/.config/$(basename "$d")
     [ -e "$name" ] || echodo ln -s "$d" "$name"
