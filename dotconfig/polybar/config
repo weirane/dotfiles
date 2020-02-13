@@ -117,6 +117,7 @@ label = 📅 %date% %time%
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/scripts/openweathermap-detailed.sh
+exec-if = test -f ~/.config/polybar/scripts/owm-key
 tail = true
 
 format = <label>

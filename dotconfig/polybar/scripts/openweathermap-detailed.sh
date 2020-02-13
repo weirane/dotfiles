@@ -7,12 +7,14 @@
 pgrep -f 'openweathermap-detailed.sh' >/dev/null 2>&1 || exit
 
 API="https://api.openweathermap.org/data/2.5"
-KEY=$(cat "$(dirname "$(realpath "$0")")/owm-key")
+keyfile=$(dirname "$(realpath "$0")")/owm-key
 
-if [ -z "$KEY" ]; then
+if [ ! -f "$keyfile" ]; then
     echo "No key"
     sleep infinity
 fi
+
+KEY=$(cat "$keyfile")
 
 get_icon() {
     case $1 in
