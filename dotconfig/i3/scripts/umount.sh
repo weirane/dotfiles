@@ -3,6 +3,7 @@
 # Use rofi to choose a partition to umount
 
 chosen=$(lsblk -nrpo "label,type,size,mountpoint" |
+    sed 's/^ /NoLabel /' |
     awk '$2 == "part" && $4 !~ /\/boot|\/home$|SWAP/ && length($4) > 1 {
         printf "%s %s (%s)\n",$4,$1,$3
     }' |
