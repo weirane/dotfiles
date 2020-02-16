@@ -85,4 +85,16 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && confirm "Setup zsh-
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
+# Helper shell scripts
+if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
+    printf "Clone using SSH(s) or HTTPS(h)? (H/s) "
+    read -r proto
+    if [ "$(echo "$proto" | tr A-Z a-z)" = s ]; then
+        pre=git@github.com:
+    else
+        pre=https://github.com/
+    fi
+    git clone "${pre}weirane/scripts" "$HOME/scripts"
+fi
+
 exit 0

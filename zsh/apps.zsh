@@ -7,6 +7,9 @@ else
     export EDITOR=vim
 fi
 
+# helper scripts
+prependpath ~/scripts
+
 # cargo
 prependpath ~/.cargo/bin
 
