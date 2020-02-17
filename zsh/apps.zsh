@@ -1,3 +1,10 @@
+# helper scripts and binaries
+prependpath ~/bin
+prependpath ~/scripts
+
+# cargo
+prependpath ~/.cargo/bin
+
 # neovim
 if command -v nvim >/dev/null; then
     export EDITOR=nvim
@@ -6,12 +13,6 @@ if command -v nvim >/dev/null; then
 else
     export EDITOR=vim
 fi
-
-# helper scripts
-prependpath ~/scripts
-
-# cargo
-prependpath ~/.cargo/bin
 
 # exa
 if command -v exa >/dev/null; then
