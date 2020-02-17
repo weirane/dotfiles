@@ -16,6 +16,7 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'easymotion/vim-easymotion'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'itchyny/vim-cursorword'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 " Jsonc
 Plug 'neoclide/jsonc.vim'
@@ -59,10 +60,6 @@ let g:NERDDefaultAlign = 'left'
 "}}}
 
 " airline {{{
-let g:airline#extensions#tabline#enabled = 1
-" show buffer number
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#buffer_nr_format = '[%s] '
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
@@ -116,6 +113,14 @@ nnoremap <silent> <localleader>ok :call CocAction('doHover')<CR>
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_startofline = 0  " keep cursor colum when JK motion
 nnoremap <leader><leader>. <Plug>(easymotion-repeat)
+"}}}
+
+" fzf {{{
+let $FZF_DEFAULT_COMMAND=expand('$FZF_DEFAULT_COMMAND --no-ignore')
+nnoremap <silent><leader>b :Buffers<CR>
+nnoremap <silent><leader>ff :Files<CR>
+nnoremap <silent><leader>fg :GFiles<CR>
+nnoremap <silent><leader>fr :Rg<CR>
 "}}}
 
 " easy-align {{{
