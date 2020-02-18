@@ -9,6 +9,7 @@ dummy/
 .vimrc
 .nvimrc
 .exrc
+.env
 
 .clang-format
 rustfmt.toml
