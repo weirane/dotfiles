@@ -34,6 +34,7 @@ filetype plugin on
 filetype indent on
 colorscheme slate
 highlight PMenu ctermfg=0 ctermbg=242
+highlight ColorColumn ctermbg=8
 
 let s:vim_tmp_dir = expand('~/.vim/tmp')
 if !isdirectory(s:vim_tmp_dir)
