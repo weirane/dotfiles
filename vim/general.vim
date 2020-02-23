@@ -28,6 +28,7 @@ set updatetime=100
 set incsearch
 set wildmenu
 set shortmess+=c
+set nojoinspaces
 
 syntax on
 filetype plugin on
