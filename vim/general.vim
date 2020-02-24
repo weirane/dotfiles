@@ -93,3 +93,13 @@ if has('nvim')
 else
     set ttymouse=sgr
 endif
+
+" Line width limit
+function! s:set_color_column(...)
+    let width = get(a:, 1, 80)
+    let &colorcolumn = width
+    let &textwidth = width
+    set formatoptions+=ta
+endfunction
+
+command! -nargs=? LineLimit :call <SID>set_color_column(<f-args>)
