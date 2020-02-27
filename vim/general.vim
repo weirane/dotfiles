@@ -29,6 +29,7 @@ set incsearch
 set wildmenu
 set shortmess+=c
 set nojoinspaces
+set formatoptions+=l
 
 syntax on
 filetype plugin on
@@ -96,10 +97,20 @@ endif
 
 " Line width limit
 function! s:set_color_column(...)
-    let width = get(a:, 1, 80)
-    let &colorcolumn = width
-    let &textwidth = width
-    set formatoptions+=ta
+    let l:width = get(a:, 1, 80)
+    if (l:width == "-s")
+        let l:width = get(a:, 2, 80)
+        if (l:width <= 0)
+            return
+        endif
+    else
+        if (l:width <= 0)
+            return
+        endif
+        setlocal formatoptions+=ta
+    endif
+    let &l:colorcolumn = l:width + 1
+    let &l:textwidth = l:width
 endfunction
 
-command! -nargs=? LineLimit :call <SID>set_color_column(<f-args>)
+command! -nargs=* LineLimit :call <SID>set_color_column(<f-args>)
