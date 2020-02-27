@@ -175,6 +175,7 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="^VirtualBox Machine$"] floating disable border pixel 1
 for_window [instance="^FloatExec$"] floating enable border normal
 
 for_window [title="^Edit ToDo$"] resize set 800 600, move position center
@@ -184,14 +185,18 @@ for_window [class="^Arandr$"] floating enable border normal
 for_window [class="^TelegramDesktop$"] floating enable border normal
 for_window [class="^Nm-connection-editor$"] floating enable border normal
 for_window [class="^Fcitx-config-gtk3$"] floating enable border normal
+for_window [class="^File-roller$"] floating enable border normal
+for_window [title="_vimtex\.pdf$"] floating enable border normal
 
 for_window [class="^Vivado$" title="^win0$"] floating enable border none
 for_window [class="^vlc$" window_role="^vlc-plugins$"] floating enable border normal
+for_window [class="^firefox$" window_role="^About$"] floating enable border normal
 for_window [class="^firefox$" window_role="^Organizer$"] floating enable border normal
 for_window [class="^firefox$" window_role="^page-info$"] floating enable border normal
 for_window [class="^firefox$" window_role="^PictureInPicture$"] floating enable sticky enable border none
 for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable border normal
 for_window [class="^Thunderbird$" window_role="^addressbook$"] floating enable border normal
+for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable border normal
 
 for_window [workspace=$ws9] floating enable border normal
 
