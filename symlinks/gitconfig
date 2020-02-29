@@ -11,7 +11,6 @@
     lgp = log --stat -p
     st = status -sb
 [core]
-    editor = vim
     excludesfile = ~/.gitignore
 [color "diff"]
     meta = yellow bold
