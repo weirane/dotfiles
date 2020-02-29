@@ -17,7 +17,7 @@
     format = "<b>%s</b> %p\n%b"
 
     # Sort messages by urgency.
-    sort = yes
+    sort = no
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -121,7 +121,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus-Dark/actions:/usr/share/icons/Papirus-Dark/apps:/usr/share/icons/Papirus-Dark/categories:/usr/share/icons/Papirus-Dark/devices:/usr/share/icons/Papirus-Dark/emblems:/usr/share/icons/Papirus-Dark/emotes:/usr/share/icons/Papirus-Dark/mimetypes:/usr/share/icons/Papirus-Dark/panel:/usr/share/icons/Papirus-Dark/places:/usr/share/icons/Papirus-Dark/status
+    icon_path = /usr/share/icons/Papirus-Dark/24x24/actions:/usr/share/icons/Papirus-Dark/24x24/apps:/usr/share/icons/Papirus-Dark/24x24/categories:/usr/share/icons/Papirus-Dark/24x24/devices:/usr/share/icons/Papirus-Dark/24x24/emblems:/usr/share/icons/Papirus-Dark/24x24/emotes:/usr/share/icons/Papirus-Dark/24x24/mimetypes:/usr/share/icons/Papirus-Dark/24x24/panel:/usr/share/icons/Papirus-Dark/24x24/places:/usr/share/icons/Papirus-Dark/24x24/status
 
     # Limit icons size.
     max_icon_size=128
@@ -138,7 +138,7 @@
     close_all = ctrl+shift+space
 
     # Redisplay last message(s).
-    history = mod4+shift+h
+    history = ctrl+shift+h
 
     # Context menu.
     context = ctrl+shift+period
