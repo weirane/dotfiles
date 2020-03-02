@@ -1,3 +1,3 @@
-setlocal colorcolumn=81
-setlocal textwidth=80
+setlocal colorcolumn=73
+setlocal textwidth=72
 setlocal spell spelllang=en,cjk
