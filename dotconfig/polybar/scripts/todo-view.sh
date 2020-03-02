@@ -4,6 +4,10 @@
 # number of todos that due today are shown.
 
 todo_file="$HOME/todo.txt"
+pid_file="$HOME/.config/polybar/scripts/.todo.pid"
+
+echo "$$" > "$pid_file"
+trap "rm -f $pid_file" EXIT
 
 update() {
     kill %% >/dev/null 2>&1

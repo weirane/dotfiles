@@ -43,6 +43,8 @@ bindsym Print exec --no-startup-id $scripts/screenshot.sh --whole
 bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
 bindsym $mod+Ctrl+f exec firefox
+bindsym $mod+Ctrl+n exec $terminal --exec "env LANG=en_US.UTF-8 neomutt -e 'set quit=no'"
+bindsym $mod+Ctrl+t exec sh -c 'cat ~/.config/polybar/scripts/.todo.pid | xargs -r kill -USR1'
 
 bindsym $mod+Ctrl+Return exec $terminal --name=FloatExec
 bindsym $mod+Ctrl+b exec $terminal --name=FloatExec -e 'bmenu'
@@ -185,6 +187,7 @@ for_window [class="^Arandr$"] floating enable border normal
 for_window [class="^TelegramDesktop$"] floating enable border normal
 for_window [class="^Nm-connection-editor$"] floating enable border normal
 for_window [class="^Fcitx-config-gtk3$"] floating enable border normal
+for_window [class="^fcitx-qt5-gui-wrapper$"] floating enable border normal
 for_window [class="^File-roller$"] floating enable border normal
 for_window [title="_vimtex\.pdf$"] floating enable border normal
 
