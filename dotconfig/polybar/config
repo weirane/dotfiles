@@ -28,7 +28,7 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 2
-padding-right = 27
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 1
@@ -45,8 +45,6 @@ modules-right = todo date weather cpu memory wlan eth xbacklight alsa battery
 
 tray-position = ${env:TRAY_POS:none}
 tray-padding = 0
-tray-detached = true
-tray-offset-x = 4
 
 ; wm-restack = i3
 ; override-redirect = true
