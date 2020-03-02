@@ -10,6 +10,7 @@ dummy/
 .nvimrc
 .exrc
 .env
+.vim/coc-settings.json
 
 .clang-format
 rustfmt.toml
