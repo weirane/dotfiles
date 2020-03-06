@@ -2,6 +2,8 @@
 My configs for vim, zsh, i3, polybar etc.
 
 ## Setup
+Some of the steps below are covered by `./setup.sh`.
+
 ### Zsh
 Install `zsh` via `pacman`, or [from source][zsh-src]. Running `./setup.sh` will install [oh-my-zsh], [spaceship prompt] and [zsh-syntax-highlighting].
 
@@ -43,6 +45,11 @@ Note: `autojump` is not in the standard repository, but you can find it in [arch
 [fzf-git]: https://github.com/junegunn/fzf#using-git
 [autojump]: https://github.com/wting/autojump
 [archlinuxcn]: https://lug.ustc.edu.cn/wiki/mirrors/help/archlinuxcn
+
+### scripts
+Some of the bindings I have use external shell scripts, which can be found in [this GitHub repo][scripts-repo]. Installation of the scripts is covered by `./setup.sh`.
+
+[scripts-repo]: https://github.com/weirane/scripts
 
 ### Neovim
 Install [`neovim`][nvim] via `pacman` or download the [prebuilt package][nvim-bin], and install python package `pynvim` and node.js package `neovim` (these two are optional).
