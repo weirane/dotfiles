@@ -237,23 +237,17 @@
 #    foreground = "#FFFFFF"
 #
 [irc]
-        appname = weechat
-        timeout = 0
-        background = "#0033bb"
-        foreground = "#dddddd"
-#
+    appname = weechat
+    timeout = 0
+
 [weechat hl]
-     appname = weechat
-     category = weechat.HL
-     background = "#FF5C47"
-     foreground = "#FFFFFF"
-#
+    appname = weechat
+    category = weechat.HL
+
 [weechat pn]
-     appname = weechat
-     category = weechat.PM
-     background = "#D53B84"
-     foreground = "#FFFFFF"
-#
+    appname = weechat
+    category = weechat.PM
+
 #[CMUS]
 #    appname = CMUS
 #    category = cmus
