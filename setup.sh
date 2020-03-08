@@ -4,6 +4,8 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     exit 1
 fi
 
+set -e
+
 echodo() {
     set -x
     "$@"
@@ -58,9 +60,10 @@ if [ ! -f "$HOME"/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+export ZSH="$HOME/.local/share/oh-my-zsh"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
 # oh-my-zsh
-if [ ! -d "$HOME"/.oh-my-zsh ] && confirm "Setup oh-my-zsh?"; then
+if [ ! -d "$ZSH" ] && confirm "Setup oh-my-zsh?"; then
     tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
     echodo curl -Lo "$tmpf" \
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -75,8 +78,7 @@ fi
 if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] && confirm "Setup spaceship-prompt?"; then
     echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
-    echodo ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" \
-        "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+    (cd "$ZSH_CUSTOM/themes" && echodo ln -s spaceship-prompt/spaceship.zsh-theme .)
 fi
 
 # zsh-syntax-highlight
