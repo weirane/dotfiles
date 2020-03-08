@@ -1,6 +1,0 @@
-. ~/.dotfiles/zsh/basic.zsh
-. ~/.dotfiles/zsh/aliases.zsh
-. ~/.dotfiles/zsh/functions.zsh
-. ~/.dotfiles/zsh/apps.zsh
-
-[ -f ~/.dotfiles/local/zshrc ] && \. ~/.dotfiles/local/zshrc || true
