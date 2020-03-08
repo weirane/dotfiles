@@ -18,6 +18,7 @@ Plug 'lilydjwg/fcitx.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mboughaba/i3config.vim'
 " Jsonc
 Plug 'neoclide/jsonc.vim'
 " Markdown

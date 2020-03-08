@@ -43,8 +43,8 @@ bindsym Print exec --no-startup-id $scripts/screenshot.sh --whole
 bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
 bindsym $mod+Ctrl+f exec firefox
-bindsym $mod+Ctrl+n exec $terminal --exec "env LANG=en_US.UTF-8 neomutt -e 'set quit=no'"
-bindsym $mod+Ctrl+t exec sh -c 'cat ~/.config/polybar/scripts/.todo.pid | xargs -r kill -USR1'
+bindsym $mod+Ctrl+n exec $terminal --title=neomutt --exec "env LANG=en_US.UTF-8 neomutt -e 'set quit=no'"
+bindsym $mod+Ctrl+t exec --no-startup-id cat $HOME/.config/polybar/scripts/.todo.pid | xargs -r kill -USR1
 
 bindsym $mod+Ctrl+Return exec $terminal --name=FloatExec
 bindsym $mod+Ctrl+b exec $terminal --name=FloatExec -e 'bmenu'
@@ -276,7 +276,7 @@ exec $terminal
 
 # Dropdown terminal
 for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
-exec --no-startup-id $terminal --title=Dropdown --name=dropdown-terminal --exec "sh -c 'while true; do tmux new -s dropdown || tmux attach -t dropdown; done'"
+exec --no-startup-id $terminal --title=Dropdown --name=dropdown-terminal --exec "sh -c 'while true; do tmux new -s dropdown || tmux attach -t dropdown || break; done'"
 bindsym $mod+grave [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
@@ -291,7 +291,7 @@ client.background       #2B2C2B
 
 # settings for i3-gaps
 gaps inner 4
-gaps outer -2
+gaps outer 0
 smart_gaps on
 smart_borders on
 
