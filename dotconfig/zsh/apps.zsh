@@ -48,6 +48,9 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 # ipython
 export IPYTHONDIR="$HOME/.config/ipython"
 
+# httpie
+export HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
+
 # wget
 export WGETRC="$HOME/.config/wgetrc"
 
