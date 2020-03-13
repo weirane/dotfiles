@@ -29,7 +29,7 @@ set incsearch
 set wildmenu
 set shortmess+=c
 set nojoinspaces
-set formatoptions+=l
+set formatoptions+=lnt
 
 syntax on
 filetype plugin on
@@ -103,11 +103,12 @@ function! s:set_color_column(...)
         if (l:width <= 0)
             return
         endif
+        setlocal formatoptions-=a
     else
         if (l:width <= 0)
             return
         endif
-        setlocal formatoptions+=ta
+        setlocal formatoptions+=a
     endif
     let &l:colorcolumn = l:width + 1
     let &l:textwidth = l:width
