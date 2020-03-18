@@ -42,6 +42,10 @@ if command -v fd >/dev/null; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
+# less
+export LESS="-MR -# 10"
+export LESSHISTFILE="-"
+
 # ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 
