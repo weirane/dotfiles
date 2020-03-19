@@ -134,6 +134,10 @@ vmap <leader>a <Plug>(LiveEasyAlign)
 let g:indentLine_fileType = ['python', 'yaml']
 "}}}
 
+" cursorword {{{
+let g:cursorword_delay = 0
+"}}}
+
 " html (emmet) {{{
 let g:emmet_html5 = 1
 let g:user_emmet_settings = {
