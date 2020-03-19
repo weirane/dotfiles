@@ -68,13 +68,13 @@ let g:airline#extensions#whitespace#checks = ['indent', 'trailing', 'mixed-inden
 "}}}
 
 " fugitive {{{
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gd :Gdiff \| wincmd H<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v<CR>
-nnoremap <leader>gl :Gpull<CR>
-nnoremap <leader>gp :Gpush<CR>
+nnoremap <silent> <leader>gb :Git blame<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>gd :vert Gdiffsplit<CR>
+nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gc :tab Git commit -v<CR>
+nnoremap <silent> <leader>gl :Git pull<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
 "}}}
 
 " gitgutter {{{
