@@ -26,7 +26,6 @@ SPACESHIP_PROMPT_ORDER=(
 plugins=(
     autojump
     dotenv
-    cargo
     rust
     colored-man-pages
     # zsh-autosuggestions
