@@ -61,6 +61,7 @@ let g:NERDDefaultAlign = 'left'
 "}}}
 
 " airline {{{
+let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 2
