@@ -14,9 +14,9 @@ update() {
 }
 
 show() {
-    termite --name=FloatExec \
-            --title="Edit ToDo" \
-            --exec "vim -u DEFAULTS $todo_file"
+    alacritty --class=FloatExec \
+              --title="Edit ToDo" \
+              -e vim -u DEFAULTS "$todo_file"
     update
 }
 
