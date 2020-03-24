@@ -86,7 +86,11 @@ nnoremap <leader>gf :GitGutterFold<CR>
 " vim-rooter {{{
 let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
-let g:rooter_patterns = ['Cargo.toml', 'package.json', '.git', '.git/', '.hg/']
+let g:rooter_patterns = [
+            \ 'Cargo.toml', 'package.json', 'Pipfile',
+            \ '.git', '.git/', '.hg/',
+            \ '.root',
+            \]
 "}}}
 
 " coc.nvim {{{

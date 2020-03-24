@@ -6,6 +6,7 @@ dummy/
 
 .gdb_history
 
+.root
 .vimrc
 .nvimrc
 .exrc
