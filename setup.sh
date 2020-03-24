@@ -60,6 +60,16 @@ if [ ! -f "$HOME"/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# *.desktop files
+applications="$HOME/.local/share/applications"
+added=0
+[ -d "$applications" ] || echodo mkdir -p "$applications"
+for f in "$HOME"/.dotfiles/applications/*; do
+    name="$HOME/.local/share/applications/$(basename "$f")"
+    [ -f "$name" ] || { echodo ln -s "$f" "$name" && added=1; }
+done
+[ "$added" = 1 ] && update-desktop-database "$applications" 2>/dev/null || true
+
 export ZSH="$HOME/.local/share/oh-my-zsh"
 ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
 # oh-my-zsh
