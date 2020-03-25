@@ -11,7 +11,7 @@
     lgp = log --stat -p
     st = status -sb
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/ignore
 [color "diff"]
     meta = yellow bold
     commit = green bold

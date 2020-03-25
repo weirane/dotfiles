@@ -52,6 +52,9 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 # ipython
 export IPYTHONDIR="$HOME/.config/ipython"
 
+# jupyter
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
+
 # httpie
 export HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
 
