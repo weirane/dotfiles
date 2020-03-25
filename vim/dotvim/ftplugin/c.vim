@@ -1,4 +1,5 @@
 setlocal foldmethod=syntax
+setlocal cindent
 packadd termdebug
 
 highlight cFunctions guifg=#FF9D4D ctermfg=214

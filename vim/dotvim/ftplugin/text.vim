@@ -1,5 +1,4 @@
 setlocal nolinebreak
-setlocal nocindent
 setlocal noexpandtab
 silent! call airline#extensions#whitespace#disable()
 

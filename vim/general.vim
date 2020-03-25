@@ -4,7 +4,7 @@ set expandtab
 set scrolloff=3
 set noshowmode
 set autoindent
-set cindent
+set nocindent
 set cinoptions+=:0
 set cinoptions+=g0
 set cinoptions+=N-s
