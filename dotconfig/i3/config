@@ -47,6 +47,7 @@ bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
 bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
+bindsym $mod+Ctrl+p exec --no-startup-id pcmanfm
 bindsym $mod+Ctrl+t exec --no-startup-id cat $HOME/.config/polybar/scripts/.todo.pid | xargs -r kill -USR1
 
 bindsym $mod+Ctrl+Return exec --no-startup-id $float_term
@@ -193,6 +194,7 @@ for_window [class="^Fcitx-config-gtk3$"] floating enable border normal
 for_window [class="^fcitx-qt5-gui-wrapper$"] floating enable border normal
 for_window [class="^File-roller$"] floating enable border normal
 for_window [class="^Zathura$"] floating enable border normal
+for_window [class="^Pcmanfm$"] floating enable border normal
 
 for_window [class="^Vivado$" title="^win0$"] floating enable border none
 for_window [class="^vlc$" window_role="^vlc-plugins$"] floating enable border normal
