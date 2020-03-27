@@ -1,5 +1,6 @@
 export ZSH="$HOME/.local/share/oh-my-zsh"
 
+PROMPT_EOL_MARK="%B%F{8}↵%f%b"
 HYPHEN_INSENSITIVE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
 # ZSH_THEME="robbyrussell"
