@@ -29,6 +29,7 @@
     tool = vimdiff
 [diff]
     tool = vimdiff
+    wsErrorHighlight = old,new
 [difftool]
     prompt = false
 [include]
