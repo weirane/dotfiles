@@ -31,16 +31,6 @@
                     "extraArgs": ["-std=c++17", "-Wall"]
                 }
             }
-        },
-        "hdlChecker": {
-            "command": "hdl_checker",
-            "args": ["--lsp"],
-            "filetypes": [
-                "vhdl",
-                "verilog",
-                "systemverilog",
-                "verilog_systemverilog"
-            ]
         }
     },
     // https://github.com/meatwallace/dotfiles/issues/129
