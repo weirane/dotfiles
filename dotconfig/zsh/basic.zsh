@@ -36,3 +36,6 @@ source $ZSH/oh-my-zsh.sh
 unset plugins
 
 eval $(dircolors -b ~/.dotfiles/dir_colors)
+
+bindkey '^[p' up-line-or-beginning-search
+bindkey '^[n' down-line-or-beginning-search
