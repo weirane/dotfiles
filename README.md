@@ -85,10 +85,20 @@ For python linting, install `flake8` via `pip` or `pacman`.
 [`vim-clang-format`]: https://github.com/rhysd/vim-clang-format
 
 ### Map Caps Lock to Escape and Ctrl
-Install two AUR packages and enable `udevmon`:
+Only map in X, use [XCAPE] with Xmodmap.
+
+```bash
+sudo pacman -S xcape
+xcape -e 'Control_L=Escape'  # rerun every time X starts and new keyboard plugged
+```
+
+To map also in tty, install two AUR packages and enable `udevmon`:
 
     yay -S interception-tools interception-caps2esc-nocaps-git
     sudo cp ./etc/udevmon.yaml /etc/udevmon.yaml
     sudo systemctl enable --now udevmon
 
-Related blog post (zh_CN): [link](https://weirane.github.io/2020/04/map-capslock-to-esc-and-ctrl.html)
+Related blog post (zh_CN): [link][blog-caps]
+
+[XCAPE]: https://github.com/alols/xcape
+[blog-caps]: https://weirane.github.io/2020/04/map-capslock-to-esc-and-ctrl.html
