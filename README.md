@@ -83,3 +83,12 @@ For python linting, install `flake8` via `pip` or `pacman`.
 [`vim-autopep8`]: https://github.com/tell-k/vim-autopep8
 [autopep8]: https://github.com/hhatto/autopep8#installation
 [`vim-clang-format`]: https://github.com/rhysd/vim-clang-format
+
+### Map Caps Lock to Escape and Ctrl
+Install two AUR packages and enable `udevmon`:
+
+    yay -S interception-tools interception-caps2esc-nocaps-git
+    sudo cp ./etc/udevmon.yaml /etc/udevmon.yaml
+    sudo systemctl enable --now udevmon
+
+Related blog post (zh_CN): [link](https://weirane.github.io/2020/04/map-capslock-to-esc-and-ctrl.html)
