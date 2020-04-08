@@ -11,6 +11,7 @@ if command -v nvim >/dev/null; then
     alias vi='command vim'
     alias vim='nvim'
     alias vimdiff='nvim -d'
+    export MANPAGER="nvim -c 'set ft=man' -"
 else
     export EDITOR=vim
 fi
