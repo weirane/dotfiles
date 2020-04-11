@@ -4,6 +4,7 @@ set statusbar-home-tilde true
 set first-page-column 1:1
 set synctex true
 
+unmap R
 map r reload
 map R rotate
 map u scroll half-up
