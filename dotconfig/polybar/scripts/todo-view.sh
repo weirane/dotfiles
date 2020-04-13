@@ -10,17 +10,19 @@ echo "$$" > "$pid_file"
 trap "rm -f $pid_file" EXIT
 
 update() {
-    kill %% >/dev/null 2>&1
+    pkill --parent $$ -x sleep >/dev/null
 }
 
 show() {
+    xdotool search --class 'Alacritty' \
+            search --name 'Edit Todo' >/dev/null && return
     alacritty --class=FloatExec \
               --title="Edit ToDo" \
               -e vim -u DEFAULTS "$todo_file"
     update
 }
 
-trap "show" USR1
+trap "show &" USR1
 trap "update" USR2
 
 while true; do
@@ -35,5 +37,7 @@ while true; do
     fi
     echo "ToDo ($num$today)"
     sleep 2h >/dev/null 2>&1 &
-    wait
+    while pgrep --parent $$ -x sleep >/dev/null; do
+        wait
+    done
 done
