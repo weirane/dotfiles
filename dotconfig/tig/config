@@ -1,4 +1,24 @@
 set vertical-split = no
+set horizontal-scroll = 15%
+
+bind generic h scroll-left
+bind generic l scroll-right
+bind generic <Up> scroll-line-up
+bind generic <Down> scroll-line-down
+bind generic g none
+bind generic gg move-first-line
+bind generic G move-last-line
+bind generic H view-help
+bind main H view-help
+# In diff and stage: {k,j} scroll the page, Ctrl-{P,N} scroll the cursor
+bind diff k scroll-line-up
+bind diff j scroll-line-down
+bind diff <Ctrl-P> move-up
+bind diff <Ctrl-N> move-down
+bind stage k scroll-line-up
+bind stage j scroll-line-down
+bind stage <Ctrl-P> move-up
+bind stage <Ctrl-N> move-down
 
 # https://github.com/cbertoldi/dotfiles/blob/master/tigrc.symlink
 # See: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
