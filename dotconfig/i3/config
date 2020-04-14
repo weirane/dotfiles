@@ -39,21 +39,20 @@ bindsym XF86AudioRaiseVolume  exec --no-startup-id "amixer sset 'Master' on 5%+"
 
 # Start Applications
 bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+Ctrl+Return exec --no-startup-id $float_term
+
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+i exec --no-startup-id rofi -show window
 bindsym $mod+z exec --no-startup-id rofi -show drun
+
 bindsym Print exec --no-startup-id $scripts/screenshot.sh --whole
 bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
+
 bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
 bindsym $mod+Ctrl+p exec --no-startup-id thunar
 bindsym $mod+Ctrl+t exec --no-startup-id cat $HOME/.config/polybar/scripts/.todo.pid | xargs -r kill -USR1
-
-bindsym $mod+Ctrl+Return exec --no-startup-id $float_term
-bindsym $mod+Ctrl+b exec --no-startup-id $float_term -e bmenu
-bindsym $mod+Ctrl+r exec --no-startup-id $float_term -e ranger
-
 bindsym $mod+Ctrl+e exec --no-startup-id $scripts/rofimoji.sh
 bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id $scripts/mount.sh
@@ -196,6 +195,8 @@ for_window [class="^File-roller$"] floating enable border normal
 for_window [class="^Zathura$"] floating enable border normal
 for_window [class="^Pcmanfm$"] floating enable border normal
 for_window [class="^Thunar$"] floating enable border normal
+for_window [class="^Qemu"] floating enable border normal
+for_window [class="^Wine$" instance="^tim\.exe$"] floating enable border none
 
 for_window [class="^Vivado$" title="^win0$"] floating enable border none
 for_window [class="^vlc$" window_role="^vlc-plugins$"] floating enable border normal
