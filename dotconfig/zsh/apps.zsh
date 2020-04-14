@@ -29,6 +29,7 @@ fi
 # fzf
 fzf1=/usr/share/fzf
 
+export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
 if [ -f $fzf1/key-bindings.zsh ] && [ -f $fzf1/completion.zsh ]; then
     . $fzf1/key-bindings.zsh
