@@ -1,5 +1,7 @@
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
 
 nnoremap ? ?\v
 nnoremap / /\v
