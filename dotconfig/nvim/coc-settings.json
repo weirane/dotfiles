@@ -1,5 +1,6 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust"],
+    "coc.source.file.ignoreHidden": false,
 
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
