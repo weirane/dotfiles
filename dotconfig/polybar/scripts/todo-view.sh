@@ -18,7 +18,7 @@ show() {
             search --name 'Edit Todo' >/dev/null && return
     alacritty --class=FloatExec \
               --title="Edit ToDo" \
-              -e vim -u DEFAULTS "$todo_file"
+              -e nvim -u NONE -c 'set laststatus=0' "$todo_file"
     update
 }
 
