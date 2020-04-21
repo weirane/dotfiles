@@ -104,7 +104,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+    return !col || col + 1 == col('$') || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <localleader>of <Plug>(coc-format)
