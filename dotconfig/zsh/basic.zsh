@@ -39,3 +39,9 @@ eval $(dircolors -b ~/.dotfiles/dir_colors)
 
 bindkey '^[p' up-line-or-beginning-search
 bindkey '^[n' down-line-or-beginning-search
+
+cdpath=(~ ..)
+
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+setopt rc_quotes  # '' as ' in single quotes

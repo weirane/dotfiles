@@ -1,4 +1,4 @@
-function prependpath () {
+prependpath() {
     [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
@@ -6,7 +6,7 @@ function prependpath () {
     esac
 }
 
-function appendpath () {
+appendpath() {
     [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
@@ -14,17 +14,27 @@ function appendpath () {
     esac
 }
 
-function mcd () {
+cmdof() {
+    [ -z "$1" ] && return
+    xargs -0 < "/proc/$1/cmdline"
+}
+
+envof() {
+    [ -z "$1" ] && return
+    tr '\0' '\n' < "/proc/$1/environ"
+}
+
+mcd() {
     [[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
 compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
-function df () {
+df() {
     command -p df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
 }
 
 # ex - archive extractor. usage: ex <file>
-function ex () {
+ex() {
     if [[ ! -f "$1" ]]; then
         echo "'$1' is not a valid file"
         return
@@ -47,7 +57,7 @@ function ex () {
     esac
 }
 
-function colors () {
+colors() {
     local fgc bgc vals seq0
 
     printf "Color escapes are %s\n" '\e[${value};...;${value}m'
