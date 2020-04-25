@@ -13,7 +13,5 @@ dummy/
 .env
 .vim/coc-settings.json
 
-.clang-format
-rustfmt.toml
 .ycm_extra_conf.py
 .ccls
