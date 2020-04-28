@@ -30,6 +30,7 @@ set wildmenu
 set shortmess+=c
 set nojoinspaces
 set formatoptions+=lnt
+set nostartofline
 
 syntax on
 filetype plugin on
