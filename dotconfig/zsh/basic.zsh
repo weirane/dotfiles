@@ -37,10 +37,17 @@ unset plugins
 
 eval $(dircolors -b ~/.dotfiles/dir_colors)
 
+bindkey '^U' backward-kill-line
+bindkey '^[l' vi-find-next-char
+bindkey '^[h' vi-find-prev-char
+bindkey '^[;' vi-repeat-find
+bindkey '^[,' vi-rev-repeat-find
+bindkey '^[H' run-help
 bindkey '^[p' up-line-or-beginning-search
 bindkey '^[n' down-line-or-beginning-search
 
 cdpath=(~ ..)
+SAVEHIST=99999999
 
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 

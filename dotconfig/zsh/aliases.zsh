@@ -20,5 +20,5 @@ alias :q="exit"
 
 alias -s pdf="zathura --fork"
 alias -s {svg,html,htm}="${BROWSER:-firefox}"
-alias -s {png,jpg,jpeg}="sxiv -N FloatExec"
-alias -s gif="sxiv -a -N FloatExec"
+alias -s {png,jpg,jpeg}="setsid sxiv -N FloatExec"
+alias -s gif="setsid mpv --loop=inf --player-operation-mode=pseudo-gui"
