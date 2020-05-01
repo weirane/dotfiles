@@ -116,3 +116,37 @@ function! s:set_color_column(...)
 endfunction
 
 command! -nargs=* LineLimit :call <SID>set_color_column(<f-args>)
+
+" move by line
+function! s:move_by_line() abort
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    nnoremap j gj
+    nnoremap k gk
+
+    nnoremap g0 0
+    nnoremap g^ ^
+    nnoremap g$ $
+    nnoremap gj j
+    nnoremap gk k
+
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+
+    vnoremap g0 0
+    vnoremap g^ ^
+    vnoremap g$ $
+    vnoremap gj j
+    vnoremap gk k
+endfunction
+
+command! -nargs=0 MoveByLine :call <SID>move_by_line()
+
+augroup MoveByLine
+    au!
+    autocmd Filetype text,markdown,tex exec 'MoveByLine'
+augroup END
