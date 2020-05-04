@@ -190,12 +190,14 @@ for_window [class="^Arandr$"] floating enable border normal
 for_window [class="^TelegramDesktop$"] floating enable border normal
 for_window [class="^Nm-connection-editor$"] floating enable border normal
 for_window [class="^Fcitx-config-gtk3$"] floating enable border normal
+for_window [class="^fcitx5-config-qt$"] floating enable border normal
 for_window [class="^fcitx-qt5-gui-wrapper$"] floating enable border normal
 for_window [class="^File-roller$"] floating enable border normal
 for_window [class="^Zathura$"] floating enable border normal
 for_window [class="^Pcmanfm$"] floating enable border normal
 for_window [class="^Thunar$"] floating enable border normal
 for_window [class="^Qemu"] floating enable border normal
+for_window [class="^Graphviz"] floating enable border normal
 for_window [class="^Wine$" instance="^tim\.exe$"] floating enable border none
 
 for_window [class="^Vivado$" title="^win0$"] floating enable border none
@@ -270,7 +272,7 @@ mode "resize" {
 }
 
 # Autostart applications
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 exec --no-startup-id xcompmgr
 exec --no-startup-id nm-applet
 exec --no-startup-id systemctl --user start dunst
