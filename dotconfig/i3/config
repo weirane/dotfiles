@@ -24,8 +24,7 @@ font xft:Noto Sans 10
 floating_modifier $mod
 
 # change borders
-bindsym $mod+u border pixel 1
-bindsym $mod+n border normal
+bindsym $mod+n border toggle
 
 # kill focused window, don't kill the dropdown terminal
 bindsym $mod+q [con_id="__focused__" instance="^(?!dropdown-terminal).*$"] kill
@@ -86,6 +85,9 @@ bindsym $mod+t split toggle
 
 # fullscreen mode
 bindsym $mod+f fullscreen toggle
+
+# switch to the urgent workspace
+bindsym $mod+u [urgent=latest] focus
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
@@ -211,9 +213,6 @@ for_window [class="^Thunderbird$" window_role="^addressbook$"] floating enable b
 for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable border normal
 
 for_window [workspace=$ws9] floating enable border normal
-
-# switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
 
 # Shutdown, restart and lock
 bindsym $mod+0 mode "$mode_system"
