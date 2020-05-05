@@ -75,12 +75,14 @@ nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gd :vert Gdiffsplit<CR>
 nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gc :tab Git commit -v<CR>
-nnoremap <silent> <leader>gl :Git pull<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
 "}}}
 
 " gitgutter {{{
+nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
 highlight GitGutterDelete ctermfg=15
+highlight diffAdded ctermfg=green cterm=bold
+highlight diffRemoved ctermfg=red cterm=bold
+highlight! link SignColumn LineNr
 nnoremap <leader>gf :GitGutterFold<CR>
 "}}}
 
