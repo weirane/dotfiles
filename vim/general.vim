@@ -58,11 +58,8 @@ endif
 " encodings, multibyte
 set encoding=utf-8
 set termencoding=utf-8
-set formatoptions+=mM
+set formatoptions+=mB
 set fencs=utf-8,gbk
-if v:lang =~? '^/(zh/)/|/(ja/)/|/(ko/)'
-    set ambiwidth=double
-endif
 
 " for gvim
 if has("gui_running")
