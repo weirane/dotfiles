@@ -106,7 +106,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 
 # scratchpad
-bindsym $mod+minus move scratchpad
+bindsym $mod+minus [floating] move scratchpad
 #  loop through windows in the scratchpad, skip the dropdown terminal
 bindsym $mod+Tab scratchpad show, \
                  [instance="^dropdown-terminal$"] move position center, \
