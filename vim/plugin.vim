@@ -73,12 +73,13 @@ let g:airline#extensions#whitespace#checks = ['indent', 'trailing', 'mixed-inden
 nnoremap <silent> <leader>gb :Git blame<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gd :vert Gdiffsplit<CR>
-nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gc :tab Git commit -v<CR>
 "}}}
 
 " gitgutter {{{
 nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
+nnoremap <silent> <leader>ga :GitGutterStageHunk<CR>
+nnoremap <silent> <leader>gu :GitGutterUndoHunk<CR>
 highlight GitGutterDelete ctermfg=15
 highlight diffAdded ctermfg=green cterm=bold
 highlight diffRemoved ctermfg=red cterm=bold
