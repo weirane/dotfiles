@@ -116,29 +116,29 @@ command! -nargs=* LineLimit :call <SID>set_color_column(<f-args>)
 
 " move by line
 function! s:move_by_line() abort
-    nnoremap 0 g0
-    nnoremap ^ g^
-    nnoremap $ g$
-    nnoremap j gj
-    nnoremap k gk
+    nnoremap <buffer> 0 g0
+    nnoremap <buffer> ^ g^
+    nnoremap <buffer> $ g$
+    nnoremap <buffer> j gj
+    nnoremap <buffer> k gk
 
-    nnoremap g0 0
-    nnoremap g^ ^
-    nnoremap g$ $
-    nnoremap gj j
-    nnoremap gk k
+    nnoremap <buffer> g0 0
+    nnoremap <buffer> g^ ^
+    nnoremap <buffer> g$ $
+    nnoremap <buffer> gj j
+    nnoremap <buffer> gk k
 
-    vnoremap 0 g0
-    vnoremap ^ g^
-    vnoremap $ g$
-    vnoremap j gj
-    vnoremap k gk
+    vnoremap <buffer> 0 g0
+    vnoremap <buffer> ^ g^
+    vnoremap <buffer> $ g$
+    vnoremap <buffer> j gj
+    vnoremap <buffer> k gk
 
-    vnoremap g0 0
-    vnoremap g^ ^
-    vnoremap g$ $
-    vnoremap gj j
-    vnoremap gk k
+    vnoremap <buffer> g0 0
+    vnoremap <buffer> g^ ^
+    vnoremap <buffer> g$ $
+    vnoremap <buffer> gj j
+    vnoremap <buffer> gk k
 endfunction
 
 command! -nargs=0 MoveByLine :call <SID>move_by_line()
