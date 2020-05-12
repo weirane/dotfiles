@@ -89,7 +89,7 @@ Only map in X, use [XCAPE] with Xmodmap.
 
 ```bash
 sudo pacman -S xcape
-xcape -e 'Control_L=Escape'  # rerun every time X starts and new keyboard plugged
+xcape -e 'Control_L=Escape'  # rerun at startup
 ```
 
 To map also in tty, install two AUR packages and enable `udevmon`:
