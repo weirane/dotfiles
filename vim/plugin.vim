@@ -168,6 +168,8 @@ let g:vimtex_compiler_latexmk_engines = {
             \ 'context (luatex)' : '-pdf -pdflatex=context',
             \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
             \}
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_use_temp_files = 1
 " fold {{{
 " nnoremap <localleader>rf :VimtexRefreshFolds<CR>
 let g:vimtex_fold_enabled = 1
