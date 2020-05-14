@@ -244,8 +244,18 @@ mode "move" {
     bindsym Shift+k move up 40
     bindsym Shift+l move right 40
 
+    # move to the edge
+    bindsym Ctrl+h exec --no-startup-id move-win w
+    bindsym Ctrl+j exec --no-startup-id move-win s
+    bindsym Ctrl+k exec --no-startup-id move-win n
+    bindsym Ctrl+l exec --no-startup-id move-win e
+
+    # center
+    bindsym c exec --no-startup-id move-win c
+
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym q mode "default"
     bindsym r mode "resize"
 }
 
@@ -267,6 +277,7 @@ mode "resize" {
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym q mode "default"
     bindsym m mode "move"
 }
 
@@ -317,6 +328,7 @@ mode "$mode_gaps" {
     bindsym i      mode "$mode_gaps_inner"
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym q mode "default"
 }
 mode "$mode_gaps_inner" {
     bindsym plus  gaps inner current plus 5
@@ -330,6 +342,7 @@ mode "$mode_gaps_inner" {
     bindsym o      mode "$mode_gaps_outer"
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym q mode "default"
 }
 mode "$mode_gaps_outer" {
     bindsym plus  gaps outer current plus 5
@@ -343,6 +356,7 @@ mode "$mode_gaps_outer" {
     bindsym i      mode "$mode_gaps_inner"
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym q mode "default"
 }
 
 # vim:ft=i3config:
