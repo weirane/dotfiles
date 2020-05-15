@@ -66,8 +66,9 @@ export WGETRC="$HOME/.config/wgetrc"
 # npm
 export npm_config_cache="$HOME/.cache/npm"
 
-# mysql
+# mysql, mycli
 export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
+export MYCLI_HISTFILE="$HOME/.cache/mycli-history"
 
 # bundle
 export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
