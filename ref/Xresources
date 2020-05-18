@@ -1,3 +1,5 @@
+! xmodmap /path/to/Xmodmap
+
 Xft.dpi:       136
 Xft.antialias: true
 Xft.hinting:   true
@@ -5,6 +7,9 @@ Xft.rgba:      rgb
 Xft.autohint:  true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
+
+Xcursor.theme: Breeze
+Xcursor.size: 24
 
 *.font: Hack-12:antialias=true:autohint=true
 

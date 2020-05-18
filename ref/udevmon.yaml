@@ -1,3 +1,5 @@
+# /etc/udevmon.yaml
+#
 # https://gitlab.com/interception/linux/tools
 
 - JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
