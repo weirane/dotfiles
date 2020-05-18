@@ -45,7 +45,8 @@ if command -v fd >/dev/null; then
 fi
 
 # less
-export LESS="-MR -# 10"
+export LESS="-MR --mouse --wheel-lines=3 -# 10"
+export SYSTEMD_LESS="-FRSXMK --mouse --wheel-lines=3 -# 10"
 export LESSHISTFILE="-"
 
 # ripgrep
