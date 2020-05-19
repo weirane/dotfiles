@@ -9,7 +9,6 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-syntax'
 Plug 'kana/vim-textobj-function', { 'for': ['c', 'cpp', 'vim', 'java', 'javascript'] }
 Plug 'sgur/vim-textobj-parameter'
@@ -27,7 +26,6 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 " web
-Plug 'mattn/emmet-vim', { 'for': ['html', 'markdown'] }
 Plug 'pangloss/vim-javascript'
 " LaTeX
 Plug 'lervag/vimtex'
@@ -44,6 +42,12 @@ if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
     source ~/.dotfiles/local/vim-plugins.vim
 endif
 call plug#end()
+
+" startify {{{
+let g:startify_lists = [
+            \ { 'type': 'sessions', 'header': ['   Sessions'] },
+            \]
+"}}}
 
 " NERDTree {{{
 nnoremap <F10> :silent! NERDTreeToggle<CR>
@@ -145,15 +149,6 @@ let g:indentLine_fileType = ['python', 'yaml']
 
 " cursorword {{{
 let g:cursorword_delay = 0
-"}}}
-
-" html (emmet) {{{
-let g:emmet_html5 = 1
-let g:user_emmet_settings = {
-            \ 'html': {
-            \	'empty_element_suffix': ' />'
-            \ }
-            \}
 "}}}
 
 " LaTeX (vimtex) {{{
