@@ -86,14 +86,14 @@ fi
 
 # spaceship-prompt
 if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] && confirm "Setup spaceship-prompt?"; then
-    echodo git clone https://github.com/denysdovhan/spaceship-prompt.git \
+    echodo git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git \
         "$ZSH_CUSTOM/themes/spaceship-prompt"
     (cd "$ZSH_CUSTOM/themes" && echodo ln -s spaceship-prompt/spaceship.zsh-theme .)
 fi
 
 # zsh-syntax-highlight
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && confirm "Setup zsh-syntax-highlighting?"; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
         "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
