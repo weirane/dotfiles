@@ -16,6 +16,7 @@ Install `zsh` via `pacman`, or [from source][zsh-src]. Running `./setup.sh` will
 - [**exa**][exa]: install via `pacman` or download [prebuilt binaries][exa-bin]
 - [**ripgrep**][rg]: install via `pacman` or download [prebuilt binaries][rg-bin]
 - [**fd**][fd]: install via `pacman` or download [prebuilt binaries][fd-bin]
+- [**bat**][bat]: install via `pacman` or refer to [release page][bat-rel]
 - [**fzf**][fzf]: install via `pacman` or [`git`][fzf-git]:
     ```sh
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -30,7 +31,7 @@ Install `zsh` via `pacman`, or [from source][zsh-src]. Running `./setup.sh` will
 
 On Arch:
 ```sh
-sudo pacman -S exa ripgrep fd fzf autojump
+sudo pacman -S exa ripgrep fd bat fzf autojump
 ```
 
 Note: `autojump` is not in the standard repository, but you can find it in [archlinuxcn].
@@ -41,6 +42,8 @@ Note: `autojump` is not in the standard repository, but you can find it in [arch
 [rg-bin]: https://github.com/BurntSushi/ripgrep/releases
 [fd]: https://github.com/sharkdp/fd
 [fd-bin]: https://github.com/sharkdp/fd/releases
+[bat]: https://github.com/sharkdp/bat
+[bat-rel]: https://github.com/sharkdp/bat/releases
 [fzf]: https://github.com/junegunn/fzf
 [fzf-git]: https://github.com/junegunn/fzf#using-git
 [autojump]: https://github.com/wting/autojump
