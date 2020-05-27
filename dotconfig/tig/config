@@ -1,3 +1,4 @@
+set mouse = yes
 set vertical-split = no
 set horizontal-scroll = 15%
 
