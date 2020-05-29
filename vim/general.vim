@@ -91,6 +91,7 @@ if has('nvim')
     set inccommand=nosplit
 else
     set ttymouse=sgr
+    set timeoutlen=100
 endif
 
 " Line width limit
