@@ -4,13 +4,13 @@
 # number of todos that due today are shown.
 
 todo_file="$HOME/todo.txt"
-pid_file="$HOME/.config/polybar/scripts/.todo.pid"
+pid_file="$XDG_RUNTIME_DIR/polybar-todo.pid"
 
 echo "$$" > "$pid_file"
 trap "rm -f $pid_file" EXIT
 
 update() {
-    pkill --parent $$ -x sleep >/dev/null
+    pkill -P $$ -x sleep >/dev/null
 }
 
 show() {
@@ -18,7 +18,7 @@ show() {
             search --name 'Edit Todo' >/dev/null && return
     alacritty --class=FloatExec \
               --title="Edit ToDo" \
-              -e nvim -u NONE -c 'set laststatus=0' "$todo_file"
+              -e nvim -u NONE -c 'set laststatus=0 mouse=a' "$todo_file"
     update
 }
 
@@ -36,8 +36,6 @@ while true; do
         today=""
     fi
     echo "ToDo ($num$today)"
-    sleep 2h >/dev/null 2>&1 &
-    while pgrep --parent $$ -x sleep >/dev/null; do
-        wait
-    done
+    sleep 2h &
+    while pgrep -P $$ -x sleep >/dev/null; do wait; done
 done

@@ -1,6 +1,5 @@
 /local
 /dotconfig/git/gitk
 /dotconfig/polybar/scripts/owm-key
-/dotconfig/polybar/scripts/.todo.pid
 /dotconfig/zsh/.*
 !/dotconfig/zsh/.zshrc

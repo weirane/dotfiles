@@ -3,15 +3,11 @@ width=340
 height=193
 title='YAD Calendar'
 
-if xdotool search --name "^${title}$"; then
-    exit 0
-fi
+xdotool search --name "^${title}$" && exit 0
 
-export LC_ALL=C
-
-setsid --fork yad --calendar \
+LC_ALL=C yad --calendar \
     --name=FloatExec \
     --title="$title" \
     --width=$width --height=$height \
     --no-buttons \
-    --close-on-unfocus
+    --close-on-unfocus &

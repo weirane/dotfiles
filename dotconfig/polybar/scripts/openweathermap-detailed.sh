@@ -7,14 +7,8 @@
 pgrep -f 'openweathermap-detailed.sh' >/dev/null 2>&1 || exit
 
 API="https://api.openweathermap.org/data/2.5"
-keyfile=$(dirname "$(realpath "$0")")/owm-key
-
-if [ ! -f "$keyfile" ]; then
-    echo "No key"
-    sleep infinity
-fi
-
-KEY=$(cat "$keyfile")
+KEY=$(cat "$(dirname "$(realpath "$0")")/owm-key")
+[ -n "$KEY" ] || exit
 
 get_icon() {
     case $1 in
@@ -41,18 +35,10 @@ get_icon() {
 
 show_weather() {
     case $verbose in
-        0)
-            echo "$weather_icon $weather_temp$dot"
-            ;;
-        1)
-            echo "$city_name $weather_icon $weather_temp$dot"
-            ;;
-        2)
-            echo "$weather_icon $weather_desc $weather_temp$dot"
-            ;;
-        *)
-            echo "$city_name $weather_icon $weather_desc $weather_temp$dot"
-            ;;
+        0) echo "$weather_icon $weather_temp$dot" ;;
+        1) echo "$city_name $weather_icon $weather_temp$dot" ;;
+        2) echo "$weather_icon $weather_desc $weather_temp$dot" ;;
+        *) echo "$city_name $weather_icon $weather_desc $weather_temp$dot" ;;
     esac
 }
 
@@ -77,11 +63,9 @@ while true; do
     dot="."
     show_weather
     while true; do
-        ping api.openweathermap.org -c 1 -W 10 >/dev/null 2>&1 && break
-        sleep 60 >/dev/null 2>&1 &
-        while kill -0 %% >/dev/null 2>&1; do
-            wait
-        done
+        ping api.openweathermap.org -c 3 >/dev/null 2>&1 && break
+        sleep 60 &
+        while pgrep -P $$ -x sleep >/dev/null; do wait; done
     done
 
     dot=".."
@@ -108,8 +92,6 @@ while true; do
         dot=''
         show_weather
     fi
-    sleep 900 >/dev/null 2>&1 &
-    while kill -0 %% >/dev/null 2>&1; do
-        wait
-    done
+    sleep 900 &
+    while pgrep -P $$ -x sleep >/dev/null 2>&1; do wait; done
 done
