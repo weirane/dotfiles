@@ -74,3 +74,5 @@ export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 
 # bundle
 export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
+export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
+export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
