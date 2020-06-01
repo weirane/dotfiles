@@ -4,21 +4,23 @@ notify() {
     notify-send --expire-time=1500 "sxiv" "$1"
 }
 
-while read file; do
+while read -r file; do
     case "$1" in
         w)
-            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper temporarily?")" = "Yes" ] &&
-                feh --no-fehbg --bg-fill "$file" &&
-                notify "$file set as wallpaper" &
+            [ "$(printf "No\nYes" | rofi -dmenu -i -p "Set as wallpaper temporarily?")" = Yes ] &&
+                feh --no-fehbg --bg-scale "$file" &&
+                notify "$file set as wallpaper"
+            exit
             ;;
         W)
-            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Set as wallpaper permanently?")" = "Yes" ] &&
-                ln -sf "$(realpath "$file")" $HOME/Pictures/wallpapers/current &&
-                feh --no-fehbg --bg-fill "$file" &&
-                notify "$file set as wallpaper" &
+            [ "$(printf "No\nYes" | rofi -dmenu -i -p "Set as wallpaper permanently?")" = Yes ] &&
+                ln -sf "$(realpath "$file")" "$HOME/.config/wallpaper" &&
+                feh --no-fehbg --bg-scale "$file" &&
+                notify "$file set as wallpaper"
+            exit
             ;;
         d)
-            [ "$(printf "No\\nYes" | rofi -dmenu -i -p "Delete $(realpath "$file")?")" = "Yes" ] &&
+            [ "$(printf "No\nYes" | rofi -dmenu -i -p "Delete $(realpath "$file")?")" = Yes ] &&
                 rm "$file" &&
                 notify "$file deleted" &
             ;;
