@@ -36,14 +36,6 @@ for f in "$HOME"/.dotfiles/symlinks/*; do
     [ -f "$home_name" ] || echodo ln -s "$f" "$home_name"
 done
 
-# .vim
-[ -d "$HOME/.vim" ] || mkdir "$HOME/.vim"
-[ -f "$HOME/.vim/vimrc" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/vimrc" "$HOME/.vim/vimrc"
-vimdirs="ftplugin ftdetect syntax after"
-for dir in $vimdirs; do
-    [ -d "$HOME/.vim/$dir" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/$dir" "$HOME/.vim/$dir"
-done
-
 [ -d "$HOME/.dotfiles/local" ] || echodo mkdir -p "$HOME/.dotfiles/local"
 [ -f "$HOME/.dotfiles/local/gdbinit" ] || echodo touch "$HOME/.dotfiles/local/gdbinit"
 
