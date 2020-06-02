@@ -39,13 +39,19 @@ colorscheme slate
 highlight PMenu ctermfg=0 ctermbg=242
 highlight ColorColumn ctermbg=8
 
-let s:vim_tmp_dir = expand('~/.vim/tmp')
-if !isdirectory(s:vim_tmp_dir)
-    silent! call mkdir(s:vim_tmp_dir, 'p')
+let &g:directory = $HOME . '/.cache'
+let &g:undodir = &g:directory . '/vim/undo//'
+let &g:backupdir = &g:directory . '/vim/backup//'
+let &g:directory .= '/vim/swap//'
+if ! isdirectory(expand(&g:directory))
+    silent! call mkdir(expand(&g:directory), 'p', 0700)
 endif
-set backupdir=~/.vim/tmp
-set undodir=~/.vim/tmp
-set noswapfile
+if ! isdirectory(expand(&g:backupdir))
+    silent! call mkdir(expand(&g:backupdir), 'p', 0700)
+endif
+if ! isdirectory(expand(&g:undodir))
+    silent! call mkdir(expand(&g:undodir), 'p', 0700)
+endif
 
 packadd! matchit
 
