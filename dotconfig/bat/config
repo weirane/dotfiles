@@ -2,8 +2,8 @@
 --theme="OneHalfDark"
 # --theme="OneHalfLight"
 --map-syntax zshrc:bash
---map-syntax vimrc:vim
---map-syntax .nvimrc:vim
---map-syntax .exrc:vim
+--map-syntax vimrc:VimL
+--map-syntax .nvimrc:VimL
+--map-syntax .exrc:VimL
 --map-syntax .sty:LaTeX
 --map-syntax .cls:LaTeX
