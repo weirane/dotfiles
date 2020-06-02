@@ -1,5 +1,6 @@
 /local
 /dotconfig/git/gitk
+/dotconfig/nvim/autoload/plug.vim*
 /dotconfig/polybar/scripts/owm-key
 /dotconfig/zsh/.*
 !/dotconfig/zsh/.zshrc

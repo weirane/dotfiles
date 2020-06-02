@@ -1,9 +1,0 @@
-source ~/.dotfiles/vim/general.vim
-source ~/.dotfiles/vim/leader.vim
-source ~/.dotfiles/vim/plugin.vim
-source ~/.dotfiles/vim/maps.vim
-source ~/.dotfiles/vim/fold.vim
-
-if filereadable(expand('~/.dotfiles/local/vimrc'))
-    source ~/.dotfiles/local/vimrc
-endif
