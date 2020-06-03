@@ -57,7 +57,7 @@ ex() {
     esac
 }
 
-colors() {
+color_codes() {
     local fgc bgc vals seq0
 
     printf "Color escapes are %s\n" '\e[${value};...;${value}m'

@@ -91,10 +91,10 @@ if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] && confirm "Setup spaceship-pr
     (cd "$ZSH_CUSTOM/themes" && echodo ln -s spaceship-prompt/spaceship.zsh-theme .)
 fi
 
-# zsh-syntax-highlight
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && confirm "Setup zsh-syntax-highlighting?"; then
-    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
-        "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+# fast-syntax-highlighting
+if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ] && confirm "Setup fast-syntax-highlighting?"; then
+    git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git \
+        "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
 fi
 
 # Helper shell scripts
