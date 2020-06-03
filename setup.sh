@@ -47,8 +47,8 @@ for d in "$HOME"/.dotfiles/dotconfig/*; do
 done
 
 # vim-plug
-if [ ! -f "$HOME"/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
-    echodo curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+if [ ! -f "$HOME/.config/nvim/autoload/plug.vim" ] && confirm "Download plug.vim?"; then
+    echodo curl -fLo "$HOME/.config/nvim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
