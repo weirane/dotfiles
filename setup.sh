@@ -36,14 +36,6 @@ for f in "$HOME"/.dotfiles/symlinks/*; do
     [ -f "$home_name" ] || echodo ln -s "$f" "$home_name"
 done
 
-# .vim
-[ -d "$HOME/.vim" ] || mkdir "$HOME/.vim"
-[ -f "$HOME/.vim/vimrc" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/vimrc" "$HOME/.vim/vimrc"
-vimdirs="ftplugin ftdetect syntax after"
-for dir in $vimdirs; do
-    [ -d "$HOME/.vim/$dir" ] || echodo ln -s "$HOME/.dotfiles/vim/dotvim/$dir" "$HOME/.vim/$dir"
-done
-
 [ -d "$HOME/.dotfiles/local" ] || echodo mkdir -p "$HOME/.dotfiles/local"
 [ -f "$HOME/.dotfiles/local/gdbinit" ] || echodo touch "$HOME/.dotfiles/local/gdbinit"
 
@@ -55,8 +47,8 @@ for d in "$HOME"/.dotfiles/dotconfig/*; do
 done
 
 # vim-plug
-if [ ! -f "$HOME"/.vim/autoload/plug.vim ] && confirm "Download plug.vim?"; then
-    echodo curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+if [ ! -f "$HOME/.config/nvim/autoload/plug.vim" ] && confirm "Download plug.vim?"; then
+    echodo curl -fLo "$HOME/.config/nvim/autoload/plug.vim" --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
