@@ -1,9 +1,7 @@
 --pager="less -RF"
 --theme="OneHalfDark"
 # --theme="OneHalfLight"
---map-syntax zshrc:bash
+--map-syntax zshrc:'Bourne Again Shell (bash)'
 --map-syntax vimrc:VimL
 --map-syntax .nvimrc:VimL
 --map-syntax .exrc:VimL
---map-syntax .sty:LaTeX
---map-syntax .cls:LaTeX
