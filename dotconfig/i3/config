@@ -223,9 +223,10 @@ for_window [workspace=$ws9] floating enable border normal
 
 # Shutdown, restart and lock
 bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (Shift+e)xit, (Shift+r)eboot, (Shift+s)hutdown
+set $mode_system (l)ock, (s)uspend, (E)xit, (R)eboot, (S)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $scripts/lock.sh, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym Shift+e exec --no-startup-id i3-msg exit, mode "default"
     bindsym Shift+r exec --no-startup-id shutdown -r now, mode "default"
     bindsym Shift+s exec --no-startup-id shutdown -h now, mode "default"
