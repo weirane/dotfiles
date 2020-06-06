@@ -144,7 +144,7 @@ vmap <leader>a <Plug>(LiveEasyAlign)
 "}}}
 
 " indentLine {{{
-let g:indentLine_fileType = ['python', 'yaml']
+let g:indentLine_fileType = ['python', 'yaml', 'ruby']
 "}}}
 
 " cursorword {{{

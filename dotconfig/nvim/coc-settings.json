@@ -1,10 +1,18 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust"],
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby"],
     "coc.source.file.ignoreHidden": false,
+
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.completion.postfix.enable": false,
 
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.formatting.autopep8Args": ["--max-line-length=100", "--ignore=E402"],
+
+    "solargraph.checkGemVersion": false,
+    "solargraph.diagnostics": true,
+    "solargraph.formatting": true,
 
     "languageserver": {
         "ccls-c": {
