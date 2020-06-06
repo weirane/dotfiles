@@ -55,6 +55,9 @@ endif
 
 packadd! matchit
 
+" consistent wraping in "$ man xx" and ":Man xx"
+let g:man_hardwrap = 1
+
 " cterm cursor shape
 if &term =~# '.\+-256color'
     let &t_SI = "\<Esc>[6 q"
