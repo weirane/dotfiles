@@ -3,12 +3,10 @@
 # Modified based on:
 # https://github.com/polybar/polybar-scripts/blob/master/polybar-scripts/openweathermap-detailed/openweathermap-detailed.sh
 
-# Make sure only one instance of this script is running
-pgrep -f 'openweathermap-detailed.sh' >/dev/null 2>&1 || exit
-
-API="https://api.openweathermap.org/data/2.5"
-KEY=$(cat "$(dirname "$(realpath "$0")")/owm-key")
-[ -n "$KEY" ] || exit
+weather_file=$HOME/.cache/openweather.json
+pid_file=$XDG_RUNTIME_DIR/polybar-openweather.pid
+echo $$ >> "$pid_file"
+trap "rm -f $pid_file" EXIT
 
 get_icon() {
     case $1 in
@@ -33,7 +31,19 @@ get_icon() {
     echo $icon
 }
 
+update_weather() {
+    [ -f "$weather_file" ] || return
+    weather=$(cat "$weather_file")
+    weather_desc=$(echo "$weather" | jq -r ".weather[0].description")
+    weather_temp=$(echo "$weather" | jq ".main.temp")
+    weather_temp="$weather_temp°C"
+    weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
+    weather_icon="$(get_icon "$weather_icon")"
+    city_name=$(echo "$weather" | jq -r ".name")
+}
+
 show_weather() {
+    [ -n "$weather" ] || return
     case $verbose in
         0) echo "$weather_icon $weather_temp$dot" ;;
         1) echo "$city_name $weather_icon $weather_temp$dot" ;;
@@ -44,54 +54,21 @@ show_weather() {
 
 inc_verbose() {
     verbose=$(((verbose + 1) % 4))
-    show_weather
-}
-
-update_loc() {
-    location=''
-    get_loc=1
-    kill %% >/dev/null 2>&1
 }
 
 verbose=0
-get_loc=1
+dot=
 
 trap "inc_verbose" USR1
-trap "update_loc" USR2
+trap 'dot=.' RTMIN+1
+trap 'dot=..' RTMIN+2
+trap 'dot=...' RTMIN+3
+trap 'dot=; update_weather' RTMIN+4
 
-while true; do
-    dot="."
-    show_weather
-    while true; do
-        ping api.openweathermap.org -c 3 >/dev/null 2>&1 && break
-        sleep 60 &
-        while pgrep -P $$ -x sleep >/dev/null; do wait; done
-    done
+sleep infinity &
 
-    dot=".."
+update_weather
+while pgrep -P $$ >/dev/null 2>&1; do
     show_weather
-    if [ "$get_loc" = 1 ]; then
-        location=$(curl -sf --retry 3 "https://location.services.mozilla.com/v1/geolocate?key=geoclue")
-        get_loc=0
-    fi
-    dot="..."
-    show_weather
-    if [ -n "$location" ]; then
-        location_lat="$(echo "$location" | jq '.location.lat')"
-        location_lon="$(echo "$location" | jq '.location.lng')"
-        weather=$(curl -sf --retry 3 "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=metric")
-    fi
-
-    if [ -n "$weather" ]; then
-        weather_desc=$(echo "$weather" | jq -r ".weather[0].description")
-        weather_temp=$(echo "$weather" | jq ".main.temp")
-        weather_temp="$weather_temp°C"
-        weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
-        weather_icon="$(get_icon "$weather_icon")"
-        city_name=$(echo "$weather" | jq -r ".name")
-        dot=''
-        show_weather
-    fi
-    sleep 900 &
-    while pgrep -P $$ -x sleep >/dev/null 2>&1; do wait; done
+    wait
 done

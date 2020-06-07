@@ -124,7 +124,7 @@ label = %output%
 label-font = 5
 
 click-left = "kill -USR1 %pid%"
-double-click-right = "kill -USR2 %pid%"
+double-click-right = "kill -USR1 $(cat $XDG_RUNTIME_DIR/openweather.pid)"
 
 [module/cpu]
 type = internal/cpu
