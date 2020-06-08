@@ -14,16 +14,6 @@ appendpath() {
     esac
 }
 
-cmdof() {
-    [ -z "$1" ] && return
-    xargs -0 < "/proc/$1/cmdline"
-}
-
-envof() {
-    [ -z "$1" ] && return
-    tr '\0' '\n' < "/proc/$1/environ"
-}
-
 mcd() {
     [[ -n "$1" ]] && mkdir -p "$1" && cd "$1" || true
 }
