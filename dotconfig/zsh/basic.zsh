@@ -11,24 +11,14 @@ SPACESHIP_EXIT_CODE_SHOW="true"
 SPACESHIP_EXIT_CODE_SYMBOL=""
 SPACESHIP_EXIT_CODE_SUFFIX="|"
 SPACESHIP_PROMPT_ORDER=(
-    time
-    user
-    dir
-    host
-    git
-    venv
-    exec_time
-    line_sep
-    jobs
-    exit_code
-    char
+    time user dir host git venv exec_time line_sep
+    jobs exit_code char
 )
 
 plugins=(
     autojump
     dotenv
     rust
-    colored-man-pages
     # zsh-autosuggestions
     fast-syntax-highlighting
 )
@@ -36,6 +26,22 @@ source $ZSH/oh-my-zsh.sh
 unset plugins
 
 eval $(dircolors -b ~/.dotfiles/dir_colors)
+
+# toggle sudo with esc-esc
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    local -a bufarr
+    bufarr=(${(z)BUFFER})
+    if [[ ${bufarr[1]} != sudo ]]; then
+        bufarr=(sudo $bufarr)
+    else
+        bufarr=(${bufarr[@]:1})
+    fi
+    BUFFER=$bufarr
+    zle end-of-line
+}
+zle -N sudo-command-line
+bindkey '^[^[' sudo-command-line
 
 bindkey '^U' backward-kill-line
 bindkey '^[l' vi-find-next-char

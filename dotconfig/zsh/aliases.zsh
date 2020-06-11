@@ -4,6 +4,7 @@ alias mv="mv -i"
 alias ls="ls --color=auto"
 alias free="free -h"
 alias grep="grep --color=auto"
+alias sudo="sudo "
 
 alias tatt="tmux attach -t"
 alias tnew="tmux new -s"
