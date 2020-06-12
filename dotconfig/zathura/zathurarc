@@ -11,5 +11,8 @@ map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
 
+map [presentation] j navigate next
+map [presentation] k navigate prev
+
 unmap q
 map <C-Q> quit
