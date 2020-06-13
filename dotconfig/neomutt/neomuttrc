@@ -1,0 +1,57 @@
+# This file is based on mutt-wizard's default settings.
+# Reference:
+#   https://github.com/lukesmithxyz/mutt-wizard
+#   https://neomutt.org/guide/reference.html
+#   https://neomutt.org/guide/configuration
+
+source colors.muttrc
+source bindings.muttrc
+
+ignore *
+unignore from: subject to cc date reply-to x-mailer x-url user-agent
+hdr_order date from to cc reply-to subject
+
+set sendmail = "/usr/bin/msmtp"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set attribution = "\n\nOn %d, %n wrote:"
+# set attribution = "\n\n> From: %f\n> Sent: %D\n> To: %r\n> Cc: %R\n> Subject: %s\n> "
+set attribution_locale = "en_US.UTF-8"
+set collapse_all = yes
+set collapse_unread = no
+set pager_stop = yes
+set mask = '.*'
+
+set mailcap_path = $HOME/.config/neomutt/mailcap
+set date_format = "%Y-%m-%d %H:%M:%S %z"
+#                   num    attatch    date           collapsed   size
+set index_format = "%2C %Z %?X?A& ? %[%F %T] %-18.18F %?M?%M ?%s (%c)"
+set smtp_authenticators = 'gssapi:login'
+set query_command = "abook --mutt-query '%s'"
+set rfc2047_parameters = yes
+set sleep_time = 0             # Pause 0 seconds for informational messages
+set markers = no               # Disables the `+` displayed at line wraps
+set mark_old = no              # Unread mail stay unread until read
+set mime_forward = yes         # attachments are forwarded with mail
+set wait_key = no              # mutt won't ask "press key to continue"
+set fast_reply                 # skip to compose when replying
+set fcc_attach                 # save attachments with the body
+set forward_format = "Fwd: %s" # format of subject when forwarding
+set forward_quote              # include message in forwards
+set reverse_name               # reply as whomever it was to
+set include                    # include message in replies
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+
+# Sidebar
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
+
+source accounts.muttrc
+
+# vim: filetype=neomuttrc:

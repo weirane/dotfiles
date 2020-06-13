@@ -5,4 +5,6 @@
 /dotconfig/nvim/.netrwhist
 /dotconfig/polybar/scripts/owm-key
 /dotconfig/zsh/.*
+/dotconfig/neomutt/*.account
+/dotconfig/neomutt/accounts.muttrc
 !/dotconfig/zsh/.zshrc

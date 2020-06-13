@@ -1,0 +1,7 @@
+text/plain; $EDITOR %s ;
+text/markdown; $EDITOR %s ;
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput;
+image/*; sxiv -N FloatExec %s & ;
+video/*; mpv --player-operation-mode=pseudo-gui %s &; copiousoutput
+application/pgp-encrypted; gpg -d %s; copiousoutput;
+application/*; xdg-open %s &;
