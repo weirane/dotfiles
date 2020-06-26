@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 export ZSH="$HOME/.local/share/oh-my-zsh"
 
 PROMPT_EOL_MARK="%B%F{8}↵%f%b"
@@ -43,6 +44,18 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey '^[^[' sudo-command-line
 
+# replace the first word of the current command
+replace-command-name() {
+    local -a bufarr
+    bufarr=(${(z)BUFFER})
+    [[ ${#bufarr[@]} < 2 ]] && return
+    bufarr=(${bufarr[@]:1})
+    BUFFER=" $bufarr"
+    zle beginning-of-line
+}
+zle -N replace-command-name
+bindkey '^[ ' replace-command-name
+
 bindkey '^U' backward-kill-line
 bindkey '^[l' vi-find-next-char
 bindkey '^[h' vi-find-prev-char
@@ -58,3 +71,12 @@ SAVEHIST=99999999
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 setopt rc_quotes  # '' as ' in single quotes
+
+_orig_or_alias() {
+    _alternative 'alias:alias:_values "alias" ${(k)aliases}' "$1"
+}
+
+compdef _pids cmdof
+compdef _pids envof
+compdef '_orig_or_alias command:command:_command' swl
+compdef '_orig_or_alias sudo:sudo:_sudo' sudo
