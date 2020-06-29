@@ -5,6 +5,7 @@ alias ls="ls --color=auto"
 alias free="free -h"
 alias grep="grep --color=auto"
 alias sudo="sudo "
+alias swl="swl "
 
 alias tatt="tmux attach -t"
 alias tnew="tmux new -s"
@@ -19,7 +20,4 @@ alias pys="python3 -m http.server"
 
 alias :q="exit"
 
-alias -s pdf="zathura --fork"
-alias -s {svg,html,htm}="${BROWSER:-firefox}"
-alias -s {png,jpg,jpeg}="setsid sxiv -N FloatExec"
-alias -s gif="setsid mpv --loop=inf --player-operation-mode=pseudo-gui"
+alias -s {pdf,png,jpg,jpeg,gif,svg,html}="open"
