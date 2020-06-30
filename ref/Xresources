@@ -1,4 +1,4 @@
-! xmodmap /path/to/Xmodmap
+! xrdb -merge /path/to/Xresources
 
 Xft.dpi:       136
 Xft.antialias: true
