@@ -1,4 +1,5 @@
 --pager="less -RF"
+--style=header,numbers
 --theme="OneHalfDark"
 # --theme="OneHalfLight"
 --map-syntax zshrc:'Bourne Again Shell (bash)'
