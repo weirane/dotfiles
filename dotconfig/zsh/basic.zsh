@@ -72,11 +72,5 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 setopt rc_quotes  # '' as ' in single quotes
 
-_orig_or_alias() {
-    _alternative 'alias:alias:_values "alias" ${(k)aliases}' "$1"
-}
-
 compdef _pids cmdof
 compdef _pids envof
-compdef '_orig_or_alias command:command:_command' swl
-compdef '_orig_or_alias sudo:sudo:_sudo' sudo
