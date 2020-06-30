@@ -36,3 +36,7 @@
     prompt = false
 [include]
     path = ~/.dotfiles/local/gitconfig
+[pull]
+    ff = only
+
+; vim:ft=gitconfig
