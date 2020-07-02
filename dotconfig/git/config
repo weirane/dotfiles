@@ -38,5 +38,7 @@
     path = ~/.dotfiles/local/gitconfig
 [pull]
     ff = only
+[log]
+    date = iso
 
 ; vim:ft=gitconfig
