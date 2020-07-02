@@ -4,9 +4,6 @@
 # https://github.com/polybar/polybar-scripts/blob/master/polybar-scripts/openweathermap-detailed/openweathermap-detailed.sh
 
 weather_file=$HOME/.cache/openweather.json
-pid_file=$XDG_RUNTIME_DIR/polybar-openweather.pid
-echo $$ >> "$pid_file"
-trap "rm -f $pid_file" EXIT
 
 get_icon() {
     case $1 in
