@@ -10,6 +10,7 @@ bind generic g none
 bind generic gg move-first-line
 bind generic G move-last-line
 bind generic H view-help
+bind main G move-last-line
 bind main H view-help
 # In diff and stage: {k,j} scroll the page, Ctrl-{P,N} scroll the cursor
 bind diff k scroll-line-up
