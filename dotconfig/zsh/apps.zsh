@@ -22,8 +22,9 @@ if command -v exa >/dev/null; then
     alias ll='exa -lgh'
     alias la='exa -lagh'
 
-    EXA_COLORS=$(cat "$HOME/.dotfiles/exa_colors")
+    EXA_COLORS=$(<"$HOME/.dotfiles/exa_colors")
     export EXA_COLORS
+    zstyle ':completion:*' list-colors "${(@s.:.)EXA_COLORS}"
 fi
 
 # fzf
