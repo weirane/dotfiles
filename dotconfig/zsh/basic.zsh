@@ -71,6 +71,7 @@ SAVEHIST=99999999
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 setopt rc_quotes  # '' as ' in single quotes
+setopt extendedglob
 
 compdef _pids cmdof
 compdef _pids envof
