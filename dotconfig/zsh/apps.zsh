@@ -25,6 +25,8 @@ if command -v exa >/dev/null; then
     EXA_COLORS=$(<"$HOME/.dotfiles/exa_colors")
     export EXA_COLORS
     zstyle ':completion:*' list-colors "${(@s.:.)EXA_COLORS}"
+else
+    eval $(dircolors -b ~/.dotfiles/dir_colors)
 fi
 
 # fzf

@@ -26,8 +26,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 unset plugins
 
-eval $(dircolors -b ~/.dotfiles/dir_colors)
-
 # toggle sudo with esc-esc
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
