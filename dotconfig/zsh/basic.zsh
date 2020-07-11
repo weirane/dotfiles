@@ -48,8 +48,8 @@ bindkey '^[^[' sudo-command-line
 replace-command-name() {
     local -a bufarr
     bufarr=(${(z)BUFFER})
-    [[ ${#bufarr[@]} < 2 ]] && return
-    bufarr=(${bufarr[@]:1})
+    # ignore if there is only one word
+    [[ ${#bufarr[@]} > 1 ]] && bufarr=(${bufarr[@]:1})
     BUFFER=" $bufarr"
     zle beginning-of-line
 }
