@@ -10,7 +10,7 @@ while pgrep -U "$(id -ru)" -x polybar >/dev/null; do sleep 1; done
 polybar --list-monitors | while read -r line; do
     moni=${line%%:*}
     if expr "$line" : '.*primary' >/dev/null; then
-        MONITOR="$moni" TRAY_POS=right polybar -r top &
+        MONITOR="$moni" PRIMARY=1 TRAY_POS=right polybar -r top &
     else
         MONITOR="$moni" polybar -r top &
     fi
