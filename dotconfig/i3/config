@@ -7,6 +7,7 @@ set $scripts $HOME/.config/i3/scripts
 set $terminal alacritty
 set $float_term alacritty --class=FloatExec
 set $neomutt alacritty --title=neomutt -e env LANG=en_US.UTF-8 neomutt -e 'set quit=no'
+set $newsboat alacritty --title=newsboat -e env LANG=en_US.UTF-8 newsboat
 set $dropdown_term alacritty --title=Dropdown --class=dropdown-terminal -e sh -c 'while true; do tmux new -s dropdown || tmux attach -t dropdown || break; done'
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -49,6 +50,7 @@ bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
 
 bindsym $mod+Ctrl+f exec firefox
+bindsym $mod+Ctrl+b exec --no-startup-id $newsboat
 bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
 bindsym $mod+Ctrl+p exec --no-startup-id thunar
 bindsym $mod+Ctrl+t exec --no-startup-id xargs -r kill -USR1 < $XDG_RUNTIME_DIR/polybar-todo.pid
