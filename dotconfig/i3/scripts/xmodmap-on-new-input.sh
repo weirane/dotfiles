@@ -11,7 +11,7 @@ pgrep -f "inotifywait --quiet --event create --exclude \.\*tmp\.\* /dev/input" &
 
 xmodmap=${XMODMAP:-$HOME/.config/X11/Xmodmap}
 
-[ ! -f "$xmodmap" ] && exit
+[ ! -s "$xmodmap" ] && exit
 
 notify-send --expire-time=5000 "xmodmap-on-new-input" "Enabled"
 
