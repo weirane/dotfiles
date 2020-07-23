@@ -8,7 +8,6 @@ set $terminal alacritty
 set $float_term alacritty --class=FloatExec
 set $neomutt alacritty --title=neomutt -e env LANG=en_US.UTF-8 neomutt -e 'set quit=no'
 set $newsboat alacritty --title=newsboat -e env LANG=en_US.UTF-8 newsboat
-set $dropdown_term alacritty --title=Dropdown --class=dropdown-terminal -e sh -c 'while true; do tmux new -s dropdown || tmux attach -t dropdown || break; done'
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -298,7 +297,7 @@ exec --no-startup-id $terminal
 
 # Dropdown terminal
 for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
-exec --no-startup-id $dropdown_term
+exec --no-startup-id dropdownterm
 bindsym $mod+grave [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
