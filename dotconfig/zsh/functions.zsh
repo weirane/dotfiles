@@ -34,6 +34,7 @@ ex() {
         *.tar.gz)  tar xzf "$1"   ;;
         *.tar.xz)  tar xJf "$1"   ;;
         *.lzma)    unlzma "$1"    ;;
+        *.deb)     ar x "$1"      ;;
         *.bz2)     bunzip2 "$1"   ;;
         *.rar)     unrar x "$1"   ;;
         *.gz)      gunzip "$1"    ;;
