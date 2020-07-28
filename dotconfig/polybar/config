@@ -41,7 +41,7 @@ font-4 = Weather Icons;1
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = todo date weather cpu memory wlan eth xbacklight alsa battery
+modules-right = todo date weather cpu memory wlan eth xbacklight pulseaudio battery
 
 tray-position = ${env:TRAY_POS:none}
 tray-padding = 0
@@ -208,18 +208,17 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-[module/alsa]
-type = internal/alsa
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = %{A3:i3-msg exec pavucontrol:}<ramp-volume> <label-volume>%{A}
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = "🔇 "
+format-muted = %{A3:i3-msg exec pavucontrol:}🔇 <label-muted>%{A}
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = %percentage%%
-
-master-mixer = Master
 
 ramp-volume-0 = 🔈
 ramp-volume-1 = 🔉
