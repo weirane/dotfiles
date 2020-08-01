@@ -1,16 +1,14 @@
 prependpath() {
-    [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
-        *) export PATH="$1${PATH:+:$PATH}" ;;
+        *) [[ -d "$1" ]] && export PATH="$1${PATH:+:$PATH}" ;;
     esac
 }
 
 appendpath() {
-    [ ! -d "$1" ] && return
     case ":$PATH:" in
         *:"$1":*) ;;
-        *) export PATH="${PATH:+$PATH:}$1" ;;
+        *) [[ -d "$1" ]] && export PATH="${PATH:+$PATH:}$1" ;;
     esac
 }
 
