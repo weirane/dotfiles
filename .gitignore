@@ -8,3 +8,4 @@
 /dotconfig/neomutt/*.account
 /dotconfig/neomutt/accounts.muttrc
 !/dotconfig/zsh/.zshrc
+!/dotconfig/zsh/.zprofile
