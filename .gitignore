@@ -9,3 +9,5 @@
 /dotconfig/neomutt/accounts.muttrc
 !/dotconfig/zsh/.zshrc
 !/dotconfig/zsh/.zprofile
+/weirane-dotfiles-deps/*
+!/weirane-dotfiles-deps/PKGBUILD

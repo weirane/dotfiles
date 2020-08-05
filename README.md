@@ -1,11 +1,47 @@
 # dotfiles
+
 My configs for vim, zsh, i3, polybar etc.
 
+## TL;DR for desktop setup on Arch Linux
+
+Setup [archlinuxcn] and run:
+
+```sh
+./setup.sh
+sudo pacman -S --needed base-devel
+cd weirane-dotfiles-deps
+makepkg -si
+```
+
+Install node.js package `neovim`:
+
+```sh
+export NVM_DIR="$HOME/.local/share/nvm"
+. /usr/share/nvm/nvm.sh
+nvm install --lts
+npm install -g neovim
+```
+
+Run in vim:
+
+```
+:PlugInstall
+:CocInstall coc-python coc-tsserver coc-rls coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier
+```
+
+Then check the optional dependencies of `weirane-dotfiles-deps`.
+
+[archlinuxcn]: https://lug.ustc.edu.cn/wiki/mirrors/help/archlinuxcn
+
 ## Setup
+
 Some of the steps below are covered by `./setup.sh`.
 
 ### Zsh
-Install `zsh` via `pacman`, or [from source][zsh-src]. Running `./setup.sh` will install [oh-my-zsh], [spaceship prompt] and [zsh-syntax-highlighting].
+
+Install `zsh` with a package manager or [from source][zsh-src]. Running
+`./setup.sh` will install [oh-my-zsh], [spaceship prompt] and
+[zsh-syntax-highlighting].
 
 [zsh-src]: https://github.com/zsh-users/zsh/blob/master/INSTALL
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
@@ -13,24 +49,18 @@ Install `zsh` via `pacman`, or [from source][zsh-src]. Running `./setup.sh` will
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 
 ### Command line utilities
-- [**exa**][exa]: install via `pacman` or download [prebuilt binaries][exa-bin]
-- [**ripgrep**][rg]: install via `pacman` or download [prebuilt binaries][rg-bin]
-- [**fd**][fd]: install via `pacman` or download [prebuilt binaries][fd-bin]
-- [**bat**][bat]: install via `pacman` or refer to [release page][bat-rel]
-- [**fzf**][fzf]: install via `pacman` or [`git`][fzf-git]:
-    ```sh
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-    ```
 
-On Arch:
-```sh
-sudo pacman -S exa ripgrep fd bat fzf
-```
+| name      | manual install                |
+|-----------|-------------------------------|
+| [exa]     | [prebuilt binaries][exa-bin]  |
+| [ripgrep] | [prebuilt binaries][rg-bin]   |
+| [fd]      | [prebuilt binaries][fd-bin]   |
+| [bat]     | [prebuilt binaries][bat-rel]  |
+| [fzf]     | [install with `git`][fzf-git] |
 
 [exa]: https://github.com/ogham/exa
 [exa-bin]: https://github.com/ogham/exa/releases
-[rg]: https://github.com/BurntSushi/ripgrep
+[ripgrep]: https://github.com/BurntSushi/ripgrep
 [rg-bin]: https://github.com/BurntSushi/ripgrep/releases
 [fd]: https://github.com/sharkdp/fd
 [fd-bin]: https://github.com/sharkdp/fd/releases
@@ -38,38 +68,45 @@ sudo pacman -S exa ripgrep fd bat fzf
 [bat-rel]: https://github.com/sharkdp/bat/releases
 [fzf]: https://github.com/junegunn/fzf
 [fzf-git]: https://github.com/junegunn/fzf#using-git
-[archlinuxcn]: https://lug.ustc.edu.cn/wiki/mirrors/help/archlinuxcn
 
 ### scripts
-Some of the bindings I have use external shell scripts, which can be found in [this GitHub repo][scripts-repo]. Installation of the scripts is covered by `./setup.sh`.
+
+Some of the bindings I have use external shell scripts, which can be found in
+[this GitHub repo][scripts-repo]. Installation of the scripts is covered by
+`./setup.sh`.
 
 [scripts-repo]: https://github.com/weirane/scripts
 
 ### Neovim
-Install [`neovim`][nvim] via `pacman` or download the [prebuilt package][nvim-bin], and install python package `pynvim` and node.js package `neovim` (these two are optional).
 
-    sudo pacman -S nvim python-pynvim
-    npm install -g neovim
+Install
 
-Plugin manager [vim-plug] can be downloaded using the script `./setup.sh`. Run `:PlugInstall` to install plugins.
+- [`neovim`][nvim] with a package manager or download the [prebuilt package][nvim-bin]
+- python package `pynvim`
+- node.js package `neovim`
+
+Plugin manager [vim-plug] can be downloaded using the script `./setup.sh`. Run
+`:PlugInstall` to install plugins.
 
 [nvim]: https://github.com/neovim/neovim
 [nvim-bin]: https://github.com/neovim/neovim/releases
 [vim-plug]: https://github.com/junegunn/vim-plug
 
 #### coc.nvim
-[coc.nvim] is for auto completing and linting. Run the following command in vim to install additional components.
+
+Run in vim to install additional [coc.nvim] components:
 
     :CocInstall coc-python coc-tsserver coc-rls coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier
 
-For python linting, install `flake8` via `pip` or `pacman`.
+For python linting, install `flake8` via `pip`.
 
 [coc.nvim]: https://github.com/neoclide/coc.nvim
 
 #### Other Vim plugins
-| Vim plugin           | Dependencies | Notes                         |
-|:--------------------:|:------------:|:-----------------------------:|
-| [`python-mode`]      | [ipdb]       | install via `pip` or `pacman` |
+
+| Vim plugin      | Dependencies | Notes              |
+|:---------------:|:------------:|:------------------:|
+| [`python-mode`] | [ipdb]       | install with `pip` |
 
 
 [`python-mode`]: https://github.com/python-mode/python-mode
@@ -79,10 +116,10 @@ For python linting, install `flake8` via `pip` or `pacman`.
 [`vim-clang-format`]: https://github.com/rhysd/vim-clang-format
 
 ### Map Caps Lock to Escape and Ctrl
+
 Only map in X, use [XCAPE] with Xmodmap.
 
 ```bash
-sudo pacman -S xcape
 xcape -e 'Control_L=Escape'  # rerun at startup
 ```
 

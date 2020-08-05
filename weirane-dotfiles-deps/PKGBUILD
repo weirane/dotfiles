@@ -1,0 +1,60 @@
+pkgname=weirane-dotfiles-deps
+pkgver=0.0.0
+pkgrel=1
+pkgdesc="Programs needed for weirane's dotfiles"
+arch=('any')
+url="https://github.com/weirane/dotfiles"
+license=('MIT')
+
+depends=(
+    # basics
+    'python' 'perl' 'git' 'curl' 'nvm'
+
+    # command line utilities
+    'zsh' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig'
+
+    # vim
+    'vim' 'neovim' 'python-pynvim'
+
+    # i3
+    'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
+    'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo' 'xorg-xrdb'
+    'udisks2' 'inotify-tools' 'i3lock' 'xss-lock' 'xcape' 'xcompmgr'
+    'networkmanager' 'network-manager-applet' 'feh'
+    'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji'
+    'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
+    'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'kcm-fcitx5'
+
+    # polybar
+    'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
+
+    # scripts
+    'xdg-utils' 'xdotool' 'xdo' 'jq'
+
+    # graphical programs
+    'zathura' 'zathura-pdf-mupdf' 'zathura-ps' 'sxiv' 'mpv' 'firefox'
+
+    # others
+    'desktop-file-utils' 'xdg-user-dirs'
+)
+
+optdepends=(
+    'neomutt: Email reader'
+    'isync: Email synchronizer'
+    'notmuch-runtime: Email indexer'
+
+    'newsboat: RSS reader'
+
+    'thunar: Graphical file manager'
+    'engrampa: Graphical archive manager'
+    'gnome-keyring: Key chain'
+
+    'rustup: Rust'
+    'flake8: Python linting in coc.nvim'
+    'python-ipdb: Python debugging'
+
+    'termite: Backup terminal'
+    'google-chrome: Backup browser'
+    'ffmpeg: Media editing'
+    'transset-df: For flash-win.sh (is in AUR)'
+)
