@@ -70,5 +70,9 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 setopt rc_quotes  # '' as ' in single quotes
 setopt extendedglob
 
+unalias run-help
+autoload -Uz run-help
+autoload -Uz zcalc
+
 compdef _pids cmdof
 compdef _pids envof
