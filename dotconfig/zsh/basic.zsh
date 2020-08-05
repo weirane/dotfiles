@@ -17,7 +17,6 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 plugins=(
-    autojump
     dotenv
     rust
     # zsh-autosuggestions
