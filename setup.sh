@@ -77,16 +77,16 @@ if [ ! -d "$ZSH" ] && confirm "Setup oh-my-zsh?"; then
 fi
 
 # spaceship-prompt
-if [ ! -d "$ZSH_CUSTOM/themes/spaceship-prompt" ] && confirm "Setup spaceship-prompt?"; then
-    echodo git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git \
-        "$ZSH_CUSTOM/themes/spaceship-prompt"
+sp_dir=$ZSH_CUSTOM/themes/spaceship-prompt
+if [ -d "$ZSH" ] && [ ! -d "$sp_dir" ] && confirm "Setup spaceship-prompt?"; then
+    echodo git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git "$sp_dir"
     (cd "$ZSH_CUSTOM/themes" && echodo ln -s spaceship-prompt/spaceship.zsh-theme .)
 fi
 
 # fast-syntax-highlighting
-if [ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ] && confirm "Setup fast-syntax-highlighting?"; then
-    git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git \
-        "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
+fsh_dir=$ZSH_CUSTOM/plugins/fast-syntax-highlighting
+if [ -d "$ZSH" ] && [ ! -d "$fsh_dir" ] && confirm "Setup fast-syntax-highlighting?"; then
+    git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git "$fsh_dir"
 fi
 
 # Helper shell scripts
@@ -100,5 +100,8 @@ if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
     fi
     git clone "${pre}weirane/scripts" "$HOME/scripts"
 fi
+
+# prevent ~/.tig_history
+[ -d "$HOME/.local/share/tig" ] || echodo mkdir -p "$HOME/.local/share/tig"
 
 exit 0
