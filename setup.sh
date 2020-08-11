@@ -46,6 +46,9 @@ for d in "$HOME"/.dotfiles/dotconfig/*; do
     [ -e "$name" ] || echodo ln -s "$d" "$name"
 done
 
+# prevent ~/.tig_history
+[ -d "$HOME/.local/share/tig" ] || echodo mkdir -p "$HOME/.local/share/tig"
+
 # vim-plug
 if [ ! -f "$HOME/.config/nvim/autoload/plug.vim" ] && confirm "Download plug.vim?"; then
     echodo curl -fLo "$HOME/.config/nvim/autoload/plug.vim" --create-dirs \
@@ -100,8 +103,5 @@ if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
     fi
     git clone "${pre}weirane/scripts" "$HOME/scripts"
 fi
-
-# prevent ~/.tig_history
-[ -d "$HOME/.local/share/tig" ] || echodo mkdir -p "$HOME/.local/share/tig"
 
 exit 0

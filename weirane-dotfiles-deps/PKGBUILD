@@ -1,5 +1,7 @@
+# shellcheck shell=bash disable=2034
+
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.0
+pkgver=0.0.1
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -8,20 +10,20 @@ license=('MIT')
 
 depends=(
     # basics
-    'python' 'perl' 'git' 'curl' 'nvm'
+    'python' 'perl' 'git' 'curl' 'nvm' 'yay' 'jq' 'man-db'
 
-    # command line utilities
-    'zsh' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig'
+    # useful programs
+    'zsh' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig' 'htop'
 
     # vim
     'vim' 'neovim' 'python-pynvim'
 
     # i3
     'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
-    'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo' 'xorg-xrdb'
-    'udisks2' 'inotify-tools' 'i3lock' 'xss-lock' 'xcape' 'xcompmgr'
-    'networkmanager' 'network-manager-applet' 'feh'
-    'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji'
+    'xorg-server' 'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo'
+    'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
+    'xcape' 'xcompmgr' 'networkmanager' 'network-manager-applet' 'feh'
+    'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-hack'
     'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
     'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'kcm-fcitx5'
 
@@ -29,22 +31,27 @@ depends=(
     'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
 
     # scripts
-    'xdg-utils' 'xdotool' 'xdo' 'jq'
+    'xdg-utils' 'xdotool' 'xdo'
 
     # graphical programs
     'zathura' 'zathura-pdf-mupdf' 'zathura-ps' 'sxiv' 'mpv' 'firefox'
+
+    # themes
+    'adapta-gtk-theme' 'papirus-icon-theme'
 
     # others
     'desktop-file-utils' 'xdg-user-dirs'
 )
 
 optdepends=(
+    'xcursor-breeze: Cursor theme (is in AUR)'
+
     'neomutt: Email reader'
     'isync: Email synchronizer'
     'notmuch-runtime: Email indexer'
-
     'newsboat: RSS reader'
 
+    'blueman: Bluetooth in system tray'
     'thunar: Graphical file manager'
     'engrampa: Graphical archive manager'
     'gnome-keyring: Key chain'

@@ -7,8 +7,8 @@ My configs for vim, zsh, i3, polybar etc.
 Setup [archlinuxcn] and run:
 
 ```sh
+sudo pacman -S --needed base-devel zsh
 ./setup.sh
-sudo pacman -S --needed base-devel
 cd weirane-dotfiles-deps
 makepkg -si
 ```
