@@ -32,4 +32,4 @@ export VIMINIT="if has('nvim') | source $XDG_CONFIG_HOME/nvim/init.vim | else | 
 
 [[ "$(tty)" == "/dev/tty1" ]] &&
     ! pgrep -x Xorg >/dev/null &&
-    [[ $+commands[startx] == 1 ]] && exec startx
+    (( $+commands[startx] )) && exec startx

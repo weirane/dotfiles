@@ -1,12 +1,12 @@
 # helper scripts and binaries
-prependpath "$HOME/bin"
-prependpath "$HOME/scripts"
+prependpath $HOME/bin
+prependpath $HOME/scripts
 
 # cargo
-prependpath "$HOME/.cargo/bin"
+prependpath $HOME/.cargo/bin
 
 # neovim
-if command -v nvim >/dev/null; then
+if (( $+commands[nvim] )); then
     export EDITOR=nvim
     alias vi='command vim'
     alias vim='nvim'
@@ -17,12 +17,12 @@ else
 fi
 
 # exa
-if command -v exa >/dev/null; then
+if (( $+commands[exa] )); then
     alias ls='exa'
     alias ll='exa -lgh'
     alias la='exa -lagh'
 
-    EXA_COLORS=$(<"$HOME/.dotfiles/exa_colors")
+    EXA_COLORS=$(<$HOME/.dotfiles/exa_colors)
     export EXA_COLORS
     zstyle ':completion:*' list-colors "${(@s.:.)EXA_COLORS}"
 else
@@ -34,17 +34,17 @@ fzf1=/usr/share/fzf
 
 export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
-if [ -f $fzf1/key-bindings.zsh ] && [ -f $fzf1/completion.zsh ]; then
+if [[ -f $fzf1/key-bindings.zsh ]] && [[ -f $fzf1/completion.zsh ]]; then
     . $fzf1/key-bindings.zsh
     . $fzf1/completion.zsh
-elif [ -f ~/.fzf.zsh ]; then
+elif [[ -f ~/.fzf.zsh ]]; then
     . ~/.fzf.zsh
 fi
 unset fzf1
 
-if command -v fd >/dev/null; then
+if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --type file --hidden --exclude .git/ --color=always'
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 fi
 
 # less

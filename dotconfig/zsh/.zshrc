@@ -3,4 +3,4 @@
 . "$ZDOTDIR/functions.zsh"
 . "$ZDOTDIR/apps.zsh"
 
-[ -f ~/.dotfiles/local/zshrc ] && \. ~/.dotfiles/local/zshrc || true
+[[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc || true

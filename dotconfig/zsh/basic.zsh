@@ -1,4 +1,5 @@
 export LANG=en_US.UTF-8
+export LC_TIME=en_GB.UTF-8
 export ZSH="$HOME/.local/share/oh-my-zsh"
 
 PROMPT_EOL_MARK="%B%F{8}↵%f%b"
@@ -43,6 +44,7 @@ bindkey '^[^[' sudo-command-line
 
 # replace the first word of the current command
 replace-command-name() {
+    [[ -z $BUFFER ]] && zle up-history
     local -a bufarr
     bufarr=(${(z)BUFFER})
     # ignore if there is only one word
