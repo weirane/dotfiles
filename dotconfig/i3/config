@@ -291,15 +291,8 @@ mode "resize" {
     bindsym m mode "move"
 }
 
-# Autostart applications
-exec --no-startup-id xss-lock -n $scripts/dim-screen.sh -- $scripts/lock.sh
-exec --no-startup-id $scripts/xmodmap-on-new-input.sh
-exec_always --no-startup-id ~/.config/polybar/start.sh
-exec --no-startup-id $terminal
-
 # Dropdown terminal
 for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
-exec --no-startup-id dropdownterm
 bindsym $mod+grave [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
