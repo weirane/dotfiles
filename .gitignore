@@ -1,13 +1,4 @@
 /local
-/dotconfig/git/gitk
-/dotconfig/nvim/autoload/plug.vim*
-/dotconfig/nvim/spell
-/dotconfig/nvim/.netrwhist
-/dotconfig/polybar/scripts/owm-key
-/dotconfig/zsh/.*
-/dotconfig/neomutt/*.account
-/dotconfig/neomutt/accounts.muttrc
-!/dotconfig/zsh/.zshrc
-!/dotconfig/zsh/.zprofile
+
 /weirane-dotfiles-deps/*
 !/weirane-dotfiles-deps/PKGBUILD

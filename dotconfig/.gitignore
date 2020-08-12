@@ -1,0 +1,17 @@
+/git/gitk
+
+/nvim/autoload/plug.vim*
+/nvim/spell
+/nvim/.netrwhist
+
+/zsh/.*
+!/zsh/.zshrc
+!/zsh/.zprofile
+
+/polybar/scripts/owm-key
+
+/neomutt/*.account
+/neomutt/accounts.muttrc
+
+/gtk-?.0/*
+!/gtk-?.0/settings.ini
