@@ -17,6 +17,20 @@ mcd() {
 }
 compdef _mkdir mcd  # https://github.com/robbyrussell/oh-my-zsh/issues/1895
 
+refresh-env() {
+    [[ -n $TMUX ]] || return
+    local v env
+    for v in $@; do
+        env=$(tmux show-environment | grep "^$v=")
+        [[ -z $env ]] || export $env
+    done
+}
+
+_refresh-env() {
+    compadd $(tmux show-environment | awk -F= '$0 !~ /^-/ { print $1 }')
+}
+compdef _refresh-env refresh-env
+
 df() {
     command -p df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
 }
