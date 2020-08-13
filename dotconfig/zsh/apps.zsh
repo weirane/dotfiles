@@ -79,3 +79,6 @@ export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
 export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
 export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
+
+# rust
+export RUSTUP_HOME="$HOME/.local/share/rustup"
