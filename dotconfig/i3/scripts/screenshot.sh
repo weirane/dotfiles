@@ -27,8 +27,9 @@ case "$1" in
             notify 'Abort'
             exit
         }
-        save=$(zenity --title 'Save the screenshot' \
-               --file-selection --save \
+        save=$(yad --title 'Save the screenshot' \
+               --width=1230 --height=750 \
+               --file --save \
                --filename="$last_path/$base" \
                --confirm-overwrite)
         if [ $? = 1 ] || [ -z "$save" ]; then
