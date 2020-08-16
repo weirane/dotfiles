@@ -1,5 +1,5 @@
 configuration {
-    modi: "window,run,ssh,drun,windowcd,combi,keys";
+    modi: "run,drun";
     font: "Hack 14";
     show-icons: true;
     icon-theme: "Papirus";
