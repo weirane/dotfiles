@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.1
+pkgver=0.0.2
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -25,7 +25,7 @@ depends=(
     'xcape' 'xcompmgr' 'networkmanager' 'network-manager-applet' 'feh'
     'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-hack'
     'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
-    'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'kcm-fcitx5'
+    'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'fcitx5-configtool'
 
     # polybar
     'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
