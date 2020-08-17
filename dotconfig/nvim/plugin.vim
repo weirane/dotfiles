@@ -123,10 +123,11 @@ nnoremap <silent> <localleader>ok :call CocAction('doHover')<CR>
 "}}}
 
 " easy motion {{{
-" ref: http://www.wklken.me/posts/2015/06/07/vim-plugin-easymotion.html
 let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 0  " keep cursor colum when JK motion
-nnoremap <leader><leader>. <Plug>(easymotion-repeat)
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_do_mapping = 0
+nmap <C-J> <Plug>(easymotion-j)
+nmap <C-K> <Plug>(easymotion-k)
 "}}}
 
 " fzf {{{
