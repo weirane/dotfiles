@@ -195,7 +195,7 @@ for_window [instance="^FloatExec$"] floating enable border normal
 
 for_window [title="^Edit ToDo$"] resize set 800 600, move position center
 for_window [class="^Qalculate-gtk$"] floating enable border normal
-for_window [class="^Blueman-services$"] floating enable border normal
+for_window [class="^Blueman-"] floating enable border normal
 for_window [class="^Arandr$"] floating enable border normal
 for_window [class="^TelegramDesktop$"] floating enable border normal
 for_window [class="^Nm-connection-editor$"] floating enable border normal
