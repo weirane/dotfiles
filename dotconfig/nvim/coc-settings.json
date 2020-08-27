@@ -1,6 +1,7 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby"],
     "coc.source.file.ignoreHidden": false,
+    "codeLens.enable": true,
 
     "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
     "rust-analyzer.inlayHints.chainingHints": false,
@@ -13,6 +14,8 @@
     "solargraph.checkGemVersion": false,
     "solargraph.diagnostics": true,
     "solargraph.formatting": true,
+
+    "prettier.disableLanguages": ["markdown"],
 
     "languageserver": {
         "ccls-c": {

@@ -116,6 +116,7 @@ endfunction
 nmap <localleader>of <Plug>(coc-format)
 nmap <localleader>or <Plug>(coc-rename)
 nmap <localleader>od <Plug>(coc-definition)
+nmap <localleader>on <Plug>(coc-references)
 nmap <localleader>oi <Plug>(coc-implementation)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
