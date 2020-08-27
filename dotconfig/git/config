@@ -34,11 +34,13 @@
     wsErrorHighlight = old,new
 [difftool]
     prompt = false
-[include]
-    path = ~/.dotfiles/local/gitconfig
 [pull]
     ff = only
 [log]
     date = iso
+[init]
+    defaultBranch = master
+[include]
+    path = ~/.dotfiles/local/gitconfig
 
 ; vim:ft=gitconfig
