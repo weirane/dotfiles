@@ -13,6 +13,7 @@ echodo() {
 }
 
 confirm() {
+    [ "$do_all" = 1 ] && return 0
     printf "%s (y/N) " "${1:-Are you sure?}"
     read -r response
     case $(echo "$response" | tr A-Z a-z) in
@@ -29,6 +30,8 @@ confirmy() {
         *) true ;;
     esac
 }
+
+[ "$1" = "-a" ] && do_all=1
 
 # symlinks
 for f in "$HOME"/.dotfiles/symlinks/*; do
