@@ -190,6 +190,7 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="^VirtualBox Machine$"] floating disable border pixel 1
+for_window [class="^Virt-manager$" title="^虚拟系统管理器$"] floating enable border normal
 for_window [class="^Yad$"] floating enable border normal
 for_window [instance="^FloatExec$"] floating enable border normal
 
