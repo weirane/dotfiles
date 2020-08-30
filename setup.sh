@@ -48,6 +48,7 @@ done
 
 # prevent ~/.tig_history
 [ -d "$HOME/.local/share/tig" ] || echodo mkdir -p "$HOME/.local/share/tig"
+[ -f "$HOME/.config/newsboat/ignores" ] || echodo touch "$HOME/.config/newsboat/ignores"
 
 # vim-plug
 if [ ! -f "$HOME/.config/nvim/autoload/plug.vim" ] && confirm "Download plug.vim?"; then

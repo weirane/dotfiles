@@ -13,5 +13,8 @@
 /neomutt/*.account
 /neomutt/accounts.muttrc
 
+/newsboat/ignores
+/newsboat/urls
+
 /gtk-?.0/*
 !/gtk-?.0/settings.ini
