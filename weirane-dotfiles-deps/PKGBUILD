@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.3
+pkgver=0.0.4
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -37,15 +37,14 @@ depends=(
     'zathura' 'zathura-pdf-mupdf' 'zathura-ps' 'sxiv' 'mpv' 'firefox'
 
     # themes
-    'adapta-gtk-theme' 'papirus-icon-theme'
+    'adapta-gtk-theme' 'papirus-icon-theme' 'grub-theme-vimix'
 
     # others
-    'desktop-file-utils' 'xdg-user-dirs'
+    'desktop-file-utils' 'xdg-user-dirs' 'ffmpeg' 'imagemagick'
 )
 
 optdepends=(
     'xcursor-breeze: Cursor theme (is in AUR)'
-    'grub-theme-vimix: GRUB theme'
 
     'neomutt: Email reader'
     'isync: Email synchronizer'
@@ -63,6 +62,5 @@ optdepends=(
 
     'termite: Backup terminal'
     'google-chrome: Backup browser'
-    'ffmpeg: Media editing'
     'transset-df: For flash-win.sh (is in AUR)'
 )
