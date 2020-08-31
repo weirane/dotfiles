@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.4
+pkgver=0.0.5
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -55,6 +55,7 @@ optdepends=(
     'thunar: Graphical file manager'
     'engrampa: Graphical archive manager'
     'gnome-keyring: Key chain'
+    'seahorse: Managing keys'
 
     'rustup: Rust'
     'flake8: Python linting in coc.nvim'
