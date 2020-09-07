@@ -155,6 +155,7 @@ let g:cursorword_delay = 0
 " LaTeX (vimtex) {{{
 let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
+let g:vimtex_compiler_latexmk = { 'build_dir': 'build' }
 let g:vimtex_compiler_latexmk_engines = {
             \ '_'                : '-xelatex',
             \ 'pdflatex'         : '-pdf',
