@@ -26,7 +26,7 @@ Run in vim:
 
 ```
 :PlugInstall
-:CocInstall coc-python coc-tsserver coc-rls coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier
+:CocInstall coc-python coc-tsserver coc-rust-analyzer coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier coc-vimlsp
 ```
 
 Then check the optional dependencies of `weirane-dotfiles-deps`.
@@ -96,7 +96,7 @@ Plugin manager [vim-plug] can be downloaded using the script `./setup.sh`. Run
 
 Run in vim to install additional [coc.nvim] components:
 
-    :CocInstall coc-python coc-tsserver coc-rls coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier
+    :CocInstall coc-python coc-tsserver coc-rust-analyzer coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier coc-vimlsp
 
 For python linting, install `flake8` via `pip`.
 
