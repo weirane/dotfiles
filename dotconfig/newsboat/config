@@ -53,6 +53,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default bold
 highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" cyan default
+highlight article ":.*\\(video\\)$" cyan default
 highlight article ":.*\\(embedded flash\\)$" cyan default
 
 # Notify
