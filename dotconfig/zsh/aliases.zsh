@@ -4,7 +4,7 @@ alias mv="mv -i"
 alias ls="ls --color=auto"
 alias free="free -h"
 alias grep="grep --color=auto"
-alias ip="env COLORFGBG=';0' ip --color=auto"
+alias ip="env COLORFGBG=';0' ip -c=auto"
 alias sudo="sudo "
 alias swl="swl "
 
