@@ -6,7 +6,7 @@ PROMPT_EOL_MARK="%B%F{8}↵%f%b"
 HYPHEN_INSENSITIVE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="spaceship"
+ZSH_THEME="spaceship-prompt/spaceship"
 
 SPACESHIP_TIME_SHOW="true"
 SPACESHIP_EXIT_CODE_SHOW="true"
