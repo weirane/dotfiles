@@ -66,6 +66,7 @@ bindkey '^[n' down-line-or-beginning-search
 
 cdpath=(~ ..)
 SAVEHIST=99999999
+WORDCHARS="-"
 
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
