@@ -26,6 +26,7 @@ set completeopt=menu,menuone
 set pumheight=10
 set updatetime=100
 set incsearch
+set inccommand=nosplit
 set wildmenu
 set shortmess+=c
 set nojoinspaces
@@ -94,14 +95,6 @@ augroup vimStartup
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
                 \ | exe "normal! g`\"" | endif
 augroup END
-
-" neovim/vim specific settings
-if has('nvim')
-    set inccommand=nosplit
-else
-    set ttymouse=sgr
-    set timeoutlen=100
-endif
 
 " Line width limit
 function! s:set_color_column(...)

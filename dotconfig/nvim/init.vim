@@ -1,3 +1,7 @@
+if !has('nvim')
+    finish
+endif
+
 let s:dir = expand('<sfile>:p:h')
 exec 'source ' . s:dir . '/general.vim'
 exec 'source ' . s:dir . '/leader.vim'
