@@ -96,6 +96,13 @@ augroup vimStartup
                 \ | exe "normal! g`\"" | endif
 augroup END
 
+" Terminal mode
+augroup NeovimTerminal
+    au!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+
 " Line width limit
 function! s:set_color_column(...)
     let l:width = get(a:, 1, 80)
