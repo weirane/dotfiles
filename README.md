@@ -40,13 +40,13 @@ Some of the steps below are covered by `./setup.sh`.
 ### Zsh
 
 Install `zsh` with a package manager or [from source][zsh-src]. Running
-`./setup.sh` will install [oh-my-zsh], [spaceship prompt] and
-[zsh-syntax-highlighting].
+`./setup.sh` will install [oh-my-zsh], [powerlevel10k] and
+[fast-syntax-highlighting].
 
 [zsh-src]: https://github.com/zsh-users/zsh/blob/master/INSTALL
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh
-[spaceship prompt]: https://github.com/denysdovhan/spaceship-prompt
-[zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
+[powerlevel10k]: https://github.com/romkatv/powerlevel10k
+[fast-syntax-highlighting]: https://github.com/zdharma/fast-syntax-highlighting
 
 ### Command line utilities
 

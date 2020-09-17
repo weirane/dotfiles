@@ -83,10 +83,10 @@ if [ ! -d "$ZSH" ] && confirm "Setup oh-my-zsh?"; then
     fi
 fi
 
-# spaceship-prompt
-sp_dir=$ZSH_CUSTOM/themes/spaceship-prompt
-if [ -d "$ZSH" ] && [ ! -d "$sp_dir" ] && confirm "Setup spaceship-prompt?"; then
-    echodo git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git "$sp_dir"
+# powerlevel10k
+p10k_dir=$ZSH_CUSTOM/themes/powerlevel10k
+if [ -d "$ZSH" ] && [ ! -d "$p10k_dir" ] && confirm "Setup powerlevel10k?"; then
+    echodo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$p10k_dir"
 fi
 
 # fast-syntax-highlighting

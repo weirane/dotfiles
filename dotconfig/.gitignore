@@ -5,6 +5,7 @@
 /nvim/.netrwhist
 
 /zsh/.*
+!/zsh/.p10k.zsh
 !/zsh/.zshrc
 !/zsh/.zprofile
 
