@@ -10,7 +10,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export CARGO_TARGET_DIR=/opt/cargo-target
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
-export LESSHISTFILE="-"
+export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export npm_config_cache="$XDG_CACHE_HOME/npm"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"

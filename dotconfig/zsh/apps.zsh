@@ -8,7 +8,6 @@ prependpath $HOME/.cargo/bin
 # neovim
 if (( $+commands[nvim] )); then
     export EDITOR=nvim
-    alias vi='command vim'
     alias vim='nvim'
     alias vimdiff='nvim -d'
     export MANPAGER="nvim -c 'set ft=man' -"
@@ -50,7 +49,6 @@ fi
 # less
 export LESS="-MR --mouse --wheel-lines=3 -# 10"
 export SYSTEMD_LESS="-FRSXMK --mouse --wheel-lines=3 -# 10"
-export LESSHISTFILE="-"
 
 # ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
@@ -58,17 +56,8 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 # ipython
 export IPYTHONDIR="$HOME/.config/ipython"
 
-# jupyter
-export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
-
 # httpie
 export HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
-
-# wget
-export WGETRC="$HOME/.config/wgetrc"
-
-# npm
-export npm_config_cache="$HOME/.cache/npm"
 
 # mysql, mycli, sqlite
 export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
