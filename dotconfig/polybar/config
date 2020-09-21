@@ -93,7 +93,7 @@ label = |  %title:0:30:...%
 [module/todo]
 type = custom/script
 exec = ~/.config/polybar/scripts/todo-view.sh
-exec-if = test "$PRIMARY" = 1 && test -f "$HOME/todo.txt"
+exec-if = test "$PRIMARY" = 1 && command -v task >/dev/null
 tail = true
 
 format-underline = #0accf5

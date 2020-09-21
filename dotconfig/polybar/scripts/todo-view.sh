@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Script for the todos module on my polybar. The total number of todos and the
-# number of todos that due today are shown.
-
-todo_file="$HOME/todo.txt"
 pid_file="$XDG_RUNTIME_DIR/polybar-todo.pid"
 
 echo "$$" > "$pid_file"
@@ -15,10 +11,8 @@ update() {
 
 show() {
     xdotool search --class 'Alacritty' \
-            search --name 'Edit Todo' >/dev/null && return
-    alacritty --class=FloatExec \
-              --title="Edit ToDo" \
-              -e nvim -u NONE -c 'set laststatus=0 mouse=a' "$todo_file"
+            search --name 'Edit Task' >/dev/null && return
+    TASKMODE=1 alacritty --class=FloatExec --title="Edit Task"
     update
 }
 
@@ -26,16 +20,14 @@ trap "show &" USR1
 trap "update" USR2
 
 while true; do
-    # Get the todos. Blank lines and lines begin with "# " are ignored
-    todos=$(grep -vE '^$|^# ' "$todo_file")
-    num=$(echo "$todos" | wc -l)
-    today=$(echo "$todos" | grep "($(date +%m-%d))$" -c)
-    if [ "$today" -gt 0 ]; then
-        today=", $today"
-    else
-        today=""
-    fi
-    echo "ToDo ($num$today)"
+    num=$(task +PENDING count)
+    today=$(task +PENDING 'due <= tomorrow' count)
+    overdue=$(task +OVERDUE count)
+    today_num=""
+    overdue_num=""
+    [ "$today" -gt 0 ] && today_num=", $today"
+    [ "$overdue" -gt 0 ] && overdue_num=", !$overdue"
+    echo "Task ($num$today_num$overdue_num)"
     sleep 2h &
     while pgrep -P $$ -x sleep >/dev/null; do wait; done
 done
