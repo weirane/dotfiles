@@ -41,7 +41,7 @@ font-4 = Weather Icons;1
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = todo date weather cpu memory wlan eth xbacklight pulseaudio battery
+modules-right = task date weather cpu memory wlan eth xbacklight pulseaudio battery
 
 tray-position = ${env:TRAY_POS:none}
 tray-padding = 0
@@ -90,9 +90,9 @@ label-urgent-padding = 2
 type = internal/xwindow
 label = |  %title:0:30:...%
 
-[module/todo]
+[module/task]
 type = custom/script
-exec = ~/.config/polybar/scripts/todo-view.sh
+exec = ~/.config/polybar/scripts/task-view.sh
 exec-if = test "$PRIMARY" = 1 && command -v task >/dev/null
 tail = true
 

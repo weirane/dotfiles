@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pid_file="$XDG_RUNTIME_DIR/polybar-todo.pid"
+pid_file="$XDG_RUNTIME_DIR/polybar-task.pid"
 
 echo "$$" > "$pid_file"
 trap "rm -f $pid_file" EXIT

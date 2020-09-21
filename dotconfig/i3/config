@@ -52,7 +52,7 @@ bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+b exec --no-startup-id $newsboat
 bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
 bindsym $mod+Ctrl+p exec --no-startup-id thunar
-bindsym $mod+Ctrl+t exec --no-startup-id xargs -r kill -USR1 < $XDG_RUNTIME_DIR/polybar-todo.pid
+bindsym $mod+Ctrl+t exec --no-startup-id xargs -r kill -USR1 < $XDG_RUNTIME_DIR/polybar-task.pid
 bindsym $mod+Ctrl+e exec --no-startup-id $scripts/rofimoji.sh
 bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id $scripts/mount.sh
