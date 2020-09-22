@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.5
+pkgver=0.0.6
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -46,6 +46,7 @@ depends=(
 optdepends=(
     'xcursor-breeze: Cursor theme (is in AUR)'
 
+    'task: Taskwarrior'
     'neomutt: Email reader'
     'isync: Email synchronizer'
     'notmuch-runtime: Email indexer'
