@@ -64,7 +64,11 @@ export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
 export MYCLI_HISTFILE="$HOME/.cache/mycli-history"
 export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 
-# bundle
+# ruby, bundle
+export IRBRC="$HOME/.config/irb/irbrc"
+export GEM_HOME="$HOME/.local/share/gem"
+export GEM_SPEC_CACHE="$HOME/.cache/gem"
+export SOLARGRAPH_CACHE="$HOME/.cache/solargraph"
 export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
 export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
 export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
