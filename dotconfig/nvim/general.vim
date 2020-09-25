@@ -55,6 +55,7 @@ if ! isdirectory(expand(&g:undodir))
 endif
 
 packadd! matchit
+autocmd BufRead,BufNewFile * let b:nroff_is_groff = 1
 
 " consistent wraping in "$ man xx" and ":Man xx"
 let g:man_hardwrap = 1

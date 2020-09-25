@@ -51,7 +51,7 @@ let g:startify_lists = [
 
 " NERDTree {{{
 nnoremap <F10> :silent! NERDTreeToggle<CR>
-let NERDTreeShowBookmarks = 1
+let NERDTreeBookmarksFile = expand('~/.cache/nerdtree-bookmarks')
 let NERDTreeShowHidden = 1
 " 退出最后一个文件时, 退出 NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -113,6 +113,8 @@ function! s:check_back_space() abort
     return !col || col + 1 == col('$') || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+nmap <silent> <localleader>oa :.CocAction<CR>
+xmap <localleader>oa <Plug>(coc-codeaction-selected)
 nmap <localleader>of <Plug>(coc-format)
 nmap <localleader>or <Plug>(coc-rename)
 nmap <localleader>od <Plug>(coc-definition)
@@ -239,7 +241,3 @@ let g:mkdp_auto_close = 0
 let g:rust_fold = 1
 nnoremap <localleader>rt :RustTest<CR>
 "}}}
-
-if filereadable(expand('~/.dotfiles/local/vim-plugins-setting.vim'))
-    source ~/.dotfiles/local/vim-plugins-setting.vim
-endif
