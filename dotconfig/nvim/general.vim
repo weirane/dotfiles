@@ -14,7 +14,7 @@ set tabstop=4
 set shiftwidth=4
 set showcmd
 set hidden
-set linebreak
+set nolinebreak
 set nohlsearch
 set backspace=indent,eol,start
 set exrc
