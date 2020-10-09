@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.6
+pkgver=0.0.7
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -22,7 +22,7 @@ depends=(
     'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
     'xorg-server' 'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo'
     'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
-    'xcape' 'xcompmgr' 'networkmanager' 'network-manager-applet' 'feh'
+    'xcape' 'picom' 'networkmanager' 'network-manager-applet' 'feh'
     'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-hack'
     'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
     'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'fcitx5-configtool'
@@ -64,5 +64,4 @@ optdepends=(
 
     'termite: Backup terminal'
     'google-chrome: Backup browser'
-    'transset-df: For flash-win.sh (is in AUR)'
 )
