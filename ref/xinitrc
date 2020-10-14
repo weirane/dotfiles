@@ -38,7 +38,7 @@ scripts=$HOME/.config/i3/scripts
 xss-lock -n "$scripts/dim-screen.sh" -- "$scripts/lock.sh" &
 "$scripts/xmodmap-on-new-input.sh" &
 
-~/.config/polybar/start.sh &
+startpolybar &
 dropdownterm &
 alacritty &
 
