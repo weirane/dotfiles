@@ -78,8 +78,10 @@ if [ ! -d "$ZSH" ] && confirm "Setup oh-my-zsh?"; then
         https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
     less "$tmpf"
     if confirmy "Proceed?"; then
-        echodo env RUNZSH=no sh "$tmpf"
+        echodo chmod +x "$tmpf"
+        echodo env RUNZSH=no "$tmpf"
         echodo rm "$tmpf"
+        echodo rm -f "$HOME/.shell.pre-oh-my-zsh" "$HOME/.zshrc"
     fi
 fi
 
