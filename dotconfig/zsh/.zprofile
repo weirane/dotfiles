@@ -30,7 +30,7 @@ export TEXMFVAR="$XDG_DATA_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_DATA_HOME/texlive/texmf-config"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 
-export VIMINIT="if has('nvim') | source $XDG_CONFIG_HOME/nvim/init.vim | else | source \$VIMRUNTIME/defaults.vim | let &viminfofile = '$XDG_CACHE_HOME/viminfo' | endif"
+export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 
 [[ "$(tty)" == "/dev/tty1" ]] &&
     ! pgrep -x Xorg >/dev/null &&

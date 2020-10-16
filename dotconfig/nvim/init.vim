@@ -1,4 +1,6 @@
 if !has('nvim')
+    silent! source $VIMRUNTIME/defaults.vim
+    set viminfofile=~/.cache/viminfo
     finish
 endif
 
