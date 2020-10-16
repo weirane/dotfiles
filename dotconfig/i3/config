@@ -109,7 +109,7 @@ bindsym $mod+a focus parent
 # scratchpad
 bindsym $mod+minus [floating] move scratchpad
 #  loop through windows in the scratchpad, skip the dropdown terminal
-bindsym $mod+Tab scratchpad show, \
+bindsym $mod+grave scratchpad show, \
                  [instance="^dropdown-terminal$"] move position center, \
                  [instance="^dropdown-terminal$"] scratchpad show, \
                  [instance="^dropdown-terminal$"] scratchpad show
@@ -294,7 +294,7 @@ mode "resize" {
 
 # Dropdown terminal
 for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
-bindsym $mod+grave [instance="^dropdown-terminal$"] scratchpad show, move position center
+bindsym $mod+Tab [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
