@@ -71,3 +71,4 @@ autoload -Uz zcalc
 
 compdef _pids cmdof
 compdef _pids envof
+compdef {alwaysatty,proxied,swl}=command
