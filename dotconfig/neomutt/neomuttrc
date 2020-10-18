@@ -45,6 +45,9 @@ auto_view text/html
 auto_view application/pgp-encrypted
 alternative_order text/plain text/enriched text/html
 
+set abort_noattach = ask-yes
+set abort_noattach_regex = "在附件(中|里)|\\<attach(|ed|ments?)\\>"
+
 # Sidebar
 set sidebar_visible = yes
 set sidebar_width = 20
