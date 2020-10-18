@@ -72,6 +72,3 @@ export SOLARGRAPH_CACHE="$HOME/.cache/solargraph"
 export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
 export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
 export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
-
-# rust
-export RUSTUP_HOME="$HOME/.local/share/rustup"
