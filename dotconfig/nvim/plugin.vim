@@ -63,6 +63,9 @@ let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_c = 1
 let g:NERDAltDelims_python = 1
 let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {
+            \ 'nroff': { 'left': '.\"' },
+            \ }
 "}}}
 
 " airline {{{
