@@ -27,7 +27,8 @@ set date_format = "%Y-%m-%d %H:%M:%S %z"
 #                   num    attatch    date           collapsed   size
 set index_format = "%3C %Z %?X?A& ? %[%F %T] %-18.18F %?M?%M ?%s (%c)"
 set smtp_authenticators = 'gssapi:login'
-set query_command = "abook --mutt-query '%s'"
+set query_command = "notmuch address from:%s | grep -vE 'no[-_]?reply'"
+set query_format = "%4c %t %-70.70a %-70.70n %?e?(%e)?"
 set rfc2047_parameters = yes
 set sleep_time = 0             # Pause 0 seconds for informational messages
 set markers = no               # Disables the `+` displayed at line wraps

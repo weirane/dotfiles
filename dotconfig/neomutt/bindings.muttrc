@@ -28,7 +28,7 @@ bind index <Right> display-message
 bind index <Space> tag-entry
 macro browser h '<change-dir><kill-line>..<Enter>' "Go to parent folder"
 bind index,pager H view-raw-message
-bind browser l select-entry
+bind browser,query l select-entry
 bind browser <Right> select-entry
 bind pager,browser gg top-page
 bind browser G bottom-page
@@ -43,9 +43,6 @@ macro index A "<enter-command>set my_confirmappend=\$confirmappend my_delete=\$d
 <tag-prefix><save-message>=Archive<enter>\
 <sync-mailbox>\
 <enter-command>set confirmappend=\$my_confirmappend delete=\$my_delete<enter>"
-macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return>\
-<pipe-message>abook --add-email<return>\
-<enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index \Cf "<enter-command>unset wait_key<enter>\
