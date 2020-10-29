@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.8
+pkgver=0.0.9
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -29,6 +29,9 @@ depends=(
 
     # polybar
     'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
+
+    # ranger
+    'ranger' 'ueberzug' 'lynx' 'w3m'
 
     # scripts
     'xdg-utils' 'xdotool' 'xdo' 'ruby' 'ruby-mail'
