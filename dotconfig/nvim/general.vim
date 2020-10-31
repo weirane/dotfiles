@@ -32,6 +32,7 @@ set shortmess+=c
 set nojoinspaces
 set formatoptions+=lnt
 set nostartofline
+set title
 
 syntax on
 filetype plugin on
