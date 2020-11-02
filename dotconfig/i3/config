@@ -125,8 +125,8 @@ set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 8:ssh
-set $ws9 9:float
+set $ws8 8
+set $ws9 9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -222,8 +222,6 @@ for_window [class="^firefox$" window_role="^PictureInPicture$"] floating enable 
 for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable border normal
 for_window [class="^Thunderbird$" window_role="^addressbook$"] floating enable border normal
 for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable border normal
-
-for_window [workspace=$ws9] floating enable border normal
 
 # Shutdown, restart and lock
 bindsym $mod+0 mode "$mode_system"
