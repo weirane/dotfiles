@@ -33,6 +33,8 @@ set nojoinspaces
 set formatoptions+=lnt
 set nostartofline
 set title
+set list
+set listchars=tab:\|\ ,trail:▫,nbsp:␣
 
 syntax on
 filetype plugin on
