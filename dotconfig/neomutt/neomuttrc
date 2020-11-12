@@ -14,6 +14,7 @@ hdr_order date from to cc reply-to subject
 set sendmail = "/usr/bin/msmtp"
 set sort = threads
 set sort_aux = reverse-last-date
+set strict_threads = yes
 set attribution = "\n\nOn %D, %n wrote:"
 # set attribution = "\n\n> From: %f\n> Sent: %D\n> To: %r\n> Cc: %R\n> Subject: %s\n> "
 set attribution_locale = "en_US.UTF-8"
@@ -33,12 +34,11 @@ set rfc2047_parameters = yes
 set sleep_time = 0             # Pause 0 seconds for informational messages
 set markers = no               # Disables the `+` displayed at line wraps
 set mark_old = no              # Unread mail stay unread until read
-set mime_forward = yes         # attachments are forwarded with mail
+set mime_forward = ask-no
 set wait_key = no              # mutt won't ask "press key to continue"
 set fast_reply                 # skip to compose when replying
 set fcc_attach                 # save attachments with the body
 set forward_format = "Fwd: %s" # format of subject when forwarding
-set forward_quote              # include message in forwards
 set reverse_name               # reply as whomever it was to
 set include                    # include message in replies
 set wrap = 120
