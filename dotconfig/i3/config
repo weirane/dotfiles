@@ -227,7 +227,7 @@ for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable bord
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (s)uspend, (E)xit, (R)eboot, (S)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $scripts/lock.sh, mode "default"
+    bindsym l exec --no-startup-id locki3, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym Shift+e exec --no-startup-id _M="Exit i3 on $(uname -n)?" rofi-warned i3-msg exit, mode "default"
     bindsym Shift+r exec --no-startup-id _M="Reboot $(uname -n)?" rofi-warned shutdown -r now, mode "default"

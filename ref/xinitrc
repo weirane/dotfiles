@@ -35,7 +35,7 @@ feh --no-fehbg --bg-scale "$HOME/.config/wallpaper" &
 pgrep -xf 'xcape -e Control_L Escape' || xcape -e 'Control_L=Escape'
 
 scripts=$HOME/.config/i3/scripts
-xss-lock -n "$scripts/dim-screen.sh" -- "$scripts/lock.sh" &
+xss-lock -n "$scripts/dim-screen.sh" -- locki3 &
 "$scripts/xmodmap-on-new-input.sh" &
 
 startpolybar &
