@@ -1,6 +1,6 @@
 # helper scripts and binaries
-prependpath $HOME/bin
 prependpath $HOME/scripts
+prependpath $HOME/bin
 
 # cargo
 prependpath $HOME/.cargo/bin
