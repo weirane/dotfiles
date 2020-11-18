@@ -32,7 +32,7 @@ _refresh-env() {
 compdef _refresh-env refresh-env
 
 df() {
-    command -p df -h | awk 'NR == 1 || /sd|vd|nvme|mmcblk/'
+    command -p df -h | awk 'NR == 1 || $1 ~ /sd|vd|nvme|mmcblk|mapper/'
 }
 
 # ex - archive extractor. usage: ex <file>
