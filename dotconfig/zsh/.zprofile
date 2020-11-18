@@ -34,4 +34,6 @@ export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 
 [[ "$(tty)" == "/dev/tty1" ]] &&
     ! pgrep -x Xorg >/dev/null &&
-    (( $+commands[startx] )) && exec startx
+    (( $+commands[startx] )) &&
+    [[ -f $HOME/.config/X11/xinitrc ]] &&
+    exec startx $HOME/.config/X11/xinitrc

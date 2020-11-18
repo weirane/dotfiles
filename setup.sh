@@ -44,6 +44,7 @@ done
 
 # .config
 [ -d "$HOME/.config" ] || mkdir -p "$HOME/.config"
+[ -d "$HOME/.config/X11" ] || echodo mkdir "$HOME/.config/X11"
 for d in "$HOME"/.dotfiles/dotconfig/*; do
     name="$HOME"/.config/$(basename "$d")
     [ -e "$name" ] || echodo ln -s "$d" "$name"
