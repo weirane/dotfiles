@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.9
+pkgver=0.0.10
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -44,6 +44,7 @@ depends=(
 
     # others
     'desktop-file-utils' 'xdg-user-dirs' 'ffmpeg' 'imagemagick'
+    'terminus-font'
 )
 
 optdepends=(
