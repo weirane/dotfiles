@@ -3,7 +3,7 @@ prependpath $HOME/scripts
 prependpath $HOME/bin
 
 # cargo
-prependpath $HOME/.cargo/bin
+prependpath $CARGO_HOME/bin
 
 # neovim
 if (( $+commands[nvim] )); then

@@ -25,6 +25,7 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 [[ -f /usr/share/nvm/nvm.sh ]] && . /usr/share/nvm/nvm.sh
 
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_DATA_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_DATA_HOME/texlive/texmf-config"
