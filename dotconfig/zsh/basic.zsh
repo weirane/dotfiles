@@ -17,6 +17,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 unset plugins
+ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%3~%<<"
 
 # toggle sudo with esc-esc
 sudo-command-line() {
