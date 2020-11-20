@@ -134,6 +134,10 @@ let g:EasyMotion_startofline = 0
 let g:EasyMotion_do_mapping = 0
 nmap <C-J> <Plug>(easymotion-j)
 nmap <C-K> <Plug>(easymotion-k)
+nmap <leader><leader>w <Plug>(easymotion-w)
+nmap <leader><leader>b <Plug>(easymotion-b)
+nmap <leader><leader>f <Plug>(easymotion-f)
+nmap <leader><leader>F <Plug>(easymotion-F)
 "}}}
 
 " fzf {{{
