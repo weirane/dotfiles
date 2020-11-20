@@ -39,10 +39,10 @@ bind index,pager R group-reply
 bind editor <Tab> complete-query
 bind compose l view-attach
 
-macro index A "<enter-command>set my_confirmappend=\$confirmappend my_delete=\$delete confirmappend=no delete=yes<enter>\
-<tag-prefix><save-message>=Archive<enter>\
-<sync-mailbox>\
-<enter-command>set confirmappend=\$my_confirmappend delete=\$my_delete<enter>"
+# macro index A "<enter-command>set my_confirmappend=\$confirmappend my_delete=\$delete confirmappend=no delete=yes<enter>\
+# <tag-prefix><save-message>=Archive<enter>\
+# <sync-mailbox>\
+# <enter-command>set confirmappend=\$my_confirmappend delete=\$my_delete<enter>"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index \Cf "<enter-command>unset wait_key<enter>\
