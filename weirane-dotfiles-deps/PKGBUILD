@@ -1,7 +1,7 @@
 # shellcheck shell=bash disable=2034
 
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.10
+pkgver=0.0.11
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -53,7 +53,7 @@ optdepends=(
     'task: Taskwarrior'
     'neomutt: Email reader'
     'isync: Email synchronizer'
-    'notmuch-runtime: Email indexer'
+    'notmuch: Email indexer'
     'newsboat: RSS reader'
 
     'blueman: Bluetooth in system tray'

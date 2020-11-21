@@ -46,8 +46,8 @@ bind compose l view-attach
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index \Cf "<enter-command>unset wait_key<enter>\
-<shell-escape>read -rp 'Enter a search term to find with notmuch: ' x; echo \"\$x\" >~/.cache/mutt_terms<enter>\
-<limit>~i \"\`notmuch search --output=messages \"\$(cat ~/.cache/mutt_terms)\" | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" \
+<shell-escape>~/.config/neomutt/notmuch-search.py<enter>\
+<limit>~i \"\`cat ~/.cache/mutt_search\`\"<enter>" \
 "show only messages matching a notmuch pattern"
 
 macro attach \Cf "<pipe-message>t=$(mktemp /tmp/nmXXXX.html) && cat > \$t && firefox \$t<Enter>" "Use firefox to view HTML content"
