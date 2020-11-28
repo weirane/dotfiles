@@ -1,5 +1,3 @@
-# shellcheck shell=bash disable=2034
-
 pkgname=weirane-dotfiles-deps
 pkgver=0.0.11
 pkgrel=1

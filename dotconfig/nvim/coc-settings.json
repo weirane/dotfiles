@@ -45,9 +45,36 @@
             }
         }
     },
+    "diagnostic-languageserver.linters": {
+        // https://github.com/iamcco/diagnostic-languageserver/wiki/Linters#shellcheck
+        "pkgbuildcheck": {
+            "command": "shellcheck",
+            "debounce": 100,
+            "args": [
+                "--shell=bash", "--exclude=SC2034,SC2154,SC2164",
+                "--format", "json", "-"
+            ],
+            "sourceName": "shellcheck",
+            "parseJson": {
+                "line": "line",
+                "column": "column",
+                "endLine": "endLine",
+                "endColumn": "endColumn",
+                "message": "${message} [${code}]",
+                "security": "level"
+            },
+            "securities": {
+                "error": "error",
+                "warning": "warning",
+                "info": "info",
+                "style": "hint"
+            }
+        }
+    },
     // https://github.com/meatwallace/dotfiles/issues/129
     "diagnostic-languageserver.filetypes": {
-        "sh": "shellcheck"
+        "sh": "shellcheck",
+        "PKGBUILD": "pkgbuildcheck"
     },
     "diagnostic-languageserver.formatFiletypes": {
         "sh": "shfmt"
