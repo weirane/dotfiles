@@ -18,6 +18,7 @@ set strict_threads = yes
 set attribution = "\n\nOn %D, %n wrote:"
 # set attribution = "\n\n> From: %f\n> Sent: %D\n> To: %r\n> Cc: %R\n> Subject: %s\n> "
 set attribution_locale = "en_US.UTF-8"
+unset signature
 set collapse_all = yes
 set collapse_unread = no
 set pager_stop = yes
@@ -27,7 +28,6 @@ set mailcap_path = $HOME/.config/neomutt/mailcap
 set date_format = "%Y-%m-%d %H:%M:%S %z"
 #                   num    attatch    date           collapsed   size
 set index_format = "%3C %Z %?X?A& ? %[%F %T] %-18.18F %?M?%M ?%s (%c)"
-set smtp_authenticators = 'gssapi:login'
 set query_command = "notmuch address from:'/%s/' | grep -vE 'no[-_]?reply'"
 set query_format = "%4c %t %-70.70a %-70.70n %?e?(%e)?"
 set rfc2047_parameters = yes
