@@ -6,6 +6,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
+export XDG_SESSION_TYPE=x11
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 xrdb -merge ~/.config/X11/Xresources
