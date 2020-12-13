@@ -38,6 +38,7 @@ font-1 = Hack:pixelsize=14:antialias=true;1
 font-2 = Microsoft YaHei:pixelsize=14:antialias=true;1
 font-3 = Noto Color Emoji:scale=10;1
 font-4 = Weather Icons;1
+font-5 = Hack Nerd Font:pixelsize=14:antialias=true;1
 
 modules-left = i3 xwindow
 modules-center =
@@ -240,9 +241,9 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 label-discharging = 🔋 %percentage%% %time%
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full = <label-full>
 format-full-underline = ${self.format-charging-underline}
+label-full = "  %percentage%%"
 
 ramp-capacity-0 = ⚠
 ramp-capacity-1 =
