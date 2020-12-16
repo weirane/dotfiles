@@ -142,6 +142,7 @@ nmap <leader><leader>F <Plug>(easymotion-F)
 
 " fzf {{{
 let $FZF_DEFAULT_COMMAND=expand('$FZF_DEFAULT_COMMAND --no-ignore')
+let g:fzf_layout = { 'down': '40%' }
 nnoremap <silent><leader>b :Buffers<CR>
 nnoremap <silent><leader>ff :Files<CR>
 nnoremap <silent><leader>fg :GFiles<CR>
