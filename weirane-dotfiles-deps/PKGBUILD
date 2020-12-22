@@ -1,5 +1,5 @@
 pkgname=weirane-dotfiles-deps
-pkgver=0.0.12
+pkgver=0.0.13
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -8,7 +8,7 @@ license=('MIT')
 
 depends=(
     # basics
-    'python' 'perl' 'git' 'curl' 'nvm' 'yay' 'jq' 'man-db'
+    'python' 'perl' 'git' 'curl' 'nvm' 'yay' 'jq' 'man-db' 'man-pages'
 
     # useful programs
     'zsh' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig' 'htop'
@@ -65,5 +65,5 @@ optdepends=(
     'python-ipdb: Python debugging'
 
     'termite: Backup terminal'
-    'google-chrome: Backup browser'
+    'chromium: Backup browser'
 )
