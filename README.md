@@ -9,14 +9,8 @@ Setup [archlinuxcn] and run:
 ```sh
 sudo pacman -S --needed base-devel zsh
 ./setup.sh
-cd weirane-dotfiles-deps
-makepkg -si
-```
-
-Install node.js package `neovim`:
-
-```sh
-export NVM_DIR="$HOME/.local/share/nvm"
+logout
+# **Login again**
 . /usr/share/nvm/nvm.sh
 nvm install --lts
 npm install -g neovim

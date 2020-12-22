@@ -107,7 +107,15 @@ if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
     else
         pre=https://github.com/
     fi
-    git clone "${pre}weirane/scripts" "$HOME/scripts"
+    echodo git clone "${pre}weirane/scripts" "$HOME/scripts"
+fi
+
+# weirane-dotfiles-deps
+pkg=weirane-dotfiles-deps
+if { command -v pacman && ! pacman -Q "$pkg"; } >/dev/null 2>&1; then
+    if confirm "Setup $pkg?"; then
+        cd "$pkg" && echodo makepkg -si
+    fi
 fi
 
 exit 0
