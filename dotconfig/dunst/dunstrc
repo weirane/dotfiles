@@ -3,7 +3,7 @@
     frame_color = "#282828"
     geometry = "400x100-2+38"
     shrink = yes
-    font = Noto Sans 10
+    font = sans-serif 10
     markup = yes
 
     # The format of the message.  Possible variables are:

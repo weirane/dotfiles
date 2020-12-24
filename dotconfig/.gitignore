@@ -21,3 +21,5 @@ __pycache__
 
 /gtk-?.0/*
 !/gtk-?.0/settings.ini
+
+/fontconfig/conf.d/99-*
