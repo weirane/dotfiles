@@ -58,8 +58,6 @@ bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id rofimount
 bindsym $mod+Ctrl+u exec --no-startup-id rofiumount
 
-bindsym $mod+Escape exec --no-startup-id $scripts/flash-win.sh
-
 focus_follows_mouse no
 focus_wrapping no
 
