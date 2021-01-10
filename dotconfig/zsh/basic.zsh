@@ -62,6 +62,7 @@ SAVEHIST=99999999
 WORDCHARS="-"
 
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:*:(vim|nvim|cat|bat|less):*' file-patterns '^*(vimtex.pdf|.synctex.gz|.o):source-files' '*:all-files'
 
 setopt rc_quotes  # '' as ' in single quotes
 setopt extendedglob
