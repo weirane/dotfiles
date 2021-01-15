@@ -29,16 +29,11 @@ else
 fi
 
 # fzf
-fzf1=/usr/share/fzf
-
 export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
-if [[ -f $fzf1/key-bindings.zsh ]] && [[ -f $fzf1/completion.zsh ]]; then
-    . $fzf1/key-bindings.zsh
-    . $fzf1/completion.zsh
-elif [[ -f ~/.fzf.zsh ]]; then
-    . ~/.fzf.zsh
-fi
+fzf1=/usr/share/fzf
+[[ -f $fzf1/key-bindings.zsh ]] && . $fzf1/key-bindings.zsh
+[[ -f $fzf1/completion.zsh ]] && . $fzf1/completion.zsh
 unset fzf1
 
 if (( $+commands[fd] )); then
