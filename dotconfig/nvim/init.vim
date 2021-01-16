@@ -1,6 +1,11 @@
 if !has('nvim')
     silent! source $VIMRUNTIME/defaults.vim
     set viminfofile=~/.cache/viminfo
+    " cterm cursor shape
+    if &term =~# '.\+-256color'
+        let &t_SI = "\<Esc>[6 q"
+        let &t_EI = "\<Esc>[2 q"
+    endif
     finish
 endif
 

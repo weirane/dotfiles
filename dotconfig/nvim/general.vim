@@ -47,14 +47,14 @@ let &g:directory = $HOME . '/.cache'
 let &g:undodir = &g:directory . '/vim/undo//'
 let &g:backupdir = &g:directory . '/vim/backup//'
 let &g:directory .= '/vim/swap//'
-if ! isdirectory(expand(&g:directory))
-    silent! call mkdir(expand(&g:directory), 'p', 0700)
+if ! isdirectory(&g:directory)
+    silent! call mkdir(&g:directory, 'p', 0700)
 endif
-if ! isdirectory(expand(&g:backupdir))
-    silent! call mkdir(expand(&g:backupdir), 'p', 0700)
+if ! isdirectory(&g:backupdir)
+    silent! call mkdir(&g:backupdir, 'p', 0700)
 endif
-if ! isdirectory(expand(&g:undodir))
-    silent! call mkdir(expand(&g:undodir), 'p', 0700)
+if ! isdirectory(&g:undodir)
+    silent! call mkdir(&g:undodir, 'p', 0700)
 endif
 
 packadd! matchit
@@ -63,17 +63,11 @@ autocmd BufRead,BufNewFile * let b:nroff_is_groff = 1
 " consistent wraping in "$ man xx" and ":Man xx"
 let g:man_hardwrap = 1
 
-" cterm cursor shape
-if &term =~# '.\+-256color'
-    let &t_SI = "\<Esc>[6 q"
-    let &t_EI = "\<Esc>[2 q"
-endif
-
 " encodings, multibyte
 set encoding=utf-8
 set termencoding=utf-8
 set formatoptions+=mB
-set fencs=utf-8,gbk
+set fileencodings=utf-8,gbk
 
 " for gvim
 if has("gui_running")
