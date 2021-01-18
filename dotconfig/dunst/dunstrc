@@ -132,16 +132,16 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = ctrl+space
+    close = ctrl+period
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    close_all = ctrl+shift+period
 
     # Redisplay last message(s).
     history = ctrl+shift+h
 
     # Context menu.
-    context = ctrl+shift+period
+    # context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
