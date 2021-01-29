@@ -17,7 +17,7 @@ alias gdb="gdb -q"
 alias bc="bc -lq"
 
 alias rsbk="env RUST_BACKTRACE=1 "
-alias langzh="env LANG=zh_CN.UTF-8 "
+alias langzh="env -u LC_TIME LANG=zh_CN.UTF-8 "
 
 alias pys="python3 -m http.server"
 
