@@ -211,6 +211,7 @@ for_window [class="^Dragon-drag-and-drop$"] floating enable sticky enable border
 for_window [class="^Gpick$"] floating enable sticky enable border normal
 for_window [class="^Wine$" instance="^tim\.exe$"] floating enable border none
 
+for_window [class="^gnuplot_qt$" title="^Gnuplot window "] floating enable border normal
 for_window [class="^(matplotlib$|GNU Octave$|MATLAB)" title="^Figure "] floating enable border normal
 for_window [class="^Vivado$" title="^win0$"] floating enable border none
 for_window [class="^vlc$" window_role="^vlc-plugins$"] floating enable border normal
