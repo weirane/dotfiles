@@ -110,7 +110,7 @@ inoremap <silent><expr> <TAB>
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <C-Space> coc#refresh()
+inoremap <silent><expr> <C-z> coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || col + 1 == col('$') || getline('.')[col - 1]  =~# '\s'
