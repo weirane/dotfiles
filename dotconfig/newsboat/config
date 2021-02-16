@@ -37,10 +37,10 @@ macro l pipe-to "setsid --fork ~/.config/newsboat/openlink"
 
 # Theme color
 color listnormal cyan default
-color listfocus black white standout bold
+color listfocus color8 white standout
 color listnormal_unread white default bold
-color listfocus_unread black white standout bold
-color info yellow black bold
+color listfocus_unread color8 white standout bold
+color info yellow color18 bold
 
 # Highlight
 highlight feedlist "---.*---" yellow

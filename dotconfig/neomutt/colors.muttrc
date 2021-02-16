@@ -5,9 +5,9 @@ color index_number cyan default
 color index_subject white default '.*'
 
 # New mail
-color index brightyellow default "~N"
-color index_author brightcyan default "~N"
-color index_subject brightwhite default "~N"
+color index brightyellow color19 "~N"
+color index_author brightcyan color19 "~N"
+color index_subject brightwhite color19 "~N"
 
 # Tagged mail
 color index brightyellow black "~T"
@@ -20,7 +20,7 @@ mono underline underline
 mono indicator reverse
 mono error bold
 color normal default default
-color indicator brightblack white
+color indicator white color8
 color sidebar_highlight brightred default
 color sidebar_divider brightblack default
 color sidebar_new green black
@@ -30,7 +30,7 @@ color message cyan default
 color markers red white
 color attachment white default
 color search brightmagenta default
-color status brightyellow black
+color status brightyellow color18
 color hdrdefault brightgreen default
 color quoted green default
 color quoted1 blue default
