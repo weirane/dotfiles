@@ -86,10 +86,6 @@ nnoremap <silent> <leader>gc :tab Git commit -v<CR>
 nnoremap <silent> <leader>gp :GitGutterPreviewHunk<CR>
 nnoremap <silent> <leader>ga :GitGutterStageHunk<CR>
 nnoremap <silent> <leader>gu :GitGutterUndoHunk<CR>
-highlight GitGutterDelete ctermfg=15
-highlight diffAdded ctermfg=green cterm=bold
-highlight diffRemoved ctermfg=red cterm=bold
-highlight! link SignColumn LineNr
 nnoremap <leader>gf :GitGutterFold<CR>
 "}}}
 
