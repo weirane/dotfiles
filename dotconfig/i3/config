@@ -292,7 +292,7 @@ mode "resize" {
 }
 
 # Dropdown terminal
-for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 3
+for_window [instance="^dropdown-terminal$"] floating enable, sticky enable, move scratchpad, border pixel 2
 bindsym $mod+Tab [instance="^dropdown-terminal$"] scratchpad show, move position center
 
 # Theme colors
