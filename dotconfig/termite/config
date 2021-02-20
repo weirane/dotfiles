@@ -43,32 +43,36 @@ cursor_blink = off
 #cursor = #dcdccc
 #cursor_foreground = #dcdccc
 
-foreground = #D3D7CF
-#foreground_bold = #ffffff
-#background = #2E3436
-
-background = rgba(46, 52, 54, 0.9)
+foreground      = #d5d5d5
+foreground_bold = #d5d5d5
+background      = rgba(29, 32, 33, 0.95)
 
 # If unset, will reverse foreground and background
 #highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #000000
-color1 = #AA0000
-color2 = #00AA00
-color3 = #AA5500
-color4 = #0000AA
-color5 = #AA00AA
-color6 = #00AAAA
-color7 = #AAAAAA
-color8 = #555555
-color9 = #FF5555
-color10 = #55FF55
-color11 = #FFFF55
-color12 = #5555FF
-color13 = #FF55FF
-color14 = #55FFFF
-color15 = #FFFFFF
+color0  = #1d2021
+color1  = #d72638
+color2  = #88b92d
+color3  = #f19d1a
+color4  = #1e8bac
+color5  = #be4264
+color6  = #1ba595
+color7  = #d5d5d5
+color8  = #6f7579
+color9  = #d72638
+color10 = #88b92d
+color11 = #f19d1a
+color12 = #1e8bac
+color13 = #be4264
+color14 = #1ba595
+color15 = #e5e5e5
+color16 = #eb8413
+color17 = #c85e0d
+color18 = #383c3e
+color19 = #53585b
+color20 = #cdcdcd
+color21 = #dddddd
 
 [hints]
 #font = Monospace 12

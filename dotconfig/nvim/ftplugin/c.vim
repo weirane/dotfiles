@@ -2,7 +2,7 @@ setlocal foldmethod=syntax
 setlocal cindent
 packadd termdebug
 
-highlight cFunctions guifg=#FF9D4D ctermfg=214
+highlight link cFunctions Function
 
 if (&ft == 'c')
     " C only

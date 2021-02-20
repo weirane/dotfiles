@@ -39,9 +39,8 @@ set listchars=tab:\|\ ,trail:▫,nbsp:␣
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme slate
-highlight PMenu ctermfg=0 ctermbg=242
-highlight ColorColumn ctermbg=8
+let base16colorspace = 256
+colorscheme base16-helios
 
 let &g:directory = $HOME . '/.cache'
 let &g:undodir = &g:directory . '/vim/undo//'
@@ -73,8 +72,6 @@ set fileencodings=utf-8,gbk
 if has("gui_running")
     set guifont=Consolas\ 13
     set winaltkeys=no
-    colorscheme evening
-    highlight PMenu ctermfg=0 ctermbg=242 guifg=#000000 guibg=#6c6c6c
     set guioptions-=T  " remove tool bar
     set guioptions-=r  " remove right scroll bar
     set guioptions-=L  " remove left one
