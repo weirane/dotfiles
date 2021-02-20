@@ -25,6 +25,7 @@
 [merge]
     tool = vimdiff
 [diff]
+    colorMoved = zebra
     tool = vimdiff
     wsErrorHighlight = old,new
 [difftool]
