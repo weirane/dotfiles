@@ -61,11 +61,12 @@ trap 'dot=.' RTMIN+1
 trap 'dot=..' RTMIN+2
 trap 'dot=...' RTMIN+3
 trap 'dot=; update_weather' RTMIN+4
+trap 'pkill -P $$ -x sleep || true' EXIT
 
 sleep infinity &
 
 update_weather
-while pgrep -P $$ >/dev/null 2>&1; do
+while pgrep -P $$ -x sleep >/dev/null && [ "$(cut -d '' -f1 /proc/$PPID/cmdline)" = polybar ]; do
     show_weather
     wait
 done

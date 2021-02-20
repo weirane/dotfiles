@@ -19,7 +19,7 @@ show() {
 trap "show &" USR1
 trap "update" USR2
 
-while true; do
+while [ "$(cut -d '' -f1 /proc/$PPID/cmdline)" = polybar ]; do
     num=$(task +PENDING count)
     today=$(task +PENDING 'due <= tomorrow' count)
     overdue=$(task +OVERDUE count)
