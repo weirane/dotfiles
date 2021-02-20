@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -68,11 +68,74 @@ let g:NERDCustomDelimiters = {
             \ }
 "}}}
 
-" airline {{{
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 2
-let g:airline#extensions#whitespace#checks = ['indent', 'trailing', 'mixed-indent-file']
+" lightline.vim {{{
+function! LightlineFileEncmat() abort
+    return &filetype !~# '\v^(help|man)$' && winwidth(0) > 70
+                \ ? &fileencoding . (&fileformat !=# '' ? printf('[%s]', &fileformat) : '')
+                \ : ''
+endfunction
+
+function! LightlineFiletype() abort
+    return &filetype
+endfunction
+
+function! LightlineGit() abort
+    return &filetype !~# '\v^(help|man)$' && winwidth(0) > 60 ? fugitive#head(6) : ''
+endfunction
+
+function! LightlinePlugStatus() abort
+    if &filetype ==# 'csv' && exists('*CSV_WCol')
+        return printf('[%s%s]', CSV_WCol('Name'), CSV_WCol())
+    elseif exists('b:vimtex')
+        let l:status = ''
+        let vt_local = get(b:, 'vimtex_local', {})
+        if !empty(vt_local)
+            let l:status .= get(vt_local, 'active') ? 'l' : 'm'
+        endif
+
+        if get(get(b:vimtex, 'viewer', {}), 'xwin_id')
+            let l:status .= 'v'
+        endif
+
+        let l:compiler = get(b:vimtex, 'compiler', {})
+        if has_key(l:compiler, 'is_running') && l:compiler.is_running()
+            let l:status .= get(l:compiler, 'continuous') ? 'c' : 'c₁'
+        endif
+        return empty(l:status) ? '' : printf('Vimtex: {%s}', l:status)
+    else
+        return coc#status()
+    end
+endfunction
+
+function! LightlineReadonly() abort
+    return &filetype !~# '\v^(help|man)$' && &readonly ? 'RO' : ''
+endfunction
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [['mode', 'paste', 'spell'],
+      \            ['gitbranch', 'filename', 'readonly'],
+      \            ['plugstatus']],
+      \   'right': [['percent', 'lineinfo'],
+      \             ['fileencmat'],
+      \             ['filetype']],
+      \ },
+      \ 'component': {
+      \   'filename': "%<%{expand('%:t') !=# '' ? substitute(@%, $HOME, '~', '') . (&modified ? ' +' : '') : '[No Name]'}",
+      \   'lineinfo': '%l:%-2v',
+      \   'percent': '%2p%%',
+      \ },
+      \ 'component_function': {
+      \   'fileencmat': 'LightlineFileEncmat',
+      \   'filetype': 'LightlineFiletype',
+      \   'gitbranch': 'LightlineGit',
+      \   'plugstatus': 'LightlinePlugStatus',
+      \   'readonly': 'LightlineReadonly',
+      \ },
+      \ 'subseparator': {
+      \   'left': '│', 'right': '│',
+      \ },
+      \ }
 "}}}
 
 " fugitive {{{
