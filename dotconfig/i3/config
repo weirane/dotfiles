@@ -218,7 +218,7 @@ for_window [class="^vlc$" window_role="^vlc-plugins$"] floating enable border no
 for_window [class="^firefox$" window_role="^About$"] floating enable border normal
 for_window [class="^firefox$" window_role="^Organizer$"] floating enable border normal
 for_window [class="^firefox$" window_role="^page-info$"] floating enable border normal
-for_window [class="^firefox$" window_role="^PictureInPicture$"] floating enable sticky enable border none
+for_window [class="^firefox$" window_role="^PictureInPicture$"] floating enable sticky enable border pixel 1
 for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable border normal
 for_window [class="^Thunderbird$" window_role="^addressbook$"] floating enable border normal
 for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable border normal
