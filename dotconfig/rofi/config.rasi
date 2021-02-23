@@ -3,5 +3,6 @@ configuration {
     font: "Hack 14";
     show-icons: true;
     icon-theme: "Papirus";
+    theme: "~/.config/rofi/base16-helios.rasi";
     // matching: "fuzzy";
 }
