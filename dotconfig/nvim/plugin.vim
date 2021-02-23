@@ -139,6 +139,7 @@ let g:lightline = {
 "}}}
 
 " fugitive {{{
+nnoremap <silent> <leader>gg :tab Git<CR>
 nnoremap <silent> <leader>gb :Git blame<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gd :vert Gdiffsplit<CR>
