@@ -9,8 +9,6 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-syntax'
-Plug 'kana/vim-textobj-function', { 'for': ['c', 'cpp', 'vim', 'java', 'javascript'] }
 Plug 'sgur/vim-textobj-parameter'
 Plug 'easymotion/vim-easymotion'
 Plug 'lilydjwg/fcitx.vim'
