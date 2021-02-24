@@ -5,5 +5,3 @@ setlocal linebreak
 setlocal iskeyword-=:
 
 nnoremap <localleader>lw :VimtexCountWords<CR>
-
-let b:airline_whitespace_checks = ['indent', 'trailing']
