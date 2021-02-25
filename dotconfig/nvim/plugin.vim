@@ -109,12 +109,19 @@ function! LightlineReadonly() abort
     return &filetype !~# '\v^(help|man)$' && &readonly ? 'RO' : ''
 endfunction
 
+let g:lightline_wordcount_ft = ['asciidoc', 'help', 'mail', 'markdown', 'nroff', 'org', 'rst', 'plaintex', 'tex', 'text']
+function! LightlineWordcount() abort
+    return match(g:lightline_wordcount_ft, &filetype) >= 0
+                \ ? get(wordcount(), mode() =~# '[vVsS\x16\x13]' ? 'visual_words' : 'words', 0) . ' W'
+                \ : ''
+endfunction
+
 let g:lightline = {
       \ 'active': {
       \   'left': [['mode', 'paste', 'spell'],
       \            ['gitbranch', 'filename', 'readonly'],
       \            ['plugstatus']],
-      \   'right': [['percent', 'lineinfo'],
+      \   'right': [['wordcount', 'percent', 'lineinfo'],
       \             ['fileencmat'],
       \             ['filetype']],
       \ },
@@ -129,6 +136,10 @@ let g:lightline = {
       \   'gitbranch': 'LightlineGit',
       \   'plugstatus': 'LightlinePlugStatus',
       \   'readonly': 'LightlineReadonly',
+      \   'wordcount': 'LightlineWordcount',
+      \ },
+      \ 'component_function_visible_condition': {
+      \   'wordcount': 'match(g:lightline_wordcount_ft, &filetype) >= 0',
       \ },
       \ 'subseparator': {
       \   'left': '│', 'right': '│',
