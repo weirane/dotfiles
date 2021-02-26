@@ -2,14 +2,28 @@
 ; go to https://github.com/polybar/polybar
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+base00 = #1d2021
+base01 = #383c3e
+base02 = #53585b
+base03 = #6f7579
+base04 = #cdcdcd
+base05 = #d5d5d5
+base06 = #dddddd
+base07 = #e5e5e5
+base08 = #d72638
+base09 = #eb8413
+base0a = #f19d1a
+base0b = #88b92d
+base0c = #1ba595
+base0d = #1e8bac
+base0e = #be4264
+base0f = #c85e0d
+
+background = ${self.base00}
+background-alt = ${self.base01}
+foreground = ${self.base05}
+foreground-alt = ${self.base03}
+alert = ${self.base08}
 
 [bar/top]
 monitor = ${env:MONITOR:eDP1}
@@ -22,10 +36,10 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.foreground}
 
 border-size = 0
-border-color = #00000000
+border-color =
 
 padding-left = 2
 padding-right = 2
@@ -63,13 +77,13 @@ wrapping-scroll = false
 pin-workspaces = false
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.base00}
+label-mode-background = ${colors.base0a}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.base09}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -97,7 +111,7 @@ exec = ~/.config/polybar/scripts/task-view.sh
 exec-if = test "$PRIMARY" = 1 && command -v task >/dev/null
 tail = true
 
-format-underline = #0accf5
+format-underline = ${colors.base0c}
 
 click-left = "kill -USR1 %pid%"
 click-right = "kill -USR2 %pid%"
@@ -106,7 +120,7 @@ click-right = "kill -USR2 %pid%"
 type = internal/date
 interval = 2
 
-format-underline = #0a6cf5
+format-underline = ${colors.base0d}
 
 date = "%a %Y-%m-%d"
 time = %H:%M
@@ -120,7 +134,7 @@ exec-if = test -f ~/.config/polybar/scripts/owm-key
 tail = true
 
 format = <label>
-format-underline = #03c600
+format-underline = ${colors.base0b}
 label = %output%
 label-font = 5
 
@@ -132,7 +146,7 @@ type = internal/cpu
 interval = 3
 format-prefix = "C "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.base08}
 label = %percentage:2%%
 
 [module/memory]
@@ -140,7 +154,7 @@ type = internal/memory
 interval = 3
 format-prefix = "M "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.base0c}
 label = %percentage_used%%
 
 [module/wlan]
@@ -149,7 +163,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.base0e}
 label-connected = ⬆ %upspeed% ⬇ %downspeed%
 
 format-disconnected = <label-disconnected>
@@ -163,7 +177,7 @@ type = internal/network
 interface = enp0s20f0u2u1
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.base0b}
 format-connected-prefix =
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = ⬆ %upspeed% ⬇ %downspeed%
@@ -209,7 +223,7 @@ time-format = %H:%M
 ; full-at = 98
 
 format-charging = <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.base0a}
 label-charging = 🔌 %percentage%% %time%
 
 format-discharging = <ramp-capacity> <label-discharging>
