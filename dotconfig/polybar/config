@@ -143,26 +143,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
 
-[module/temperature]
-type = internal/temperature
-warn-temperature = 60
-; thermal-zone = 5
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp2_input
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = A
-ramp-1 = B
-ramp-2 = C
-ramp-foreground = ${colors.foreground-alt}
-
 [module/wlan]
 type = internal/network
 interface = wlp3s0
@@ -203,11 +183,6 @@ ramp-1 = 🌘
 ramp-2 = 🌗
 ramp-3 = 🌖
 ramp-4 = 🌕
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/pulseaudio]
 type = internal/pulseaudio
