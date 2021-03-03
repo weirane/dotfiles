@@ -78,7 +78,12 @@ function! LightlineFiletype() abort
 endfunction
 
 function! LightlineGit() abort
-    return &filetype !~# '\v^(help|man)$' && winwidth(0) > 60 ? fugitive#head(6) : ''
+    if &filetype =~# '\v^(help|man)$' || winwidth(0) <= 60 | return '' | endif
+    let l:branch = fugitive#head(6)
+    if empty(l:branch) || winwidth(0) <= 70 | return l:branch | endif
+    let l:sum = exists('b:gitgutter.summary') ? b:gitgutter.summary : [0, 0, 0]
+    let l:summary = max(l:sum) > 0 ? printf(' +%d ~%d -%d', l:sum[0], l:sum[1], l:sum[2]) : ''
+    return l:branch . l:summary
 endfunction
 
 function! LightlinePlugStatus() abort
@@ -100,8 +105,10 @@ function! LightlinePlugStatus() abort
             let l:status .= get(l:compiler, 'continuous') ? 'c' : 'c₁'
         endif
         return empty(l:status) ? '' : printf('Vimtex: {%s}', l:status)
-    else
+    elseif get(g:, 'coc_enabled', 0)
         return coc#status()
+    else
+        return ''
     end
 endfunction
 
@@ -119,7 +126,7 @@ endfunction
 let g:lightline = {
       \ 'active': {
       \   'left': [['mode', 'paste', 'spell'],
-      \            ['gitbranch', 'filename', 'readonly'],
+      \            ['gitstatus', 'filename', 'readonly'],
       \            ['plugstatus']],
       \   'right': [['wordcount', 'percent', 'lineinfo'],
       \             ['fileencmat'],
@@ -133,7 +140,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'fileencmat': 'LightlineFileEncmat',
       \   'filetype': 'LightlineFiletype',
-      \   'gitbranch': 'LightlineGit',
+      \   'gitstatus': 'LightlineGit',
       \   'plugstatus': 'LightlinePlugStatus',
       \   'readonly': 'LightlineReadonly',
       \   'wordcount': 'LightlineWordcount',
