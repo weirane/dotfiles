@@ -133,7 +133,7 @@ let g:lightline = {
       \             ['filetype']],
       \ },
       \ 'component': {
-      \   'filename': "%<%{expand('%:t') !=# '' ? substitute(@%, $HOME, '~', '') . (&modified ? ' +' : '') : '[No Name]'}",
+      \   'filename': "%<%{expand('%:t') !=# '' ? substitute(@%, $HOME, '~', '') . (&modified ? '[+]' : '') : '[No Name]'}",
       \   'lineinfo': '%l:%-2v',
       \   'percent': '%2p%%',
       \ },
