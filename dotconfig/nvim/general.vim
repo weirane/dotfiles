@@ -35,6 +35,7 @@ set nostartofline
 set title
 set list
 set listchars=tab:\|\ ,trail:▫,nbsp:␣
+set shortmess+=I
 
 syntax on
 filetype plugin on

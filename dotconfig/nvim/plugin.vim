@@ -1,5 +1,4 @@
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/nerdcommenter'
@@ -40,12 +39,6 @@ if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
     source ~/.dotfiles/local/vim-plugins.vim
 endif
 call plug#end()
-
-" startify {{{
-let g:startify_lists = [
-            \ { 'type': 'sessions', 'header': ['   Sessions'] },
-            \]
-"}}}
 
 " NERDTree {{{
 nnoremap <F10> :silent! NERDTreeToggle<CR>
@@ -118,7 +111,7 @@ endfunction
 
 let g:lightline_wordcount_ft = ['asciidoc', 'help', 'mail', 'markdown', 'nroff', 'org', 'rst', 'plaintex', 'tex', 'text']
 function! LightlineWordcount() abort
-    return match(g:lightline_wordcount_ft, &filetype) >= 0
+    return index(g:lightline_wordcount_ft, &filetype) >= 0 || empty(@%)
                 \ ? get(wordcount(), mode() =~# '[vVsS\x16\x13]' ? 'visual_words' : 'words', 0) . ' W'
                 \ : ''
 endfunction
@@ -146,7 +139,7 @@ let g:lightline = {
       \   'wordcount': 'LightlineWordcount',
       \ },
       \ 'component_function_visible_condition': {
-      \   'wordcount': 'match(g:lightline_wordcount_ft, &filetype) >= 0',
+      \   'wordcount': 'index(g:lightline_wordcount_ft, &filetype) >= 0 || empty(@%)',
       \ },
       \ 'subseparator': {
       \   'left': '│', 'right': '│',
