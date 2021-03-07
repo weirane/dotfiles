@@ -81,7 +81,7 @@ handle_extension() {
             ## Preview as text conversion
             odt2txt "${FILE_PATH}" && exit 5
             ## Preview as markdown conversion
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            pandoc -s -t markdown --columns "$PV_WIDTH" -- "${FILE_PATH}" && exit 4
             exit 1;;
 
         ## XLSX
@@ -99,7 +99,7 @@ handle_extension() {
         htm|html|xhtml)
             ## Preview as text conversion
             lynx -width="$PV_WIDTH" -display_charset=utf-8 -dump -- "${FILE_PATH}" && exit 5
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            pandoc -s -t markdown --columns "$PV_WIDTH" -- "${FILE_PATH}" && exit 4
             ;;
 
         ## JSON
@@ -275,7 +275,7 @@ handle_mime() {
         ## DOCX
         *wordprocessingml.document)
             ## Preview as markdown conversion
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            pandoc -s -t markdown --columns "$PV_WIDTH" -- "${FILE_PATH}" && exit 4
             exit 1;;
 
         ## XLS
@@ -292,6 +292,8 @@ handle_mime() {
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
             fi
+            env COLORTERM=8bit bat --color=always --style="plain" --tabs 4 \
+                -- "${FILE_PATH}" && exit 5
             if [[ "$( tput colors )" -ge 256 ]]; then
                 local pygmentize_format='terminal256'
                 local highlight_format='xterm256'
@@ -299,8 +301,6 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            env COLORTERM=8bit bat --color=always --style="plain" --tabs 4 \
-                -- "${FILE_PATH}" && exit 5
             env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
                 --out-format="${highlight_format}" \
                 --force -- "${FILE_PATH}" && exit 5
