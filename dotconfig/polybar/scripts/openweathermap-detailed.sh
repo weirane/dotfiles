@@ -32,8 +32,7 @@ update_weather() {
     [ -f "$weather_file" ] || return
     weather=$(cat "$weather_file")
     weather_desc=$(echo "$weather" | jq -r ".weather[0].description")
-    weather_temp=$(echo "$weather" | jq ".main.temp")
-    weather_temp="$weather_temp°C"
+    weather_temp=$(echo "$weather" | jq ".main.temp" | xargs -r printf '%.0f°C')
     weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
     weather_icon="$(get_icon "$weather_icon")"
     city_name=$(echo "$weather" | jq -r ".name")
