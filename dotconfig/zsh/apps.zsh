@@ -4,6 +4,7 @@ prependpath $HOME/bin
 
 # cargo
 prependpath $CARGO_HOME/bin
+export CARGO_TARGET_DIR=/var/cache/cargo-target
 
 # neovim
 if (( $+commands[nvim] )); then
