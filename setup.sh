@@ -114,7 +114,7 @@ fi
 pkg=weirane-dotfiles-deps
 if { command -v pacman && ! pacman -Q "$pkg"; } >/dev/null 2>&1; then
     if confirm "Setup $pkg?"; then
-        cd "$pkg" && echodo makepkg -si
+        cd "$HOME/.dotfiles/$pkg" && echodo makepkg -si
     fi
 fi
 
