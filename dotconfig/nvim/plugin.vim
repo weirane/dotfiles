@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mboughaba/i3config.vim'
 Plug 'ap/vim-css-color'
+Plug 'Yggdroot/indentLine'
 " Jsonc
 Plug 'neoclide/jsonc.vim'
 " Markdown
@@ -26,9 +27,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'pangloss/vim-javascript'
 " LaTeX
 Plug 'lervag/vimtex'
-" Python
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'Yggdroot/indentLine'
 " Go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
@@ -288,17 +286,6 @@ function! MyDocHandler(context)
     endif
     return 1
 endfunction
-"}}}
-
-" Python {{{
-let g:pymode = 1
-let g:pymode_lint = 0
-let g:pymode_options_max_line_length = 100
-let g:pymode_python = 'python3'
-let g:pymode_run_bind = "<localleader>r"
-let g:pymode_breakpoint_bind = "<localleader>b"
-let g:pymode_breakpoint_cmd =
-            \ "__import__('ipdb').set_trace()  # XXX BREAKPOINT"
 "}}}
 
 " vim-markdown {{{
