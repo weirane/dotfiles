@@ -42,6 +42,16 @@ ex() {
         return
     fi
     case "$1" in
+        *.pkg.tar.zst)
+            dir=${1%.pkg.tar.zst}
+            mkdir $dir || return
+            tar -C $dir --zstd -xf $1
+            ;;
+        *.pkg.tar.xz)
+            dir=${1%.pkg.tar.xz}
+            mkdir $dir || return
+            tar -C $dir -xJf $1
+            ;;
         *.tar.bz2) tar xjf "$1"   ;;
         *.tar.gz)  tar xzf "$1"   ;;
         *.tar.xz)  tar xJf "$1"   ;;
