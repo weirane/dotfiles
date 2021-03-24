@@ -49,7 +49,7 @@ highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
 highlight article "(^Link:.*|^Date:.*)" default default
 highlight article "(https?://[^ <>\"]*|(www|ftp)[0-9]?\\.[-a-z0-9.]+)[^ .,;<\">\):]?[^, <>\"]*[^ .,;<\">\):]" green default
 highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[image\\ [0-9]+[^]]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" cyan default
 highlight article ":.*\\(video\\)$" cyan default
