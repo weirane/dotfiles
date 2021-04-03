@@ -3,7 +3,7 @@
     "coc.source.file.ignoreHidden": false,
     "codeLens.enable": true,
 
-    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+    "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "rust-analyzer.inlayHints.enable": false,
     "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.inlayHints.chainingHints": false,
