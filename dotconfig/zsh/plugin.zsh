@@ -1,5 +1,6 @@
 # powerlevel10k
 p10k=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ -f $p10k ]] || p10k=$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 if [[ -f $p10k ]]; then
     . $p10k
     . $ZDOTDIR/.p10k.zsh
@@ -9,6 +10,7 @@ fi
 
 # fast-syntax-highlighting
 fsh=/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+[[ -f $fsh ]] || fsh=$HOME/.local/share/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 if [[ -f $fsh ]]; then
     . $fsh
 fi

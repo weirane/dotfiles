@@ -1,5 +1,5 @@
 pkgname=weirane-dotfiles-deps
-pkgver=0.1.0
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -49,6 +49,9 @@ depends=(
 optdepends=(
     'xcursor-breeze: Cursor theme (is in AUR)'
     'ttf-weather-icons: Weather icons for polybar (is in AUR)'
+
+    'zsh-theme-powerlevel10k: Zsh prompt theme (is in AUR)'
+    'zsh-fast-syntax-highlighting-git: Zsh syntax highlighting (is in AUR)'
 
     'task: Taskwarrior'
     'neomutt: Email reader'

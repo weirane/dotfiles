@@ -70,34 +70,6 @@ for f in "$HOME"/.dotfiles/applications/*; do
 done
 [ "$added" = 1 ] && update-desktop-database "$applications" 2>/dev/null || true
 
-export ZSH="$HOME/.local/share/oh-my-zsh"
-ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
-# oh-my-zsh
-if [ ! -d "$ZSH" ] && confirm "Setup oh-my-zsh?"; then
-    tmpf=$(mktemp /tmp/.oh-my-zsh-XXXXXXX.sh)
-    echodo curl -Lo "$tmpf" \
-        https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    less "$tmpf"
-    if confirmy "Proceed?"; then
-        echodo chmod +x "$tmpf"
-        echodo env RUNZSH=no "$tmpf"
-        echodo rm "$tmpf"
-        echodo rm -f "$HOME/.shell.pre-oh-my-zsh" "$HOME/.zshrc"
-    fi
-fi
-
-# powerlevel10k
-p10k_dir=$ZSH_CUSTOM/themes/powerlevel10k
-if [ -d "$ZSH" ] && [ ! -d "$p10k_dir" ] && confirm "Setup powerlevel10k?"; then
-    echodo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$p10k_dir"
-fi
-
-# fast-syntax-highlighting
-fsh_dir=$ZSH_CUSTOM/plugins/fast-syntax-highlighting
-if [ -d "$ZSH" ] && [ ! -d "$fsh_dir" ] && confirm "Setup fast-syntax-highlighting?"; then
-    git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git "$fsh_dir"
-fi
-
 # Helper shell scripts
 if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
     printf "Clone using SSH(s) or HTTPS(h)? (H/s) "
@@ -110,11 +82,43 @@ if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
     echodo git clone "${pre}weirane/scripts" "$HOME/scripts"
 fi
 
-# weirane-dotfiles-deps
-pkg=weirane-dotfiles-deps
-if { command -v pacman && ! pacman -Q "$pkg"; } >/dev/null 2>&1; then
-    if confirm "Setup $pkg?"; then
-        cd "$HOME/.dotfiles/$pkg" && echodo makepkg -si
+if command -v pacman >/dev/null; then
+    has_pkg() {
+        pacman -Q "$1" >/dev/null 2>&1
+    }
+    # weirane-dotfiles-deps
+    pkg=weirane-dotfiles-deps
+    if ! has_pkg "$pkg"; then
+        if confirm "Setup $pkg?"; then
+            (cd "$HOME/.dotfiles/$pkg" && echodo makepkg -si)
+        elif ! command -v paru >/dev/null; then
+            echo "paru not installed, will not install powerlevel10k and fast-syntax-highlighting."
+            exit 0
+        fi
+    fi
+
+    # powerlevel10k
+    pkg=zsh-theme-powerlevel10k-git
+    if ! has_pkg "$pkg" && confirm "Install $pkg?"; then
+        echodo paru -S "$pkg"
+    fi
+
+    # fast-syntax-highlighting
+    pkg=zsh-fast-syntax-highlighting-git
+    if ! has_pkg "$pkg" && confirm "Install $pkg?"; then
+        echodo paru -S "$pkg"
+    fi
+else
+    # powerlevel10k
+    p10k_dir=$HOME/.local/share/zsh/powerlevel10k
+    if [ ! -d "$p10k_dir" ] && confirm "Setup powerlevel10k?"; then
+        echodo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$p10k_dir"
+    fi
+
+    # fast-syntax-highlighting
+    fsh_dir=$HOME/.local/share/zsh/fast-syntax-highlighting
+    if [ ! -d "$fsh_dir" ] && confirm "Setup fast-syntax-highlighting?"; then
+        echodo git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git "$fsh_dir"
     fi
 fi
 
