@@ -106,3 +106,19 @@ color_codes() {
         echo; echo
     done
 }
+
+# from ohmyzsh
+zsh_stats() {
+    fc -l 1 |
+        awk '$2 !~ /\// { CMD[$2]++; count++; } END { for (a in CMD) printf "%s %f%% %s\n",CMD[a],CMD[a]*100/count,a }' |
+        sort -nr | head -20 | column -c3 -ts' ' | nl
+}
+
+d() {
+    if [[ -n $1 ]]; then
+        dirs "$@"
+    else
+        dirs -v | head -10
+    fi
+}
+compdef _dirs d

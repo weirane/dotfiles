@@ -29,3 +29,11 @@ alias -s {mov,mkv,flv,mp4,rmvb}="open"
 alias -s {m4a,ogg,mp3,aac,wav}="open"
 alias -s zip="open"
 alias -s csv="csview"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -- -='cd -'
+for i in {1..9}; do
+    aliases[$i]="cd -$i"
+done
+unset i
