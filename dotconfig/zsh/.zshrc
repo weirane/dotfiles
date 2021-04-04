@@ -16,8 +16,10 @@ fi
 
 if (( TASKMODE )); then
     unset TASKMODE
-    zle-line-init() {
+    autoload -Uz add-zle-hook-widget
+    zle-task-line-init() {
         [[ -n $BUFFER ]] || BUFFER=' task '
         zle end-of-line
     }
+    add-zle-hook-widget -Uz zle-line-init zle-task-line-init
 fi

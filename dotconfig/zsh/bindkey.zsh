@@ -56,3 +56,11 @@ replace-command-name() {
 }
 zle -N replace-command-name
 bindkey '^[ ' replace-command-name
+
+if (( $+terminfo[smkx] && $+terminfo[rmkx] )); then
+    autoload -Uz add-zle-hook-widget
+    zle-application-mode-start() { echoti smkx }
+    zle-application-mode-stop() { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle-application-mode-start
+    add-zle-hook-widget -Uz zle-line-finish zle-application-mode-stop
+fi
