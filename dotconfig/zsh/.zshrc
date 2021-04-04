@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 . $ZDOTDIR/basic.zsh
+. $ZDOTDIR/completion.zsh
 . $ZDOTDIR/aliases.zsh
 . $ZDOTDIR/functions.zsh
 . $ZDOTDIR/apps.zsh

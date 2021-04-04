@@ -3,7 +3,6 @@ export LC_TIME=en_GB.UTF-8
 export ZSH="$HOME/.local/share/oh-my-zsh"
 
 PROMPT_EOL_MARK="%B%F{8}↵%f%b"
-HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
 # ZSH_THEME="robbyrussell"
@@ -61,19 +60,9 @@ cdpath=(~ ..)
 SAVEHIST=99999999
 WORDCHARS="-"
 
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*:*:(vim|nvim|cat|bat|less):*' file-patterns '^*(vimtex.pdf|.synctex.gz|.o):source-files' '*:all-files'
-zstyle -e ':completion::complete:-command-::executables' ignored-patterns '
-    local _r=(${(Q)PREFIX/#\~\//$HOME/}*(^x)${(Q)SUFFIX})
-    reply=(\*${(q)^_r:t})'
-
 setopt rc_quotes  # '' as ' in single quotes
 setopt extendedglob
 
 unalias run-help
 autoload -Uz run-help
 autoload -Uz zcalc
-
-compdef _pids cmdof
-compdef _pids envof
-compdef {alwaysatty,proxied,swl}=command
