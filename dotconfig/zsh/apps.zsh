@@ -26,7 +26,8 @@ if (( $+commands[exa] )); then
     export EXA_COLORS
     zstyle ':completion:*' list-colors "${(@s.:.)EXA_COLORS}"
 else
-    eval $(dircolors -b ~/.dotfiles/dir_colors)
+    eval "$(dircolors -b ~/.dotfiles/dir_colors)"
+    zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 fi
 
 # fzf
