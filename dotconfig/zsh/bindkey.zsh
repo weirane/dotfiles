@@ -61,6 +61,8 @@ if (( $+terminfo[smkx] && $+terminfo[rmkx] )); then
     autoload -Uz add-zle-hook-widget
     zle-application-mode-start() { echoti smkx }
     zle-application-mode-stop() { echoti rmkx }
+    zle -N zle-application-mode-start
+    zle -N zle-application-mode-stop
     add-zle-hook-widget -Uz zle-line-init zle-application-mode-start
     add-zle-hook-widget -Uz zle-line-finish zle-application-mode-stop
 fi

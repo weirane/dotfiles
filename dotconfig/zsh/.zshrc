@@ -4,6 +4,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if (( TASKMODE )); then
+    unset TASKMODE
+    autoload -Uz add-zle-hook-widget
+    zle-task-line-init() {
+        [[ -n $BUFFER ]] || BUFFER=' task '
+        zle end-of-line
+    }
+    zle -N zle-task-line-init
+    add-zle-hook-widget -Uz zle-line-init zle-task-line-init
+fi
+
 . $ZDOTDIR/basic.zsh
 . $ZDOTDIR/bindkey.zsh
 . $ZDOTDIR/completion.zsh
@@ -13,13 +24,3 @@ fi
 . $ZDOTDIR/plugin.zsh
 
 [[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc || true
-
-if (( TASKMODE )); then
-    unset TASKMODE
-    autoload -Uz add-zle-hook-widget
-    zle-task-line-init() {
-        [[ -n $BUFFER ]] || BUFFER=' task '
-        zle end-of-line
-    }
-    add-zle-hook-widget -Uz zle-line-init zle-task-line-init
-fi
