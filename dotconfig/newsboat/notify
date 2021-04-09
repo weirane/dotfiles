@@ -4,3 +4,4 @@ read -r new_art unread_art unread_feed <<< "$1"
 [[ -z "$new_art" ]] || [[ "$new_art" -eq 0 ]] && exit
 
 notify-send newsboat "$new_art new articles ($unread_art unread articles, $unread_feed unread feeds)"
+xdotool search --class Alacritty search --name newsboat set_window --urgency 1 2>/dev/null || true
