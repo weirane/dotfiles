@@ -84,7 +84,7 @@ fi
 
 # Set the login shell
 curr_shell=$(awk -F: '$1 == ENVIRON["USER"] { print $NF }' /etc/passwd)
-has_zsh=$(chsh -l | grep '/zsh$' | head -n 1 2>/dev/null)
+has_zsh=$(grep '/zsh$' /etc/shells | head -n 1 2>/dev/null)
 if [ "${curr_shell##*/}" != zsh ] && [ -n "$has_zsh" ] && confirm "Set the login shell to $has_zsh?"; then
     echodo chsh -s "$has_zsh"
 fi
