@@ -1,68 +1,61 @@
 export LANG=en_US.UTF-8
 export LC_TIME=en_GB.UTF-8
-export ZSH="$HOME/.local/share/oh-my-zsh"
 
 PROMPT_EOL_MARK="%B%F{8}↵%f%b"
-DISABLE_AUTO_UPDATE="true"
-DISABLE_MAGIC_FUNCTIONS="true"
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-    dotenv
-    rust
-    # zsh-autosuggestions
-    fast-syntax-highlighting
-)
-source $ZSH/oh-my-zsh.sh
-unset plugins
-ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%3~%<<"
-
-# toggle sudo with esc-esc
-sudo-command-line() {
-    [[ -z ${BUFFER// } ]] && zle up-history
-    local -a bufarr
-    bufarr=(${(z)BUFFER})
-    if [[ ${bufarr[1]} != sudo ]]; then
-        bufarr=(sudo $bufarr)
-    else
-        bufarr=(${bufarr[@]:1})
-    fi
-    BUFFER=$bufarr
-    zle end-of-line
-}
-zle -N sudo-command-line
-bindkey '^[^[' sudo-command-line
-
-# replace the first word of the current command
-replace-command-name() {
-    [[ -z ${BUFFER// } ]] && zle up-history
-    local -a bufarr
-    bufarr=(${(z)BUFFER})
-    # ignore if there is only one word
-    [[ ${#bufarr[@]} > 1 ]] && bufarr=(${bufarr[@]:1})
-    BUFFER=" $bufarr"
-    zle beginning-of-line
-}
-zle -N replace-command-name
-bindkey '^[ ' replace-command-name
-
-bindkey '^U' backward-kill-line
-bindkey '^[l' vi-find-next-char
-bindkey '^[h' vi-find-prev-char
-bindkey '^[;' vi-repeat-find
-bindkey '^[,' vi-rev-repeat-find
-bindkey '^[H' run-help
-bindkey '^[p' up-line-or-beginning-search
-bindkey '^[n' down-line-or-beginning-search
-
 cdpath=(~ ..)
+HISTSIZE=99999999
 SAVEHIST=99999999
 WORDCHARS="-"
 
 setopt rc_quotes  # '' as ' in single quotes
 setopt extendedglob
+setopt auto_cd
+setopt prompt_subst
+setopt interactive_comments
+setopt long_list_jobs
+
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_minus
+
+unsetopt menu_complete
+unsetopt flow_control
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history
+
+title() {
+    : ${2=$1}
+    case $TERM in
+        screen*|tmux*)
+            print -Pn "\ek${1:q}\e\\" # set screen hardstatus
+            ;;
+        *)
+            print -Pn "\e]2;${2:q}\a" # set window name
+            print -Pn "\e]1;${1:q}\a" # set tab name
+            ;;
+    esac
+}
+title_precmd() {
+    title "%15<..<%3~%<<" "%n@%m:%~"
+}
+title_preexec() {
+    local cmd_name=${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
+    local line=${2:gs/%/%%}
+    title $cmd_name $line
+}
+autoload -U add-zsh-hook
+add-zsh-hook precmd title_precmd
+add-zsh-hook preexec title_preexec
 
 unalias run-help
 autoload -Uz run-help
 autoload -Uz zcalc
+autoload -U colors && colors

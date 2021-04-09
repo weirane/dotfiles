@@ -34,8 +34,7 @@ Some of the steps below are covered by `./setup.sh`.
 ### Zsh
 
 Install `zsh` with a package manager or [from source][zsh-src]. Running
-`./setup.sh` will install [oh-my-zsh], [powerlevel10k] and
-[fast-syntax-highlighting].
+`./setup.sh` will install [powerlevel10k] and [fast-syntax-highlighting].
 
 [zsh-src]: https://github.com/zsh-users/zsh/blob/master/INSTALL
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh

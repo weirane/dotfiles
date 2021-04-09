@@ -1,3 +1,13 @@
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-$HOME/.cache}/zsh
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+
 zstyle ':completion:*:warnings' format $'\e[31m -- No Matches Found --\e[0m'
 zstyle ':completion:*:descriptions' format $'\e[2m -- %d --\e[0m'
 zstyle ':completion:*:corrections' format $'\e[33m -- %d (errors: %e) --\e[0m'
