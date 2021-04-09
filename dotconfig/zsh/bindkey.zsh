@@ -57,6 +57,26 @@ replace-command-name() {
 zle -N replace-command-name
 bindkey '^[ ' replace-command-name
 
+# move/kill by shell arguments
+() {
+    local f
+    local -a word_functions=(backward-kill-word backward-word
+        capitalize-word down-case-word
+        forward-word kill-word
+        transpose-words up-case-word)
+    if ! zle -l $word_functions[1]; then
+        for f in $word_functions; do
+            autoload -Uz $f-match
+            zle -N argument-$f $f-match
+        done
+    fi
+    zstyle ':zle:argument-*' word-style shell
+}
+bindkey '^[B' argument-backward-word
+bindkey '^[F' argument-forward-word
+bindkey '^[W' argument-backward-kill-word
+bindkey '^[D' argument-kill-word
+
 if (( $+terminfo[smkx] && $+terminfo[rmkx] )); then
     autoload -Uz add-zle-hook-widget
     zle-application-mode-start() { echoti smkx }
