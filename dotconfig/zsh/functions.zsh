@@ -35,44 +35,6 @@ df() {
     command -p df -h | awk 'NR == 1 || $1 ~ /sd|vd|nvme|mmcblk|mapper/'
 }
 
-# ex - archive extractor. usage: ex <file>
-ex() {
-    if [[ ! -f "$1" ]]; then
-        echo "'$1' is not a valid file"
-        return
-    fi
-    case "$1" in
-        *.pkg.tar.zst)
-            dir=${1%.pkg.tar.zst}
-            mkdir $dir || return
-            tar -C $dir --zstd -xf $1
-            ;;
-        *.pkg.tar.xz)
-            dir=${1%.pkg.tar.xz}
-            mkdir $dir || return
-            tar -C $dir -xJf $1
-            ;;
-        *.tar.bz2) tar xjf "$1"   ;;
-        *.tar.gz)  tar xzf "$1"   ;;
-        *.tar.xz)  tar xJf "$1"   ;;
-        *.lzma)    unlzma "$1"    ;;
-        *.deb)
-            mkdir ${1%.deb} || return
-            ar x --output ${1%.deb} $1
-            ;;
-        *.bz2)     bunzip2 "$1"   ;;
-        *.rar)     unrar x "$1"   ;;
-        *.gz)      gunzip "$1"    ;;
-        *.tar)     tar xf "$1"    ;;
-        *.tbz2)    tar xjf "$1"   ;;
-        *.tgz)     tar xzf "$1"   ;;
-        *.zip)     unzip "$1"     ;;
-        *.Z)       uncompress "$1";;
-        *.7z)      7z x "$1"      ;;
-        *)         echo "'$1' cannot be extracted via ex()";;
-    esac
-}
-
 color_codes() {
     local fgc bgc vals seq0
 
