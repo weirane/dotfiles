@@ -1,74 +1,92 @@
-pkgname=weirane-dotfiles-deps
-pkgver=0.1.1
+pkgbase=weirane-dotfiles-deps
+pkgname=("$pkgbase"-cli "$pkgbase"-gui)
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
 url="https://github.com/weirane/dotfiles"
 license=('MIT')
 
-depends=(
-    # basics
-    'python' 'perl' 'git' 'curl' 'nvm' 'paru' 'jq' 'man-db' 'man-pages'
+package_weirane-dotfiles-deps-cli() {
+    pkgdesc="CLI programs needed for weirane's dotfiles"
+    depends=(
+        # basics
+        'python' 'perl' 'git' 'curl' 'nvm' 'paru' 'jq' 'man-db' 'man-pages'
 
-    # useful programs
-    'zsh' 'zsh-completions' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig' 'htop'
+        # useful programs
+        'zsh' 'zsh-completions' 'tmux' 'exa' 'ripgrep' 'fd' 'bat' 'fzf' 'tig' 'htop'
 
-    # vim
-    'vim' 'neovim' 'python-pynvim'
+        # vim
+        'vim' 'neovim' 'python-pynvim'
 
-    # i3
-    'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
-    'xorg-server' 'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo'
-    'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
-    'xcape' 'picom' 'networkmanager' 'network-manager-applet' 'feh' 'redshift'
-    'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-dejavu'
-    'ttf-hack' 'nerd-fonts-hack'
-    'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
-    'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'fcitx5-configtool'
+        # ranger
+        'ranger' 'lynx' 'w3m'
 
-    # polybar
-    'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
+        # others
+        'terminus-font'
+    )
 
-    # ranger
-    'ranger' 'ueberzug' 'lynx' 'w3m'
+    optdepends=(
+        'zsh-theme-powerlevel10k: Zsh prompt theme (is in AUR)'
+        'zsh-fast-syntax-highlighting-git: Zsh syntax highlighting (is in AUR)'
 
-    # scripts
-    'xdg-utils' 'xdotool' 'xdo' 'ruby' 'ruby-mail'
+        'task: Taskwarrior'
+        'neomutt: Email reader'
+        'isync: Email synchronizer'
+        'notmuch: Email indexer'
+        'newsboat: RSS reader'
 
-    # graphical programs
-    'zathura' 'zathura-pdf-mupdf' 'zathura-ps' 'sxiv' 'mpv' 'firefox'
+        'gnome-keyring: Key chain'
+        'rustup: Rust'
+        'flake8: Python linting in coc.nvim'
+        'python-ipdb: Python debugging'
+    )
+}
 
-    # themes
-    'adapta-gtk-theme' 'papirus-icon-theme' 'grub-theme-vimix'
+package_weirane-dotfiles-deps-gui() {
+    pkgdesc="GUI-related programs needed for weirane's dotfiles"
+    depends=(
+        'weirane-dotfiles-deps-cli'
 
-    # others
-    'desktop-file-utils' 'xdg-user-dirs' 'ffmpeg' 'imagemagick'
-    'terminus-font'
-)
+        # i3
+        'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
+        'xorg-server' 'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo'
+        'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
+        'xcape' 'picom' 'networkmanager' 'network-manager-applet' 'feh' 'redshift'
+        'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-dejavu'
+        'ttf-hack' 'nerd-fonts-hack'
+        'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
+        'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'fcitx5-configtool'
 
-optdepends=(
-    'xcursor-breeze: Cursor theme (is in AUR)'
-    'ttf-weather-icons: Weather icons for polybar (is in AUR)'
+        # polybar
+        'polybar' 'pulseaudio' 'libpulse' 'pavucontrol'
 
-    'zsh-theme-powerlevel10k: Zsh prompt theme (is in AUR)'
-    'zsh-fast-syntax-highlighting-git: Zsh syntax highlighting (is in AUR)'
+        # ranger
+        'ueberzug'
 
-    'task: Taskwarrior'
-    'neomutt: Email reader'
-    'isync: Email synchronizer'
-    'notmuch: Email indexer'
-    'newsboat: RSS reader'
+        # scripts
+        'xdg-utils' 'xdotool' 'xdo' 'ruby' 'ruby-mail'
 
-    'blueman: Bluetooth in system tray'
-    'thunar: Graphical file manager'
-    'engrampa: Graphical archive manager'
-    'gnome-keyring: Key chain'
-    'seahorse: Managing keys'
+        # graphical programs
+        'zathura' 'zathura-pdf-mupdf' 'zathura-ps' 'sxiv' 'mpv' 'firefox'
 
-    'rustup: Rust'
-    'flake8: Python linting in coc.nvim'
-    'python-ipdb: Python debugging'
+        # themes
+        'adapta-gtk-theme' 'papirus-icon-theme' 'grub-theme-vimix'
 
-    'termite: Backup terminal'
-    'chromium: Backup browser'
-)
+        # others
+        'desktop-file-utils' 'xdg-user-dirs' 'ffmpeg' 'imagemagick'
+    )
+
+    optdepends=(
+        'xcursor-breeze: Cursor theme (is in AUR)'
+        'ttf-weather-icons: Weather icons for polybar (is in AUR)'
+
+        'blueman: Bluetooth in system tray'
+        'thunar: Graphical file manager'
+        'engrampa: Graphical archive manager'
+        'seahorse: Managing keys'
+
+        'termite: Backup terminal'
+        'chromium: Backup browser'
+    )
+}

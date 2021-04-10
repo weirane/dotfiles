@@ -23,7 +23,8 @@ Run in vim:
 :CocInstall coc-python coc-tsserver coc-rust-analyzer coc-vimtex coc-diagnostic coc-css coc-html coc-json coc-prettier coc-vimlsp
 ```
 
-Then check the optional dependencies of `weirane-dotfiles-deps`.
+Then check the optional dependencies of `weirane-dotfiles-deps-cli` and
+`weriane-dotfiles-deps-gui`.
 
 [archlinuxcn]: https://lug.ustc.edu.cn/wiki/mirrors/help/archlinuxcn
 

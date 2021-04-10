@@ -93,16 +93,16 @@ if command -v pacman >/dev/null; then
     has_pkg() {
         pacman -Q "$1" >/dev/null 2>&1
     }
-    # weirane-dotfiles-deps
+    # weirane-dotfiles-deps-{cli,gui}
     pkg=weirane-dotfiles-deps
-    if ! has_pkg "$pkg"; then
-        if confirm "Setup $pkg?"; then
-            (cd "$HOME/.dotfiles/$pkg" && echodo makepkg -si)
-        elif ! command -v paru >/dev/null; then
-            echo "paru not installed, will not install powerlevel10k and fast-syntax-highlighting."
-            exit 0
-        fi
+    cd "$HOME/.dotfiles/$pkg"
+    if ! has_pkg "$pkg-gui" && confirm "Setup $pkg-gui?"; then
+        echodo makepkg -i
+    elif ! has_pkg "$pkg-cli" && confirm "Setup $pkg-cli?"; then
+        echodo makepkg -f
+        sudo pacman -U "$(makepkg --packagelist | grep "$pkg-cli")"
     fi
+    cd ..
 
     # powerlevel10k
     pkg=zsh-theme-powerlevel10k-git
