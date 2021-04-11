@@ -1,4 +1,4 @@
-! xrdb -merge /path/to/Xmodmap
+! xmodmap /path/to/Xmodmap
 
 ! Set Caps Lock as Ctrl
 clear lock
