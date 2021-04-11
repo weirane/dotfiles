@@ -10,15 +10,13 @@ syn region pythonRawFString   start=+\%([fF][rR]\|[rR][fF]\)"+ skip=+\\\\\|\\"\|
 syn region pythonRawFString   start=+\%([fF][rR]\|[rR][fF]\)'''+ skip=+\\'+ end=+'''+ keepend contains=pythonEscape,pythonDocTest,pythonSpaceError,@Spell
 syn region pythonRawFString   start=+\%([fF][rR]\|[rR][fF]\)"""+ skip=+\\"+ end=+"""+ keepend contains=pythonEscape,pythonDocTest,pythonSpaceError,@Spell
 
-syn region pythonBytes    start=+[bB]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonBytesError,pythonBytesContent,@Spell
-syn region pythonBytes    start=+[bB]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonBytesError,pythonBytesContent,@Spell
-syn region pythonBytes    start=+[bB]'''+ skip=+\\'+ end=+'''+ keepend contains=pythonBytesError,pythonBytesContent,pythonDocTest,pythonSpaceError,@Spell
-syn region pythonBytes    start=+[bB]"""+ skip=+\\"+ end=+"""+ keepend contains=pythonBytesError,pythonBytesContent,pythonDocTest,pythonSpaceError,@Spell
+syn region pythonBytes    start=+[bB]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonBytesError,pythonEscape,@Spell
+syn region pythonBytes    start=+[bB]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonBytesError,pythonEscape,@Spell
+syn region pythonBytes    start=+[bB]'''+ skip=+\\'+ end=+'''+ keepend contains=pythonBytesError,pythonEscape,pythonDocTest,pythonSpaceError,@Spell
+syn region pythonBytes    start=+[bB]"""+ skip=+\\"+ end=+"""+ keepend contains=pythonBytesError,pythonEscape,pythonDocTest,pythonSpaceError,@Spell
 
-syn match pythonBytesError    '.\+' display contained
-syn match pythonBytesContent  '[\u0000-\u00ff]\+' display contained contains=pythonEscape,pythonBytesEscapeError
-syn match pythonBytesEscapeError  '\\\o\{,2}[89]' display contained
-syn match pythonBytesEscapeError  '\\x\x\=\X' display contained
+syn match pythonBytesError    '[^\u0000-\u00ff]' display contained
+syn match pythonBytesError    '\\x\x\=\X' display contained
 
 syn region pythonRawBytes  start=+\%([bB][rR]\|[rR][bB]\)'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=@Spell
 syn region pythonRawBytes  start=+\%([bB][rR]\|[rR][bB]\)"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=@Spell
@@ -38,7 +36,6 @@ hi def link pythonFString String
 hi def link pythonRawFString String
 hi def link pythonBytes String
 hi def link pythonRawBytes String
-hi def link pythonBytesContent String
 hi def link pythonBytesError Error
 hi def link pythonStrFormat Special
 hi def link pythonStrFormatting Special
