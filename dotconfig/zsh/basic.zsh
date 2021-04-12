@@ -44,7 +44,7 @@ title() {
     esac
 }
 title_precmd() {
-    title "%15<..<%3~%<<" "%n@%m:%~"
+    title "%15<…<%3~%<<" "%n@%m:%~"
 }
 title_preexec() {
     local cmd_name=${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
