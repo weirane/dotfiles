@@ -55,5 +55,6 @@ except KeyboardInterrupt:
 term = term.strip()
 db = Database()
 pat = '|'.join(m.get_message_id()
-               for m in db.create_query(term).search_messages()).replace('+', r'\+')
+               for m in db.create_query(term).search_messages())
+pat = pat.replace('+', r'\+').replace('$', r'\$')
 write_pattern(pat)
