@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # https://gist.github.com/andyrufasto/6b5fa150b253412aae0bb61e057c275e
 # These glyphs, and the mapping of file extensions to glyphs
 # has been copied from the vimscript code that is present in
@@ -121,6 +120,7 @@ file_node_extensions = {
     'xz'       : '',
     'yml'      : '',
     'zip'      : '',
+    'zst'      : '',
 }
 
 dir_node_exact_matches = {
