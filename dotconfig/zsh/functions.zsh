@@ -27,10 +27,6 @@ _refresh-env() {
 }
 compdef _refresh-env refresh-env
 
-df() {
-    command -p df -h | awk 'NR == 1 || $1 ~ /sd|vd|nvme|mmcblk|mapper/'
-}
-
 color_codes() {
     local fgc bgc vals seq0
 
