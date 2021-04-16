@@ -1,15 +1,11 @@
 prependpath() {
-    case ":$PATH:" in
-        *:"$1":*) ;;
-        *) [[ -d "$1" ]] && export PATH="$1${PATH:+:$PATH}" ;;
-    esac
+    local p=${1:a}
+    (( ! $path[(I)$p] )) && [[ -d $p ]] && path=($p $path)
 }
 
 appendpath() {
-    case ":$PATH:" in
-        *:"$1":*) ;;
-        *) [[ -d "$1" ]] && export PATH="${PATH:+$PATH:}$1" ;;
-    esac
+    local p=${1:a}
+    (( ! $path[(I)$p] )) && [[ -d $p ]] && path=($path $p)
 }
 
 mcd() {
