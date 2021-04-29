@@ -1,6 +1,6 @@
 pkgbase=weirane-dotfiles-deps
 pkgname=("$pkgbase"-cli "$pkgbase"-gui)
-pkgver=0.2.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -23,7 +23,7 @@ package_weirane-dotfiles-deps-cli() {
         'ranger' 'lynx' 'w3m'
 
         # others
-        'terminus-font'
+        'terminus-font' 'zbar'
     )
 
     optdepends=(
