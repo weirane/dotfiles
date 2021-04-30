@@ -6,6 +6,7 @@ cdpath=(~ ..)
 HISTSIZE=99999999
 SAVEHIST=99999999
 WORDCHARS="-"
+ZLE_SPACE_SUFFIX_CHARS='&|'
 
 setopt rc_quotes  # '' as ' in single quotes
 setopt extendedglob
