@@ -5,4 +5,5 @@ Comment=My mailto handler
 Exec=write-email %u
 Icon=mail_generic
 Terminal=false
+Categories=Network;Email;
 MimeType=x-scheme-handler/mailto
