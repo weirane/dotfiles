@@ -31,6 +31,7 @@ bindkey '^[n' down-line-or-beginning-search
 # toggle sudo with esc-esc
 sudo-command-line() {
     [[ -z ${BUFFER// } ]] && zle up-history
+    zle auto-suffix-remove
     local -a bufarr
     bufarr=(${(z)BUFFER})
     if [[ ${bufarr[1]} != sudo ]]; then
@@ -47,6 +48,7 @@ bindkey '^[^[' sudo-command-line
 # replace the first word of the current command
 replace-command-name() {
     [[ -z ${BUFFER// } ]] && zle up-history
+    zle auto-suffix-remove
     local -a bufarr
     bufarr=(${(z)BUFFER})
     # ignore if there is only one word
