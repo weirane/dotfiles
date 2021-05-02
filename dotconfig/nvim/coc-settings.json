@@ -8,6 +8,7 @@
     "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.inlayHints.chainingHints": false,
     "rust-analyzer.completion.postfix.enable": false,
+    "rust-analyzer.completion.autoimport.enable": false,
 
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
