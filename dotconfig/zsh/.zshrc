@@ -1,11 +1,6 @@
-(( TASKMODE )) && task
-
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 if (( TASKMODE )); then
     unset TASKMODE
+    task
     autoload -Uz add-zle-hook-widget
     zle-task-line-init() {
         [[ -n $BUFFER ]] || BUFFER=' task '
