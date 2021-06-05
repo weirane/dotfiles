@@ -13,6 +13,7 @@ alias proxied="proxied "
 
 alias tatt="tmux attach -t"
 alias tnew="tmux new -s"
+alias sysuser="systemctl --user"
 
 alias gdb="gdb -q"
 alias bc="bc -lq"
