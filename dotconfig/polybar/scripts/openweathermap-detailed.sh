@@ -57,8 +57,8 @@ dot=
 
 trap "inc_verbose" USR1
 trap 'dot=.' RTMIN+1
-trap 'dot=..' RTMIN+2
-trap 'dot=...' RTMIN+3
+trap 'dot=‥' RTMIN+2
+trap 'dot=…' RTMIN+3
 trap 'dot=; update_weather' RTMIN+4
 trap 'pkill -P $$ -x sleep || true' EXIT
 
