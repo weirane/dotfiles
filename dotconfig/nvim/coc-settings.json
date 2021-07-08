@@ -1,5 +1,6 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby"],
+    "coc.source.file.triggerCharacters": ["/"],
     "coc.source.file.ignoreHidden": false,
     "codeLens.enable": true,
 
