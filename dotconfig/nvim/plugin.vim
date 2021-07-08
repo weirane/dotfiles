@@ -222,7 +222,7 @@ vmap <leader>a <Plug>(LiveEasyAlign)
 "}}}
 
 " indentLine {{{
-let g:indentLine_fileType = ['python', 'yaml', 'ruby']
+let g:indentLine_fileType = ['python', 'yaml', 'ruby', 'haskell']
 "}}}
 
 " cursorword {{{
