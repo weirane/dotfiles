@@ -1,6 +1,11 @@
 ! xrdb -merge /path/to/Xresources
 
+! for 1920x1080, 13.3'
 Xft.dpi:       136
+! for 1920x1080, 27'
+! Xft.dpi:       108
+! for 2240x1400, 14'
+! Xft.dpi:       144
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
