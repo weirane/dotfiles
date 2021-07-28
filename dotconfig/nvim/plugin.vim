@@ -17,6 +17,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mboughaba/i3config.vim'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
+" CSV
+Plug 'chrisbra/csv.vim'
 " Jsonc
 Plug 'neoclide/jsonc.vim'
 " Markdown
