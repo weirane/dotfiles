@@ -1,4 +1,5 @@
 setlocal foldmethod=indent
+setlocal formatoptions+=ro
 
 " Add breakpoint
 nnoremap <silent><buffer> <localleader>b :call <SID>pybreak_operate()<CR>
