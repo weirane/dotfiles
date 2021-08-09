@@ -56,7 +56,7 @@ font-5 = Hack Nerd Font:pixelsize=14:antialias=true;1
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = task date weather cpu memory wlan eth xbacklight pulseaudio battery
+modules-right = task date weather cpu memory wlan eth backlight pulseaudio battery
 
 tray-position = ${env:TRAY_POS:none}
 tray-padding = 0
@@ -191,6 +191,18 @@ label-disconnected-foreground = ${colors.foreground-alt}
 [module/xbacklight]
 type = internal/xbacklight
 format = %{A1:notify-send -t 2500 Brightness `xbacklight | sed 's/\..*//'`%:} <ramp>%{A}
+
+ramp-0 = 🌑
+ramp-1 = 🌘
+ramp-2 = 🌗
+ramp-3 = 🌖
+ramp-4 = 🌕
+
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+enable-scroll = true
+format = %{A1:notify-send -t 2500 Brightness `xbacklight -get | sed 's/\..*//'`%:} <ramp>%{A}
 
 ramp-0 = 🌑
 ramp-1 = 🌘
