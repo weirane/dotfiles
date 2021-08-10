@@ -159,7 +159,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface-type = wireless
 interval = 3.0
 
 format-connected = <label-connected>
@@ -174,7 +174,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s20f0u2u1
+interface-type = wired
 interval = 3.0
 
 format-connected-underline = ${colors.base0b}
