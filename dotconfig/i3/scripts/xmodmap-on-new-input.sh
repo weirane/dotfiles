@@ -19,5 +19,4 @@ while true; do
     xmodmap "$xmodmap"
     inotifywait --quiet --event create --exclude '.*tmp.*' /dev/input
     sleep 1
-    notify-send --urgency=low --expire-time=2500 "New device" "xmodmap run"
 done
