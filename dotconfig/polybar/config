@@ -35,7 +35,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = ${colors.foreground}
 
 border-size = 0
@@ -54,7 +54,7 @@ font-3 = Noto Color Emoji:scale=10;1
 font-4 = Weather Icons;1
 font-5 = Hack Nerd Font:pixelsize=14:antialias=true;1
 
-modules-left = i3 xwindow
+modules-left = arch i3 xwindow
 modules-center =
 modules-right = task date weather cpu memory wlan eth backlight pulseaudio battery
 
@@ -66,6 +66,11 @@ tray-padding = 0
 
 cursor-click = pointer
 cursor-scroll = pointer
+
+[module/arch]
+type = custom/text
+content = " "
+content-foreground = #0f94d2
 
 [module/i3]
 type = internal/i3
