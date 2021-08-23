@@ -1,10 +1,10 @@
 ! xrdb -merge /path/to/Xresources
 
-! for 1920x1080, 13.3'
+! for 1920x1080, 13.3 in
 Xft.dpi:       136
-! for 1920x1080, 27'
+! for 1920x1080, 27 in
 ! Xft.dpi:       108
-! for 2240x1400, 14'
+! for 2240x1400, 14 in
 ! Xft.dpi:       144
 Xft.antialias: true
 Xft.hinting:   true
@@ -16,13 +16,13 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme: Breeze
 Xcursor.size: 24
 
-*.font: Hack-12:antialias=true:autohint=true
+*font: Hack-12:antialias=true:autohint=true
 
 *foreground: #d5d5d5
 *background: #1d2021
 
 *cursorColor: #d5d5d5
-*.alpha: 0.95
+*alpha: 0.95
 
 *color0: #1d2021
 *color1: #d72638
