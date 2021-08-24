@@ -13,6 +13,8 @@ Xft.autohint:  true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+rofi.dpi: 136
+
 Xcursor.theme: Breeze
 Xcursor.size: 24
 
