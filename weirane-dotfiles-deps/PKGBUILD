@@ -1,6 +1,6 @@
 pkgbase=weirane-dotfiles-deps
 pkgname=("$pkgbase"-cli "$pkgbase"-gui)
-pkgver=0.2.1
+pkgver=0.2.2
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -86,7 +86,7 @@ package_weirane-dotfiles-deps-gui() {
         'engrampa: Graphical archive manager'
         'seahorse: Managing keys'
 
-        'termite: Backup terminal'
+        'gnome-terminal: Backup terminal'
         'chromium: Backup browser'
     )
 }
