@@ -11,7 +11,7 @@ if (( $+commands[nvim] )); then
     export EDITOR=nvim
     alias vim='nvim'
     alias vimdiff='nvim -d'
-    export MANPAGER="nvim -c 'set ft=man' -"
+    export MANPAGER="nvim +Man!"
 else
     export EDITOR=vim
 fi
