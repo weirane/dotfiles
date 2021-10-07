@@ -2,7 +2,7 @@ configuration {
     modi: "run,drun";
     font: "Hack 12";
     show-icons: true;
-    icon-theme: "Papirus";
     theme: "~/.config/rofi/base16-helios.rasi";
+    dpi: 1;
     // matching: "fuzzy";
 }
