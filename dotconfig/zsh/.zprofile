@@ -23,8 +23,6 @@ systemctl --user import-environment \
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 [[ -f /usr/share/nvm/nvm.sh ]] && . /usr/share/nvm/nvm.sh
 
-export TASKDATA="$XDG_DATA_HOME/task"
-export TASKRC="$XDG_CONFIG_HOME/taskrc"
 export npm_config_cache="$XDG_CACHE_HOME/npm"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
