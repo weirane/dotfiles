@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pid_file=$XDG_RUNTIME_DIR/polybar-task.pid
+[ -f "$pid_file" ] && xargs kill -USR2 < "$pid_file"
+
+sed -n 2p
