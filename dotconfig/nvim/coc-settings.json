@@ -2,6 +2,7 @@
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby"],
     "coc.source.file.triggerCharacters": ["/"],
     "coc.source.file.ignoreHidden": false,
+    "coc.source.word.filetypes": ["text", "markdown", "html", "gitcommit", "mail", "nroff", ""],
     "codeLens.enable": true,
 
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
