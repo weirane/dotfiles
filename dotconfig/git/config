@@ -14,6 +14,7 @@
     st = status -sb
 [core]
     excludesfile = ~/.config/git/ignore
+    quotepath = false
 [color "diff"]
     whitespace = red reverse
     newMoved = cyan
