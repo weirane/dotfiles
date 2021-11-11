@@ -54,8 +54,9 @@
             "debounce": 200,
             "rootPatterns": [".git", "requirements.txt", "pyproject.toml", "setup.py"],
             "args": [
-                "--ignore=E402,C901,W503,W504,E116,E702,C0103,C0114,C0115,C0116,C0103,C0301,W0613,W0102,R0903,R0902,R0914,R0915,R0205,W0703,W0702,W0603",
+                "--ignore=E402,F403,F405,C901,W503,W504,E116,E702,C0103,C0114,C0115,C0116,C0103,C0301,W0613,W0102,R0903,R0902,R0914,R0915,R0205,W0703,W0702,W0603",
                 "--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s",
+                "--max-line-length=100",
                 "-"
             ],
             "offsetLine": 0,
