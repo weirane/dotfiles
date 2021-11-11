@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby"],
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby", "haskell"],
     "coc.source.file.triggerCharacters": ["/"],
     "coc.source.file.ignoreHidden": false,
     "coc.source.word.filetypes": ["text", "markdown", "html", "gitcommit", "mail", "nroff", ""],
@@ -20,6 +20,17 @@
     "prettier.disableLanguages": ["markdown"],
 
     "languageserver": {
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"],
+            "initializationOptions": {
+                "haskell": {
+                    "formattingProvider": "brittany"
+                }
+            }
+        },
         "ccls-c": {
             "command": "ccls",
             "filetypes": ["c"],
