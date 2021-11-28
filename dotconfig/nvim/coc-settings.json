@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "python", "rust", "ruby", "haskell"],
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "python", "rust", "ruby", "haskell"],
     "coc.source.file.triggerCharacters": ["/"],
     "coc.source.file.ignoreHidden": false,
     "coc.source.word.filetypes": ["text", "markdown", "html", "gitcommit", "mail", "nroff", ""],
