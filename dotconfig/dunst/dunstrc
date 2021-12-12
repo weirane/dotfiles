@@ -1,7 +1,10 @@
 [global]
-    frame_width = 3
+    frame_width = 2
     frame_color = "#d5d5d5"
-    geometry = "400x100-2+38"
+    width = (0, 300)
+    height = 100
+    offset = 2x38
+    notification_limit = 10
     shrink = yes
     font = sans-serif 10
     markup = yes
@@ -92,8 +95,7 @@
     separator_height = 1
 
     # Padding between text and separator.
-    # padding = 8
-    padding = 8
+    padding = 4
 
     # Horizontal padding.
     horizontal_padding = 10
@@ -124,24 +126,7 @@
     icon_path = /usr/share/icons/Papirus-Dark/24x24/actions:/usr/share/icons/Papirus-Dark/24x24/apps:/usr/share/icons/Papirus-Dark/24x24/categories:/usr/share/icons/Papirus-Dark/24x24/devices:/usr/share/icons/Papirus-Dark/24x24/emblems:/usr/share/icons/Papirus-Dark/24x24/emotes:/usr/share/icons/Papirus-Dark/24x24/mimetypes:/usr/share/icons/Papirus-Dark/24x24/panel:/usr/share/icons/Papirus-Dark/24x24/places:/usr/share/icons/Papirus-Dark/24x24/status
 
     # Limit icons size.
-    max_icon_size=128
-
-[shortcuts]
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-
-    # Close notification.
-    close = ctrl+period
-
-    # Close all notifications.
-    close_all = ctrl+shift+period
-
-    # Redisplay last message(s).
-    history = ctrl+shift+h
-
-    # Context menu.
-    # context = ctrl+shift+period
+    max_icon_size=64
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

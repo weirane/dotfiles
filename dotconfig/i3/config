@@ -115,6 +115,11 @@ bindsym $mod+grave scratchpad show, \
 # reload the configuration file
 bindsym $mod+Shift+c reload, exec --no-startup-id notify-send 'i3' 'Config reloaded'
 
+# dunst
+bindsym Ctrl+period exec --no-startup-id dunstctl close
+bindsym Ctrl+Shift+period exec --no-startup-id dunstctl close-all
+bindsym Ctrl+Shift+h exec --no-startup-id dunstctl history-pop
+
 # Workspace names
 set $ws1 1:term
 set $ws2 2:web
