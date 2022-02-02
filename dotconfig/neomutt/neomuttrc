@@ -24,6 +24,7 @@ set collapse_unread = no
 set pager_stop = yes
 set mask = '.*'
 
+set sidebar_folder_indent = yes
 set mailcap_path = $HOME/.config/neomutt/mailcap
 set date_format = "%Y-%m-%d %H:%M:%S %z"
 #                   num    attatch    date           collapsed   size
