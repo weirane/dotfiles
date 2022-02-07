@@ -125,7 +125,7 @@ else
     # fast-syntax-highlighting
     fsh_dir=$HOME/.local/share/zsh/fast-syntax-highlighting
     if [ ! -d "$fsh_dir" ] && confirm "Setup fast-syntax-highlighting?"; then
-        echodo git clone --depth=1 https://github.com/zdharma/fast-syntax-highlighting.git "$fsh_dir"
+        echodo git clone --depth=1 https://github.com/zdharma-continuum/fast-syntax-highlighting.git "$fsh_dir"
     fi
 fi
 
