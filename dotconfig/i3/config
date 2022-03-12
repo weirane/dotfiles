@@ -8,6 +8,7 @@ set $terminal alacritty
 set $float_term alacritty --class=FloatExec
 set $neomutt alacritty --title=neomutt -e env LANG=en_US.UTF-8 neomutt -e 'set quit=no'
 set $newsboat alacritty --title=newsboat -e env LANG=en_US.UTF-8 newsboat
+set $beancount env LANG=en_US.UTF-8 BEANMODE=1 alacritty --title=beancount
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -52,7 +53,7 @@ bindsym $mod+Ctrl+f exec firefox
 bindsym $mod+Ctrl+b exec --no-startup-id $newsboat
 bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
 bindsym $mod+Ctrl+p exec --no-startup-id thunar
-bindsym $mod+Ctrl+t exec --no-startup-id xargs -r kill -USR1 < $XDG_RUNTIME_DIR/polybar-task.pid
+bindsym $mod+Ctrl+t exec --no-startup-id $beancount
 bindsym $mod+Ctrl+e exec --no-startup-id $scripts/rofimoji.sh
 bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
 bindsym $mod+Ctrl+m exec --no-startup-id rofimount

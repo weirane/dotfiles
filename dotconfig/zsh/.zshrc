@@ -19,3 +19,10 @@ fi
 . $ZDOTDIR/plugin.zsh
 
 [[ -f ~/.dotfiles/local/zshrc ]] && \. ~/.dotfiles/local/zshrc || true
+
+if (( BEANMODE )); then
+    unset BEANMODE
+    cd $HOME/Documents/Beancount
+    fava main.bean >/dev/null 2>&1 &
+    thismonth
+fi
