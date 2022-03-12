@@ -21,11 +21,21 @@ source_env() {
     if ! [[ -f .env ]]; then
         return
     fi
-    local confirm
-    echo -n "dotenv: found '.env' file. Source it? ([Y]es/[n]o) "
-    read -k 1 confirm
-    [[ $confirm != $'\n' ]] && echo
-    [[ $confirm == [nN] ]] && return
+    # check blacklist
+    if [[ -f $HOME/.config/dotenv/blacklist ]] && grep -q $PWD $HOME/.config/dotenv/blacklist; then
+        return
+    fi
+    # check whitelist
+    if [[ -f $HOME/.config/dotenv/whitelist ]] && grep -q $PWD $HOME/.config/dotenv/whitelist; then
+        noconfirm=1
+    fi
+    if ! (( noconfirm )); then
+        local confirm
+        echo -n "dotenv: found '.env' file. Source it? ([Y]es/[n]o) "
+        read -k 1 confirm
+        [[ $confirm != $'\n' ]] && echo
+        [[ $confirm == [nN] ]] && return
+    fi
 
     # test .env syntax
     zsh -fn .env || echo "dotenv: error when sourcing '.env' file" >&2
