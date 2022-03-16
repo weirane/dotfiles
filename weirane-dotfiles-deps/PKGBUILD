@@ -1,6 +1,6 @@
 pkgbase=weirane-dotfiles-deps
 pkgname=("$pkgbase"-cli "$pkgbase"-gui)
-pkgver=0.2.2
+pkgver=0.2.3
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -49,7 +49,7 @@ package_weirane-dotfiles-deps-gui() {
         'weirane-dotfiles-deps-cli'
 
         # i3
-        'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip'
+        'i3-gaps' 'rofi' 'alacritty' 'libnotify' 'dunst' 'scrot' 'yad' 'xclip' 'flameshot'
         'xorg-server' 'xorg-xset' 'xorg-xmodmap' 'xorg-xbacklight' 'xorg-xwininfo'
         'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
         'xcape' 'picom' 'networkmanager' 'network-manager-applet' 'feh' 'redshift'

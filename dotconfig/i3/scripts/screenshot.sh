@@ -22,24 +22,7 @@ case "$1" in
         notify "Screenshot of the current window saved as $default"
         ;;
     -s | --select) # Selection
-        full_fn="/tmp/$base"
-        scrot -s "$full_fn" || {
-            notify 'Abort'
-            exit
-        }
-        save=$(yad --title 'Save the screenshot' \
-               --width=1230 --height=750 \
-               --file --save \
-               --filename="$last_path/$base" \
-               --confirm-overwrite)
-        if [ $? = 1 ] || [ -z "$save" ]; then
-            xclip-cutfile "$full_fn"
-            notify 'Use xclip-pastfile to get the screenshot'
-        else
-            mv -f "$full_fn" "$save" &&
-                notify "Screenshot saved as $save" &&
-                (realpath "$(dirname "$save")" > "$HOME/.cache/screenshot-path")
-        fi
+        flameshot gui
         ;;
     *)
         exit 1
