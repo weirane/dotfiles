@@ -212,7 +212,7 @@ for_window [class="^Pcmanfm$"] floating enable border normal
 for_window [class="^Thunar$"] floating enable border normal
 for_window [class="^Qemu"] floating enable border normal
 for_window [class="^Graphviz"] floating enable border normal
-for_window [class="^Dragon-drag-and-drop$"] floating enable sticky enable border normal
+for_window [class="^Dragon-drop$"] floating enable sticky enable border normal
 for_window [class="^Gpick$"] floating enable sticky enable border normal
 for_window [class="^Wine$" instance="^tim\.exe$"] floating enable border none
 
