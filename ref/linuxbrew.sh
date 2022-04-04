@@ -12,3 +12,4 @@ unset user
 
 # go in zshrc:
 export HOMEBREW_NO_ENV_HINTS=1
+alias pacman='pacaptr --using brew'
