@@ -25,6 +25,8 @@
     untracked = red
 [merge]
     tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED" -c '$wincmd w' -c 'wincmd J'
 [diff]
     colorMoved = zebra
     tool = vimdiff
