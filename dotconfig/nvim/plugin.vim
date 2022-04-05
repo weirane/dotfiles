@@ -9,7 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/fzf.vim'
@@ -17,6 +17,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mboughaba/i3config.vim'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
+Plug 'machakann/vim-highlightedyank'
 " CSV
 Plug 'chrisbra/csv.vim'
 " Jsonc
@@ -29,8 +30,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'pangloss/vim-javascript'
 " LaTeX
 Plug 'lervag/vimtex'
-" Go
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Rust
 Plug 'rust-lang/rust.vim'
 " Toml
@@ -197,18 +196,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <silent> <localleader>ok :call CocAction('doHover')<CR>
 "}}}
 
-" easy motion {{{
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 0
-let g:EasyMotion_do_mapping = 0
-nmap <C-J> <Plug>(easymotion-j)
-nmap <C-K> <Plug>(easymotion-k)
-nmap <leader><leader>w <Plug>(easymotion-w)
-nmap <leader><leader>b <Plug>(easymotion-b)
-nmap <leader><leader>f <Plug>(easymotion-f)
-nmap <leader><leader>F <Plug>(easymotion-F)
-"}}}
-
 " fzf {{{
 let $FZF_DEFAULT_COMMAND=expand('$FZF_DEFAULT_COMMAND --no-ignore')
 let g:fzf_layout = { 'down': '40%' }
@@ -229,6 +216,10 @@ let g:indentLine_fileType = ['python', 'yaml', 'ruby', 'haskell']
 
 " cursorword {{{
 let g:cursorword_delay = 0
+"}}}
+
+" highlightedyank {{{
+let g:highlightedyank_highlight_duration = 300
 "}}}
 
 " LaTeX (vimtex) {{{
