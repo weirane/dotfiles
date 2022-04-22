@@ -59,6 +59,8 @@ let g:NERDCustomDelimiters = {
 "}}}
 
 " lightline.vim {{{
+autocmd User VimtexEventCompileSuccess,VimtexEventCompileFailed call lightline#update()
+
 function! LightlineFileEncmat() abort
     return &filetype !~# '\v^(help|man)$' && winwidth(0) > 70
                 \ ? &fileencoding . (&fileformat !=# '' ? printf('[%s]', &fileformat) : '')
@@ -184,7 +186,10 @@ function! s:check_back_space() abort
     return !col || col + 1 == col('$') || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+highlight! link CocHintSign CocCodeLens
+
 nmap <silent> <localleader>oa :.CocAction<CR>
+nmap <localleader>ca <Plug>(coc-codelens-action)
 xmap <localleader>oa <Plug>(coc-codeaction-selected)
 nmap <localleader>of <Plug>(coc-format)
 nmap <localleader>or <Plug>(coc-rename)
