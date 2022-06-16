@@ -73,7 +73,7 @@ endfunction
 
 function! LightlineGit() abort
     if &filetype =~# '\v^(help|man)$' || winwidth(0) <= 60 | return '' | endif
-    let l:branch = fugitive#head(6)
+    let l:branch = FugitiveHead(6)
     if empty(l:branch) || winwidth(0) <= 70 | return l:branch | endif
     let l:sum = exists('b:gitgutter.summary') ? b:gitgutter.summary : [0, 0, 0]
     let l:summary = max(l:sum) > 0 ? printf(' +%d ~%d -%d', l:sum[0], l:sum[1], l:sum[2]) : ''
