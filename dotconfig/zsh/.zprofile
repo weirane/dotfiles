@@ -21,7 +21,11 @@ systemctl --user import-environment \
     LESSHISTFILE WGETRC NOTMUCH_CONFIG GTK2_RC_FILES PASSWORD_STORE_DIR
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
-[[ -f /usr/share/nvm/nvm.sh ]] && . /usr/share/nvm/nvm.sh
+if [[ -f /usr/share/nvm/nvm.sh ]]; then
+    . /usr/share/nvm/nvm.sh
+elif [[ -f $NVM_DIR/nvm.sh ]]; then
+    . $NVM_DIR/nvm.sh
+fi
 
 export npm_config_cache="$XDG_CACHE_HOME/npm"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
