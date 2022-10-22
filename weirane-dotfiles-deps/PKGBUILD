@@ -1,6 +1,6 @@
 pkgbase=weirane-dotfiles-deps
 pkgname=("$pkgbase"-cli "$pkgbase"-gui)
-pkgver=0.2.3
+pkgver=0.2.4
 pkgrel=1
 pkgdesc="Programs needed for weirane's dotfiles"
 arch=('any')
@@ -54,7 +54,7 @@ package_weirane-dotfiles-deps-gui() {
         'xorg-xrdb' 'xorg-xinit' 'udisks2' 'inotify-tools' 'i3lock' 'xss-lock'
         'xcape' 'picom' 'networkmanager' 'network-manager-applet' 'feh' 'redshift'
         'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji' 'ttf-dejavu'
-        'ttf-hack' 'nerd-fonts-hack'
+        'ttf-hack' 'ttf-hack-nerd'
         'fcitx5' 'fcitx5-chinese-addons' 'fcitx5-gtk' 'fcitx5-qt'
         'fcitx5-material-color' 'fcitx5-pinyin-zhwiki' 'fcitx5-configtool'
 
