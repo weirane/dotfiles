@@ -176,16 +176,17 @@ let g:rooter_patterns = [
 " coc.nvim {{{
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
+            \ coc#pum#visible() ? coc#pum#next(1) :
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <C-z> coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || col + 1 == col('$') || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+highlight! link CocMenuSel PmenuSel
 highlight! link CocHintSign CocCodeLens
 
 nmap <silent> <localleader>oa :.CocAction<CR>
