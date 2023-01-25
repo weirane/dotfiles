@@ -187,7 +187,7 @@ function! s:check_back_space() abort
 endfunction
 
 highlight! link CocMenuSel PmenuSel
-highlight! link CocHintSign CocCodeLens
+highlight! link CocInlayHint CocCodeLens
 
 nmap <silent> <localleader>oa :.CocAction<CR>
 nmap <localleader>ca <Plug>(coc-codelens-action)

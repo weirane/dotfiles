@@ -3,7 +3,7 @@
     frame_color = "#d5d5d5"
     width = (0, 300)
     height = 100
-    offset = 2x38
+    offset = 2x36
     notification_limit = 10
     shrink = yes
     font = sans-serif 10

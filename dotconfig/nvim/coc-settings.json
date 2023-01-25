@@ -5,7 +5,7 @@
     },
     "coc.source.file.triggerCharacters": ["/"],
     "coc.source.file.ignoreHidden": false,
-    "coc.source.word.filetypes": ["text", "markdown", "html", "gitcommit", "mail", "nroff", ""],
+    "coc.source.word.filetypes": ["text", "markdown", "html", "gitcommit", "mail", "nroff", "tex", ""],
     "codeLens.enable": true,
     "codeLens.position": "eol",
 
@@ -13,6 +13,8 @@
     "rust-analyzer.notifications.cargoTomlNotFound": false,
     "rust-analyzer.completion.postfix.enable": false,
     "rust-analyzer.completion.autoimport.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
 
     "solargraph.checkGemVersion": false,
     "solargraph.diagnostics": true,
