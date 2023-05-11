@@ -9,7 +9,7 @@
     "codeLens.enable": true,
     "codeLens.position": "eol",
 
-    "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
+    "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer",
     "rust-analyzer.notifications.cargoTomlNotFound": false,
     "rust-analyzer.completion.postfix.enable": false,
     "rust-analyzer.completion.autoimport.enable": false,
