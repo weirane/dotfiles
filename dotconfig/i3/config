@@ -33,9 +33,9 @@ bindsym $mod+q [con_id="__focused__" instance="^(?!dropdown-terminal).*$"] kill
 # Screen brightness and volume controls
 bindsym XF86MonBrightnessUp   exec --no-startup-id "xbacklight -inc 5"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
-bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute "$(pactl get-default-sink)" toggle
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume "$(pactl get-default-sink)" -5%
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume "$(pactl get-default-sink)" +5%
 
 # Start Applications
 bindsym $mod+Return exec --no-startup-id $terminal
@@ -124,7 +124,7 @@ bindsym Ctrl+Shift+h exec --no-startup-id dunstctl history-pop
 # Workspace names
 set $ws1 1:term
 set $ws2 2:web
-set $ws3 3
+set $ws3 3:tb
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -224,9 +224,10 @@ for_window [class="^firefox$" window_role="^About$"] floating enable border norm
 for_window [class="^firefox$" window_role="^Organizer$"] floating enable border normal
 for_window [class="^firefox$" window_role="^page-info$"] floating enable border normal
 for_window [class="^firefox$" window_role="^PictureInPicture$"] floating enable sticky enable border pixel 1
-for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable border normal
-for_window [class="^Thunderbird$" window_role="^addressbook$"] floating enable border normal
-for_window [class="^Thunderbird$" window_role="^Accounts$"] floating enable border normal
+for_window [class="^thunderbird$" window_role="^Msgcompose$"] floating enable border normal
+for_window [class="^thunderbird$" window_role="^addressbook$"] floating enable border normal
+for_window [class="^thunderbird$" window_role="^Accounts$"] floating enable border normal
+for_window [class="^thunderbird$" title="^TbSync account manager$"] floating enable border normal
 
 # Shutdown, restart and lock
 bindsym $mod+0 mode "$mode_system"
