@@ -16,11 +16,11 @@ else
     export EDITOR=vim
 fi
 
-# exa
-if (( $+commands[exa] )); then
-    alias ls='exa'
-    alias ll='exa -lgh'
-    alias la='exa -lagh'
+# eza
+if (( $+commands[eza] )); then
+    alias ls='eza'
+    alias ll='eza -lgh'
+    alias la='eza -lagh'
 
     EXA_COLORS=$(<$HOME/.dotfiles/exa_colors)
     export EXA_COLORS
