@@ -50,14 +50,14 @@ bindsym $mod+Shift+Print exec --no-startup-id $scripts/screenshot.sh --window
 bindsym Shift+Print --release exec --no-startup-id $scripts/screenshot.sh --select
 
 bindsym $mod+Ctrl+f exec firefox
-bindsym $mod+Ctrl+b exec --no-startup-id $newsboat
-bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
+#bindsym $mod+Ctrl+b exec --no-startup-id $newsboat
+#bindsym $mod+Ctrl+n exec --no-startup-id $neomutt
 bindsym $mod+Ctrl+p exec --no-startup-id thunar
 bindsym $mod+Ctrl+t exec --no-startup-id $beancount
 bindsym $mod+Ctrl+e exec --no-startup-id $scripts/rofimoji.sh
-bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
-bindsym $mod+Ctrl+m exec --no-startup-id rofimount
-bindsym $mod+Ctrl+u exec --no-startup-id rofiumount
+#bindsym $mod+Ctrl+i exec --no-startup-id $scripts/xmodmap-on-new-input.sh
+#bindsym $mod+Ctrl+m exec --no-startup-id rofimount
+#bindsym $mod+Ctrl+u exec --no-startup-id rofiumount
 
 focus_follows_mouse no
 focus_wrapping no
@@ -120,6 +120,7 @@ bindsym $mod+Shift+c reload, exec --no-startup-id notify-send 'i3' 'Config reloa
 bindsym Ctrl+period exec --no-startup-id dunstctl close
 bindsym Ctrl+Shift+period exec --no-startup-id dunstctl close-all
 bindsym Ctrl+Shift+h exec --no-startup-id dunstctl history-pop
+bindsym $mod+Shift+a exec --no-startup-id dunstctl action
 
 # Workspace names
 set $ws1 1:term
