@@ -114,7 +114,7 @@ bindsym $mod+grave scratchpad show, \
                  [instance="^dropdown-terminal$"] scratchpad show
 
 # reload the configuration file
-bindsym $mod+Shift+c reload, exec --no-startup-id notify-send 'i3' 'Config reloaded'
+bindsym $mod+Shift+c reload, exec --no-startup-id notify-send --icon '/usr/share/doc/i3/logo-30.png' 'i3' 'Config reloaded'
 
 # dunst
 bindsym Ctrl+period exec --no-startup-id dunstctl close
@@ -281,16 +281,16 @@ bindsym $mod+r mode "resize"
 mode "resize" {
     bindsym $mod+Tab focus right
 
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize grow height 5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
+    bindsym h resize shrink width 8 px
+    bindsym j resize grow height 8 px
+    bindsym k resize shrink height 8 px
+    bindsym l resize grow width 8 px
 
     # fast resize
-    bindsym Shift+h resize shrink width 20 px or 20 ppt
-    bindsym Shift+j resize grow height 20 px or 20 ppt
-    bindsym Shift+k resize shrink height 20 px or 20 ppt
-    bindsym Shift+l resize grow width 20 px or 20 ppt
+    bindsym Shift+h resize shrink width 50 px
+    bindsym Shift+j resize grow height 50 px
+    bindsym Shift+k resize shrink height 50 px
+    bindsym Shift+l resize grow width 50 px
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
