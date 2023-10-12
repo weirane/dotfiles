@@ -189,10 +189,11 @@ endfunction
 highlight! link CocMenuSel PmenuSel
 highlight! link CocInlayHint CocCodeLens
 
-nmap <silent> <localleader>oa :.CocAction<CR>
+nmap <silent> <localleader>oa <Plug>(coc-codeaction-line)
 nmap <localleader>ca <Plug>(coc-codelens-action)
 xmap <localleader>oa <Plug>(coc-codeaction-selected)
 nmap <localleader>of <Plug>(coc-format)
+xmap <localleader>of <Plug>(coc-format-selected)
 nmap <localleader>or <Plug>(coc-rename)
 nmap <localleader>od <Plug>(coc-definition)
 nmap <localleader>on <Plug>(coc-references)
