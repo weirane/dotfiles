@@ -103,7 +103,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+Shift+a focus parent
 
 # scratchpad
 bindsym $mod+minus [floating] move scratchpad
@@ -120,7 +120,7 @@ bindsym $mod+Shift+c reload, exec --no-startup-id notify-send --icon '/usr/share
 bindsym Ctrl+period exec --no-startup-id dunstctl close
 bindsym Ctrl+Shift+period exec --no-startup-id dunstctl close-all
 bindsym Ctrl+Shift+h exec --no-startup-id dunstctl history-pop
-bindsym $mod+Shift+a exec --no-startup-id dunstctl action
+bindsym $mod+a exec --no-startup-id dunstctl action
 
 # Workspace names
 set $ws1 1:term
