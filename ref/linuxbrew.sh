@@ -2,12 +2,12 @@
 
 # go in .zshenv:
 user=$USER
-HOMEBREW_PREFIX="/home/$user/.linuxbrew";
-HOMEBREW_CELLAR="/home/$user/.linuxbrew/Cellar";
-HOMEBREW_REPOSITORY="/home/$user/.linuxbrew/Homebrew";
-PATH="/home/$user/.linuxbrew/bin:/home/$user/.linuxbrew/sbin${PATH+:$PATH}";
-MANPATH="/home/$user/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-INFOPATH="/home/$user/.linuxbrew/share/info:${INFOPATH:-}";
+HOMEBREW_PREFIX="/home/$user/homebrew";
+HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
+HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew";
+PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}";
+MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
+INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
 unset user
 
 # go in zshrc:
