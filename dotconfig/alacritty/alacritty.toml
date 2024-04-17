@@ -1,0 +1,80 @@
+[colors.bright]
+black = "#6f7579"
+blue = "#1e8bac"
+cyan = "#1ba595"
+green = "#88b92d"
+magenta = "#be4264"
+red = "#d72638"
+white = "#e5e5e5"
+yellow = "#f19d1a"
+
+[colors.normal]
+black = "#1d2021"
+blue = "#1e8bac"
+cyan = "#1ba595"
+green = "#88b92d"
+magenta = "#be4264"
+red = "#d72638"
+white = "#d5d5d5"
+yellow = "#f19d1a"
+
+[colors.primary]
+background = "#1d2021"
+foreground = "#d5d5d5"
+
+[[colors.indexed_colors]]
+color = "#eb8413"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#c85e0d"
+index = 17
+
+[[colors.indexed_colors]]
+color = "#383c3e"
+index = 18
+
+[[colors.indexed_colors]]
+color = "#53585b"
+index = 19
+
+[[colors.indexed_colors]]
+color = "#cdcdcd"
+index = 20
+
+[[colors.indexed_colors]]
+color = "#dddddd"
+index = 21
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.offset]
+x = 0
+y = 1
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Control"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 0.95
+
+[window.dimensions]
+columns = 80
+lines = 24
