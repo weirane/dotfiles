@@ -230,6 +230,8 @@ for_window [class="^thunderbird$" window_role="^addressbook$"] floating enable b
 for_window [class="^thunderbird$" window_role="^Accounts$"] floating enable border normal
 for_window [class="^thunderbird$" title="^TbSync account manager$"] floating enable border normal
 
+for_window [class="^zoom$" title="^zoom$"] floating enable border none
+
 # Shutdown, restart and lock
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (s)uspend, (E)xit, (R)eboot, (S)hutdown

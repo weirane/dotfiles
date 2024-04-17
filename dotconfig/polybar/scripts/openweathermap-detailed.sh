@@ -40,6 +40,7 @@ update_weather() {
 
 show_weather() {
     [ -n "$weather" ] || return
+    verbose=0
     case $verbose in
         0) echo "$weather_icon $weather_temp$dot" ;;
         1) echo "$city_name $weather_icon $weather_temp$dot" ;;
@@ -55,17 +56,18 @@ inc_verbose() {
 verbose=0
 dot=
 
-trap "inc_verbose" USR1
-trap 'dot=.' RTMIN+1
-trap 'dot=‥' RTMIN+2
-trap 'dot=…' RTMIN+3
+# trap "inc_verbose" USR1
+# trap 'dot=.' RTMIN+1
+# trap 'dot=‥' RTMIN+2
+# trap 'dot=…' RTMIN+3
 trap 'dot=; update_weather' RTMIN+4
 trap 'pkill -P $$ -x sleep || true' EXIT
 
-sleep infinity &
+sleep 300 &
 
 update_weather
-while pgrep -P $$ -x sleep >/dev/null && [ "$(cut -d '' -f1 /proc/$PPID/cmdline)" = polybar ]; do
+while [ "$(cut -d '' -f1 /proc/$PPID/cmdline)" = polybar ]; do
     show_weather
+    pgrep -P $$ -x sleep >/dev/null || sleep 300 &
     wait
 done

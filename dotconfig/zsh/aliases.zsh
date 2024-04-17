@@ -27,7 +27,7 @@ alias :q="exit"
 alias :e="${EDITOR:-vim}"
 
 alias -s {pdf,png,jpg,jpeg,gif,svg,html}="open"
-alias -s {mov,mkv,flv,mp4,rmvb}="open"
+alias -s {mov,mkv,flv,mp4,rmvb,webm}="open"
 alias -s {m4a,ogg,mp3,aac,wav}="open"
 alias -s zip="open"
 alias -s csv="csview"
