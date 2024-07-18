@@ -1,10 +1,24 @@
+# homebrew
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export HOMEBREW_NO_ENV_HINTS=1
+
+prependpath /opt/homebrew/sbin
+prependpath /opt/homebrew/bin
+
+# gnu utils
+[[ $PATH =~ /libexec/gnubin ]] || path=(/opt/homebrew/opt/*/libexec/gnubin $path)
+
 # helper scripts and binaries
 prependpath $HOME/scripts
 prependpath $HOME/bin
 
-# cargo
+# rust
+export RUSTUP_HOME="$HOME/.local/share/rustup"
+export CARGO_HOME="$HOME/.local/share/cargo"
 prependpath $CARGO_HOME/bin
-export CARGO_TARGET_DIR=/var/cache/cargo-target
+export CARGO_TARGET_DIR=$HOME/.cache/cargo-target
 
 # neovim
 if (( $+commands[nvim] )); then
@@ -33,7 +47,7 @@ fi
 # fzf
 export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
-fzf1=/usr/share/fzf
+fzf1=/opt/homebrew/opt/fzf/shell
 [[ -f $fzf1/key-bindings.zsh ]] && . $fzf1/key-bindings.zsh
 [[ -f $fzf1/completion.zsh ]] && . $fzf1/completion.zsh
 unset fzf1
@@ -45,23 +59,29 @@ fi
 
 # less
 export LESS="-MR --mouse --wheel-lines=3 -# 10"
-export SYSTEMD_LESS="-FRSXMK --mouse --wheel-lines=3 -# 10"
 
-# ripgrep
-export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
+# XDG
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
-# ipython
+export NVM_DIR="$HOME/.local/share/nvm"
+export npm_config_cache="$HOME/.cache/npm"
+export VIMINIT="source $HOME/.config/nvim/init.vim"
+export LESSHISTFILE="$HOME/.cache/lesshst"
+export WGETRC="$HOME/.config/wgetrc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 export IPYTHONDIR="$HOME/.config/ipython"
-
-# httpie
+export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
 export HTTPIE_CONFIG_DIR="$HOME/.config/httpie"
-
-# mysql, mycli, sqlite
 export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
 export MYCLI_HISTFILE="$HOME/.cache/mycli-history"
 export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 
-# ruby, bundle
+# export TEXMFHOME="$XDG_DATA_HOME/texmf"
+# export TEXMFVAR="$XDG_DATA_HOME/texlive/texmf-var"
+# export TEXMFCONFIG="$XDG_DATA_HOME/texlive/texmf-config"
+
 export IRBRC="$HOME/.config/irb/irbrc"
 export GEM_HOME="$HOME/.local/share/gem"
 export GEM_SPEC_CACHE="$HOME/.cache/gem"

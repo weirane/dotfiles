@@ -76,3 +76,7 @@ d() {
     fi
 }
 compdef _dirs d
+
+loadnvm() {
+    . /opt/homebrew/opt/nvm/nvm.sh
+}

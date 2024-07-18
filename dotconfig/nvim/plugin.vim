@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-fugitive'
@@ -10,11 +9,9 @@ Plug 'airblade/vim-rooter'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'justinmk/vim-sneak'
-Plug 'lilydjwg/fcitx.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'mboughaba/i3config.vim'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-highlightedyank'
@@ -26,27 +23,17 @@ Plug 'neoclide/jsonc.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" web
+" filetypes
 Plug 'pangloss/vim-javascript'
-" LaTeX
 Plug 'lervag/vimtex'
-" Rust
 Plug 'rust-lang/rust.vim'
-" Toml
 Plug 'cespare/vim-toml'
+Plug 'nathangrigg/vim-beancount'
+Plug 'mityu/vim-applescript'
 if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
     source ~/.dotfiles/local/vim-plugins.vim
 endif
 call plug#end()
-
-" NERDTree {{{
-nnoremap <F10> :silent! NERDTreeToggle<CR>
-let NERDTreeBookmarksFile = expand('~/.cache/nerdtree-bookmarks')
-let NERDTreeShowHidden = 1
-" 退出最后一个文件时, 退出 NERDTree
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeIgnore = ['.git']
-"}}}
 
 " nerdcommenter {{{
 let g:NERDSpaceDelims = 1
@@ -175,6 +162,8 @@ let g:rooter_patterns = [
 
 " coc.nvim {{{
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
+let g:coc_status_error_sign = ' '
+let g:coc_status_warning_sign = ' '
 inoremap <silent><expr> <TAB>
             \ coc#pum#visible() ? coc#pum#next(1) :
             \ <SID>check_back_space() ? "\<TAB>" :
@@ -204,6 +193,7 @@ nnoremap <silent> <localleader>ok :call CocAction('doHover')<CR>
 "}}}
 
 " fzf {{{
+set rtp+=/opt/homebrew/opt/fzf
 let $FZF_DEFAULT_COMMAND=expand('$FZF_DEFAULT_COMMAND --no-ignore')
 let g:fzf_layout = { 'down': '40%' }
 nnoremap <silent><leader>b :Buffers<CR>
@@ -242,10 +232,9 @@ let g:vimtex_compiler_latexmk_engines = {
             \ 'context (luatex)' : '-pdf -pdflatex=context',
             \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
             \}
-let g:vimtex_view_method = 'zathura'
+" let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_use_temp_files = 1
 " fold {{{
-" nnoremap <localleader>rf :VimtexRefreshFolds<CR>
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
             \ 'comments' : {'enabled' : 1},

@@ -1,3 +1,4 @@
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
@@ -27,4 +28,4 @@ zstyle -e ':completion::complete:-command-::executables' ignored-patterns '
 
 compdef _pids cmdof
 compdef _pids envof
-compdef {alwaysatty,notified,proxied,swl}=command
+compdef {notified,proxied}=command

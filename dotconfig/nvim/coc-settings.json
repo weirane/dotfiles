@@ -9,20 +9,27 @@
     "codeLens.enable": true,
     "codeLens.position": "eol",
 
-    "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer",
+    "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
     "rust-analyzer.notifications.cargoTomlNotFound": false,
     "rust-analyzer.completion.postfix.enable": false,
     "rust-analyzer.completion.autoimport.enable": false,
     "rust-analyzer.inlayHints.parameterHints.enable": false,
     "rust-analyzer.inlayHints.typeHints.enable": false,
 
-    "solargraph.checkGemVersion": false,
-    "solargraph.diagnostics": true,
-    "solargraph.formatting": true,
+    // "solargraph.checkGemVersion": false,
+    // "solargraph.diagnostics": true,
+    // "solargraph.formatting": true,
 
     "prettier.disableLanguages": ["markdown"],
 
     "languageserver": {
+        "beancount": {
+            "command": "beancount-language-server",
+            "filetypes": ["beancount"],
+            "initializationOptions": {
+                "journal_file": "/Users/wang/Documents/Beancount/main.bean"
+            }
+        },
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod", "Makefile"],

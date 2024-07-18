@@ -1,6 +1,8 @@
 export LANG=en_US.UTF-8
 export LC_TIME=en_GB.UTF-8
 
+export PAGER="less"
+
 PROMPT_EOL_MARK="%B%F{8}↵%f%b"
 cdpath=(~ ..)
 HISTSIZE=99999999
