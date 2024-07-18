@@ -60,6 +60,7 @@ if [ ! -d "$HOME/scripts" ] && confirm "Setup helper shell scripts?"; then
         pre=https://github.com/
     fi
     echodo git clone "${pre}weirane/scripts" "$HOME/scripts"
+    echodo git -C "$HOME/scripts" checkout macos
 fi
 
 exit 0
