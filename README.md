@@ -1,6 +1,8 @@
 # dotfiles
 
-My configs for vim, zsh, i3, polybar etc.
+My configs for vim, zsh, i3, polybar etc on Linux.
+
+For macOS dotfiles, see the `macos` branch.
 
 ## TL;DR for desktop setup on Arch Linux
 
