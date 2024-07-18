@@ -8,11 +8,49 @@ For Linux dotfiles, see the `master` branch.
 
 Execute `./setup.sh` to symlink config files in home and `~/.config`.
 
-### Command line utilities
+### Homebrew
 
-```sh
-brew install eza ripgrep fd bat fzf
+Install [homebrew] first
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+[homebrew]: https://brew.sh/
+
+### Tiling window management
+
+The setup on macOS tries to mirror my i3 setup on Linux. Install [yabai], [skhd], and [sketchybar] :
+```sh
+brew install koekeishiya/formulae/yabai koekeishiya/formulae/skhd felixkratz/formulae/sketchybar
+```
+
+Auto-start:
+```sh
+brew services start sketchybar
+yabai --start-service
+skhd --start-service
+```
+
+Disable SIP for yabai: https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection.
+
+[yabai]: https://github.com/koekeishiya/yabai
+[skhd]: https://github.com/koekeishiya/skhd
+[sketchybar]: https://github.com/FelixKratz/SketchyBar
+
+### Terminal and command line utilities
+
+Terminal-related stuff, GNU coreutils and other utilities:
+```sh
+brew install --cask alacritty
+brew install font-fira-mono-nerd-font font-fira-code
+brew install powerlevel10k zsh-fast-syntax-highlighting
+brew install coreutils findutils bash gawk diffutils grep gzip gnu-sed gnu-tar less wget xz
+brew install eza ripgrep fd bat fzf ranger jq btop rename watch ifstat hyperfine
+```
+
+Install [macism] to `~/bin` (input method utility used in vim).
+
+[macism]: https://github.com/laishulu/macism
 
 ### scripts
 
