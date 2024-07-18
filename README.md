@@ -19,7 +19,7 @@ Install [homebrew] first
 
 ### Tiling window management
 
-The setup on macOS tries to mirror my i3 setup on Linux. Install [yabai], [skhd], and [sketchybar] :
+The setup on macOS tries to mirror my i3 setup on Linux. Install [yabai], [skhd], and [sketchybar]:
 ```sh
 brew install koekeishiya/formulae/yabai koekeishiya/formulae/skhd felixkratz/formulae/sketchybar
 ```
