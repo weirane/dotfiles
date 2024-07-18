@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Neomutt
-GenericName=Email Client
-Comment=Emails on the terminal
-Exec=env LANG=en_US.UTF-8 neomutt
-Icon=mutt
-Categories=Network;Email;
-Terminal=true
