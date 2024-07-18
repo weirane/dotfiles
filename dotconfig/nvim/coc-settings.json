@@ -23,6 +23,13 @@
     "prettier.disableLanguages": ["markdown"],
 
     "languageserver": {
+        "beancount": {
+            "command": "beancount-language-server",
+            "filetypes": ["beancount"],
+            "initializationOptions": {
+                "journal_file": "/home/wang/Documents/Beancount/main.bean"
+            }
+        },
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod", "Makefile"],

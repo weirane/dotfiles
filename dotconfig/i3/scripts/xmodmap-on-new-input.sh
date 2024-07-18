@@ -13,7 +13,7 @@ xmodmap=${XMODMAP:-$HOME/.config/X11/Xmodmap}
 
 [ ! -s "$xmodmap" ] && exit
 
-notify-send --expire-time=5000 "xmodmap-on-new-input" "Enabled"
+# notify-send --expire-time=5000 "xmodmap-on-new-input" "Enabled"
 
 while true; do
     xmodmap "$xmodmap"
