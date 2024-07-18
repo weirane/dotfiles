@@ -1,4 +1,3 @@
-set nocompatible
 set undofile
 set expandtab
 set scrolloff=3
@@ -16,7 +15,6 @@ set showcmd
 set hidden
 set nolinebreak
 set nohlsearch
-set backspace=indent,eol,start
 set exrc
 set secure
 set ignorecase
@@ -43,20 +41,6 @@ filetype indent on
 let base16colorspace = 256
 colorscheme base16-helios
 
-let &g:directory = $HOME . '/.cache'
-let &g:undodir = &g:directory . '/vim/undo//'
-let &g:backupdir = &g:directory . '/vim/backup//'
-let &g:directory .= '/vim/swap//'
-if ! isdirectory(&g:directory)
-    silent! call mkdir(&g:directory, 'p', 0700)
-endif
-if ! isdirectory(&g:backupdir)
-    silent! call mkdir(&g:backupdir, 'p', 0700)
-endif
-if ! isdirectory(&g:undodir)
-    silent! call mkdir(&g:undodir, 'p', 0700)
-endif
-
 packadd! matchit
 autocmd BufRead,BufNewFile * let b:nroff_is_groff = 1
 
@@ -67,16 +51,7 @@ let g:man_hardwrap = 1
 set encoding=utf-8
 set termencoding=utf-8
 set formatoptions+=mB
-set fileencodings=utf-8,gbk
-
-" for gvim
-if has("gui_running")
-    set guifont=Consolas\ 13
-    set winaltkeys=no
-    set guioptions-=T  " remove tool bar
-    set guioptions-=r  " remove right scroll bar
-    set guioptions-=L  " remove left one
-endif
+set fileencodings=utf-8
 
 " From defaults.vim
 let c_comment_strings=1

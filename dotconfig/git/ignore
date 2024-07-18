@@ -9,9 +9,7 @@ dummy/
 .root
 .vimrc
 .nvimrc
-.exrc
 .env
 .vim/coc-settings.json
 
-.ycm_extra_conf.py
 .ccls
