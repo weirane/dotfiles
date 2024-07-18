@@ -1,0 +1,97 @@
+#!/bin/zsh
+
+# inject code to Dock.app, requires SIP to be disabled
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+alias config:='yabai -m config'
+alias rule:='yabai -m rule'
+alias signal:='yabai -m signal'
+
+declare -A config
+config=(
+    [layout]=bsp
+    [external_bar]=all:36:0
+    [mouse_follows_focus]=off
+    [focus_follows_mouse]=off
+
+    [window_placement]=second_child
+    [window_shadow]=on
+
+    [split_ratio]=0.50
+    [auto_balance]=off
+
+    [mouse_modifier]=alt
+    [mouse_action1]=move
+    [mouse_action2]=resize
+)
+
+for key val in ${(kv)config}; do
+    config: $key $val
+done
+
+signal: --add event=window_focused action="sketchybar --trigger window_focus"
+signal: --add event=window_title_changed action="sketchybar --trigger title_change"
+
+rule: --add title='^Dropdown Terminal$' scratchpad=dropdownterm
+
+rule: --add title='Preferences$' manage=off
+rule: --add title='Settings$' manage=off
+rule: --add title='Calculator$' manage=off
+rule: --add title='^Open$' manage=off
+rule: --add app='^Firefox$' title='(^Extension)|(^Library$)|(^Bibliothèque$)' manage=off
+rule: --add app='^Zotero' title='General|Advanced Search' manage=off
+rule: --add app='^Microsoft' title='^Open' manage=off
+rule: --add app='^(Pages|Numbers|Keynote)$' title='^$' manage=off
+
+ apps_manage_off=(
+'Activity Monitor'
+'AirPort Utility'
+'App Store'
+'Automator'
+'Bitwarden'
+'Calculator'
+'Calendar'
+'Clock'
+'Contacts'
+'Dictionary'
+'Disk Utility'
+'Find My'
+'Finder'
+'Font Book'
+'Google Drive'
+'Home'
+'IINA'
+'Infuse'
+'Karabiner-EventViewer'
+'Mail'
+'Maps'
+'Messages'
+'Music'
+'Météo'
+'Notes'
+'OneDrive'
+'Photo Booth'
+'Photos'
+'News'
+'Podcasts'
+'Preview'
+'QuickTime Player'
+'Raycast'
+'Reminders'
+'SF Symbols'
+'Safari'
+'Steam'
+'Stickies'
+'Stocks'
+'System Information'
+'System Settings'
+'TV'
+'Tailscale'
+'Telegram'
+'TextEdit'
+'Videos'
+'Weather'
+'zoom.us'
+)
+rule: --add app="^(${(j:|:)apps_manage_off})$" manage=off

@@ -1,7 +1,5 @@
 __pycache__
 
-/git/gitk
-
 /nvim/autoload/plug.vim*
 /nvim/spell
 /nvim/.netrwhist
@@ -11,15 +9,4 @@ __pycache__
 !/zsh/.zshrc
 !/zsh/.zprofile
 
-/polybar/scripts/owm-key
-
-/neomutt/*.account
-/neomutt/accounts.muttrc
-
-/newsboat/ignores
-/newsboat/urls
-
-/gtk-?.0/*
-!/gtk-?.0/settings.ini
-
-/fontconfig/conf.d/99-*
+/sketchybar/plugins/weatherapirc

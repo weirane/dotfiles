@@ -1,0 +1,257 @@
+#!/bin/zsh
+
+# adapted from:
+# https://github.com/Cliffback/macos-desktop-environment
+# https://github.com/FelixKratz/dotfiles/blob/70cf1f5a9ec7206515aa0e3ea4735976bac13209/.config/sketchybar/sketchybarrc
+
+PLUGIN_DIR=$CONFIG_DIR/plugins
+POPUP_TOGGLE="sketchybar --set \"\$NAME\" popup.drawing=toggle"
+POPUP_CLOSE="sketchybar --set \"\${NAME%%.*}\" popup.drawing=off"
+
+FONT_SANS_SERIF="SF Pro:Semibold"
+FONT_MONOSPACE="Hack Nerd Font:Regular"
+
+declare -A COLOR
+COLOR=(
+    [fg]=0xffeceff4 # #eceff4
+    [bg]=0xff1e1d2e # #1e1d2e
+    [bg_selected]=0xff3c3e4f # #3c3e4f
+    [blue]=0xff92b3f5 # #92b3f5
+    [red]=0xffe48fa8 # #e48fa8
+    [orange]=0xfff69c5e # #f69c5e
+    [yellow]=0xfff5e3b5 # #f5e3b5
+    [green]=0xffb3e1a7 # #b3e1a7
+)
+
+sketchybar --bar height=36 \
+                 blur_radius=0 \
+                 position=top \
+                 padding_left=4 \
+                 padding_right=4 \
+                 margin=0 \
+                 corner_radius=0 \
+                 color=$COLOR[bg] \
+           --default updates=when_shown \
+                     icon.font="$FONT_MONOSPACE:16.0" \
+                     label.font="$FONT_SANS_SERIF:16.0" \
+                     icon.color=$COLOR[fg] \
+                     label.color=$COLOR[fg] \
+                     icon.highlight_color=$COLOR[red] \
+                     icon.padding_left=8 \
+                     icon.padding_right=4 \
+                     label.padding_left=4 \
+                     label.padding_right=8 \
+                     background.corner_radius=5 \
+                     background.height=30 \
+                     popup.background.border_width=2 \
+                     popup.background.corner_radius=5 \
+                     popup.background.border_color=$COLOR[fg] \
+                     popup.background.color=$COLOR[bg] \
+                     popup.height=28 \
+
+# events
+sketchybar --add event window_focus \
+           --add event title_change \
+           --add event skhd_mode_change \
+
+### --- left items ---
+# apple
+sketchybar --add item apple left \
+           --set apple icon= \
+                 label.drawing=off \
+                 icon.color=$COLOR[green] \
+                 icon.padding_left=9 \
+                 icon.padding_right=9 \
+                 background.padding_right=4 \
+                 background.padding_left=4 \
+                 click_script=$POPUP_TOGGLE \
+           --add item apple.prefs popup.apple \
+           --set apple.prefs \
+                 icon= \
+                 label="Preferences" \
+                 click_script="open -a 'System Preferences'; $POPUP_CLOSE" \
+           --add item apple.activity popup.apple \
+           --set apple.activity \
+                 icon=󰍹 \
+                 label="Activity" \
+                 click_script="open -a 'Activity Monitor'; $POPUP_CLOSE"\
+           --add item apple.lock popup.apple \
+           --set apple.lock \
+                 icon= \
+                 label="Lock Screen" \
+                 click_script="$POPUP_CLOSE; pmset displaysleepnow" \
+
+# spaces
+spaces=("1:term" "2:web" "3:mail" "4" "5" "6" "7" "8" "9")
+for name in ${spaces[@]}; do
+    sid=${name:0:1}
+    sketchybar --add space space.$sid left \
+               --set space.$sid \
+                     space=$sid \
+                     icon=$name \
+                     icon.padding_left=6 \
+                     icon.padding_right=6 \
+                     icon.highlight_color=$COLOR[red] \
+                     background.padding_left=0 \
+                     background.padding_right=0 \
+                     background.color=$COLOR[bg_selected] \
+                     background.drawing=off \
+                     script=$PLUGIN_DIR/space.sh \
+                     label.drawing=off \
+                     icon.font=$FONT_SANS_SERIF:16.0 \
+                     click_script="yabai -m space --focus $sid"
+done
+
+# skhd mode
+sketchybar --add item skhdmode left \
+           --set skhdmode \
+                 icon.drawing=off \
+                 label.align=center \
+                 label.drawing=off \
+                 label.padding_left=4 \
+                 label.padding_right=7 \
+                 background.padding_left=3 \
+                 background.padding_right=0 \
+                 background.color=$COLOR[blue] \
+                 label.color=$COLOR[bg] \
+                 script=$PLUGIN_DIR/skhdmode.sh \
+           --subscribe skhdmode skhd_mode_change
+
+# window title
+sketchybar --add item title left \
+           --set title \
+                 icon= \
+                 icon.padding_left=7 \
+                 icon.padding_right=8 \
+                 icon.color=$COLOR[blue] \
+                 script=$PLUGIN_DIR/title.py \
+           --subscribe title window_focus title_change front_app_switched space_change
+
+### --- right items ---
+sketchybar --default label.padding_left=2 \
+                     label.padding_right=2 \
+                     icon.padding_left=2 \
+                     icon.padding_right=2 \
+                     icon.font=$FONT_MONOSPACE:20.0 \
+                     background.padding_right=3 \
+                     background.padding_left=3
+
+# battery
+sketchybar --add item battery right \
+           --set battery \
+                 update_freq=120 \
+                 script=$PLUGIN_DIR/battery.sh \
+                 icon.color=$COLOR[green] \
+                 label.drawing=off \
+
+# input method
+sketchybar --add alias TextInputMenuAgent right \
+           --set TextInputMenuAgent \
+                 alias.color=$COLOR[fg] \
+                 alias.scale=0.8 \
+                 icon.drawing=off \
+                 label.drawing=off \
+                 background.padding_left=-2 \
+                 background.padding_right=-2 \
+                 click_script=$PLUGIN_DIR/inputmethod.sh \
+
+# volume
+sketchybar --add item volume right \
+           --set volume \
+                 icon.color=$COLOR[blue] \
+                 script=$PLUGIN_DIR/volume.sh \
+                 click_script=$HOME/scripts/togglemute \
+           --subscribe volume volume_change \
+
+# network
+sketchybar --add item wifi right \
+           --set wifi \
+                 update_freq=5 \
+                 icon.drawing=off \
+                 background.padding_left=-9 \
+                 script=$PLUGIN_DIR/wifi.sh \
+           --subscribe wifi wifi_change \
+           --add alias "Control Center,WiFi" right \
+           --set "Control Center,WiFi" \
+                 alias.color=$COLOR[red] \
+                 alias.update_freq=5 \
+                 icon.drawing=off \
+                 label.drawing=off \
+                 background.padding_left=-4 \
+                 background.padding_right=0 \
+
+# cpu/mem
+sketchybar --add item mem right \
+           --set mem \
+                 icon=􀫦 \
+                 icon.font="$FONT_SANS_SERIF:18.0" \
+                 icon.padding_left=1 \
+                 update_freq=3 \
+                 script=$PLUGIN_DIR/cpumem.sh \
+           --add item cpu right \
+           --set cpu \
+                 icon=􀫥 \
+                 icon.font="$FONT_SANS_SERIF:18.0" \
+                 label.padding_right=5 \
+                 background.padding_right=0 \
+
+# weather
+sketchybar --add item weather right \
+           --set weather \
+                 update_freq=1200 \
+                 icon.color=$COLOR[blue] \
+                 script=$PLUGIN_DIR/weather.sh \
+                 click_script=$POPUP_TOGGLE \
+           --add item weather.location popup.weather \
+           --set weather.location \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Location: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.condition popup.weather \
+           --set weather.condition \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Condition: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.feels_like popup.weather \
+           --set weather.feels_like \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Feels Like: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.uv popup.weather \
+           --set weather.uv \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="UV Index: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.humidity popup.weather \
+           --set weather.humidity \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Humidity: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.wind popup.weather \
+           --set weather.wind \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Wind: ..." \
+                 click_script=$POPUP_CLOSE \
+           --add item weather.lastupdated popup.weather \
+           --set weather.lastupdated \
+                 position=popup.weather \
+                 icon.drawing=off \
+                 label="Last Updated: ..." \
+                 click_script="$POPUP_CLOSE; sketchybar --update" \
+
+# datetime
+sketchybar --add item datetime right \
+           --set datetime \
+                 script=$PLUGIN_DIR/datetime.sh \
+                 update_freq=5 \
+                 icon=󰸘 \
+                 icon.color=$COLOR[yellow] \
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update

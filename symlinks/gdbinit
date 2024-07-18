@@ -1,3 +1,0 @@
-set auto-load safe-path /
-set prompt \033[32;1m(gdb) \033[0m
-source ~/.dotfiles/local/gdbinit

@@ -1,9 +1,0 @@
-configuration {
-    modi: "run,drun";
-    font: "Hack 12";
-    show-icons: true;
-    dpi: 1;
-    // matching: "fuzzy";
-}
-
-@theme "~/.config/rofi/base16-helios.rasi"

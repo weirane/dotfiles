@@ -1,8 +1,0 @@
-# Use the command 'task show' to see all defaults and overrides
-
-default.command=list
-verbose=blank,footnote,label,new-id,new-uuid,affected,edit,special,project,sync,unwait,recur
-data.location=$XDG_DATA_HOME/task/
-hooks.location=$XDG_CONFIG_HOME/task/hooks/
-
-# vim:ft=taskrc

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# Script for open a link in a newsboat article
-
-grep -E '^\[[[:digit:]]+\]:.*\((link|image|video)\)$' |
-    rofi -dmenu -i -no-custom -p 'Select a link' |
-    cut -d' ' -f2 |
-    xargs -r xdg-open
