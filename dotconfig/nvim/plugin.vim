@@ -11,7 +11,6 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'justinmk/vim-sneak'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-highlightedyank'
@@ -200,11 +199,6 @@ nnoremap <silent><leader>b :Buffers<CR>
 nnoremap <silent><leader>ff :Files<CR>
 nnoremap <silent><leader>fg :GFiles<CR>
 nnoremap <silent><leader>fr :Rg<CR>
-"}}}
-
-" easy-align {{{
-nmap <leader>a <Plug>(LiveEasyAlign)
-vmap <leader>a <Plug>(LiveEasyAlign)
 "}}}
 
 " indentLine {{{
