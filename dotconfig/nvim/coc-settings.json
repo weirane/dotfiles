@@ -16,9 +16,9 @@
     "rust-analyzer.inlayHints.parameterHints.enable": false,
     "rust-analyzer.inlayHints.typeHints.enable": false,
 
-    // "solargraph.checkGemVersion": false,
-    // "solargraph.diagnostics": true,
-    // "solargraph.formatting": true,
+    "solargraph.checkGemVersion": false,
+    "solargraph.diagnostics": true,
+    "solargraph.formatting": true,
 
     "prettier.disableLanguages": ["markdown"],
 
