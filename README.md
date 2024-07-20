@@ -37,6 +37,16 @@ Disable SIP for yabai: https://github.com/koekeishiya/yabai/wiki/Disabling-Syste
 [skhd]: https://github.com/koekeishiya/skhd
 [sketchybar]: https://github.com/FelixKratz/SketchyBar
 
+### Mise
+
+[mise-en-place] is used to manage developer tool versions (nodejs, ruby, etc.). Install:
+```sh
+brew install mise
+mise use -g node
+```
+
+[mise-en-place]: https://mise.jdx.dev/
+
 ### Terminal and command line utilities
 
 Terminal-related stuff, GNU coreutils and other utilities:

@@ -14,6 +14,9 @@ prependpath /opt/homebrew/bin
 prependpath $HOME/scripts
 prependpath $HOME/bin
 
+# mise
+prependpath $HOME/.local/share/mise/shims
+
 # rust
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export CARGO_HOME="$HOME/.local/share/cargo"
@@ -60,12 +63,20 @@ fi
 # less
 export LESS="-MR --mouse --wheel-lines=3 -# 10"
 
+# ruby
+export IRBRC="$HOME/.config/irb/irbrc"
+export GEM_HOME="$HOME/.local/share/gem"
+export GEM_SPEC_CACHE="$HOME/.cache/gem"
+export SOLARGRAPH_CACHE="$HOME/.cache/solargraph"
+export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
+export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
+export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
+
 # XDG
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export NVM_DIR="$HOME/.local/share/nvm"
 export npm_config_cache="$HOME/.cache/npm"
 export VIMINIT="source $HOME/.config/nvim/init.vim"
 export LESSHISTFILE="$HOME/.cache/lesshst"
@@ -81,11 +92,3 @@ export SQLITE_HISTORY="$HOME/.cache/sqlite_history"
 # export TEXMFHOME="$XDG_DATA_HOME/texmf"
 # export TEXMFVAR="$XDG_DATA_HOME/texlive/texmf-var"
 # export TEXMFCONFIG="$XDG_DATA_HOME/texlive/texmf-config"
-
-export IRBRC="$HOME/.config/irb/irbrc"
-export GEM_HOME="$HOME/.local/share/gem"
-export GEM_SPEC_CACHE="$HOME/.cache/gem"
-export SOLARGRAPH_CACHE="$HOME/.cache/solargraph"
-export BUNDLE_USER_CACHE="$HOME/.cache/bundle"
-export BUNDLE_USER_CONFIG="$HOME/.config/bundle"
-export BUNDLE_USER_PLUGIN="$HOME/.local/share/bundle"
