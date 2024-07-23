@@ -48,7 +48,6 @@ else
 fi
 
 # fzf
-export FZF_COMPLETION_TRIGGER='``'
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi"
 fzf1=/opt/homebrew/opt/fzf/shell
 [[ -f $fzf1/key-bindings.zsh ]] && . $fzf1/key-bindings.zsh
