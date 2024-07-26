@@ -20,6 +20,7 @@ prependpath $HOME/.local/share/mise/shims
 # rust
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export CARGO_HOME="$HOME/.local/share/cargo"
+prependpath /opt/homebrew/opt/rustup/bin
 prependpath $CARGO_HOME/bin
 export CARGO_TARGET_DIR=$HOME/.cache/cargo-target
 

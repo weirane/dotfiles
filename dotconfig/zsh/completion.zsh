@@ -1,4 +1,7 @@
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fpath=(
+    /opt/homebrew/opt/rustup/share/zsh/site-functions
+    /opt/homebrew/share/zsh/site-functions
+    $fpath)
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
