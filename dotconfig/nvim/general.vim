@@ -53,6 +53,33 @@ set termencoding=utf-8
 set formatoptions+=mB
 set fileencodings=utf-8
 
+" fold
+set fdm=marker
+nnoremap <space> za
+set foldlevel=99
+
+" leader
+let mapleader=','
+noremap \ ,
+noremap <silent> <leader>ns :nohls<CR>
+noremap <silent> <leader>w  :update<CR>
+nnoremap <silent> <leader><space> <C-^>
+nnoremap <silent> <leader>ll :LineLimit -s<CR>
+
+" maps
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
+
+nnoremap ? ?\v
+nnoremap / /\v
+
+noremap H ^
+noremap L $
+
+noremap Q gq
+
 " From defaults.vim
 let c_comment_strings=1
 if !exists(":DiffOrig")
