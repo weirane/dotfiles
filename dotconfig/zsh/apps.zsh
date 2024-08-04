@@ -15,7 +15,7 @@ prependpath $HOME/scripts
 prependpath $HOME/bin
 
 # mise
-prependpath $HOME/.local/share/mise/shims
+eval "$(mise activate)"
 
 # rust
 export RUSTUP_HOME="$HOME/.local/share/rustup"
