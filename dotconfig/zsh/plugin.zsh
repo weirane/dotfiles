@@ -17,36 +17,3 @@ fi
 unset p10k fsh
 # https://github.com/zdharma-continuum/fast-syntax-highlighting/issues/27
 FAST_HIGHLIGHT[chroma-man]=
-
-# dotenv
-source_env() {
-    if ! [[ -f .env ]]; then
-        return
-    fi
-    # check blacklist
-    if [[ -f $HOME/.config/dotenv/blacklist ]] && grep -q $PWD $HOME/.config/dotenv/blacklist; then
-        return
-    fi
-    # check whitelist
-    if [[ -f $HOME/.config/dotenv/whitelist ]] && grep -q $PWD $HOME/.config/dotenv/whitelist; then
-        noconfirm=1
-    fi
-    if ! (( noconfirm )); then
-        local confirm
-        echo -n "dotenv: found '.env' file. Source it? ([Y]es/[n]o) "
-        read -k 1 confirm
-        [[ $confirm != $'\n' ]] && echo
-        [[ $confirm == [nN] ]] && return
-    fi
-
-    # test .env syntax
-    zsh -fn .env || echo "dotenv: error when sourcing '.env' file" >&2
-
-    setopt localoptions allexport
-    source .env
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook chpwd source_env
-
-source_env
