@@ -58,10 +58,6 @@ brew install coreutils findutils bash gawk diffutils grep gzip gnu-sed gnu-tar l
 brew install eza ripgrep fd bat fzf ranger jq btop rename watch ifstat hyperfine
 ```
 
-Install [macism] to `~/bin` (input method utility used in vim).
-
-[macism]: https://github.com/laishulu/macism
-
 ### scripts
 
 Some of the bindings I have use external shell scripts, which can be found in
