@@ -36,64 +36,19 @@ signal: --add event=window_title_changed action="sketchybar --trigger title_chan
 
 rule: --add title='^Dropdown Terminal$' scratchpad=dropdownterm
 
+apps_manage_on=(
+    'Alacritty' 'alacritty' 'Code' 'Xcode'
+    'Firefox' 'Zotero' 'GIMP'
+    'Microsoft Word' 'Microsoft Excel' 'Microsoft PowerPoint'
+    'Pages' 'Numbers' 'Keynote'
+)
+rule: --add app!="^(${(j:|:)apps_manage_on})$" manage=off
+
 rule: --add title='Preferences$' manage=off
 rule: --add title='Settings$' manage=off
 rule: --add title='Calculator$' manage=off
 rule: --add title='^Open$' manage=off
-rule: --add app='^Firefox$' title='(^Extension)|(^Library$)|(^Bibliothèque$)' manage=off
+rule: --add app='^Firefox$' title='(^Extension)|(^Library$)|(^Bibliothèque$)|(^Incrustation vidéo$)' manage=off
 rule: --add app='^Zotero' title='General|Advanced Search' manage=off
 rule: --add app='^Microsoft' title='^Open' manage=off
 rule: --add app='^(Pages|Numbers|Keynote)$' title='^$' manage=off
-
- apps_manage_off=(
-'Activity Monitor'
-'AirPort Utility'
-'App Store'
-'Automator'
-'Bitwarden'
-'Calculator'
-'Calendar'
-'Clock'
-'Contacts'
-'Dictionary'
-'Disk Utility'
-'Find My'
-'Finder'
-'Font Book'
-'Google Drive'
-'Home'
-'IINA'
-'Infuse'
-'Karabiner-EventViewer'
-'Mail'
-'Maps'
-'Messages'
-'Music'
-'Météo'
-'News'
-'Notes'
-'OneDrive'
-'Photo Booth'
-'Photos'
-'Podcasts'
-'Preview'
-'Print Center'
-'QuickTime Player'
-'Raycast'
-'Reminders'
-'SF Symbols'
-'Safari'
-'Steam'
-'Stickies'
-'Stocks'
-'System Information'
-'System Settings'
-'TV'
-'Tailscale'
-'Telegram'
-'TextEdit'
-'Videos'
-'Weather'
-'zoom.us'
-)
-rule: --add app="^(${(j:|:)apps_manage_off})$" manage=off
