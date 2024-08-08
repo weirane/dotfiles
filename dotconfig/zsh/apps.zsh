@@ -40,9 +40,9 @@ if (( $+commands[eza] )); then
     alias ll='eza -lgh'
     alias la='eza -lagh'
 
-    EXA_COLORS=$(<$HOME/.dotfiles/exa_colors)
-    export EXA_COLORS
-    zstyle ':completion:*' list-colors "${(@s.:.)EXA_COLORS}"
+    EZA_COLORS=$(<$HOME/.dotfiles/eza_colors)
+    export EZA_COLORS
+    zstyle ':completion:*' list-colors "${(@s.:.)EZA_COLORS}"
 else
     eval "$(dircolors -b ~/.dotfiles/dir_colors)"
     zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
