@@ -60,6 +60,15 @@ if (( $+commands[fd] )); then
     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 fi
 
+# zoxide
+eval "$(zoxide init zsh --no-cmd)"
+j() {
+    __zoxide_z "$@"
+}
+ji() {
+    __zoxide_zi "$@"
+}
+
 # less
 export LESS="-MR --mouse --wheel-lines=3 -# 10"
 

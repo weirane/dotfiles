@@ -55,7 +55,7 @@ brew install --cask alacritty
 brew install font-fira-mono-nerd-font font-fira-code
 brew install powerlevel10k zsh-fast-syntax-highlighting
 brew install coreutils findutils bash gawk diffutils grep gzip gnu-sed gnu-tar less wget xz
-brew install eza ripgrep fd bat fzf ranger jq btop rename watch ifstat hyperfine
+brew install eza ripgrep fd bat fzf ranger jq btop rename watch ifstat hyperfine zoxide
 ```
 
 ### scripts
