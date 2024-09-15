@@ -20,6 +20,8 @@ for c in title:
         width += 2
     elif c in NARROW_CHARS:
         width += 0.7
+    elif c.isupper():
+        width += 1.2
     else:
         width += 1
     res += c

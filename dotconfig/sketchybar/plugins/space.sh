@@ -1,8 +1,7 @@
 #!/bin/zsh
 
-spacedata=$(yabai -m query --spaces --space $SID)
-nwindows=$(echo $spacedata | jq '.windows | length')
-visible=$(echo $spacedata | jq '."is-visible"')
+visible=$(yabai -m query --spaces --space $SID | jq '."is-visible"')
+nwindows=$(yabai -m query --windows | jq "map(select(.\"is-sticky\"==false and .scratchpad!=\"dropdownterm\" and .space==$SID)) | length")
 
 if [[ $visible == true || $nwindows != 0 ]]; then
     drawing=on

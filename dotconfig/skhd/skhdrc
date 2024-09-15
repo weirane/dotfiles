@@ -5,6 +5,11 @@ lalt + shift - c : yabai --restart-service
 lalt - q [
     # alacritty handles close event by itself because it doesn't have a close button
     "alacritty" ~
+    "bitwarden" : yabai -m window --close && yabai3.py focus first
+    "calendar" : yabai -m window --close && yabai3.py focus first
+    "finder" : yabai -m window --close && yabai3.py focus first
+    "mail" : yabai -m window --close && yabai3.py focus first
+    "preview" : yabai -m window --close && yabai3.py focus first
     * : yabai -m window --close
 ]
 

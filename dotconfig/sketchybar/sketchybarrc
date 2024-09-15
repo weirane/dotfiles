@@ -82,7 +82,7 @@ sketchybar --add item apple left \
                  click_script="$POPUP_CLOSE; pmset displaysleepnow" \
 
 # spaces
-spaces=("1:term" "2:web" "3:mail" "4" "5" "6" "7" "8" "9")
+spaces=("1:term" "2:web" "3" "4" "5" "6" "7" "8" "9")
 for name in ${spaces[@]}; do
     sid=${name:0:1}
     sketchybar --add space space.$sid left \
