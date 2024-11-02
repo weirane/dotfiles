@@ -1,0 +1,140 @@
+[terminal.shell]
+program = "/bin/zsh"
+
+[colors.bright]
+black = "#6f7579"
+blue = "#1e8bac"
+cyan = "#1ba595"
+green = "#88b92d"
+magenta = "#be4264"
+red = "#d72638"
+white = "#e5e5e5"
+yellow = "#f19d1a"
+
+[colors.normal]
+black = "#1d2021"
+blue = "#1e8bac"
+cyan = "#1ba595"
+green = "#88b92d"
+magenta = "#be4264"
+red = "#d72638"
+white = "#d5d5d5"
+yellow = "#f19d1a"
+
+[colors.primary]
+background = "#1d2021"
+foreground = "#d5d5d5"
+
+[[colors.indexed_colors]]
+color = "#eb8413"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#c85e0d"
+index = 17
+
+[[colors.indexed_colors]]
+color = "#383c3e"
+index = 18
+
+[[colors.indexed_colors]]
+color = "#53585b"
+index = 19
+
+[[colors.indexed_colors]]
+color = "#cdcdcd"
+index = 20
+
+[[colors.indexed_colors]]
+color = "#dddddd"
+index = 21
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "FiraCode Nerd Font" }
+bold = { family = "FiraCode Nerd Font" }
+italic = { family = "FiraCode Nerd Font" }
+bold_italic = { family = "FiraCode Nerd Font" }
+size = 18
+offset = { x = 0, y = 1 }
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 1
+dimensions = { columns = 80, lines = 24 }
+decorations = "Full"
+
+[keyboard]
+bindings = [
+  { mods = "Command", key = "a", chars="\u001ba" },
+  { mods = "Command", key = "b", chars="\u001bb" },
+  # { mods = "Command", key = "c", chars="\u001bc" }, # copy
+  { mods = "Command", key = "d", chars="\u001bd" },
+  { mods = "Command", key = "e", chars="\u001be" },
+  { mods = "Command", key = "f", chars="\u001bf" },
+  { mods = "Command", key = "g", chars="\u001bg" },
+  { mods = "Command", key = "h", chars="\u001bh" },
+  { mods = "Command", key = "i", chars="\u001bi" },
+  { mods = "Command", key = "j", chars="\u001bj" },
+  { mods = "Command", key = "k", chars="\u001bk" },
+  { mods = "Command", key = "l", chars="\u001bl" },
+  { mods = "Command", key = "m", chars="\u001bm" },
+  { mods = "Command", key = "n", chars="\u001bn" },
+  { mods = "Command", key = "o", chars="\u001bo" },
+  { mods = "Command", key = "p", chars="\u001bp" },
+  { mods = "Command", key = "q", chars="\u001bq" },
+  { mods = "Command", key = "r", chars="\u001br" },
+  { mods = "Command", key = "s", chars="\u001bs" },
+  { mods = "Command", key = "t", chars="\u001bt" },
+  { mods = "Command", key = "u", chars="\u001bu" },
+  # { mods = "Command", key = "v", chars="\u001bv" }, # paste
+  { mods = "Command", key = "w", chars="\u001bw" },
+  { mods = "Command", key = "x", chars="\u001bx" },
+  { mods = "Command", key = "y", chars="\u001by" },
+  { mods = "Command", key = "z", chars="\u001bz" },
+  { mods = "Command|Shift", key = "a", chars="\u001bA" },
+  { mods = "Command|Shift", key = "b", chars="\u001bB" },
+  { mods = "Command|Shift", key = "c", chars="\u001bC" },
+  { mods = "Command|Shift", key = "d", chars="\u001bD" },
+  { mods = "Command|Shift", key = "e", chars="\u001bE" },
+  { mods = "Command|Shift", key = "f", chars="\u001bF" },
+  { mods = "Command|Shift", key = "g", chars="\u001bG" },
+  { mods = "Command|Shift", key = "h", chars="\u001bH" },
+  { mods = "Command|Shift", key = "i", chars="\u001bI" },
+  { mods = "Command|Shift", key = "j", chars="\u001bJ" },
+  { mods = "Command|Shift", key = "k", chars="\u001bK" },
+  { mods = "Command|Shift", key = "l", chars="\u001bL" },
+  { mods = "Command|Shift", key = "m", chars="\u001bM" },
+  { mods = "Command|Shift", key = "n", chars="\u001bN" },
+  { mods = "Command|Shift", key = "o", chars="\u001bO" },
+  { mods = "Command|Shift", key = "p", chars="\u001bP" },
+  { mods = "Command|Shift", key = "q", chars="\u001bQ" },
+  { mods = "Command|Shift", key = "r", chars="\u001bR" },
+  { mods = "Command|Shift", key = "s", chars="\u001bS" },
+  { mods = "Command|Shift", key = "t", chars="\u001bT" },
+  { mods = "Command|Shift", key = "u", chars="\u001bU" },
+  { mods = "Command|Shift", key = "v", chars="\u001bV" },
+  { mods = "Command|Shift", key = "w", chars="\u001bW" },
+  { mods = "Command|Shift", key = "x", chars="\u001bX" },
+  { mods = "Command|Shift", key = "y", chars="\u001bY" },
+  { mods = "Command|Shift", key = "z", chars="\u001bZ" },
+  { mods = "Command", key = "0", chars="\u001b0" },
+  { mods = "Command", key = "1", chars="\u001b1" },
+  { mods = "Command", key = "2", chars="\u001b2" },
+  { mods = "Command", key = "3", chars="\u001b3" },
+  { mods = "Command", key = "4", chars="\u001b4" },
+  { mods = "Command", key = "5", chars="\u001b5" },
+  { mods = "Command", key = "6", chars="\u001b6" },
+  { mods = "Command", key = "7", chars="\u001b7" },
+  { mods = "Command", key = "8", chars="\u001b8" },
+  { mods = "Command", key = "9", chars="\u001b9" },
+  { mods = "Command", key = ";", chars="\u001b;" },
+  { mods = "Command", key = ",", chars="\u001b," },
+  { mods = "Command", key = ".", chars="\u001b." },
+  { mods = "Command", key = "Space", chars="\u001b " },
+  { mods = "Alt", key = "Space", chars="\u001b " },
+]
