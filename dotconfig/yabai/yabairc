@@ -38,7 +38,7 @@ rule: --add title='^Dropdown Terminal$' scratchpad=dropdownterm
 
 apps_manage_on=(
     'Alacritty' 'alacritty' 'Code' 'Xcode'
-    'Firefox' 'Zotero' 'GIMP'
+    'Firefox' 'Zotero'
     'Microsoft Word' 'Microsoft Excel' 'Microsoft PowerPoint'
     'Pages' 'Numbers' 'Keynote'
 )

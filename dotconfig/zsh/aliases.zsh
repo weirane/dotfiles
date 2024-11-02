@@ -6,6 +6,7 @@ alias grep="grep --color=auto"
 alias df="df -h"
 alias sudo="sudo "
 alias proxied="proxied "
+alias notified="notified "
 
 alias tatt="tmux attach -t"
 alias tnew="tmux new -s"
