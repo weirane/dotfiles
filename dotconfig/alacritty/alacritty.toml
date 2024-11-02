@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [colors.bright]
@@ -59,14 +59,6 @@ italic = { family = "FiraCode Nerd Font" }
 bold_italic = { family = "FiraCode Nerd Font" }
 size = 18
 offset = { x = 0, y = 1 }
-
-[[hints.enabled]]
-command = "open"
-post_processing = true
-hyperlinks = true
-regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-binding = { key = "U", mods = "Control|Shift" }
-mouse = { enabled = true, mods = "Control" }
 
 [mouse]
 hide_when_typing = true
