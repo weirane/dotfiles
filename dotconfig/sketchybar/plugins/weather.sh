@@ -126,7 +126,8 @@ for i in {1..4}; do
     fi
 done
 
-temp=$(echo "$weather" | jq -r ".current.temp_c")
+temp=$(echo "$weather" | jq -r ".current.temp_c | round")
+if [[ $temp == "-0" ]]; then temp=0; fi
 is_day=$(echo $weather | jq -r ".current.is_day")
 code=$(echo "$weather" | jq -r ".current.condition.code")
 get_icon
@@ -138,7 +139,7 @@ humidity=$(echo "$weather" | jq -r ".current.humidity")
 wind_speed=$(echo "$weather" | jq -r ".current.wind_kph")
 wind_direction=$(echo "$weather" | jq -r ".current.wind_dir")
 
-sketchybar --set $NAME drawing=on icon=$icon label="${temp%%.*}°C" \
+sketchybar --set $NAME drawing=on icon=$icon label="$temp°C" \
            --set weather.location label="Location: $city" \
            --set weather.condition label="Condition: $condition" \
            --set weather.feels_like label="Feels Like: $feelslike°C" \
