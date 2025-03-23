@@ -37,8 +37,7 @@ signal: --add event=window_title_changed action="sketchybar --trigger title_chan
 rule: --add title='^Dropdown Terminal$' scratchpad=dropdownterm
 
 apps_manage_on=(
-    'Alacritty' 'alacritty' 'Code' 'Xcode'
-    'Firefox' 'Zotero'
+    'Alacritty' 'alacritty' 'Firefox' 'Zotero'
     'Microsoft Word' 'Microsoft Excel' 'Microsoft PowerPoint'
     'Pages' 'Numbers' 'Keynote'
 )

@@ -9,6 +9,7 @@ lalt - q [
     "calendar" : yabai -m window --close && yabai3.py focus first
     "finder" : yabai -m window --close && yabai3.py focus first
     "mail" : yabai -m window --close && yabai3.py focus first
+    "notes" : yabai -m window --close && yabai3.py focus first
     "preview" : yabai -m window --close && yabai3.py focus first
     * : yabai -m window --close
 ]
