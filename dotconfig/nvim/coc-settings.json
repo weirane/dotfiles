@@ -1,6 +1,6 @@
 {
     "suggest.noselect": true,
-    "[javascript][typescript][typescriptreact][python][rust][ruby][haskell][go]": {
+    "[javascript][typescript][typescriptreact][rust][ruby][haskell][go]": {
         "coc.preferences.formatOnSave": true,
     },
     "coc.source.file.triggerCharacters": ["/"],
@@ -58,7 +58,7 @@
                     "directory": "/tmp/ccls-c"
                 },
                 "clang": {
-                    "extraArgs": ["-x", "c", "-Wall"]
+                    "extraArgs": ["-x", "c", "-Wall", "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"]
                 }
             }
         },

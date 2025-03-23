@@ -1,19 +1,16 @@
 call plug#begin('~/.local/share/nvim/plugged')
+if !exists('g:vscode')
+" vim only
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'kana/vim-textobj-user'
-Plug 'sgur/vim-textobj-parameter'
 Plug 'justinmk/vim-sneak'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
-Plug 'machakann/vim-highlightedyank'
 " CSV
 Plug 'chrisbra/csv.vim'
 " Jsonc
@@ -29,6 +26,13 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'nathangrigg/vim-beancount'
 Plug 'mityu/vim-applescript'
+endif
+" vim and vscode
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'kana/vim-textobj-user'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'machakann/vim-highlightedyank'
 if filereadable(expand('~/.dotfiles/local/vim-plugins.vim'))
     source ~/.dotfiles/local/vim-plugins.vim
 endif
@@ -44,6 +48,12 @@ let g:NERDCustomDelimiters = {
             \ }
 "}}}
 
+" highlightedyank {{{
+let g:highlightedyank_highlight_duration = 300
+"}}}
+
+" vim only extensions
+if !exists('g:vscode')
 " lightline.vim {{{
 autocmd User VimtexEventCompileSuccess,VimtexEventCompileFailed call lightline#update()
 
@@ -209,25 +219,13 @@ let g:indentLine_fileType = ['python', 'yaml', 'ruby', 'haskell']
 let g:cursorword_delay = 0
 "}}}
 
-" highlightedyank {{{
-let g:highlightedyank_highlight_duration = 300
-"}}}
-
 " LaTeX (vimtex) {{{
 let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
-let g:vimtex_compiler_latexmk = { 'build_dir': 'build' }
-let g:vimtex_compiler_latexmk_engines = {
-            \ '_'                : '-xelatex',
-            \ 'pdflatex'         : '-pdf',
-            \ 'lualatex'         : '-lualatex',
-            \ 'xelatex'          : '-xelatex',
-            \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-            \ 'context (luatex)' : '-pdf -pdflatex=context',
-            \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-            \}
+let g:vimtex_compiler_latexmk = { 'aux_dir': 'build' }
+let g:vimtex_compiler_latexmk_engines = { '_': '-xelatex' }
 " let g:vimtex_view_method = 'zathura'
-let g:vimtex_view_use_temp_files = 1
+" let g:vimtex_view_use_temp_files = 1
 " fold {{{
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
@@ -289,3 +287,4 @@ let g:mkdp_page_title = '${name}'
 let g:rust_fold = 1
 nnoremap <localleader>rt :RustTest<CR>
 "}}}
+endif
