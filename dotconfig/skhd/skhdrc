@@ -9,6 +9,7 @@ lalt - q [
     "calendar" : yabai -m window --close && yabai3.py focus first
     "finder" : yabai -m window --close && yabai3.py focus first
     "mail" : yabai -m window --close && yabai3.py focus first
+    "messages" : yabai -m window --close && yabai3.py focus first
     "notes" : yabai -m window --close && yabai3.py focus first
     "preview" : yabai -m window --close && yabai3.py focus first
     * : yabai -m window --close
@@ -91,6 +92,7 @@ lalt + ctrl - l : yabai -m space --display east
 lalt - return : alacritty
 # lalt + ctrl - f : open -na Firefox
 lalt + ctrl - p : open $HOME
+lalt + ctrl - o : open $HOME/Library/CloudStorage/OneDrive-GeorgeMasonUniversity-O365Production
 
 # move window mode
 :: move @ : sketchybar --trigger skhd_mode_change MODE=move
