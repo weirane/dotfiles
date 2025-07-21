@@ -53,6 +53,7 @@ sketchybar --bar height=36 \
 sketchybar --add event window_focus \
            --add event title_change \
            --add event skhd_mode_change \
+           --add event tiling_changed \
 
 ### --- left items ---
 # apple
@@ -125,7 +126,7 @@ sketchybar --add item title left \
                  icon.padding_right=8 \
                  icon.color=$COLOR[blue] \
                  script=$PLUGIN_DIR/title.py \
-           --subscribe title window_focus title_change front_app_switched space_change
+           --subscribe title window_focus title_change front_app_switched space_change tiling_changed
 
 ### --- right items ---
 sketchybar --default label.padding_left=2 \

@@ -26,11 +26,11 @@ lalt - f : yabai -m window --toggle native-fullscreen
 
 # toggle v/h split
 # alt - e : yabai -m window --toggle split
-lalt - w : yabai3 layout-toggle
+lalt - w : yabai3 layout-toggle; sketchybar --trigger tiling_changed
 
 lalt - a : yabai3.py focus first
 lalt - space : yabai3.py focus toggle
-lalt + shift - space : yabai -m window --toggle float
+lalt + shift - space : yabai -m window --toggle float; sketchybar --trigger tiling_changed
 
 lalt + shift - s : [ $(yabai -m query --windows --window | jq '."is-floating" or ."is-sticky"') = true ] && yabai -m window --toggle sticky
 lalt - b : yabai -m space --focus recent
