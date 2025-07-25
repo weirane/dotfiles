@@ -11,6 +11,7 @@ prependpath /opt/homebrew/bin
 [[ $PATH =~ /libexec/gnubin ]] || path=(/opt/homebrew/opt/*/libexec/gnubin $path)
 
 # helper scripts and binaries
+prependpath $HOME/.local/bin
 prependpath $HOME/scripts
 prependpath $HOME/bin
 
