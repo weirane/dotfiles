@@ -3,41 +3,23 @@
 import json
 from subprocess import run, PIPE
 
+
+def json_run(args):
+    '''Run command and return json output'''
+    shell = isinstance(args, str)
+    r = run(args, stdout=PIPE, shell=shell)
+    return json.loads(r.stdout) if r.stdout else {}
+
+
 NARROW_CHARS = 'iIl,.:;!|\'"'
 WIDE_CHARS = '—，。、？！：；｜（）【】「」《》'
+SEP = ' '
+window = json_run(['yabai', '-m', 'query', '--windows', '--window'])
 
-window = run(['yabai', '-m', 'query', '--windows', '--window'], stdout=PIPE)
-if not window.stdout:
-    run(['sketchybar', '--set', 'title', 'label=', 'icon='])
-    exit(0)
-window = json.loads(window.stdout)
-title = window['title'] or window['app']
-icon = ' '
 
-# Display the position of the window in the stack, if there are multiple windows stacked together
-space_windows = run(['yabai', '-m', 'query', '--windows', '--space'], stdout=PIPE)
-if space_windows.stdout:
-    windows = [
-        w
-        for w in json.loads(space_windows.stdout)
-        if not w.get("is-floating", True) and w.get("is-visible", False) and w.get("stack-index", 0) > 0
-    ]
-
-    # Find position of current window in the list
-    if len(windows) > 1:
-        # Sort by stack-index to get correct stacking order
-        windows.sort(key=lambda w: w.get('stack-index', 0))
-        position = None
-        for i, w in enumerate(windows):
-            if w['id'] == window['id']:
-                position = i
-                break
-        if position is not None:
-            # Create dot indicator: filled dot for active position, empty dots for others
-            icon += ''.join('●' if i == position else '○' for i in range(len(windows)))
-
-# Limit the title length to fit within 60 character length
-res = ''
+# Title of the application, shortened to fit within 60 characters
+title = window.get('title') or window.get('app') or ''
+shortened_title = ''
 width = 0
 for c in title:
     if 0x4e00 <= ord(c) <= 0x9fff or 0x3000 <= ord(c) <= 0x303f or c in WIDE_CHARS:
@@ -48,9 +30,34 @@ for c in title:
         width += 1.2
     else:
         width += 1
-    res += c
+    shortened_title += c
     if width >= 60:
-        res += '…'
+        shortened_title += '…'
         break
 
-run(['sketchybar', '--set', 'title', f'label={res}', f'icon={icon}'])
+
+# Window state icon
+if window.get('is-floating', False):
+    # If window is floating, show a floating icon
+    window_state = '󰖲'
+elif (space := json_run(['yabai', '-m', 'query', '--spaces', '--space'])) and space.get('type') == 'stack':
+    # If space is a stack, show the stack as dots
+    windows = [
+        w
+        for w in (json_run(['yabai', '-m', 'query', '--windows', '--space']) or [])
+        if not w.get("is-floating", True) and w.get("is-visible", False) and w.get("stack-index", 0) > 0
+    ]
+    if len(windows) > 1:
+        position = window.get('stack-index')
+        # Create dot indicator: filled dot for active position, empty dots for others
+        window_state = ''.join('●' if i == position else '○' for i in range(1, 1 + len(windows)))
+    else:
+        # If only one window in stack, just show a single dot
+        window_state = '●'
+else:
+    # If space is bsp, show a window icon
+    window_state = '󰕰'
+
+
+# Set the title and icon in SketchyBar
+run(['sketchybar', '--set', 'title', f'label={shortened_title}', f'icon={SEP}{window_state}'])

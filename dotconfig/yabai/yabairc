@@ -39,7 +39,7 @@ rule: --add title='^Dropdown Terminal$' scratchpad=dropdownterm
 apps_manage_on=(
     'Alacritty' 'alacritty' 'Firefox' 'Zotero'
     'Microsoft Word' 'Microsoft Excel' 'Microsoft PowerPoint'
-    'Pages' 'Numbers' 'Keynote'
+    'Pages' 'Numbers' 'Keynote' 'Code'
 )
 rule: --add app!="^(${(j:|:)apps_manage_on})$" manage=off
 
@@ -51,3 +51,5 @@ rule: --add app='^Firefox$' title='(^Extension)|(^Library$)|(^Bibliothèque$)|(^
 rule: --add app='^Zotero' title='General|Advanced Search' manage=off
 rule: --add app='^Microsoft' title='^Open' manage=off
 rule: --add app='^(Pages|Numbers|Keynote)$' title='^$' manage=off
+
+yabai -m space 1 --layout stack
