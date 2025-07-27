@@ -23,6 +23,8 @@
     added = green
     changed = green
     untracked = red
+[mailmap]
+    file = ~/.config/git/mailmap
 [merge]
     tool = vimdiff
 [mergetool "vimdiff"]
