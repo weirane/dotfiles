@@ -26,7 +26,7 @@ lalt - f : yabai -m window --toggle native-fullscreen
 
 # toggle v/h split
 # alt - e : yabai -m window --toggle split
-lalt - w : yabai3 layout-toggle; sketchybar --trigger tiling_changed
+lalt - w : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end'); sketchybar --trigger tiling_changed
 
 lalt - a : yabai3.py focus first
 lalt - space : yabai3.py focus toggle
@@ -34,7 +34,7 @@ lalt + shift - space : yabai -m window --toggle float; sketchybar --trigger tili
 
 lalt + shift - s : [ $(yabai -m query --windows --window | jq '."is-floating" or ."is-sticky"') = true ] && yabai -m window --toggle sticky
 lalt - b : yabai -m space --focus recent
-lalt - tab : yabai3 toggle-dropdownterm
+lalt - tab : yabai3.py toggle-dropdownterm
 
 # change focused workspace
 lalt - 1 : yabai -m space --focus 1
@@ -128,14 +128,14 @@ resize < escape ; default
 resize < return ; default
 resize < q ; default
 resize < c : skhd -k escape; yabai3.py move center
-resize < h : yabai3 resize shrink width 8
-resize < j : yabai3 resize grow height 8
-resize < k : yabai3 resize shrink height 8
-resize < l : yabai3 resize grow width 8
-resize < shift - h : yabai3 resize shrink width 50
-resize < shift - j : yabai3 resize grow height 50
-resize < shift - k : yabai3 resize shrink height 50
-resize < shift - l : yabai3 resize grow width 50
+resize < h : yabai3.py resize shrink width 8
+resize < j : yabai3.py resize grow height 8
+resize < k : yabai3.py resize shrink height 8
+resize < l : yabai3.py resize grow width 8
+resize < shift - h : yabai3.py resize shrink width 50
+resize < shift - j : yabai3.py resize grow height 50
+resize < shift - k : yabai3.py resize shrink height 50
+resize < shift - l : yabai3.py resize grow width 50
 
 :: default : sketchybar --trigger skhd_mode_change MODE=default
 move < r ; resize
