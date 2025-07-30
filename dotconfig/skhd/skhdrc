@@ -47,6 +47,9 @@ lalt - 7 : yabai -m space --focus 7
 lalt - 8 : yabai -m space --focus 8
 lalt - 9 : yabai -m space --focus 9
 
+lalt - left : yabai3.py focus space.prev
+lalt - right : yabai3.py focus space.next
+
 # move focused window to workspace
 lalt + ctrl - 1 : yabai -m window --space 1
 lalt + ctrl - 2 : yabai -m window --space 2
