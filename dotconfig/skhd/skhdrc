@@ -76,8 +76,8 @@ lalt - k : yabai3.py focus north
 lalt - l : yabai3.py focus east
 
 # move between windows in stack using backtick (convenient for one hand use)
-lalt - 0x32 : yabai -m window --focus stack.next || yabai -m window --focus stack.first
-lalt + shift - 0x32 : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+lalt - 0x32 : yabai3.py focus stack.next
+lalt + shift - 0x32 : yabai3.py focus stack.prev
 
 # move focused windows
 lalt + shift - h : yabai3.py move west

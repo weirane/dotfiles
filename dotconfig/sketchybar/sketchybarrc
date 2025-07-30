@@ -126,7 +126,7 @@ sketchybar --add item title left \
                  icon.padding_right=8 \
                  icon.color=$COLOR[blue] \
                  script=$PLUGIN_DIR/title.py \
-           --subscribe title window_focus title_change front_app_switched space_change tiling_changed
+           --subscribe title mouse.scrolled window_focus title_change front_app_switched space_change tiling_changed
 
 ### --- right items ---
 sketchybar --default label.padding_left=2 \

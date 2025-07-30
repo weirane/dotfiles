@@ -1,7 +1,20 @@
 #!/usr/bin/env python3
 
 import json
+import sys
+import os
 from subprocess import run, PIPE
+
+
+# If SCROLL_DELTA is set, handle scroll events to focus previous/next window in stack
+if scroll_delta := os.environ.get('SCROLL_DELTA'):
+    try:
+        delta = int(scroll_delta)
+        if abs(delta) > 2:
+            run(['yabai3.py', 'focus', 'stack.prev' if delta > 0 else 'stack.next'])
+    except ValueError:
+        # If SCROLL_DELTA is not a valid integer, ignore it
+        sys.exit(0)
 
 
 def json_run(args):
