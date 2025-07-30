@@ -38,8 +38,6 @@ set shortmess+=I
 syntax on
 filetype plugin on
 filetype indent on
-let base16colorspace = 256
-colorscheme base16-helios
 
 packadd! matchit
 autocmd BufRead,BufNewFile * let b:nroff_is_groff = 1
@@ -51,11 +49,6 @@ let g:man_hardwrap = 1
 set encoding=utf-8
 set formatoptions+=mB
 set fileencodings=utf-8
-
-" fold
-set fdm=marker
-nnoremap <space> za
-set foldlevel=99
 
 " leader
 let mapleader=','
@@ -79,47 +72,12 @@ noremap L $
 
 noremap Q gq
 
-" From defaults.vim
-let c_comment_strings=1
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-                \ | wincmd p | diffthis
-endif
-augroup vimStartup
-    " When editing a file, always jump to the last known cursor position.
-    au!
-    autocmd BufReadPost *
-                \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-                \ | exe "normal! g`\"" | endif
-augroup END
-
 " Terminal mode
 augroup NeovimTerminal
     au!
     autocmd TermOpen * startinsert
     autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
-
-" Line width limit
-function! s:set_color_column(...)
-    let l:width = get(a:, 1, 80)
-    if (l:width == "-s")
-        let l:width = get(a:, 2, 80)
-        if (l:width <= 0)
-            return
-        endif
-        setlocal formatoptions-=a
-    else
-        if (l:width <= 0)
-            return
-        endif
-        setlocal formatoptions+=a
-    endif
-    let &l:colorcolumn = l:width + 1
-    let &l:textwidth = l:width
-endfunction
-
-command! -nargs=* LineLimit :call <SID>set_color_column(<f-args>)
 
 " move by line
 function! s:move_by_line() abort
@@ -154,3 +112,49 @@ augroup MoveByLine
     au!
     autocmd Filetype text,markdown,tex exec 'MoveByLine'
 augroup END
+
+" --- vim only ---
+if !exists('g:vscode')
+let base16colorspace = 256
+colorscheme base16-helios
+
+" fold
+set fdm=marker
+nnoremap <space> za
+set foldlevel=99
+
+" From defaults.vim
+let c_comment_strings=1
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
+augroup vimStartup
+    " When editing a file, always jump to the last known cursor position.
+    au!
+    autocmd BufReadPost *
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+                \ | exe "normal! g`\"" | endif
+augroup END
+
+" Line width limit
+function! s:set_color_column(...)
+    let l:width = get(a:, 1, 80)
+    if (l:width == "-s")
+        let l:width = get(a:, 2, 80)
+        if (l:width <= 0)
+            return
+        endif
+        setlocal formatoptions-=a
+    else
+        if (l:width <= 0)
+            return
+        endif
+        setlocal formatoptions+=a
+    endif
+    let &l:colorcolumn = l:width + 1
+    let &l:textwidth = l:width
+endfunction
+
+command! -nargs=* LineLimit :call <SID>set_color_column(<f-args>)
+endif
