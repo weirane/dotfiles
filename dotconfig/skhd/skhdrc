@@ -5,13 +5,13 @@ lalt + shift - c : yabai --restart-service
 lalt - q [
     # alacritty handles close event by itself because it doesn't have a close button
     "alacritty" ~
-    "bitwarden" : yabai -m window --close && yabai3.py focus first
-    "calendar" : yabai -m window --close && yabai3.py focus first
-    "finder" : yabai -m window --close && yabai3.py focus first
-    "mail" : yabai -m window --close && yabai3.py focus first
-    "messages" : yabai -m window --close && yabai3.py focus first
-    "notes" : yabai -m window --close && yabai3.py focus first
-    "preview" : yabai -m window --close && yabai3.py focus first
+    "bitwarden" : yabai -m window --close && yabai3 focus first
+    "calendar" : yabai -m window --close && yabai3 focus first
+    "finder" : yabai -m window --close && yabai3 focus first
+    "mail" : yabai -m window --close && yabai3 focus first
+    "messages" : yabai -m window --close && yabai3 focus first
+    "notes" : yabai -m window --close && yabai3 focus first
+    "preview" : yabai -m window --close && yabai3 focus first
     * : yabai -m window --close
 ]
 
@@ -28,13 +28,13 @@ lalt - f : yabai -m window --toggle native-fullscreen
 # alt - e : yabai -m window --toggle split
 lalt - w : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end'); sketchybar --trigger tiling_changed
 
-lalt - a : yabai3.py focus first
-lalt - space : yabai3.py focus toggle
+lalt - a : yabai3 focus first
+lalt - space : yabai3 focus toggle
 lalt + shift - space : yabai -m window --toggle float; sketchybar --trigger tiling_changed
 
 lalt + shift - s : [ $(yabai -m query --windows --window | jq '."is-floating" or ."is-sticky"') = true ] && yabai -m window --toggle sticky
 lalt - b : yabai -m space --focus recent
-lalt - tab : yabai3.py toggle-dropdownterm
+lalt - tab : yabai3 toggle-dropdownterm
 
 # change focused workspace
 lalt - 1 : yabai -m space --focus 1
@@ -47,8 +47,8 @@ lalt - 7 : yabai -m space --focus 7
 lalt - 8 : yabai -m space --focus 8
 lalt - 9 : yabai -m space --focus 9
 
-lalt - left : yabai3.py focus space.prev
-lalt - right : yabai3.py focus space.next
+lalt - left : yabai3 focus space.prev
+lalt - right : yabai3 focus space.next
 
 # move focused window to workspace
 lalt + ctrl - 1 : yabai -m window --space 1
@@ -62,31 +62,31 @@ lalt + ctrl - 8 : yabai -m window --space 8
 lalt + ctrl - 9 : yabai -m window --space 9
 
 # move focused window to workspace and move to space
-lalt + shift - 1 : yabai3.py move-to-switch 1
-lalt + shift - 2 : yabai3.py move-to-switch 2
-lalt + shift - 3 : yabai3.py move-to-switch 3
-lalt + shift - 4 : yabai3.py move-to-switch 4
-lalt + shift - 5 : yabai3.py move-to-switch 5
-lalt + shift - 6 : yabai3.py move-to-switch 6
-lalt + shift - 7 : yabai3.py move-to-switch 7
-lalt + shift - 8 : yabai3.py move-to-switch 8
-lalt + shift - 9 : yabai3.py move-to-switch 9
+lalt + shift - 1 : yabai3 move-to-switch 1
+lalt + shift - 2 : yabai3 move-to-switch 2
+lalt + shift - 3 : yabai3 move-to-switch 3
+lalt + shift - 4 : yabai3 move-to-switch 4
+lalt + shift - 5 : yabai3 move-to-switch 5
+lalt + shift - 6 : yabai3 move-to-switch 6
+lalt + shift - 7 : yabai3 move-to-switch 7
+lalt + shift - 8 : yabai3 move-to-switch 8
+lalt + shift - 9 : yabai3 move-to-switch 9
 
 # change focused window
-lalt - h : yabai3.py focus west
-lalt - j : yabai3.py focus south
-lalt - k : yabai3.py focus north
-lalt - l : yabai3.py focus east
+lalt - h : yabai3 focus west
+lalt - j : yabai3 focus south
+lalt - k : yabai3 focus north
+lalt - l : yabai3 focus east
 
 # move between windows in stack using backtick (convenient for one hand use)
-lalt - 0x32 : yabai3.py focus stack.next
-lalt + shift - 0x32 : yabai3.py focus stack.prev
+lalt - 0x32 : yabai3 focus stack.next
+lalt + shift - 0x32 : yabai3 focus stack.prev
 
 # move focused windows
-lalt + shift - h : yabai3.py move west
-lalt + shift - j : yabai3.py move south
-lalt + shift - k : yabai3.py move north
-lalt + shift - l : yabai3.py move east
+lalt + shift - h : yabai3 move west
+lalt + shift - j : yabai3 move south
+lalt + shift - k : yabai3 move north
+lalt + shift - l : yabai3 move east
 
 # move workspace
 lalt + ctrl - h : yabai -m space --display west
@@ -110,19 +110,19 @@ lalt - m ; move
 move < escape ; default
 move < return ; default
 move < q ; default
-move < c : skhd -k escape; yabai3.py move center
-move < h : yabai3.py move west 10
-move < j : yabai3.py move south 10
-move < k : yabai3.py move north 10
-move < l : yabai3.py move east 10
-move < shift - h : yabai3.py move west 50
-move < shift - j : yabai3.py move south 50
-move < shift - k : yabai3.py move north 50
-move < shift - l : yabai3.py move east 50
-move < ctrl - h : yabai3.py move west edge
-move < ctrl - j : yabai3.py move south edge
-move < ctrl - k : yabai3.py move north edge
-move < ctrl - l : yabai3.py move east edge
+move < c : skhd -k escape; yabai3 move center
+move < h : yabai3 move west 10
+move < j : yabai3 move south 10
+move < k : yabai3 move north 10
+move < l : yabai3 move east 10
+move < shift - h : yabai3 move west 50
+move < shift - j : yabai3 move south 50
+move < shift - k : yabai3 move north 50
+move < shift - l : yabai3 move east 50
+move < ctrl - h : yabai3 move west edge
+move < ctrl - j : yabai3 move south edge
+move < ctrl - k : yabai3 move north edge
+move < ctrl - l : yabai3 move east edge
 
 # resize window mode
 :: resize @ : sketchybar --trigger skhd_mode_change MODE=resize
@@ -130,15 +130,15 @@ lalt - r ; resize
 resize < escape ; default
 resize < return ; default
 resize < q ; default
-resize < c : skhd -k escape; yabai3.py move center
-resize < h : yabai3.py resize shrink width 8
-resize < j : yabai3.py resize grow height 8
-resize < k : yabai3.py resize shrink height 8
-resize < l : yabai3.py resize grow width 8
-resize < shift - h : yabai3.py resize shrink width 50
-resize < shift - j : yabai3.py resize grow height 50
-resize < shift - k : yabai3.py resize shrink height 50
-resize < shift - l : yabai3.py resize grow width 50
+resize < c : skhd -k escape; yabai3 move center
+resize < h : yabai3 resize shrink width 8
+resize < j : yabai3 resize grow height 8
+resize < k : yabai3 resize shrink height 8
+resize < l : yabai3 resize grow width 8
+resize < shift - h : yabai3 resize shrink width 50
+resize < shift - j : yabai3 resize grow height 50
+resize < shift - k : yabai3 resize shrink height 50
+resize < shift - l : yabai3 resize grow width 50
 
 :: default : sketchybar --trigger skhd_mode_change MODE=default
 move < r ; resize

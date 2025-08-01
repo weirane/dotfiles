@@ -11,7 +11,7 @@ if scroll_delta := os.environ.get('SCROLL_DELTA'):
     try:
         delta = int(scroll_delta)
         if abs(delta) > 2:
-            run(['yabai3.py', 'focus', 'stack.prev' if delta > 0 else 'stack.next'])
+            run(['yabai3', 'focus', 'stack.prev' if delta > 0 else 'stack.next'])
     except ValueError:
         # If SCROLL_DELTA is not a valid integer, ignore it
         sys.exit(0)

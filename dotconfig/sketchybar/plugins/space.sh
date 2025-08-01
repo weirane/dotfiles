@@ -6,10 +6,10 @@ if [[ -n "$SCROLL_DELTA" ]]; then
     display_id=$(yabai -m query --spaces --space $SID | jq '.display')
     if [[ $SCROLL_DELTA -gt 2 ]]; then
         # Scroll up - go to previous space
-        yabai3.py focus space.prev $display_id
+        yabai3 focus space.prev $display_id
     elif [[ $SCROLL_DELTA -lt -2 ]]; then
         # Scroll down - go to next space
-        yabai3.py focus space.next $display_id
+        yabai3 focus space.next $display_id
     fi
     exit 0
 fi
