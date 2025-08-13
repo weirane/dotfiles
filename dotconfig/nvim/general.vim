@@ -65,7 +65,6 @@ let g:man_hardwrap = 1
 
 " encodings, multibyte
 set encoding=utf-8
-set termencoding=utf-8
 set formatoptions+=mB
 set fileencodings=utf-8,gbk
 
