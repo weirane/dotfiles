@@ -47,7 +47,7 @@ rule: --add title='Preferences$' manage=off
 rule: --add title='Settings$' manage=off
 rule: --add title='Calculator$' manage=off
 rule: --add title='^Open$' manage=off
-rule: --add app='^Firefox$' title='(^Extension)|(^Library$)|(^Bibliothèque$)|(^Incrustation vidéo$)' manage=off
+rule: --add app='^Firefox$' title='(^Extension)|(^Page Info)|(^Library$)|(^Bibliothèque$)|(^Incrustation vidéo$)' manage=off
 rule: --add app='^Zotero' title='General|Advanced Search' manage=off
 rule: --add app='^Microsoft' title='^Open' manage=off
 rule: --add app='^(Pages|Numbers|Keynote)$' title='^$' manage=off
