@@ -22,7 +22,7 @@ speed_with_unit() {
 }
 
 get_wifi_speed() {
-    (! wifi_is_on) && echo 'N/A' && return 0
+    (! wifi_is_on) && echo '' && return 0
 
     local speeds=($(ifstat -i $NI 0.1 1 | awk 'NR==3 {print $1,$2}'))
     local up=$(speed_with_unit ${speeds[2]})

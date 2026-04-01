@@ -110,7 +110,7 @@ command! -nargs=0 MoveByLine :call <SID>move_by_line()
 
 augroup MoveByLine
     au!
-    autocmd Filetype text,markdown,tex exec 'MoveByLine'
+    autocmd Filetype text,markdown,tex,typst exec 'MoveByLine'
 augroup END
 
 " --- vim only ---

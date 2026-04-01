@@ -281,6 +281,7 @@ map <Plug> <Plug>Markdown_MoveToCurHeader
 " markdown-preview {{{
 let g:mkdp_auto_close = 0
 let g:mkdp_page_title = '${name}'
+let g:mkdp_theme = 'light'
 "}}}
 
 " rust.vim {{{

@@ -147,15 +147,24 @@ sketchybar --add item battery right \
                  label.drawing=off \
 
 # input method
-sketchybar --add alias TextInputMenuAgent right \
-           --set TextInputMenuAgent \
-                 alias.color=$COLOR[fg] \
-                 alias.scale=0.8 \
-                 icon.drawing=off \
+# sketchybar --add alias "Control Center,com.apple.TextInputMenuAgent" right \
+#            --set "Control Center,com.apple.TextInputMenuAgent" \
+#                  alias.color=$COLOR[fg] \
+#                  alias.scale=0.8 \
+#                  icon.drawing=off \
+#                  label.drawing=off \
+#                  background.padding_left=-2 \
+#                  background.padding_right=-2 \
+#                  click_script=$PLUGIN_DIR/inputmethod.sh \
+
+sketchybar --add item inputmethod right \
+           --set inputmethod \
+                 icon.font="$FONT_SANS_SERIF:15.0" \
+                 icon.drawing=on \
                  label.drawing=off \
-                 background.padding_left=-2 \
-                 background.padding_right=-2 \
-                 click_script=$PLUGIN_DIR/inputmethod.sh \
+                 update_freq=3 \
+                 script=$PLUGIN_DIR/inputmethod.sh \
+           --subscribe inputmethod front_app_switched mouse.clicked \
 
 # volume
 sketchybar --add item volume right \
