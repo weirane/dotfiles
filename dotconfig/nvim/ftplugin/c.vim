@@ -1,6 +1,5 @@
 setlocal foldmethod=syntax
 setlocal cindent
-packadd termdebug
 
 highlight link cFunctions Function
 
