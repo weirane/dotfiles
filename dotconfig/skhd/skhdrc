@@ -21,6 +21,13 @@ lalt - 0x18 : yabai -m space --balance
 # disable minimize shortcut
 lcmd - m : true
 
+# disable hide in alacritty and zen
+lcmd - h [
+    "alacritty" : true
+    "zen" : true
+    * ~
+]
+
 # toggle window native fullscreen
 lalt - f : yabai -m window --toggle native-fullscreen
 

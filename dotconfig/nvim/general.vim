@@ -35,9 +35,9 @@ set list
 set listchars=tab:\|\ ,trail:▫,nbsp:␣
 set shortmess+=I
 
-syntax on
 filetype plugin on
 filetype indent on
+syntax on
 
 packadd! matchit
 autocmd BufRead,BufNewFile * let b:nroff_is_groff = 1
