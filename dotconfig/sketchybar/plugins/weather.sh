@@ -10,6 +10,7 @@ if [[ $is_day == 1 ]]; then
         1006) icon= ;; # Cloudy/119
         1009) icon= ;; # Overcast/122
         1030) icon= ;; # Mist/143
+        1036) icon= ;; # Smoky haze/149
         1063) icon= ;; # Patchy rain possible/176
         1066) icon= ;; # Patchy snow possible/179
         1069) icon= ;; # Patchy sleet possible/182
@@ -61,6 +62,7 @@ else
         1006) icon= ;; # Cloudy/119
         1009) icon= ;; # Overcast/122
         1030) icon= ;; # Mist/143
+        1036) icon= ;; # Smoky haze/149
         1063) icon= ;; # Patchy rain possible/176
         1066) icon= ;; # Patchy snow possible/179
         1069) icon= ;; # Patchy sleet possible/182
